@@ -91,8 +91,8 @@ public class PlayerController : MonoBehaviour
                 // lineRenderer.SetPosition(0, transform.Find("Target Look").position);
                 // lineRenderer.SetPosition(1, hit1.point);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Item")
-                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
+                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null)
                 {  
                     if (interactable != null)
                     {

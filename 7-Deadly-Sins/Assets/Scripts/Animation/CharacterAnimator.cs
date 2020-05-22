@@ -27,6 +27,7 @@ public class CharacterAnimator : MonoBehaviour
         animator.runtimeAnimatorController = overrideContoller;
 
         currentAttackAnimSet = defaultAttackAnimSet;
+        combat.OnAttack += OnAttack;
     }
 
     // Update is called once per frame
