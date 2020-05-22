@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Transform cameraT;
     CharacterController controller;
+    LineRenderer lineRenderer;
 
     Interactable focus;
 
@@ -33,11 +34,22 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Ray ray1 = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        RaycastHit hit1;
+        int playerLayerMask1 = LayerMask.GetMask("Player");
+        if (Physics.Raycast(ray1, out hit1, 100, ~playerLayerMask1))
+        {
+            lineRenderer.SetPosition(0, transform.Find("Target Look").position);
+            lineRenderer.SetPosition(1, hit1.point);
+        }
+        
         if (focus != null)
         {
             FaceTarget();
@@ -57,7 +69,8 @@ public class PlayerController : MonoBehaviour
         float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * 0.5f);
         animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0))
+        // if left mouse or e is pressed shoot a ray. If right mouse clicked and is item or if E is pressed and is enemy, interact.
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
@@ -65,24 +78,35 @@ public class PlayerController : MonoBehaviour
             }
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            
             RaycastHit hit;
             int playerLayerMask = LayerMask.GetMask("Player");
             if (Physics.Raycast(ray, out hit,  100, ~playerLayerMask))
             {
                 Debug.Log("ray hit " + hit.transform.name);
+                // Interaction line for only in scene
+                //Debug.DrawLine(transform.Find("Target Look").position, hit.point, Color.cyan, 2, false);
+
+                // Interaction line for when interacting
+                // lineRenderer.SetPosition(0, transform.Find("Target Look").position);
+                // lineRenderer.SetPosition(1, hit1.point);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null)
-                {
-                    //interact if within interaction radius and face the interactable
-                    float distance = Vector3.Distance(transform.position, interactable.transform.position);
-                    if (interactable.radius >= distance)
+                if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
+                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null)
+                {  
+                    if (interactable != null)
                     {
-                        SetFocus(interactable);
+                        //interact if within interaction radius and face the interactable
+                        float distance = Vector3.Distance(transform.position, interactable.transform.position);
+                        if (interactable.radius >= distance)
+                        {
+                            SetFocus(interactable);
+                        }
                     }
-                    
-                }
+                }  
             }
         }
+        
     }
 
     void Move(Vector2 inputDir, bool running)
