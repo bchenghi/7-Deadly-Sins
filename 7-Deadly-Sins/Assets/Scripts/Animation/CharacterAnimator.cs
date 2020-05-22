@@ -11,7 +11,7 @@ public class CharacterAnimator : MonoBehaviour
 
     const float locomationAnimationSmoothTime = 0.1f;
 
-    NavMeshAgent agent;
+    
     protected Animator animator;
     protected CharacterCombat combat;
     protected AnimatorOverrideController overrideContoller;
@@ -19,7 +19,7 @@ public class CharacterAnimator : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        
         animator = GetComponent<Animator>();
         combat = GetComponent<CharacterCombat>();
 
@@ -27,16 +27,14 @@ public class CharacterAnimator : MonoBehaviour
         animator.runtimeAnimatorController = overrideContoller;
 
         currentAttackAnimSet = defaultAttackAnimSet;
+
         combat.OnAttack += OnAttack;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        float speedPercent = agent.velocity.magnitude / agent.speed;
-        animator.SetFloat("speedPercent", speedPercent, locomationAnimationSmoothTime, Time.deltaTime);
-
-        animator.SetBool("inCombat", combat.InCombat);
+        animator.SetBool("InCombat", combat.InCombat);
     }
 
     protected virtual void OnAttack()
