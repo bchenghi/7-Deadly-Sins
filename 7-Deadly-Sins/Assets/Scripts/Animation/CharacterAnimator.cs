@@ -9,7 +9,7 @@ public class CharacterAnimator : MonoBehaviour
     public AnimationClip[] defaultAttackAnimSet;
     protected AnimationClip[] currentAttackAnimSet;
 
-    const float locomationAnimationSmoothTime = 0.1f;
+    protected const float locomationAnimationSmoothTime = 0.1f;
 
     
     protected Animator animator;
