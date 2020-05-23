@@ -10,7 +10,7 @@ public class CharacterCombat : MonoBehaviour
     public float attackSpeed = 1f;
     private float attackCooldown = 0f;
     public float attackDelay = 0.6f;
-    public float combatCooldown = 5;
+    const float combatCooldown = 5;
     float lastAttackTime;
 
     CharacterStats myStats;
