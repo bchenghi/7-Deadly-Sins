@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterCombat))]
 public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -9,6 +10,14 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armor;
+
+    CharacterCombat combat;
+
+    private void Start()
+    {
+        combat = GetComponent<CharacterCombat>();
+    }
+
 
     private void Awake()
     {
@@ -41,6 +50,7 @@ public class CharacterStats : MonoBehaviour
     {
         //Die in some way
         //method meant to be overriden
+        combat.dead = true;
         Debug.Log(transform.name + " died.");
     }
 }

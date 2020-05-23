@@ -24,10 +24,8 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if (distance <= lookRadius)
+        if (!combat.dead)
         {
-            agent.SetDestination(target.position);
-
             if (distance <= agent.stoppingDistance)
             {
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
@@ -36,6 +34,12 @@ public class EnemyController : MonoBehaviour
                     combat.Attack(targetStats);
                     FaceTarget();
                 }
+            }
+            else if (distance <= lookRadius)
+            {
+                agent.SetDestination(target.position);
+
+
             }
         }
     }

@@ -10,6 +10,6 @@ public class EnemyStats : CharacterStats
 
         // Add ragdoll/loot
 
-        Destroy(gameObject);
+        Destroy(gameObject, 5);
     }
 }
