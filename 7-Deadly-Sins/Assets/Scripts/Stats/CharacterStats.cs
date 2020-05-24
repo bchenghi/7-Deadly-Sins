@@ -10,13 +10,15 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armor;
+    public Animator animator;
 
-CharacterCombat combat;
+    CharacterCombat combat;
 
-private void Start()
-{
-    combat = GetComponent<CharacterCombat>();
-}
+    protected virtual void Start()
+    {
+        combat = GetComponent<CharacterCombat>();
+        
+    }
     public event System.Action<int, int> OnHealthChanged;
     private void Awake()
     {
@@ -37,6 +39,7 @@ private void Start()
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
+        animator.SetTrigger("Hurt");
         Debug.Log (transform.name + " takes " + "damage.");
 
         if (OnHealthChanged != null)
@@ -46,7 +49,9 @@ private void Start()
 
         if (currentHealth <= 0)
         {
+            
             Die();
+            
         }
     }
 
