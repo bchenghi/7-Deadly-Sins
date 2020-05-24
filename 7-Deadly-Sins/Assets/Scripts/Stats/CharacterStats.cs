@@ -11,13 +11,12 @@ public class CharacterStats : MonoBehaviour
     public Stat damage;
     public Stat armor;
 
-    CharacterCombat combat;
+CharacterCombat combat;
 
-    protected virtual void Start()
-    {
-        combat = GetComponent<CharacterCombat>();
-    }
-
+private void Start()
+{
+    combat = GetComponent<CharacterCombat>();
+}
     public event System.Action<int, int> OnHealthChanged;
     private void Awake()
     {
@@ -39,6 +38,11 @@ public class CharacterStats : MonoBehaviour
 
         currentHealth -= damage;
         Debug.Log (transform.name + " takes " + "damage.");
+
+        if (OnHealthChanged != null)
+        {
+            OnHealthChanged(maxHealth, currentHealth);
+        }
 
         if (currentHealth <= 0)
         {
