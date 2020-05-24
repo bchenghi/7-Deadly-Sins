@@ -25,6 +25,7 @@ public class CharacterAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
         combat = GetComponent<CharacterCombat>();
 
+
         overrideContoller = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideContoller;
 
