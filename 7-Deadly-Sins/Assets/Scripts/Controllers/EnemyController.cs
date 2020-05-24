@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     CharacterCombat combat;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
+       
     }
 
     // Update is called once per frame

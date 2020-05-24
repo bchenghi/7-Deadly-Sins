@@ -19,7 +19,7 @@ public class Enemy : Interactable
         base.Interact();
         CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
 
-        if (playerCombat != null)
+        if (playerCombat != null && myStats.currentHealth > 0)
         {
             playerCombat.Attack(myStats);
         }

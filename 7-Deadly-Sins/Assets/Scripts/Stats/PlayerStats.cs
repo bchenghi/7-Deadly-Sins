@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerStats : CharacterStats
 {
@@ -10,6 +11,7 @@ public class PlayerStats : CharacterStats
         base.Start();
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
     }
+        
 
     void onEquipmentChanged (Equipment newItem, Equipment oldItem)
     {
