@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerStats : CharacterStats
 {
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
     }
+        
 
     void onEquipmentChanged (Equipment newItem, Equipment oldItem)
     {

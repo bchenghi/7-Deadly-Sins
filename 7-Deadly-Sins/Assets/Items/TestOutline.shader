@@ -51,7 +51,7 @@ ENDCG
 			ColorMask RGB // alpha not used
  
 			// you can choose what kind of blending mode you want for the outline
-			Blend SrcAlpha OneMinusSrcAlpha // Normal
+			// Normal
 			//Blend One One // Additive
 			//Blend One OneMinusDstColor // Soft Additive
 			//Blend DstColor Zero // Multiplicative
@@ -71,7 +71,7 @@ ENDCG
 			Name "BASE"
 			ZWrite On
 			//ZTest LEqual
-			Blend SrcAlpha OneMinusSrcAlpha
+			
 			Material {
 				Diffuse [_Color]
 				Ambient [_Color]
@@ -99,7 +99,7 @@ ENDCG
 			ColorMask RGB
  
 			// you can choose what kind of blending mode you want for the outline
-			Blend SrcAlpha OneMinusSrcAlpha // Normal
+			 // Normal
 			//Blend One One // Additive
 			//Blend One OneMinusDstColor // Soft Additive
 			//Blend DstColor Zero // Multiplicative
@@ -116,7 +116,7 @@ ENDCG
 			Name "BASE"
 			ZWrite On
 			//ZTest LEqual
-			Blend SrcAlpha OneMinusSrcAlpha
+			
 			Material {
 				Diffuse [_Color]
 				Ambient [_Color]

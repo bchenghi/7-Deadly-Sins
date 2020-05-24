@@ -15,7 +15,7 @@ public class CharacterAnimator : MonoBehaviour
     protected Animator animator;
     protected CharacterCombat combat;
     protected AnimatorOverrideController overrideContoller;
-    bool isDead = false;
+    
 
 
     // Start is called before the first frame update
@@ -38,9 +38,9 @@ public class CharacterAnimator : MonoBehaviour
     protected virtual void Update()
     {
         animator.SetBool("InCombat", combat.InCombat);
-        if (combat.dead && !isDead)
+        if (combat.dead)
         {
-            isDead = true;
+            
             Death();
         }
     }
