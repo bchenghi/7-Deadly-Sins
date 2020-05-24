@@ -47,6 +47,7 @@ public void Equip(Equipment newItem)
         SetEquipmentBlendShapes(newItem, 100);
         currentEquipment[slotIndex] = newItem;
         SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newItem.mesh);
+        Debug.Log("New mesh is " + newMesh);
         currentMeshes[slotIndex] = newMesh;
 
         if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)

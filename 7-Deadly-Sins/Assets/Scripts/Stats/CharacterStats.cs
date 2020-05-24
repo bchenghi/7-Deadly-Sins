@@ -11,12 +11,12 @@ public class CharacterStats : MonoBehaviour
     public Stat damage;
     public Stat armor;
 
-CharacterCombat combat;
+    CharacterCombat combat;
 
-private void Start()
-{
-    combat = GetComponent<CharacterCombat>();
-}
+    protected virtual void Start()
+    {
+        combat = GetComponent<CharacterCombat>();
+    }
     public event System.Action<int, int> OnHealthChanged;
     private void Awake()
     {
