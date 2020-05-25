@@ -11,7 +11,7 @@ public class CharacterAnimator : MonoBehaviour
 
     protected const float locomationAnimationSmoothTime = 0.1f;
 
-    
+
     protected Animator animator;
     protected CharacterCombat combat;
     protected AnimatorOverrideController overrideContoller;
@@ -21,12 +21,13 @@ public class CharacterAnimator : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        
+
         animator = GetComponent<Animator>();
         combat = GetComponent<CharacterCombat>();
 
+        if (overrideContoller == null)
+            overrideContoller = new AnimatorOverrideController(animator.runtimeAnimatorController);
 
-        overrideContoller = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideContoller;
 
         currentAttackAnimSet = defaultAttackAnimSet;
@@ -40,7 +41,7 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetBool("InCombat", combat.InCombat);
         if (combat.dead)
         {
-            
+
             Death();
         }
     }

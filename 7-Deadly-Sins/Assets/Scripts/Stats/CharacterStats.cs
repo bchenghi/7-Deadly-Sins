@@ -17,7 +17,7 @@ public class CharacterStats : MonoBehaviour
     protected virtual void Start()
     {
         combat = GetComponent<CharacterCombat>();
-        
+
     }
     public event System.Action<int, int> OnHealthChanged;
     private void Awake()
@@ -49,9 +49,9 @@ public class CharacterStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            
+
             Die();
-            
+
         }
     }
 
@@ -62,4 +62,5 @@ public class CharacterStats : MonoBehaviour
         combat.dead = true;
         Debug.Log(transform.name + " died.");
     }
+
 }

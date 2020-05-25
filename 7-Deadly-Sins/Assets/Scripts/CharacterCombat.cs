@@ -14,9 +14,11 @@ public class CharacterCombat : MonoBehaviour
     float lastAttackTime;
 
     CharacterStats myStats;
+    CharacterStats opponentStats;
 
     public bool InCombat { get; private set; }
     public bool dead { get; set; }
+    public bool attacking { get; private set; }
     public event System.Action OnAttack;
 
     private void Start()
@@ -40,8 +42,7 @@ public class CharacterCombat : MonoBehaviour
         {
             if (attackCooldown <= 0f)
             {
-                StartCoroutine(DoDamage(targetStats, attackDelay));
-
+                opponentStats = targetStats;
                 if (OnAttack != null)
                 {
                     OnAttack();
@@ -54,12 +55,11 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
-    IEnumerator DoDamage (CharacterStats stats, float delay)
-    {
-        yield return new WaitForSeconds(delay);
 
-        stats.TakeDamage(myStats.damage.GetValue());
-        if (stats.currentHealth <= 0)
+    public void AttackHit_AnimationEvent()
+    {
+        opponentStats.TakeDamage(myStats.damage.GetValue());
+        if (opponentStats.currentHealth <= 0)
         {
             InCombat = false;
         }
