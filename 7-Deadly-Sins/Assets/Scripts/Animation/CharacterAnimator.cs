@@ -14,6 +14,7 @@ public class CharacterAnimator : MonoBehaviour
 
     protected Animator animator;
     protected CharacterCombat combat;
+    protected CharacterStats stats;
     protected AnimatorOverrideController overrideContoller;
     
 
@@ -24,6 +25,8 @@ public class CharacterAnimator : MonoBehaviour
 
         animator = GetComponent<Animator>();
         combat = GetComponent<CharacterCombat>();
+        stats = GetComponent<CharacterStats>();
+        
 
         if (overrideContoller == null)
             overrideContoller = new AnimatorOverrideController(animator.runtimeAnimatorController);
@@ -33,6 +36,8 @@ public class CharacterAnimator : MonoBehaviour
         currentAttackAnimSet = defaultAttackAnimSet;
 
         combat.OnAttack += OnAttack;
+        stats.takenDamage += takenDamage;
+
     }
 
     // Update is called once per frame
@@ -56,6 +61,11 @@ public class CharacterAnimator : MonoBehaviour
     public virtual void Death()
     {
         animator.SetTrigger("death");
+    }
+
+    protected virtual void takenDamage()
+    {
+        animator.SetTrigger("Hurt");
     }
 
 }

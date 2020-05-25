@@ -51,7 +51,7 @@ public class OutlineLookAt : MonoBehaviour
         if (currentController != null)
         {
             currentController.ShowOutline();
-            Debug.Log("outline shown");
+            
         }
     }
 
@@ -61,7 +61,7 @@ public class OutlineLookAt : MonoBehaviour
         {
             prevController.HideOutline();
             prevController = null;
-            Debug.Log("outline hidden");
+            
         }
     }
 }
