@@ -12,6 +12,7 @@ public class EquipmentManager : MonoBehaviour
         instance = this;
     }
     #endregion
+
     public Transform Shield;
     public Transform Sword;
 
@@ -32,7 +33,7 @@ public class EquipmentManager : MonoBehaviour
     }
 
 
-public void Equip(Equipment newItem)
+    public void Equip(Equipment newItem)
     {
         int slotIndex = (int)newItem.equipmentSlot;
 
@@ -91,7 +92,9 @@ public void Equip(Equipment newItem)
 
     public Equipment Unequip(int slotIndex)
     {
+        Debug.Log("slot index is " + slotIndex);
         Equipment equipment = currentEquipment[slotIndex];
+        Debug.Log("unequipped equipment is " + equipment);
         if (equipment != null)
         {
             if (currentMeshes[slotIndex] != null)
