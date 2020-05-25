@@ -25,24 +25,24 @@ public class PlayerAnimator : CharacterAnimator
     {
         if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)
         {
-            animator.SetLayerWeight(1, 1);
+            //animator.SetLayerWeight(1, 1);
             if (weaponAnimationDict.ContainsKey(newItem))
             {
                 currentAttackAnimSet = weaponAnimationDict[newItem];
             }
         } else if (newItem == null && oldItem == null && oldItem.equipmentSlot == EquipmentSlot.Weapon)
         {
-            animator.SetLayerWeight(1, 0);
+            //animator.SetLayerWeight(1, 0);
             currentAttackAnimSet = defaultAttackAnimSet;
         }
 
         if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Shield)
         {
-            animator.SetLayerWeight(2, 1);
+            //animator.SetLayerWeight(2, 1);
         }
         else if (newItem == null && oldItem == null && oldItem.equipmentSlot == EquipmentSlot.Shield)
         {
-            animator.SetLayerWeight(2, 0);
+            //animator.SetLayerWeight(2, 0);
         }
 
 
