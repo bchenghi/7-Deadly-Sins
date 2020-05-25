@@ -40,7 +40,6 @@ public class CharacterStats : MonoBehaviour
 
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
-        Debug.Log (transform.name + " takes " + "damage.");
 
         if (OnHealthChanged != null)
         {

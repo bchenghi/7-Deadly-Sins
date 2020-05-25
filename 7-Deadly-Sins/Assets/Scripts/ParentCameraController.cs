@@ -6,6 +6,7 @@ public class ParentCameraController : MonoBehaviour
 {
     public bool lockCursor;
     bool inventoryUIUsed = false;
+    bool equipmentUIUsed = false;
 
     public bool changeTransparency;
     public SkinnedMeshRenderer targetRenderer;
@@ -32,6 +33,7 @@ public class ParentCameraController : MonoBehaviour
     public float moveSpeed = 5;
 
     public GameObject inventoryUI;
+    public GameObject equipmentUI;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +51,7 @@ public class ParentCameraController : MonoBehaviour
     // Sets rotationand position of parent camera and CollisionCheck method
     void LateUpdate()
     {
-        if (inventoryUIUsed = inventoryUI.activeSelf)
+        if ((inventoryUIUsed = inventoryUI.activeSelf) || (equipmentUIUsed = equipmentUI.activeSelf))
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -58,7 +60,7 @@ public class ParentCameraController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        if (!inventoryUIUsed)
+        if (!inventoryUIUsed && !equipmentUIUsed)
         {
             yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
             pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;

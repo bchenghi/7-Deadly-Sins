@@ -15,7 +15,7 @@ public class PlayerStats : CharacterStats
 
     void onEquipmentChanged (Equipment newItem, Equipment oldItem)
     {
-
+        Debug.Log("equipment changed called in player stats");
         if (newItem != null) {
             armor.AddModifier(newItem.armorModifier);
             damage.AddModifier(newItem.damageModifier);
