@@ -15,21 +15,21 @@ public class OutlineController : MonoBehaviour
 
     public void ShowOutline()
     {
-        Debug.Log("Showoutline in object");
-        //foreach(var mat in renderer.materials)
-        //{
-        //mat.SetFloat("_Outline", maxOutlineWidth);
-        //mat.SetColor("_OutlineColor", OutlineColor);
-        //}
-        renderer.material.SetFloat("_Outline", maxOutlineWidth);
-        renderer.material.SetColor("_OutlineColor", OutlineColor);
+        
+        foreach(var mat in renderer.materials)
+        {
+        mat.SetFloat("_Outline", maxOutlineWidth);
+        mat.SetColor("_OutlineColor", OutlineColor);
+        }
+        //renderer.material.SetFloat("_Outline", maxOutlineWidth);
+       // renderer.material.SetColor("_OutlineColor", OutlineColor);
 
         
     }
 
     public void HideOutline()
     {
-        Debug.Log("HdieOutline in object");
+        
         foreach (var mat in renderer.materials)
         {
             mat.SetFloat("_Outline", 0f);
