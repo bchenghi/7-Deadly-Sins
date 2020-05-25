@@ -4983,7 +4983,6 @@ MonoBehaviour:
     baseValue: 10
   armor:
     baseValue: 0
-  animator: {fileID: 271656817}
 --- !u!114 &271656823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14056,7 +14055,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23785,7 +23784,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
         type: 3}
       propertyPath: m_Name
-      value: Ch34_nonPBR
+      value: GreenWomen
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interact
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
         type: 3}
@@ -27657,7 +27661,7 @@ Transform:
   m_LocalScale: {x: 0.43742, y: 0.43742, z: 0.43742}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1350970694
 PrefabInstance:
@@ -35121,7 +35125,6 @@ MonoBehaviour:
     baseValue: 5
   armor:
     baseValue: 0
-  animator: {fileID: 1665286590}
 --- !u!114 &1665286595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40915,11 +40918,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927347460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.926, z: 0}
+  m_LocalPosition: {x: 0, y: 2.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 5006512735513811645}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1928734338
 PrefabInstance:
@@ -44648,7 +44651,6 @@ MonoBehaviour:
     baseValue: 5
   armor:
     baseValue: 0
-  animator: {fileID: 2042257719}
 --- !u!195 &2042257716
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -48105,6 +48107,7 @@ Transform:
   - {fileID: 1855403096807044420}
   - {fileID: 7354117078288884251}
   - {fileID: 7098872}
+  - {fileID: 1927347461}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49253,7 +49256,7 @@ GameObject:
   - component: {fileID: 8296172668484577455}
   - component: {fileID: 8296172668484577456}
   m_Layer: 9
-  m_Name: Ch31_nonPBR
+  m_Name: Main Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

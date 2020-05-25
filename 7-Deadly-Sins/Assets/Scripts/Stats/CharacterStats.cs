@@ -10,7 +10,7 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armor;
-    public Animator animator;
+    public event System.Action takenDamage;
 
     CharacterCombat combat;
 
@@ -39,7 +39,12 @@ public class CharacterStats : MonoBehaviour
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
-        animator.SetTrigger("Hurt");
+        if (takenDamage != null)
+        {
+            takenDamage();
+        }
+
+        Debug.Log (transform.name + " takes " + "damage.");
 
         if (OnHealthChanged != null)
         {
