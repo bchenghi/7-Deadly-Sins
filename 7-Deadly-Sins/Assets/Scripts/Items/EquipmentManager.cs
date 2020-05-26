@@ -65,9 +65,8 @@ public class EquipmentManager : MonoBehaviour
             newMesh.bones = targetMesh.bones;
             newMesh.rootBone = targetMesh.rootBone;
         }
-
-
     }
+
 
     /*
     public void Equip(Equipment newEquipment)
@@ -92,9 +91,7 @@ public class EquipmentManager : MonoBehaviour
 
     public Equipment Unequip(int slotIndex)
     {
-        Debug.Log("slot index is " + slotIndex);
         Equipment equipment = currentEquipment[slotIndex];
-        Debug.Log("unequipped equipment is " + equipment);
         if (equipment != null)
         {
             if (currentMeshes[slotIndex] != null)

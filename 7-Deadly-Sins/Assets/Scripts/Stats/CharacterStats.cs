@@ -44,7 +44,7 @@ public class CharacterStats : MonoBehaviour
         {
             takenDamage();
         }
-        
+
         Debug.Log (transform.name + " takes " + "damage.");
 
 
