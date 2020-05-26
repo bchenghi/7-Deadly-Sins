@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EquipmentUISlot : MonoBehaviour
+public class EquipmentUISlot : UISlot
 {
 
     public Image icon;
     public Button removeButton;
-    Equipment equipment;
+    public Equipment equipment { get; private set; }
 
     public void AddEquipment(Equipment equipment)
     {

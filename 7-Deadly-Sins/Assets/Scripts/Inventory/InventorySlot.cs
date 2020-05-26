@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : UISlot
 {
     public Image icon;
     public Button removeButton;
-    Item item;
+    public Item item { get; private set; }
 
     public void AddItem(Item newItem)
     {

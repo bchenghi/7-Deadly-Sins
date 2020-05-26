@@ -28,6 +28,7 @@ public class EquipmentUI : MonoBehaviour
         }
     }
 
+    // Clears slot that belonged to oldEquipment and adds newEquipment to the Equipment UI
     void UpdateUI(Equipment newEquipment, Equipment oldEquipment)
     {
         if (oldEquipment != null)

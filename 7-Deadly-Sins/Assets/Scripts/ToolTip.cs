@@ -1,69 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ToolTip : MonoBehaviour
 {
+    public static ToolTip instance;
+    GameObject background;
     private Text toolTipText;
     private RectTransform backgroundRectTransform;
+    public RectTransform canvasRectTransform;
     public float textPaddingSize = 4f;
-
 
     private void Awake()
     {
-        backgroundRectTransform = transform.Find("Background").GetComponent<RectTransform>();
+        background = transform.Find("Background").gameObject;
+        backgroundRectTransform = background.GetComponent<RectTransform>();
         toolTipText = backgroundRectTransform.Find("Text").GetComponent<Text>();
 
-        ShowToolTip("random tool tip wordsssssluifalifhirsgn \n s");
+        instance = this;
     }
 
     private void Update()
     {
-        
+        transform.position = Input.mousePosition;
 
-
-        //transform.position = Input.mousePosition;
+        // Below is to shift the anchor position when tooltip leaves screen so that it is always visible
+        Vector2 anchoredPosition = transform.GetComponent<RectTransform>().anchoredPosition;
+        if (anchoredPosition.x + backgroundRectTransform.rect.width > canvasRectTransform.rect.width)
+        {
+            anchoredPosition.x = canvasRectTransform.rect.width - backgroundRectTransform.rect.width;
+        }
+        if (anchoredPosition.y + backgroundRectTransform.rect.height > canvasRectTransform.rect.height)
+        {
+            anchoredPosition.y = canvasRectTransform.rect.height - backgroundRectTransform.rect.height;
+        }
+        transform.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
     }
 
-    private void ShowToolTip(string toolTipString)
+    // Sets tooltip active and sets text via SetText method
+    public void ShowToolTip(string toolTipString)
     {
-        gameObject.SetActive(true);
+        background.SetActive(true);
+        SetText(toolTipString);
+    }
 
-        toolTipText.text = toolTipString;
-        Vector2 backgroundSize = new Vector2(toolTipText.preferredWidth + 
+    public void HideToolTip()
+    {
+        background.SetActive(false);
+    }
+
+    // Sets text in text box and sets the size of background
+    public void SetText(string str)
+    {
+        toolTipText.text = str;
+        Vector2 backgroundSize = new Vector2(toolTipText.preferredWidth +
             textPaddingSize * 2f, toolTipText.preferredHeight + textPaddingSize * 2f);
         backgroundRectTransform.sizeDelta = backgroundSize;
-    }
-
-    private void HideToolTip()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void FollowCursor()
-    {
-        /*
-        if (!this.gameObject.activeSelf) { return; }
-
-            Vector3 newPos = Input.mousePosition + offset;
-            newPos.z = 0f;
-            float rightEdgeToScreenEdgeDistance = Screen.width - (newPos.x + backgroundRectTransform.rect.width * backgroundRectTransform.scaleFactor / 2) - padding;
-            if (rightEdgeToScreenEdgeDistance < 0)
-            {
-                newPos.x += rightEdgeToScreenEdgeDistance;
-            }
-            float leftEdgeToScreenEdgeDistance = 0 - (newPos.x - backgroundRectTransform.rect.width * backgroundRectTransform.scaleFactor / 2) + padding;
-            if (leftEdgeToScreenEdgeDistance > 0)
-            {
-                newPos.x += leftEdgeToScreenEdgeDistance;
-            }
-            float topEdgeToScreenEdgeDistance = Screen.height - (newPos.y + backgroundRectTransform.rect.height * backgroundRectTransform.scaleFactor) - padding;
-            if (topEdgeToScreenEdgeDistance < 0)
-            {
-                newPos.y += topEdgeToScreenEdgeDistance;
-            }
-            transform.position = newPos;
-            */
     }
 }
