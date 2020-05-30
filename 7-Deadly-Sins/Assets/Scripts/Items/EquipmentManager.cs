@@ -61,6 +61,7 @@ public class EquipmentManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("new Mesh");
             newMesh.transform.parent = targetMesh.transform;
             newMesh.bones = targetMesh.bones;
             newMesh.rootBone = targetMesh.rootBone;
