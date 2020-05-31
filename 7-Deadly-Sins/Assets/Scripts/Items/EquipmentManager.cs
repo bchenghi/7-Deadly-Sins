@@ -51,21 +51,21 @@ public class EquipmentManager : MonoBehaviour
         Debug.Log("New mesh is " + newMesh);
         currentMeshes[slotIndex] = newMesh;
 
-        if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)
+        /*if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)
         {
             newMesh.rootBone = Sword;
         }
-        else if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Shield)
+        //else if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Shield)
         {
             newMesh.rootBone = Shield;
         }
         else
         {
-            Debug.Log("new Mesh");
+        */
             newMesh.transform.parent = targetMesh.transform;
             newMesh.bones = targetMesh.bones;
             newMesh.rootBone = targetMesh.rootBone;
-        }
+        
     }
 
 
