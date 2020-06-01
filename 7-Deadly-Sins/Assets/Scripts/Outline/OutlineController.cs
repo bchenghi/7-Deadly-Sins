@@ -15,7 +15,7 @@ public class OutlineController : MonoBehaviour
 
     public void ShowOutline()
     {
-        
+        Debug.Log("test");
         foreach(var mat in renderer.materials)
         {
         mat.SetFloat("_Outline", maxOutlineWidth);
@@ -29,6 +29,7 @@ public class OutlineController : MonoBehaviour
 
     public void HideOutline()
     {
+        Debug.Log("hide");
         
         foreach (var mat in renderer.materials)
         {
