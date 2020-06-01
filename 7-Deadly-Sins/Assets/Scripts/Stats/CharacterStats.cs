@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterCombat))]
 public class CharacterStats : MonoBehaviour
 {
+   
     public int maxHealth = 100;
     public int currentHealth { get; private set; }
 

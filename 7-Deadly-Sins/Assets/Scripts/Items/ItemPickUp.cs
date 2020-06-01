@@ -12,9 +12,17 @@ public class ItemPickUp : Interactable
     void PickUp()
     {
         Debug.Log("Picking up " + item.name);
-        bool wasPickedUp = Inventory.instance.Add(item);
-        if (wasPickedUp)
+        if (item.GetType() == typeof(Equipment))
         {
+            
+            bool wasPickedUp = Inventory.instance.Add(item);
+            if (wasPickedUp)
+            {
+                Destroy(gameObject);
+            }
+        } else if (item.GetType() == typeof(Currency))
+        {
+            GoldCount.instance.earn(item.GetQuantity());
             Destroy(gameObject);
         }
     }
