@@ -10,7 +10,10 @@ public class Currency : Item
     public pickUpObject currentObject;
     private int pickUpQuantity;
 
-    public int GetQuantity()
+    public Currency(Item item)
+    { 
+    }
+    public int GetPickUpAmount()
     {
         if (currentObject == pickUpObject.COPPER)
         {
