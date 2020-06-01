@@ -28,6 +28,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         else
         {
+            mouseCurrentlyHere = false;
             toolTip.HideToolTip();
         }
     }
