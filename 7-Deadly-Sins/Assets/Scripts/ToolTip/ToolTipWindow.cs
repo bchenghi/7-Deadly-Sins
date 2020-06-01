@@ -21,17 +21,14 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Update()
     {
-        if (mouseCurrentlyHere)
+        if (mouseCurrentlyHere && stringToShow != null)
         {
-            if (stringToShow != null)
-            {
-                toolTip.ShowToolTip(stringToShow);
-                CheckSlot();
-            }
-            else
-            {
-                toolTip.HideToolTip();
-            }
+            toolTip.ShowToolTip(stringToShow);
+            CheckSlot();
+        }
+        else
+        {
+            toolTip.HideToolTip();
         }
     }
 
@@ -44,6 +41,13 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     // Hides tooltip when mouse no longer over object
     public void OnPointerExit(PointerEventData pointerEventData){
+        mouseCurrentlyHere = false;
+        toolTip.HideToolTip();
+    }
+
+    //Hides tooltip when the slot is diabled
+    public void OnDisable()
+    {
         mouseCurrentlyHere = false;
         toolTip.HideToolTip();
     }
@@ -62,6 +66,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         stringToShow = StatsString(item);
     }
+
 
     // Returns a string to be displayed on tooltip, null if argument is null, or argument is neither equipment nor item
     string StatsString(Item item)
