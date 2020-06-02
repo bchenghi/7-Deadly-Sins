@@ -31,7 +31,7 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count)
             {
-                if (inventory.items[i].Key is Consumable)
+                if (inventory.items[i].Key is Consumables)
                 {
                     slots[i].AddConsumable(inventory.items[i].Key, inventory.items[i].Value);
                 }

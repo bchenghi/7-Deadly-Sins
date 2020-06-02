@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         if (!item.isDefaultItem)
         {
 
-            if (item is Consumable)
+            if (item is Consumables)
             {
                 successful = AddConsumable(item);
             }
@@ -50,7 +50,7 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
-        if (item is Consumable)
+        if (item is Consumables)
         {
             RemoveConsumable(item);
         }

@@ -47,7 +47,7 @@ public class InventorySlot : UISlot
 
     public void ClearSlot()
     {
-        if (item is Consumable)
+        if (item is Consumables)
         {
             ClearConsumable();
         }
@@ -100,7 +100,7 @@ public class InventorySlot : UISlot
 
     public void UpdateConsumableCounter()
     {
-        if (item is Consumable && count >= 1)
+        if (item is Consumables && count >= 1)
         {
             consumableCounter.text = count.ToString();
         }

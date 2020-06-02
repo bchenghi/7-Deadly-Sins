@@ -11,6 +11,7 @@ public class Potions : Consumables
         base.Use();
         increaseStats = 10;
         PlayerManager.instance.player.GetComponent<CharacterStats>().IncreaseHealth(increaseStats);
+        RemoveFromInventory();
         
 
         
