@@ -62,6 +62,13 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public void IncreaseHealth(int healthIncrease)
+    {
+        
+        currentHealth += healthIncrease;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+
     public virtual void Die()
     {
         //Die in some way

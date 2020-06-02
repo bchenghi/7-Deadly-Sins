@@ -92,7 +92,8 @@ public class PlayerController : MonoBehaviour
                 // lineRenderer.SetPosition(1, hit1.point);
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
-                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null)
+                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null
+                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<LootCrates>() != null)
                 {  
                     if (interactable != null)
                     {
