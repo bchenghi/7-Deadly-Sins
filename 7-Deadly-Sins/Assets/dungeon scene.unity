@@ -33849,6 +33849,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1936845484}
     m_Modifications:
+    - target: {fileID: 1459399800, guid: eff28681e64d9044882d1709de63a4aa, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8318013552055064800, guid: eff28681e64d9044882d1709de63a4aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40546,7 +40550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1707693427
 RectTransform:
   m_ObjectHideFlags: 0
