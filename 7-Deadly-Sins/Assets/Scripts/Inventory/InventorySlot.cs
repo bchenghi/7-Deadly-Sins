@@ -42,6 +42,7 @@ public class InventorySlot : UISlot
         icon.sprite = null;
         icon.enabled = false;
         removeButton.interactable = false;
+        UpdateConsumableCounter();
     }
 
 
@@ -55,7 +56,6 @@ public class InventorySlot : UISlot
         {
             ClearNormalItem();
         }
-        UpdateConsumableCounter();
     }
 
     public void OnRemoveButton()
