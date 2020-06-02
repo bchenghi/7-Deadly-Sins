@@ -29,27 +29,23 @@ public class Inventory : MonoBehaviour
 
     public bool Add(Item item)
     {
+        bool successful = true;
         if (!item.isDefaultItem)
         {
-            if (items.Count >= space)
-            {
-                Debug.Log("Not enough space");
-                return false;
-            }
 
             if (item is Consumable)
             {
-                AddConsumable(item);
+                successful = AddConsumable(item);
             }
             else
             {
-                AddNormalItem(item);
+                successful = AddNormalItem(item);
             }
 
-            if (onItemChangedCallback != null)
+            if (onItemChangedCallback != null && successful)
                 onItemChangedCallback.Invoke();
         }
-        return true;
+        return successful;
     }
 
     public void Remove(Item item)
@@ -67,9 +63,19 @@ public class Inventory : MonoBehaviour
             onItemChangedCallback.Invoke();
     }
 
-    public void AddNormalItem(Item item)
+    public bool AddNormalItem(Item item)
     {
-        items.Add(new KeyValuePair<Item, int>(item, 1));
+        if (SlotsUsed() < space)
+        {
+            items.Add(new KeyValuePair<Item, int>(item, 1));
+            return true;
+        }
+        else
+        {
+            Debug.Log("Inventory: Not enough space " + SlotsUsed());
+            return false;
+        }
+
     }
 
     public void RemoveNormalItem(Item item)
@@ -79,28 +85,38 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void AddConsumable(Item consumable)
+    public bool AddConsumable(Item consumable)
     {
 
-        int indexFound = IndexOfConsumable(consumable);
-        bool containsConsumable = (indexFound == -1 ? false : true);
+        int indexFound = IndexToAddConsumable(consumable);
+        bool hasSlotToAddConsumable = (indexFound == -1 ? false : true);
 
 
-        if (containsConsumable)
+        if (hasSlotToAddConsumable)
         {
-            int currentNumOfConsumables = items[indexFound].Value;
-            items[indexFound] = new KeyValuePair<Item, int>(consumable, currentNumOfConsumables + 1);
+            int currentNumOfConsumablesInSlot = items[indexFound].Value;
+            items[indexFound] = new KeyValuePair<Item, int>(consumable, currentNumOfConsumablesInSlot + 1);
         }
         else
         {
-            items.Add(new KeyValuePair<Item, int>(consumable, 1));
-        }
+            if (SlotsUsed() < space)
+            {
+                items.Add(new KeyValuePair<Item, int>(consumable, 1));
+            }
+
+            else
+            {
+                Debug.Log("Inventory: Not enough space");
+                return false;
+            }
+
+        } return true;
     }
 
 
     public void RemoveConsumable(Item consumable)
     {
-        int indexFound = IndexOfConsumable(consumable);
+        int indexFound = IndexOfLastConsumable(consumable);
         bool containsConsumable = (indexFound == -1 ? false : true);
 
         if (containsConsumable)
@@ -137,8 +153,8 @@ public class Inventory : MonoBehaviour
         return index;
     }
 
-    // Finds index of the slot, of the given item furthest down the list
-    public int IndexOfConsumable(Item item)
+    // Finds index of the slot, of the given item furthest down the list, -1 if consumable doesnt exist
+    public int IndexOfLastConsumable(Item item)
     {
         int index = -1;
         for (int i = 0; i < items.Count; i++)
@@ -152,6 +168,27 @@ public class Inventory : MonoBehaviour
             }
         }
         return index;
+    }
+
+    // Returns the index of an existing slot to add the consumable, -1 if there are no slots to add the consumable
+    public int IndexToAddConsumable(Item item)
+    {
+        int index = -1;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Key == item && items[i].Value < consumablesPerSlot)
+            {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+    
+    // Returns number of slots used
+    public int SlotsUsed()
+    {
+        return items.Count;
     }
 }
 

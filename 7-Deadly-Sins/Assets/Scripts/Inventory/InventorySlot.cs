@@ -6,13 +6,22 @@ public class InventorySlot : UISlot
     public Image icon;
     public Button removeButton;
     public Item item { get; private set; }
-
+    public Text consumableCounter;
     public int count = 0;
-    public int maxCount = Inventory.instance.consumablesPerSlot;
+    public int maxCount = 0;
+
+    private void Start()
+    {
+        maxCount = Inventory.instance.consumablesPerSlot;
+    }
 
     public void AddItem(Item newItem)
     {
-        AddNormalItem(newItem);
+        item = newItem;
+        icon.sprite = item.icon;
+        icon.enabled = true;
+        removeButton.interactable = true;
+        UpdateConsumableCounter();
     }
 
     public void AddConsumable(Item consumable, int num)
@@ -22,6 +31,7 @@ public class InventorySlot : UISlot
         icon.enabled = true;
         removeButton.interactable = true;
         count = num;
+        UpdateConsumableCounter();
     }
 
 
@@ -45,6 +55,7 @@ public class InventorySlot : UISlot
         {
             ClearNormalItem();
         }
+        UpdateConsumableCounter();
     }
 
     public void OnRemoveButton()
@@ -60,29 +71,16 @@ public class InventorySlot : UISlot
         }
     }
 
-    public void AddNormalItem(Item newItem)
-    {
-        item = newItem;
-        icon.sprite = item.icon;
-        icon.enabled = true;
-        removeButton.interactable = true;
-    }
-
-
     public void ClearNormalItem()
     {
-        item = null;
-
-        icon.sprite = null;
-        icon.enabled = false;
-        removeButton.interactable = false;
+        ClearSlotCompletely();
     }
 
     public void ClearConsumable()
     {
         if (count == 0)
         {
-            Debug.Log("InventorySlot: consumable count in this slot is 0");
+            Debug.Log("InventorySlot: Could not clear slot as consumable count in this slot is 0");
         }
         else if (count == 1)
         {
@@ -96,6 +94,19 @@ public class InventorySlot : UISlot
         else
         {
             count--;
+        }
+        UpdateConsumableCounter();
+    }
+
+    public void UpdateConsumableCounter()
+    {
+        if (item is Consumable && count >= 1)
+        {
+            consumableCounter.text = count.ToString();
+        }
+        else
+        {
+            consumableCounter.text = null;
         }
     }
 }
