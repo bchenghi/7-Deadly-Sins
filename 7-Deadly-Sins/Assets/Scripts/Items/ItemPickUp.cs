@@ -25,6 +25,11 @@ public class ItemPickUp : Interactable
             Currency currency = new Currency(item); 
             GoldCounter.instance.Earn(currency.GetPickUpAmount());
             Destroy(gameObject);
+        } else if (item is Consumables)
+        {
+            
+            Inventory.instance.Add(item);
+            Destroy(gameObject);
         }
     }
 }
