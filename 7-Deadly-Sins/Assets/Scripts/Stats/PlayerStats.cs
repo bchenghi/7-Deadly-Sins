@@ -11,6 +11,8 @@ public class PlayerStats : CharacterStats
         base.Start();
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
     }
+
+    
         
 
     void onEquipmentChanged (Equipment newItem, Equipment oldItem)
@@ -33,4 +35,6 @@ public class PlayerStats : CharacterStats
         base.Die();
         PlayerManager.instance.KillPlayer();
     }
+
+
 }
