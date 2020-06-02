@@ -31,12 +31,20 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count)
             {
-                slots[i].AddItem(inventory.items[i]);
+                if (inventory.items[i].Key is Consumable)
+                {
+                    slots[i].AddConsumable(inventory.items[i].Key, inventory.items[i].Value);
+                }
+                else
+                {
+                    slots[i].AddItem(inventory.items[i].Key);
+                }
             }
             else
             {
-                slots[i].ClearSlot();
+                slots[i].ClearSlotCompletely();
             }
         }
     }
+
 }

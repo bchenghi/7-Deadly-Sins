@@ -21,14 +21,17 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Update()
     {
-        if (mouseCurrentlyHere && stringToShow != null)
+        if (mouseCurrentlyHere)
         {
-            toolTip.ShowToolTip(stringToShow);
-            CheckSlot();
-        }
-        else
-        {
-            toolTip.HideToolTip();
+            if (stringToShow != null)
+            {
+                toolTip.ShowToolTip(stringToShow);
+                CheckSlot();
+            }
+            else
+            {
+                toolTip.HideToolTip();
+            }
         }
     }
 
