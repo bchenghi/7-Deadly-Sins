@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
                     if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
                         || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null
                         || Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<Chest>() != null)
-                    {  
+                    {
                         if (interactable != null)
                         {
                             //interact if within interaction radius and face the interactable
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
                             {
                                 SetFocus(interactable);
                             }
-                        
+                        }
                     }
                 }
             }
