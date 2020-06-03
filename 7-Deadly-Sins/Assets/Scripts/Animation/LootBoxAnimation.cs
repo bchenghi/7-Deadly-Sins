@@ -6,17 +6,47 @@ public class LootBoxAnimation : MonoBehaviour
 {
     CharacterCombat combat;
     Animator animator;
+    Chest chest;
 
     private void Start()
     {
         combat = PlayerManager.instance.GetComponent<CharacterCombat>();
         animator = GetComponent<Animator>();
-        combat.OnAttack += OnAttackLootBox;
+        chest = GetComponent<Chest>();
+
+
+        chest.CanOpen += hasKeyAnimate;
+        chest.CanOpen += hasPermissionAnimate;
+    
+
 
     }
 
-    protected virtual void OnAttackLootBox()
+    
+    public void hasKeyAnimate() {
+
+        
+            animator.SetBool("HasKey", true);
+            Debug.Log("has key is true");
+        
+            
+        }
+
+    public void hasPermissionAnimate()
     {
-        animator.SetTrigger("OnHit");
+
+        
+            animator.SetTrigger("OnHit");
+            Debug.Log("On hit triggered");
+        
     }
+    
+    
+
+
+       
+
+
+
+    
 }

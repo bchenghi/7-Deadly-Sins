@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Interactable : MonoBehaviour
     Transform player;
     bool hasInteracted = false;
     public Transform interactionTransform;
+    
 
     public virtual void Interact()
     {
@@ -27,7 +29,7 @@ public class Interactable : MonoBehaviour
         player = null;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (isFocus && !hasInteracted)
         {
@@ -37,6 +39,7 @@ public class Interactable : MonoBehaviour
                 Debug.Log("Interacting with " + name);
                 Interact();
                 hasInteracted = true;
+               
             }
         }
     }
@@ -50,4 +53,6 @@ public class Interactable : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
+
+    
 }
