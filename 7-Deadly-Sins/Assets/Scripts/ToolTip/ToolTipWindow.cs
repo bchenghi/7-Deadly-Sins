@@ -78,6 +78,10 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             return EquipmentStatsString((Equipment)item);
         }
+        else if (item is Consumables)
+        {
+            return ConsumableStatsString((Consumables)item);
+        }
         else if (item is Item)
         {
             return ItemStatsString(item);
@@ -116,5 +120,25 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             return item.name;
 
         return null;
+    }
+
+    // Returns stats increase of consumable, null if consumable is null
+    string ConsumableStatsString(Consumables consumable)
+    {
+
+        if (consumable != null)
+        {
+            StringBuilder str = new StringBuilder();
+            string name = consumable.name;
+            string statsBoost = consumable.increaseStats.ToString();
+            str.Append(name).AppendLine();
+            str.Append("<color=green>Health Boost: +").Append(statsBoost).Append("</color>");
+            return str.ToString();
+        } 
+        else
+        {
+            return null;
+        }
+
     }
 }

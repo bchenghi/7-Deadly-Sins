@@ -19,15 +19,6 @@ public class EquipmentUI : MonoBehaviour
         equipmentSlots = equipmentParent.GetComponentsInChildren<EquipmentUISlot>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("EquipmentUI"))
-        {
-            equipmentUI.SetActive(!equipmentUI.activeSelf);
-        }
-    }
-
     // Clears slot that belonged to oldEquipment and adds newEquipment to the Equipment UI
     void UpdateUI(Equipment newEquipment, Equipment oldEquipment)
     {

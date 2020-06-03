@@ -13,6 +13,9 @@ public class CharacterCombat : MonoBehaviour
     const float combatCooldown = 5;
     float lastAttackTime;
 
+    // Max distance from the opponent to be able damage it
+    public float attackDistance;
+
     CharacterStats myStats;
     CharacterStats opponentStats;
 
@@ -36,6 +39,9 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
+    // If not dead and attack is not on cooldown, set opponent stats variable, 
+    // OnAttack() (animation for attack), reset cooldown, set in combat to true and set last 
+    // attack time to current time
     public void Attack (CharacterStats targetStats)
     {
         if (!dead)
@@ -55,10 +61,15 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
-
+    // Called via attack hit event in animation, will deal damage if target is within attackdistance
     public void AttackHit_AnimationEvent()
     {
-        opponentStats.TakeDamage(myStats.damage.GetValue());
+        float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
+        if (distance <= attackDistance)
+        {
+            opponentStats.TakeDamage(myStats.damage.GetValue());
+        }
+
         if (opponentStats.currentHealth <= 0)
         {
             InCombat = false;

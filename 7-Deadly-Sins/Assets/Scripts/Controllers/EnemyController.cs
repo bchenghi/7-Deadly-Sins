@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     CharacterCombat combat;
+    Animator animator;
    
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
-       
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,8 +41,7 @@ public class EnemyController : MonoBehaviour
             else if (distance <= lookRadius)
             {
                 agent.SetDestination(target.position);
-
-
+                DecideOnChasing();
             }
         }
     }
@@ -57,5 +57,18 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+    // Stops or starts chasing player based on whether attack and reaction animation is playing
+    public void DecideOnChasing()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Punching") || animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction"))
+        {
+            agent.isStopped = true;
+        }
+        else
+        {
+            agent.isStopped = false;
+        }
     }
 }
