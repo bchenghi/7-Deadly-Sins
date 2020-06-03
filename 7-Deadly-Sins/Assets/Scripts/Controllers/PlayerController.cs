@@ -83,27 +83,21 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
 
-                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-
-                RaycastHit hit;
-                int playerLayerMask = LayerMask.GetMask("Player");
-                if (Physics.Raycast(ray, out hit, 100, ~playerLayerMask))
-                {
-                    Debug.Log("ray hit " + hit.transform.name);
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
-                        || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null
-                        || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<LootCrates>() != null)
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
+                    || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null
+                    || Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<Chest>() != null)
+                {  
+                    if (interactable != null)
                     {
-                        if (interactable != null)
-                        {
+                        
                             //interact if within interaction radius and face the interactable
                             float distance = Vector3.Distance(transform.position, interactable.transform.position);
                             if (interactable.radius >= distance)
                             {
                                 SetFocus(interactable);
                             }
-                        }
+                        
                     }
                 }
             }
