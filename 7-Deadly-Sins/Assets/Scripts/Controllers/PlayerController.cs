@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1;
     [Range(0,1)]
     public float airControlPercent;
+    bool inTheAir = false;
 
     public float turnSmoothTime = 0.2f;
     float turnSmoothVelocity;
@@ -51,9 +52,18 @@ public class PlayerController : MonoBehaviour
             lineRenderer.SetPosition(1, hit1.point);
         }
 
-        // If player is not in hurt or attack animation, he can do actions (move, set focus, face target, pick up)
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction") &&
-            !animator.GetCurrentAnimatorStateInfo(0).IsName("Punching"))
+
+        if (inTheAir)
+        {
+            //Fall(); //Fall animation
+            LandIfGrounded(); // land animation, inTheAir false, if grounded
+            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            Vector2 inputDir = input.normalized;
+            bool running = Input.GetKey(KeyCode.LeftShift);
+
+            Move(inputDir, running);
+        }
+        if (ActionsAllowed())
         {
             if (focus != null)
             {
@@ -108,6 +118,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
     }
 
     void Move(Vector2 inputDir, bool running)
@@ -142,7 +153,40 @@ public class PlayerController : MonoBehaviour
             RemoveFocus();
             float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
             velocityY = jumpVelocity;
+            
+            animator.SetTrigger("jump");
+            inTheAir = true;
         }
+    }
+
+    void LandIfGrounded()
+    {
+        if (controller.isGrounded)
+        {
+            //animator.SetBool("fall", false);
+            animator.SetTrigger("land");
+            inTheAir = false;
+
+        }
+
+    }
+
+    void CheckIfInTheAir()
+    {
+        if (controller.isGrounded)
+        {
+            inTheAir = false;
+        }
+        else
+        {
+            inTheAir = true;
+        }
+    }
+
+    void Fall()
+    {
+        //animator.SetBool("fall", true);
+        inTheAir = true;
     }
 
     float GetModifiedSmoothTime(float smoothTime)
@@ -184,5 +228,22 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = (focus.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    // If player is not in hurt, attack, landing animation, or in the air,
+    // he can do actions (move, jump, set focus, face target, pick up)
+    bool ActionsAllowed()
+    {
+        return !animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction") &&
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("Land");
+    }
+
+    float distanceToGround()
+    {
+        
+        RaycastHit out;
+        Physice.RayCast(transform.position, -Vector3)
+
     }
 }
