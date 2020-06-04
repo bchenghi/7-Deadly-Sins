@@ -13,38 +13,63 @@ public class Chest : Interactable
     private bool PlayerGavePermission;
     public event System.Action CanOpen;
     private bool hasTriggered;
+    ChestInventoryUI chestInventoryUI;
+
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
 
 
+    private void Start()
+    {
+        chestInventoryUI = GetComponent<ChestInventoryUI>();
+        
+        
+}
 
-    
 
 
     protected override void Update()
     {
         base.Update();
+        
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Key code E down");
-
+        { 
             PlayerGavePermission = true;
-            if (hasTriggered == false && checkKey == true && PlayerGavePermission == true)
+
+            if (hasTriggered == false && checkKey == true)
             {
+                
                 if (CanOpen != null)
                 {
                     CanOpen();
                 }
-                hasTriggered = true;
                 Inventory.instance.Remove(keyRequired);
-            }
+                DisplayUI();
+                hasTriggered = true;
+                
+
+            } 
 
         }
-        
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            chestInventoryUI.UnDisplay();
+        }
+
+
 
     }
 
 
     public override void Interact()
     {
+        chestInventoryUI.ClearChest();
+        if (onItemChangedCallback != null)
+                onItemChangedCallback.Invoke();
+        
         checkInventory();
         base.Interact();
         if (floatingTextPrefab)
@@ -60,7 +85,7 @@ public class Chest : Interactable
                 Debug.Log("permission Given");
             }
             
-            // Display the chest Inventory UI
+            
 
         } else
         {
@@ -70,6 +95,11 @@ public class Chest : Interactable
 
 
 
+    }
+
+    public void DisplayUI()
+    {
+        chestInventoryUI.DisplayUI();
     }
 
 
