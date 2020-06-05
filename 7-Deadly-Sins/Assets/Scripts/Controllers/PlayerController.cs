@@ -16,16 +16,21 @@ public class PlayerController : MonoBehaviour
 
 
     // animation
-
+    bool falling = false;
     bool jumping = false;
-    // Vertical velocity that shld trigger falling animation.
-    float vertVelocityTriggerFallAnim = -0.6f;
-    // Distance above ground to trigger landing animation
-    float distanceAboveGroundTriggerLandAnim = 0.5f;
+    // min distance above ground that will trigger falling animation (needs specific adjustment based on anim)
+    float distanceAboveGroundTriggerFallAnim = 1f;
+    // Distance above ground to trigger landing animation (needs specific adjustment based on anim)
+    float distanceAboveGroundTriggerLandAnim = 1.3f;
     // Max distance the player is above the ground to count as grounded
-    float groundedDistance = 0.05f;
+    float groundedDistance = 0.1f;
+    //Reference object distance to ground is measured from
     public GameObject distanceFromGroundReference;
-    float groundRefOffset = 0.4f;
+    // Distance to subtract from height from reference to ground, as the reference is above ground level 
+    // (value needs specific adjustment)
+    float groundRefOffset = 0.384f;
+    Vector3 previousPosition;
+    bool isGrounded;
 
     public float turnSmoothTime = 0.2f;
     float turnSmoothVelocity;
@@ -43,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     Interactable focus;
 
-
+    float distanceToGround;
 
     // Start is called before the first frame update
     void Start()
@@ -53,12 +58,15 @@ public class PlayerController : MonoBehaviour
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         lineRenderer = GetComponent<LineRenderer>();
+        previousPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //DistanceToGround();
+        SetIsGrounded();
+        SetDistanceToGround();
+        //Debug.Log("isGrounded: " + isGrounded);
         // Debugging line
         /*
         Ray ray1 = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -145,47 +153,67 @@ public class PlayerController : MonoBehaviour
         float targetSpeed = (running) ? runSpeed : walkSpeed * inputDir.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, GetModifiedSmoothTime(speedSmoothTime));
         velocityY += (Time.deltaTime * gravity);
+        
         Vector3 velocity = transform.forward * currentSpeed + (Vector3.up * velocityY);
-        //Debug.Log("velY " + velocityY + "vecup * vely " + (Vector3.up * velocityY));
-        //Debug.Log("forward Speed: " + currentSpeed);
         controller.Move(velocity * Time.deltaTime);
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
 
         
-        if (DistanceToGround() <= groundedDistance)
+        if (isGrounded && !jumping)
         {
             velocityY = 0;
         }
-        
     }
 
     // If grounded, jump and animate jump
     void Jump()
     {
-        if (DistanceToGround() <= groundedDistance && !jumping)
+        if (isGrounded && !jumping)
         {
             RemoveFocus();
             StartCoroutine(JumpCoroutine());
+
         }
+    }
+
+    // Runs jump animation, sets vert velocity and set jumping to true
+    // Stops code inside method for a period of time as jump anim has 
+    // squatting down motion before player shld leave the ground
+    IEnumerator JumpCoroutine()
+    {
+        animator.SetTrigger("jump");
+        yield return new WaitForSeconds(0.52f);
+        jumping = true;
+        if (isGrounded)
+        {
+            float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
+            velocityY = jumpVelocity;
+        } 
     }
 
     // if distance above ground is high enough and is falling but fall animation not running
     // , run fall animation
     void FallAnim()
     {
-        if (DistanceToGround() >= 0 && (velocityY < vertVelocityTriggerFallAnim || jumping ) && 
+        if (distanceToGround >= distanceAboveGroundTriggerFallAnim && (velocityY < 0) && 
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall")) // and maybe duration player falling
         {
+            falling = true;
+            jumping = false;
             animator.SetBool("fall", true);
         }
     }
 
-    // Animates landing animation when distance to ground is close enough
+    // Animates landing animation when distance to ground is close enough,
+    // not grounded, is in jumping or falling animation, and is falling
     void LandAnim()
     {
-        if (DistanceToGround() <= distanceAboveGroundTriggerLandAnim)
+        if (distanceToGround <= distanceAboveGroundTriggerLandAnim && 
+            (jumping || falling) && velocityY <= 0)
         {
             animator.SetBool("fall", false);
+            animator.SetTrigger("land");
+            falling = false;
             jumping = false;
         }
     }
@@ -193,7 +221,7 @@ public class PlayerController : MonoBehaviour
 
     float GetModifiedSmoothTime(float smoothTime)
     {
-        if (DistanceToGround() <= groundedDistance)
+        if (isGrounded)
         {
             return smoothTime;
         }
@@ -241,32 +269,34 @@ public class PlayerController : MonoBehaviour
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Land");
     }
 
-    // Returns distance to mesh collider below player. 
-    // (Origin of boxcast is set to be 0.1 above the floor, so returned value is -0.1f.)
-    float DistanceToGround()
+    // Sets distance to mesh collider below player in variable distanceToGround
+    void SetDistanceToGround()
     {
         RaycastHit hit;
 
-        if (Physics.BoxCast(distanceFromGroundReference.transform.position + Vector3.up * 0.05f, 
-            new Vector3(controller.radius * 0.8f,  0.05f, controller.radius * 0.8f),
+        if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
+            new Vector3(controller.radius * 0.5f,  0.01f, controller.radius * 0.5f),
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100))
         {
-            Debug.DrawRay(distanceFromGroundReference.transform.position, hit.point, Color.cyan);
-            Debug.Log("collided obj: " + hit.transform.name);
+              Debug.Log("collided obj: " + hit.transform.name);
         }
         float distance = hit.distance;
         Debug.Log("distance: " + (distance - groundRefOffset));
-        return Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
+        distanceToGround =  Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }
 
-    // Runs jump animation, sets vert velocity and set jumping to true
-    // Stops code for a period of time as jump anim has squatting down motion before player shld leave the ground
-    IEnumerator JumpCoroutine()
+    // Measures rate of change of y axis of player per second. If less than 0.5, or distance from ground is less than threshold
+    // player is grounded and result is stored in isGrounded variable
+    void SetIsGrounded()
     {
-        animator.SetTrigger("jump");
-        yield return new WaitForSeconds(0.52f);
-        float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
-        velocityY = jumpVelocity;
-        jumping = true;
+        if (Mathf.Abs((transform.position.y - previousPosition.y) / Time.deltaTime) <= 0.5 || distanceToGround <= groundedDistance)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+           isGrounded =  false;
+        }
+        previousPosition = transform.position;
     }
 }
