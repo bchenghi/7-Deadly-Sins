@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     bool falling = false;
     bool jumping = false;
     // min distance above ground that will trigger falling animation (needs specific adjustment based on anim)
-    float distanceAboveGroundTriggerFallAnim = 1f;
+    public float distanceAboveGroundTriggerFallAnim = 1f;
     // Distance above ground to trigger landing animation (needs specific adjustment based on anim)
-    float distanceAboveGroundTriggerLandAnim = 1.3f;
+    public float distanceAboveGroundTriggerLandAnim = 0.7f;
     // Max distance the player is above the ground to count as grounded
     float groundedDistance = 0.1f;
     //Reference object distance to ground is measured from
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     // Distance to subtract from height from reference to ground, as the reference is above ground level 
     // (value needs specific adjustment)
     float groundRefOffset = 0.384f;
-    Vector3 previousPosition;
     bool isGrounded;
 
     public float turnSmoothTime = 0.2f;
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         lineRenderer = GetComponent<LineRenderer>();
-        previousPosition = transform.position;
+        //previousPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -66,6 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         SetIsGrounded();
         SetDistanceToGround();
+           // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
         //Debug.Log("isGrounded: " + isGrounded);
         // Debugging line
         /*
@@ -157,17 +157,20 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
 
-        
+
         if (isGrounded && !jumping)
         {
             velocityY = 0;
         }
+        Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
+        Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
-    // If grounded, jump and animate jump
+    // If grounded, not jumping, falling or landing and animate jump
     void Jump()
     {
-        if (isGrounded && !jumping)
+        if (isGrounded && !jumping && !falling
+         && !animator.GetCurrentAnimatorStateInfo(0).IsName("Land"))
         {
             RemoveFocus();
             StartCoroutine(JumpCoroutine());
@@ -278,10 +281,10 @@ public class PlayerController : MonoBehaviour
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100))
         {
 
-              Debug.Log("collided obj: " + hit.transform.name);
+              //Debug.Log("collided obj: " + hit.transform.name);
         }
         float distance = hit.distance;
-        Debug.Log("distance: " + (distance - groundRefOffset));
+        //Debug.Log("distance: " + (distance - groundRefOffset));
         distanceToGround =  Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }
 
@@ -289,7 +292,7 @@ public class PlayerController : MonoBehaviour
     // player is grounded and result is stored in isGrounded variable
     void SetIsGrounded()
     {
-        if (Mathf.Abs((transform.position.y - previousPosition.y) / Time.deltaTime) <= 0.5 || distanceToGround <= groundedDistance)
+        if ( distanceToGround <= groundedDistance)
         {
             isGrounded = true;
         }
@@ -297,6 +300,5 @@ public class PlayerController : MonoBehaviour
         {
            isGrounded =  false;
         }
-        previousPosition = transform.position;
     }
 }
