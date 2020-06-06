@@ -251,10 +251,10 @@ public class PlayerController : MonoBehaviour
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100))
         {
             Debug.DrawRay(distanceFromGroundReference.transform.position, hit.point, Color.cyan);
-            Debug.Log("collided obj: " + hit.transform.name);
+            //Debug.Log("collided obj: " + hit.transform.name);
         }
         float distance = hit.distance;
-        Debug.Log("distance: " + (distance - groundRefOffset));
+        //Debug.Log("distance: " + (distance - groundRefOffset));
         return Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }
 

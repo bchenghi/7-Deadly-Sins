@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    public static GameObject itemBeingDragged;
+    GameObject itemBeingDragged;
     Vector3 startPosition;
     Transform startParent;
+    GraphicRaycaster graphicRaycaster;
+    PointerEventData pointerEventData;
+    List<RaycastResult> raycastResults;
     
     
+
+    void Start()
+    {
+        graphicRaycaster = GameObject.Find("Canvas").GetComponent<GraphicRaycaster>();
+        pointerEventData = new PointerEventData(null);
+        raycastResults = new List<RaycastResult>();
+    }
 
   
 
@@ -23,6 +34,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         transform.SetParent(transform.root);
+
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -35,7 +48,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
 
         Debug.Log("OnEndDrag");
-        itemBeingDragged = null;
+        
         
         if (transform.parent == startParent || transform.parent == transform.root)
         {
@@ -43,6 +56,33 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             transform.SetParent(startParent);
         }
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+       
+            eventData.position = Input.mousePosition;
+            raycastResults.Clear();
+            graphicRaycaster.Raycast(eventData, raycastResults);
+            
+            if (raycastResults.Count > 0)
+            {
+                foreach (var result in raycastResults)
+                {
+                    Debug.Log(result);
+                    if (result.gameObject.CompareTag("Hotkey"))
+                    {
+                        if (itemBeingDragged.GetComponentInParent<InventorySlot>().item is IUsable)
+                        {
+                            var obj = itemBeingDragged.GetComponentInParent<InventorySlot>().item;
+                            var castedObj = obj as IUsable;
+
+                           
+                            result.gameObject.GetComponentInParent<HotKey>().SetUsable(castedObj);
+                            break;
+                        }
+                    }
+                }
+            }
+            itemBeingDragged = null;
+            raycastResults.Clear();
+        
 
     }
 
@@ -50,4 +90,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         Debug.Log("OnPointerDown");
     }
+
+    
+
+    
 }
