@@ -190,5 +190,18 @@ public class Inventory : MonoBehaviour
     {
         return items.Count;
     }
+
+    public int getValue(Item item)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Key == item)
+            {
+                return items[i].Value;
+
+            }
+        }
+        return -1;
+    }
 }
 
