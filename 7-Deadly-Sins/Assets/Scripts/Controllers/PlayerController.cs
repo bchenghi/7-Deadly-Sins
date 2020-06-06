@@ -17,11 +17,16 @@ public class PlayerController : MonoBehaviour
 
     // animation
     bool falling = false;
+    // True when squatting part in jump anim is over and is in the air. Set to false when falling or landing.
+    // Needed as !jumpAnimStart as condition for land animation doesnt work
     bool jumping = false;
+    // Used for preventing jump from being called again once jump anim has started. 
+    // Set to false when falling or landing
+    bool jumpAnimStart = false;
     // min distance above ground that will trigger falling animation (needs specific adjustment based on anim)
-    public float distanceAboveGroundTriggerFallAnim = 1f;
+    float distanceAboveGroundTriggerFallAnim = 1f;
     // Distance above ground to trigger landing animation (needs specific adjustment based on anim)
-    public float distanceAboveGroundTriggerLandAnim = 0.7f;
+    float distanceAboveGroundTriggerLandAnim = 0.7f;
     // Max distance the player is above the ground to count as grounded
     float groundedDistance = 0.1f;
     //Reference object distance to ground is measured from
@@ -65,8 +70,6 @@ public class PlayerController : MonoBehaviour
     {
         SetIsGrounded();
         SetDistanceToGround();
-           // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
-        //Debug.Log("isGrounded: " + isGrounded);
         // Debugging line
         /*
         Ray ray1 = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -158,7 +161,7 @@ public class PlayerController : MonoBehaviour
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
 
 
-        if (isGrounded && !jumping)
+        if (isGrounded && !jumpAnimStart)
         {
             velocityY = 0;
         }
@@ -166,15 +169,15 @@ public class PlayerController : MonoBehaviour
         Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
-    // If grounded, not jumping, falling or landing and animate jump
+    // If grounded, not jumping, falling or landing then animate jump
     void Jump()
     {
-        if (isGrounded && !jumping && !falling
-         && !animator.GetCurrentAnimatorStateInfo(0).IsName("Land"))
+        if (isGrounded && !falling
+         && !animator.GetCurrentAnimatorStateInfo(0).IsName("Land") 
+         && !jumpAnimStart)
         {
             RemoveFocus();
             StartCoroutine(JumpCoroutine());
-
         }
     }
 
@@ -183,6 +186,7 @@ public class PlayerController : MonoBehaviour
     // squatting down motion before player shld leave the ground
     IEnumerator JumpCoroutine()
     {
+        jumpAnimStart = true;
         animator.SetTrigger("jump");
         yield return new WaitForSeconds(0.52f);
         jumping = true;
@@ -200,6 +204,7 @@ public class PlayerController : MonoBehaviour
         if (distanceToGround >= distanceAboveGroundTriggerFallAnim && (velocityY < 0) && 
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall")) // and maybe duration player falling
         {
+            jumpAnimStart = false;
             falling = true;
             jumping = false;
             animator.SetBool("fall", true);
@@ -207,16 +212,17 @@ public class PlayerController : MonoBehaviour
     }
 
     // Animates landing animation when distance to ground is close enough,
-    // not grounded, is in jumping or falling animation, and is falling
+    // is in falling anim and falling, but not in jumping anim
     void LandAnim()
     {
         if (distanceToGround <= distanceAboveGroundTriggerLandAnim && 
-            (jumping || falling) && velocityY <= 0)
+            (jumping || falling) && velocityY <= 0 )
         {
             animator.SetBool("fall", false);
             animator.SetTrigger("land");
             falling = false;
             jumping = false;
+            jumpAnimStart = false;
         }
     }
 
