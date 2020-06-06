@@ -40791,7 +40791,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172668484577454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb70e45a407eab44b91949355f564810, type: 3}
   m_Name: 
@@ -40801,6 +40801,8 @@ MonoBehaviour:
   gravity: -12
   jumpHeight: 1
   airControlPercent: 0
+  distanceAboveGroundTriggerFallAnim: 1
+  distanceAboveGroundTriggerLandAnim: 0.2
   distanceFromGroundReference: {fileID: 0}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
@@ -54913,8 +54915,10 @@ MonoBehaviour:
   walkSpeed: 2
   runSpeed: 4
   gravity: -9.8
-  jumpHeight: 2
+  jumpHeight: 1
   airControlPercent: 0
+  distanceAboveGroundTriggerFallAnim: 1
+  distanceAboveGroundTriggerLandAnim: 0.5
   distanceFromGroundReference: {fileID: 931923414}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
@@ -58132,7 +58136,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3906424747519500638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb70e45a407eab44b91949355f564810, type: 3}
   m_Name: 
@@ -58142,6 +58146,8 @@ MonoBehaviour:
   gravity: -12
   jumpHeight: 1
   airControlPercent: 0
+  distanceAboveGroundTriggerFallAnim: 1
+  distanceAboveGroundTriggerLandAnim: 0.2
   distanceFromGroundReference: {fileID: 0}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
@@ -60057,7 +60063,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: db842b053062da94f8501335160e9516, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
