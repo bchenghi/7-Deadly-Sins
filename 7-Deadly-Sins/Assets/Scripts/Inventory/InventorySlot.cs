@@ -61,6 +61,7 @@ public class InventorySlot : UISlot
     public void OnRemoveButton()
     {
         Inventory.instance.Remove(item);
+        HotKeyBar.instance.RefreshHotkeys();
     }
 
     public void UseItem()

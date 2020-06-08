@@ -8,6 +8,7 @@ public class ParentCameraController : MonoBehaviour
     bool inventoryUIUsed = false;
     bool equipmentUIUsed = false;
     bool ChestUIUsed = false;
+    bool skillTreeUsed = false;
 
     public bool changeTransparency;
     public SkinnedMeshRenderer targetRenderer;
@@ -36,6 +37,7 @@ public class ParentCameraController : MonoBehaviour
     public GameObject inventoryUI;
     public GameObject equipmentUI;
     public GameObject chestInventory;
+    public GameObject SkillTreeUI;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +55,8 @@ public class ParentCameraController : MonoBehaviour
     // Sets rotationand position of parent camera and CollisionCheck method
     void LateUpdate()
     {
-        if ((inventoryUIUsed = inventoryUI.activeSelf) || (equipmentUIUsed = equipmentUI.activeSelf) || (ChestUIUsed = chestInventory.activeSelf))
+        if ((inventoryUIUsed = inventoryUI.activeSelf) || (equipmentUIUsed = equipmentUI.activeSelf) 
+            || (ChestUIUsed = chestInventory.activeSelf) || (skillTreeUsed = SkillTreeUI.activeSelf))
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

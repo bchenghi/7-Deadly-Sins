@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HotKeyBar : MonoBehaviour
 {
+
+   
     public static HotKeyBar instance;
     public HotKey[] Hotkeys;
     public string HotKeyString = "123456ty";
