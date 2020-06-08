@@ -1,0 +1,67 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using SimpleJSON;
+
+public class SaveLoad : MonoBehaviour
+{
+    public string Name;
+    public int HP;
+    public int Armor;
+    public int Damage;
+    public int Gold;
+    
+    void Save()
+    {
+        JSONObject playerJson = new JSONObject();
+        playerJson.Add("HP", HP);
+        playerJson.Add("Armor", Armor);
+        playerJson.Add("Damage", Damage);
+        playerJson.Add("Gold", Gold);
+
+        Debug.Log(playerJson.ToString());
+
+        string path = Application.persistentDataPath + "/PlayerSave.Json";
+        File.WriteAllText(path, playerJson.ToString());
+    }
+
+
+    void GetData()
+    {
+        HP = PlayerManager.instance.player.GetComponent<PlayerStats>().currentHealth;
+        Armor = PlayerManager.instance.player.GetComponent<PlayerStats>().armor.GetValue();
+        Damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage.GetValue();
+        Gold = GoldCounter.instance.gold;
+
+        
+    }
+
+
+    private void Load()
+    {
+        string path = Application.persistentDataPath + "/PlayerSave.Json";
+        string jsonString = File.ReadAllText(path);
+        JSONObject playerJson = (JSONObject)JSON.Parse(jsonString);
+        HP = playerJson["HP"];
+        Armor = playerJson["Armor"];
+        Damage = playerJson["Damage"];
+        Gold = playerJson["Gold"];
+
+        Debug.Log(playerJson.ToString());
+    }
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        GetData();
+        if (Input.GetKeyDown(KeyCode.G)) Save();
+        if (Input.GetKeyDown(KeyCode.L)) Load();
+    }
+}

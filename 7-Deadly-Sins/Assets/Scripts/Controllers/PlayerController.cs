@@ -278,10 +278,10 @@ public class PlayerController : MonoBehaviour
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100))
         {
 
-              Debug.Log("collided obj: " + hit.transform.name);
+             // Debug.Log("collided obj: " + hit.transform.name);
         }
         float distance = hit.distance;
-        Debug.Log("distance: " + (distance - groundRefOffset));
+        //Debug.Log("distance: " + (distance - groundRefOffset));
         distanceToGround =  Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }
 
