@@ -12,6 +12,9 @@ public class CharacterCombat : MonoBehaviour
     public float attackDelay = 0.6f;
     const float combatCooldown = 5;
     float lastAttackTime;
+    public bool SpecialActivated = false;
+    public int count = 0;
+    
 
     // Max distance from the opponent to be able damage it
     public float attackDistance;

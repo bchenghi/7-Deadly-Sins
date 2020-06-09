@@ -1,0 +1,55 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ArmorBoost : Skill, IUsable
+{
+    public Sprite Image
+    {
+        get { return Icon; }
+        set { return; }
+    }
+
+    public void Use()
+    {
+        if (isCoolingDown)
+        {
+            return;
+        }
+        StartCoroutine(IncreaseArmorRountine());
+    }
+
+    IEnumerator IncreaseArmorRountine()
+    {
+        // Start cooldown routine
+        StartCoroutine(CoolDownRoutine());
+        PlayerManager.instance.player.GetComponent<PlayerStats>().armor.AddModifier(10 * skillLevel);
+        PlayerManager.instance.player.GetComponent<PlayerController>().walkSpeed -= 1;
+        PlayerManager.instance.player.GetComponent<PlayerController>().runSpeed -= 3;
+        yield return new WaitForSeconds(5);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().armor.RemoveModifier(10 * skillLevel);
+        PlayerManager.instance.player.GetComponent<PlayerController>().walkSpeed += 1;
+        PlayerManager.instance.player.GetComponent<PlayerController>().runSpeed += 3;
+    }
+    
+    IEnumerator CoolDownRoutine()
+    {
+        isCoolingDown = true;
+        yield return new WaitForSeconds(CooldownTime);
+        isCoolingDown = false;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Description = "Increases players armor by 10 * skill Level but decreases walkspeed by 1 and runspeed by 3 for 5 seconds";
+        MaxSkillLevel = 3;
+        //systems = effect.GetComponentsInChildren<ParticleSystem>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
