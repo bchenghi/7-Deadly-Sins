@@ -23,7 +23,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (mouseCurrentlyHere)
         {
-            if (stringToShow != null)
+            if (stringToShow != "")
             {
                 toolTip.ShowToolTip(stringToShow);
                 CheckSlot();
@@ -66,41 +66,52 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         else if (UISlot is InventorySlot)
         {
             item = ((InventorySlot)UISlot).item;
+        } else if (UISlot is ShopSlot) 
+        {
+            item = ((ShopSlot) UISlot).item;
         }
         stringToShow = StatsString(item);
     }
 
 
-    // Returns a string to be displayed on tooltip, null if argument is null, or argument is neither equipment nor item
+    // Returns a string to be displayed on tooltip, empty string if argument is null,
+    // or argument is neither equipment, consumable nor item
     string StatsString(Item item)
     {
+        StringBuilder result;
         if (item is Equipment)
         {
-            return EquipmentStatsString((Equipment)item);
+            result = new StringBuilder(EquipmentStatsString((Equipment)item));
         }
         else if (item is Consumables)
         {
-            return ConsumableStatsString((Consumables)item);
+            result = new StringBuilder(ConsumableStatsString((Consumables)item));
         }
         else if (item is Item)
         {
-            return ItemStatsString(item);
+            result = new StringBuilder(ItemStatsString(item));
         }
         else
         {
-            return null;
+            result =  new StringBuilder();
         }
+
+        if (UISlot is ShopSlot && item != null)
+            result.AppendLine().Append(PriceString(item));
+
+        return result.ToString();
     }
 
     // Returns string of equipment stats, return null if equipment is null
     string EquipmentStatsString(Equipment equipment)
     {
+        StringBuilder str = new StringBuilder();
         if (equipment != null)
         {
             string name = equipment.name;
             int armorModifier = equipment.armorModifier;
             int damageModifier = equipment.damageModifier;
-            StringBuilder str = new StringBuilder();
+
             str.Append(name).AppendLine();
             str.Append("<color=green>Armor Modifier: ").Append(armorModifier).Append("</color>").AppendLine();
             str.Append("<color=red>Damage Modifier: ").Append(damageModifier).Append("</color>");
@@ -116,6 +127,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Returns name of item, null if item is null
     string ItemStatsString(Item item)
     {
+        StringBuilder str = new StringBuilder();
         if (item != null)
             return item.name;
 
@@ -140,5 +152,19 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             return null;
         }
 
+    }
+
+    string PriceString(Item item) {
+        StringBuilder str = new StringBuilder();
+        if (item != null) 
+        {
+            str.Append("<color=yellow>Price: ").Append(item.GetPrice()).Append("</color>");
+        } 
+        else 
+        {
+            return null;
+        }
+
+        return str.ToString();
     }
 }

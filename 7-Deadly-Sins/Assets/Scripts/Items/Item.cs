@@ -16,5 +16,7 @@ public class Item : ScriptableObject
         Inventory.instance.Remove(this);
     }
 
-   
+   public virtual int GetPrice() {
+       return 0;
+   }
 }
