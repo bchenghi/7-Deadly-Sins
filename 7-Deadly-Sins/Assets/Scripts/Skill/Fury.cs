@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Fury : Skill, IUsable
 {
+ 
+
     public Sprite Image
     {
         get { return Icon; }
@@ -18,10 +21,26 @@ public class Fury : Skill, IUsable
             return;
         }
         // Increase Bonus Damage
+        //effect.transform.position = PlayerManager.instance.player.transform.position;
         StartCoroutine(IncreaseDamageRountine());
+        //StartCoroutine(StartEffect());
 
 
     }
+
+    /*IEnumerator StartEffect()
+    {
+        foreach(ParticleSystem ps in systems)
+        {
+            ps.Play();
+        }
+        yield return new WaitForSeconds(2);
+        foreach (ParticleSystem ps in systems)
+        {
+            ps.Stop();
+        }
+    }
+    */
 
     IEnumerator IncreaseDamageRountine()
     {
@@ -43,7 +62,8 @@ public class Fury : Skill, IUsable
     void Start()
     {
         Description = "Increases players damage by 5 * skill Level for 5 seconds";
-        MaxSkillLevel = 5;
+        MaxSkillLevel = 3;
+        //systems = effect.GetComponentsInChildren<ParticleSystem>();
     }
 
 }

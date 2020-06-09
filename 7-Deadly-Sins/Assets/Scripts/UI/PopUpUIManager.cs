@@ -7,12 +7,16 @@ public class PopUpUIManager : MonoBehaviour
     GameObject inventoryUI;
     GameObject equipmentUI;
     public GameObject skillTreeUI;
-    Vector3 SkillTreeCurrentPosition;
+    Vector3 ResetSize;
+    Vector3 currentSize;
     void Start()
     {
         inventoryUI = GetComponent<InventoryUI>().inventoryUI;
         equipmentUI = GetComponent<EquipmentUI>().equipmentUI;
-        SkillTreeCurrentPosition= skillTreeUI.transform.position;
+        ResetSize = new Vector3(0,0,0);
+        currentSize = new Vector3(0.7f ,0.8f, 1.0f);
+        skillTreeUI.transform.localScale = ResetSize;
+        
     }
 
     // Update is called once per frame
@@ -30,14 +34,14 @@ public class PopUpUIManager : MonoBehaviour
         }
         if (Input.GetButtonDown("skillTree"))
         {
-            
 
-            if (skillTreeUI.transform.position != SkillTreeCurrentPosition)
+            if (skillTreeUI.transform.localScale != currentSize)
             {
-                skillTreeUI.transform.position = SkillTreeCurrentPosition;
+               
+                skillTreeUI.transform.localScale = currentSize;
             } else
             {
-                skillTreeUI.transform.position = new Vector3(100, skillTreeUI.transform.position.y, skillTreeUI.transform.position.z);
+                skillTreeUI.transform.localScale = ResetSize;
             }
             
             
