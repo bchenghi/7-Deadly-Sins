@@ -33,7 +33,8 @@ public class ShopCamera : MonoBehaviour
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 1f, false);
-            if (Physics.Raycast(ray, out hit)) {
+            int UILayer = LayerMask.NameToLayer("UI");
+            if (Physics.Raycast(ray, out hit, 10000, ~UILayer)) {
                 Debug.Log(hit.transform.name);
                 int indexOfMesh = IndexOfMesh(hit.transform.name);
                 Debug.Log("name: " + hit.transform.name + " index of mesh: " + indexOfMesh);
