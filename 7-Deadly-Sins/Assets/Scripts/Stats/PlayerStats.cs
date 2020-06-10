@@ -5,10 +5,17 @@ using UnityEngine.Analytics;
 
 public class PlayerStats : CharacterStats
 {
+    public int maxMana = 100;
+    public PlayerManaUI playerManaUI;
+    public int currentMana { get; private set; }
+
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        currentMana = maxMana;
+        playerManaUI.SetMaxMana(maxMana);
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
     }
 
@@ -36,5 +43,27 @@ public class PlayerStats : CharacterStats
         PlayerManager.instance.KillPlayer();
     }
 
+
+    public void DecreaseMana(int reduce)
+    {
+        if (reduce > currentMana)
+        {
+            Debug.Log("Not enough Mana");
+        } else
+        {
+            currentMana -= reduce;
+            currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+            playerManaUI.SetMana(currentMana);
+
+        }
+        
+
+    }
+
+    public void IncreaseMana(int increase)
+    {
+        currentMana += increase;
+        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+    }
 
 }

@@ -27,7 +27,8 @@ public class SmashDown : Skill, IUsable
 
 
    
-
+    //Starts the cooldown and add a modifier to player damage. sets a buffer time, activates player combat 
+    // If after buffer time is over, no attack is allowed.
     IEnumerator attackWithinTime()
     {
         StartCoroutine(CoolDownRoutine());
