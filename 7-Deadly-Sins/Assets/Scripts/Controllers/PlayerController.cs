@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float airControlPercent;
 
 
+    public bool running = false;
+    public bool isSlowed = false;
     // animation
     bool falling = false;
     // True when squatting part in jump anim is over and is in the air. Set to false when falling or landing.
@@ -92,7 +94,20 @@ public class PlayerController : MonoBehaviour
 
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             Vector2 inputDir = input.normalized;
-            bool running = Input.GetKey(KeyCode.LeftShift);
+            if (isSlowed == false)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    running = true;
+                }
+                else if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+                    running = false;
+                }
+            } else
+            {
+                running = false;
+            }
 
             Move(inputDir, running);
 

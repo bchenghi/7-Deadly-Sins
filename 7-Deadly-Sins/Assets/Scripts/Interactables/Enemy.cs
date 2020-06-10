@@ -21,9 +21,10 @@ public class Enemy : Interactable
 
         if (playerCombat != null && myStats.currentHealth > 0)
         {
-
+            //if there is a special being used
             if (playerCombat.SpecialActivated == true)
             {
+                //only nextattack is recorded
                 if (playerCombat.count == 0)
                 {
                     playerCombat.count++;
@@ -42,6 +43,7 @@ public class Enemy : Interactable
         }
     }
 
+    //buffer for special to be used.
     IEnumerator AnimationBufferForSmashDown()
     {
         yield return new WaitForSeconds(4);
