@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public GameObject distanceFromGroundReference;
     // Distance to subtract from height from reference to ground, as the reference is above ground level 
     // (value needs specific adjustment)
-    float groundRefOffset = 0.384f;
+    float groundRefOffset = 0.63f;
     bool isGrounded;
 
     public float turnSmoothTime = 0.2f;
@@ -165,8 +165,8 @@ public class PlayerController : MonoBehaviour
         {
             velocityY = 0;
         }
-        //Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-        //Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
+        Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
+        Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
