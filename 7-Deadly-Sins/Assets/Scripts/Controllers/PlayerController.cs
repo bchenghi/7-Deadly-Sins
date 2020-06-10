@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     // Distance above ground to trigger landing animation (needs specific adjustment based on anim)
     float distanceAboveGroundTriggerLandAnim = 0.7f;
     // Max distance the player is above the ground to count as grounded
-    float groundedDistance = 0.1f;
+    float groundedDistance = 0.15f;
     //Reference object distance to ground is measured from
     public GameObject distanceFromGroundReference;
     // Distance to subtract from height from reference to ground, as the reference is above ground level 

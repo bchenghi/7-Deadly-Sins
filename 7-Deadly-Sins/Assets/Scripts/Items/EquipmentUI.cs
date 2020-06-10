@@ -11,12 +11,15 @@ public class EquipmentUI : MonoBehaviour
     EquipmentManager equipmentManager;
     EquipmentUISlot[] equipmentSlots;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Awake() {
         equipmentManager = EquipmentManager.instance;
         equipmentManager.onEquipmentChanged += UpdateUI;
         equipmentSlots = equipmentParent.GetComponentsInChildren<EquipmentUISlot>();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     // Clears slot that belonged to oldEquipment and adds newEquipment to the Equipment UI
