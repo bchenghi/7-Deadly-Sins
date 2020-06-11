@@ -15,7 +15,7 @@ public class CharacterAnimator : MonoBehaviour
     protected Animator animator;
     protected CharacterCombat combat;
     protected CharacterStats stats;
-    protected AnimatorOverrideController overrideContoller;
+    public AnimatorOverrideController overrideContoller;
     
 
 

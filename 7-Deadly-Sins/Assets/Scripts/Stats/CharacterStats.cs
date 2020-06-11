@@ -13,7 +13,7 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
     public event System.Action takenDamage;
 
-    CharacterCombat combat;
+    protected CharacterCombat combat;
 
     protected virtual void Start()
     {
@@ -55,7 +55,7 @@ public class CharacterStats : MonoBehaviour
             OnHealthChanged(maxHealth, currentHealth);
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !combat.dead)
         {
 
             Die();

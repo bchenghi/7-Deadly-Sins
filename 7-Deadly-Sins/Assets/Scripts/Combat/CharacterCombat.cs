@@ -58,8 +58,7 @@ public class CharacterCombat : MonoBehaviour
                 }
 
                 attackCooldown = 1f / attackSpeed;
-                InCombat = true;
-                lastAttackTime = Time.time;
+                SetInCombat();
             }
         }
     }
@@ -77,5 +76,11 @@ public class CharacterCombat : MonoBehaviour
         {
             InCombat = false;
         }
+    }
+
+    public void SetInCombat() 
+    {
+        InCombat = true;
+        lastAttackTime = Time.time;
     }
 }

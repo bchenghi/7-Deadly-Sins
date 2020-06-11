@@ -180,8 +180,8 @@ public class PlayerController : MonoBehaviour
         {
             velocityY = 0;
         }
-        Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-        Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
+        // Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
+        // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour
     void FallAnim()
     {
         if (distanceToGround >= distanceAboveGroundTriggerFallAnim && (velocityY < 0) && 
-            !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall")) // and maybe duration player falling
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall"))
         {
             jumpAnimStart = false;
             falling = true;
