@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Stamina : MonoBehaviour
 {
-    public PlayerController player;
+    PlayerController player;
     private const int MAX_STAMINA = 100;
     private float stamina;
     private float staminaRegen;
@@ -28,7 +28,7 @@ public class Stamina : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(stamina);
+        //Debug.Log(stamina);
         if (stamina <= 0.1)
         {
             StartCoroutine(WalkBuffer());

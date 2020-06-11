@@ -659,6 +659,162 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3d70b3ea5f25c9847a73471a78acbda5, type: 3}
+--- !u!1 &12664353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12664354}
+  - component: {fileID: 12664356}
+  - component: {fileID: 12664355}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &12664354
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12664353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -83.2, y: 30}
+  m_SizeDelta: {x: 176.47061, y: 40.418953}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &12664355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12664353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 25
+  m_fontSizeBase: 25
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_textAlignment: 257
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 12664355}
+    characterCount: 0
+    spriteCount: 0
+    spaceCount: 0
+    wordCount: 0
+    linkCount: 0
+    lineCount: 0
+    pageCount: 0
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &12664356
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12664353}
+  m_CullTransparentMesh: 0
 --- !u!1001 &15565604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2943,15 +3099,15 @@ RectTransform:
   m_GameObject: {fileID: 154243484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4606056, y: 1.0875, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1464792652}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.8, y: -2.4}
-  m_SizeDelta: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154243486
 MonoBehaviour:
@@ -8525,7 +8681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -185.6, y: -2.5}
+  m_AnchoredPosition: {x: -179, y: -2.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451417368
@@ -11300,11 +11456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8d914ddd3bca345b5227b265f1feb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   Icon: {fileID: 21300000, guid: dc092c9f7adbd1e4f81054bcb4d529ef, type: 3}
   skillLevel: 2
   isCoolingDown: 0
   CooldownTime: 10
-  ManaCost: 0
+  ManaCost: 15
   Description: 
   MaxSkillLevel: 0
 --- !u!1001 &564658303
@@ -16948,11 +17105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8d914ddd3bca345b5227b265f1feb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   Icon: {fileID: 21300000, guid: efc1d3e46ac672b49a91ee406ff5a624, type: 3}
   skillLevel: 3
   isCoolingDown: 0
   CooldownTime: 10
-  ManaCost: 0
+  ManaCost: 20
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &801482466 stripped
@@ -20740,11 +20898,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8d914ddd3bca345b5227b265f1feb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   Icon: {fileID: 21300000, guid: 1b7d3a0f839de614e99bf27669e33281, type: 3}
   skillLevel: 1
   isCoolingDown: 0
   CooldownTime: 10
-  ManaCost: 0
+  ManaCost: 10
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &978840558 stripped
@@ -21015,11 +21174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41128e5f4d25ec44b4c80510b940741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   Icon: {fileID: 21300000, guid: e295b14d43154a147b0c9f5a4df27c42, type: 3}
   skillLevel: 3
   isCoolingDown: 0
   CooldownTime: 10
-  ManaCost: 0
+  ManaCost: 20
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -26402,15 +26562,15 @@ RectTransform:
   m_GameObject: {fileID: 1273658936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4606056, y: 1.0875, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1464792652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -8.799973, y: -2.3999593}
-  m_SizeDelta: {x: -0.000045776367, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273658938
 MonoBehaviour:
@@ -30728,7 +30888,7 @@ RectTransform:
   m_GameObject: {fileID: 1464792651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.97515625, y: 1, z: 1}
   m_Children:
   - {fileID: 1273658937}
   - {fileID: 154243485}
@@ -30736,10 +30896,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 21, y: 24.36}
-  m_SizeDelta: {x: -219.35492, y: -159.60449}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11.878, y: 24.36}
+  m_SizeDelta: {x: 269.04816, y: 24.395508}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464792653
 MonoBehaviour:
@@ -35579,6 +35739,7 @@ MonoBehaviour:
   jumpHeight: 1
   airControlPercent: 0
   running: 0
+  isSlowed: 0
   distanceFromGroundReference: {fileID: 0}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
@@ -37047,11 +37208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41128e5f4d25ec44b4c80510b940741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   Icon: {fileID: 21300000, guid: ece86b58679621544b351b1f09844b25, type: 3}
   skillLevel: 2
   isCoolingDown: 0
   CooldownTime: 10
-  ManaCost: 0
+  ManaCost: 15
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -41253,11 +41415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41128e5f4d25ec44b4c80510b940741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 1578187404483420162}
   Icon: {fileID: 21300000, guid: 8740ea985216e7f4bb6b0dc0d49f0ab6, type: 3}
   skillLevel: 1
   isCoolingDown: 0
   CooldownTime: 10
-  ManaCost: 0
+  ManaCost: 10
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -48109,6 +48272,7 @@ MonoBehaviour:
   jumpHeight: 1
   airControlPercent: 0
   running: 0
+  isSlowed: 0
   distanceFromGroundReference: {fileID: 931923414}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
@@ -48154,8 +48318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4132607213c9748933a76f4b2bca86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   CanRegen: 0
+  onlyWalk: 0
 --- !u!1 &1580712431801797218
 GameObject:
   m_ObjectHideFlags: 0
@@ -51217,6 +51381,7 @@ MonoBehaviour:
   jumpHeight: 1
   airControlPercent: 0
   running: 0
+  isSlowed: 0
   distanceFromGroundReference: {fileID: 0}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1

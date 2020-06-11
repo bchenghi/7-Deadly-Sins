@@ -14,14 +14,16 @@ public class Fury : Skill, IUsable
     }
     
 
-    public void Use()
+    public override void Use()
     {
-        if (isCoolingDown)
+        
+        if (isCoolingDown || !EnoughMana())
         {
             return;
         }
         // Increase Bonus Damage
         //effect.transform.position = PlayerManager.instance.player.transform.position;
+        base.Use();
         StartCoroutine(IncreaseDamageRountine());
         //StartCoroutine(StartEffect());
 
@@ -59,8 +61,9 @@ public class Fury : Skill, IUsable
     }
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         Description = "Increases players damage by 5 * skill Level for 5 seconds";
         MaxSkillLevel = 3;
         //systems = effect.GetComponentsInChildren<ParticleSystem>();

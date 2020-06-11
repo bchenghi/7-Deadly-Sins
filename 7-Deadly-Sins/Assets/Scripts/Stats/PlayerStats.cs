@@ -7,16 +7,19 @@ public class PlayerStats : CharacterStats
 {
     public int maxMana = 100;
     public PlayerManaUI playerManaUI;
-    public int currentMana { get; private set; }
+    public int CurrentMana { get; private set; }
+
+    public int SkillPoints { get; private set; }
 
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        currentMana = maxMana;
+        CurrentMana = maxMana;
         playerManaUI.SetMaxMana(maxMana);
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
+        SetInitialPoints(2);
     }
 
     
@@ -46,14 +49,14 @@ public class PlayerStats : CharacterStats
 
     public void DecreaseMana(int reduce)
     {
-        if (reduce > currentMana)
+        if (reduce > CurrentMana)
         {
             Debug.Log("Not enough Mana");
         } else
         {
-            currentMana -= reduce;
-            currentMana = Mathf.Clamp(currentMana, 0, maxMana);
-            playerManaUI.SetMana(currentMana);
+            CurrentMana -= reduce;
+            CurrentMana = Mathf.Clamp(CurrentMana, 0, maxMana);
+            playerManaUI.SetMana(CurrentMana);
 
         }
         
@@ -62,8 +65,25 @@ public class PlayerStats : CharacterStats
 
     public void IncreaseMana(int increase)
     {
-        currentMana += increase;
-        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+        CurrentMana += increase;
+        CurrentMana = Mathf.Clamp(CurrentMana, 0, maxMana);
+    }
+
+    public void SetInitialPoints(int amount)
+    {
+        SkillPoints = amount;
+    }
+
+    public void IncreaseSkillPoints(int amount)
+    {
+        SkillPoints += amount;
+    }
+
+    public void DecreaseSkillPoints()
+    {
+        SkillPoints -= 1;
+        SkillPoints = Mathf.Clamp(SkillPoints, 0, int.MaxValue);
+        Debug.Log(SkillPoints + "left");
     }
 
 }

@@ -10,12 +10,14 @@ public class ArmorBoost : Skill, IUsable
         set { return; }
     }
 
-    public void Use()
+    public override void Use()
     {
-        if (isCoolingDown)
+        
+        if (isCoolingDown || !EnoughMana())
         {
             return;
         }
+        base.Use();
         StartCoroutine(IncreaseArmorRountine());
     }
 
@@ -40,8 +42,9 @@ public class ArmorBoost : Skill, IUsable
     }
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         Description = "Increases players armor by 10 * skill Level but decreases walkspeed by 1 and runspeed by 3 for 5 seconds";
         MaxSkillLevel = 3;
         //systems = effect.GetComponentsInChildren<ParticleSystem>();
