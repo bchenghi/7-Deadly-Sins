@@ -6,14 +6,19 @@ public class PickUpDialogueTrigger : MonoBehaviour
 {
     ITrigger trigger;
     public GameObject item;
+    bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
         trigger = GetComponent<ITrigger>();
     }
 
-    public void OnTriggerExit(Collider collider) {
-        if (collider.name == item.name)
+    void Update() {
+        if (item == null && !triggered) {
             trigger.Trigger();
+            triggered = true;
+        }
     }
+
+
 }

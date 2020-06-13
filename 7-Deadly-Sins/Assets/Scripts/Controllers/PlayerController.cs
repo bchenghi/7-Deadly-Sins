@@ -132,8 +132,9 @@ public class PlayerController : MonoBehaviour
                 Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
                 RaycastHit hit;
-                int playerLayerMask = LayerMask.GetMask("Player");
-                if (Physics.Raycast(ray, out hit, 100, ~playerLayerMask))
+                //int playerLayerMask = LayerMask.GetMask("Player");
+                int interactableMask = LayerMask.GetMask("Interactable");
+                if (Physics.Raycast(ray, out hit, 100, interactableMask))
                 {
                     Debug.Log("ray hit " + hit.transform.name);
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
