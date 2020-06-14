@@ -30,8 +30,8 @@ public class ArmorBoostLvl2 : Skill, IUsable
         PlayerManager.instance.player.GetComponent<PlayerStats>().armor.AddModifier(10 * skillLevel);
         PlayerManager.instance.player.GetComponent<PlayerController>().walkSpeed -= 1;
         PlayerManager.instance.player.GetComponent<PlayerController>().runSpeed -= 3;
-        PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(1, 5);
-        PlayerManager.instance.player.GetComponent<EffectHandler>().effectNum = 1;
+        PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(4, 5);
+        PlayerManager.instance.player.GetComponent<EffectHandler>().effectNum = 4;
         PlayerManager.instance.player.GetComponent<EffectHandler>().effectOnAndFollow = true;
         
         yield return new WaitForSeconds(5);
