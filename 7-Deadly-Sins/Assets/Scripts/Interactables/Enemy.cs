@@ -29,7 +29,7 @@ public class Enemy : Interactable
                 {
                     playerCombat.count++;
                     playerCombat.Attack(myStats);
-                    StartCoroutine(AnimationBufferForSkill(4));
+                    StartCoroutine(AnimationBufferForSmashDown());
                 }
             } else
             {
@@ -42,11 +42,11 @@ public class Enemy : Interactable
 
         }
     }
-    
-    //buffer for special to be used. So that specialActivated remains true when animation is playing
-    IEnumerator AnimationBufferForSkill(int animationBuffer)
+
+    //buffer for special to be used.
+    IEnumerator AnimationBufferForSmashDown()
     {
-        yield return new WaitForSeconds(animationBuffer);
+        yield return new WaitForSeconds(4);
         playerManager.player.GetComponent<CharacterCombat>().SpecialActivated = false;
         playerManager.player.GetComponent<CharacterCombat>().count = 0;
 

@@ -6,7 +6,7 @@ public class SmashDown : Skill, IUsable
 {
     public bool nextAttackDone = true;
     GameObject player;
-    EffectHandler effectHandler;
+
     CharacterCombat combat;
     public Sprite Image
     {
@@ -37,9 +37,7 @@ public class SmashDown : Skill, IUsable
         playerStats.damage.AddModifier(currentDamage * skillLevel);
         nextAttackDone = false;
         combat.SpecialActivated = true;
-        effectHandler.SmashDownSwitches[0] = true;
         yield return new WaitForSeconds(5);
-        effectHandler.SmashDownSwitches[0] = false;
         playerStats.damage.RemoveModifier(currentDamage * skillLevel);
         nextAttackDone = true;
         combat.SpecialActivated = false;
@@ -58,7 +56,6 @@ public class SmashDown : Skill, IUsable
     {
         base.Start();
         player = PlayerManager.instance.player;
-        effectHandler = player.GetComponent<EffectHandler>();
         combat = player.GetComponent<CharacterCombat>();
         Description = "Deals a heavy strike, use within 5 seconds of cast";
         MaxSkillLevel = 3;

@@ -8,6 +8,7 @@ public class ParentCameraController : MonoBehaviour
     bool inventoryUIUsed = false;
     bool equipmentUIUsed = false;
     bool ChestUIUsed = false;
+    bool dialogueBoxOn = false;
     
     public bool changeTransparency;
     public SkinnedMeshRenderer targetRenderer;
@@ -37,6 +38,7 @@ public class ParentCameraController : MonoBehaviour
     public GameObject equipmentUI;
     public GameObject chestInventory;
     public GameObject SkillTreeUI;
+    public GameObject dialogueBox;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +57,8 @@ public class ParentCameraController : MonoBehaviour
     void LateUpdate()
     {
         if ((inventoryUIUsed = inventoryUI.activeSelf) || (equipmentUIUsed = equipmentUI.activeSelf)
-            || (ChestUIUsed = chestInventory.activeSelf) || (SkillTreeUI.transform.localScale != new Vector3(0, 0, 0)))
+            || (ChestUIUsed = chestInventory.activeSelf) || (SkillTreeUI.transform.localScale != new Vector3(0, 0, 0))
+            || (dialogueBoxOn = dialogueBox.activeSelf))
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -64,7 +67,7 @@ public class ParentCameraController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        if (!inventoryUIUsed && !equipmentUIUsed)
+        if (!inventoryUIUsed && !equipmentUIUsed && !dialogueBoxOn)
         {
             yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
             pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ArmorBoost : Skill, IUsable
 {
-
-   
     public Sprite Image
     {
         get { return Icon; }
@@ -30,12 +28,12 @@ public class ArmorBoost : Skill, IUsable
         PlayerManager.instance.player.GetComponent<PlayerStats>().armor.AddModifier(10 * skillLevel);
         PlayerManager.instance.player.GetComponent<PlayerController>().walkSpeed -= 1;
         PlayerManager.instance.player.GetComponent<PlayerController>().runSpeed -= 3;
+
         PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(3, 5);
         PlayerManager.instance.player.GetComponent<EffectHandler>().effectNum = 3;
         PlayerManager.instance.player.GetComponent<EffectHandler>().effectOnAndFollow = true;
         
         yield return new WaitForSeconds(5);
-        PlayerManager.instance.player.GetComponent<EffectHandler>().effectOnAndFollow = false;
         PlayerManager.instance.player.GetComponent<PlayerStats>().armor.RemoveModifier(10 * skillLevel);
         PlayerManager.instance.player.GetComponent<PlayerController>().walkSpeed += 1;
         PlayerManager.instance.player.GetComponent<PlayerController>().runSpeed += 3;
@@ -55,7 +53,6 @@ public class ArmorBoost : Skill, IUsable
         Description = "Increases players armor by 10 * skill Level but decreases walkspeed by 1 and runspeed by 3 for 5 seconds";
         MaxSkillLevel = 3;
         //systems = effect.GetComponentsInChildren<ParticleSystem>();
-        
     }
 
     // Update is called once per frame

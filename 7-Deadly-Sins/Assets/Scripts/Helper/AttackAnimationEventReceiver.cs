@@ -8,10 +8,11 @@ public class AttackAnimationEventReceiver : MonoBehaviour
 
     private void Start()
     {
-        combat = GetComponent<CharacterCombat>();
+        combat = GetComponentInParent<CharacterCombat>();
     }
     public void AttackHitEvent()
     {
+        Debug.Log("attack event receievd");
         combat.AttackHit_AnimationEvent();
     }
 }

@@ -49,11 +49,7 @@ public class Fury : Skill, IUsable
         // Start cooldown routine
         StartCoroutine(CoolDownRoutine());
         PlayerManager.instance.player.GetComponent<PlayerStats>().damage.AddModifier(5 * skillLevel);
-        PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(6, 5);
-        PlayerManager.instance.player.GetComponent<EffectHandler>().effectNum = 6;
-        PlayerManager.instance.player.GetComponent<EffectHandler>().effectOnAndFollow = true;
         yield return new WaitForSeconds(5);
-        PlayerManager.instance.player.GetComponent<EffectHandler>().effectOnAndFollow = false;
         PlayerManager.instance.player.GetComponent<PlayerStats>().damage.RemoveModifier(5 * skillLevel);
     }
 

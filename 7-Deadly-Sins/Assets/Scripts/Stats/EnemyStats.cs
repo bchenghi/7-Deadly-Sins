@@ -11,8 +11,10 @@ public class EnemyStats : CharacterStats
         base.Die();
 
         // Add ragdoll/loot
-        Instantiate(lootDrop, transform.position, Quaternion.identity);
+        if (lootDrop != null)
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
 
         Destroy(gameObject, 5);
     }
+
 }
