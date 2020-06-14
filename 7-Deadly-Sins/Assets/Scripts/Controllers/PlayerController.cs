@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         cam = Camera.main;
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
@@ -177,12 +177,12 @@ public class PlayerController : MonoBehaviour
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
 
 
-        if (isGrounded && !jumpAnimStart)
+        if (isGrounded && !jumping)
         {
             velocityY = 0;
         }
-        //Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-        //Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
+        // Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
+        // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
@@ -296,15 +296,15 @@ public class PlayerController : MonoBehaviour
     // Sets distance to mesh collider below player in variable distanceToGround
     void SetDistanceToGround()
     {
+        int ignoreRaycastLayerMask = LayerMask.GetMask("Ignore Raycast");
         RaycastHit hit;
-
         if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
             new Vector3(controller.radius * 0.5f,  0.01f, controller.radius * 0.5f),
-            -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100))
+            -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100, ~ignoreRaycastLayerMask))
         {
 
 
-             // Debug.Log("collided obj: " + hit.transform.name);
+            // Debug.Log("collided obj: " + hit.transform.name);
 
         }
         float distance = hit.distance;

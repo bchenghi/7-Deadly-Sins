@@ -10,7 +10,7 @@ public class TutorialEnemyAnimator : CharacterAnimator
     // Start is called before the first frame update
     protected override void Start()
     {
-        animator = transform.GetChild(0).GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         combat = GetComponent<CharacterCombat>();
         stats = GetComponent<CharacterStats>();
         

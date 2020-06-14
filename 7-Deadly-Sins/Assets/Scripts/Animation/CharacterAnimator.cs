@@ -23,7 +23,7 @@ public class CharacterAnimator : MonoBehaviour
     protected virtual void Start()
     {
 
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         combat = GetComponent<CharacterCombat>();
         stats = GetComponent<CharacterStats>();
         
