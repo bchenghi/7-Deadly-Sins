@@ -27,7 +27,6 @@ public class TutorialEnemyAnimator : CharacterAnimator
         stats.takenDamage += takenDamage;
         
         agent = GetComponent<NavMeshAgent>();
-        
     }
 
     // Update is called once per frame
