@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
     // Distance above ground to trigger landing animation (needs specific adjustment based on anim)
     float distanceAboveGroundTriggerLandAnim = 0.7f;
     // Max distance the player is above the ground to count as grounded
-    float groundedDistance = 0.1f;
+    float groundedDistance = 0.15f;
     //Reference object distance to ground is measured from
     public GameObject distanceFromGroundReference;
     // Distance to subtract from height from reference to ground, as the reference is above ground level 
     // (value needs specific adjustment)
-    float groundRefOffset = 0.384f;
+    float groundRefOffset = 0.63f;
     bool isGrounded;
 
     public float turnSmoothTime = 0.2f;
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         cam = Camera.main;
         cameraT = Camera.main.transform;
         controller = GetComponent<CharacterController>();
@@ -132,8 +132,9 @@ public class PlayerController : MonoBehaviour
                 Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
                 RaycastHit hit;
-                int playerLayerMask = LayerMask.GetMask("Player");
-                if (Physics.Raycast(ray, out hit, 100, ~playerLayerMask))
+                //int playerLayerMask = LayerMask.GetMask("Player");
+                int interactableMask = LayerMask.GetMask("Interactable");
+                if (Physics.Raycast(ray, out hit, 100, interactableMask))
                 {
                     Debug.Log("ray hit " + hit.transform.name);
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
@@ -176,12 +177,12 @@ public class PlayerController : MonoBehaviour
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
 
 
-        if (isGrounded && !jumpAnimStart)
+        if (isGrounded && !jumping)
         {
             velocityY = 0;
         }
-        //Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-        //Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
+        // Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
+        // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
@@ -217,7 +218,7 @@ public class PlayerController : MonoBehaviour
     void FallAnim()
     {
         if (distanceToGround >= distanceAboveGroundTriggerFallAnim && (velocityY < 0) && 
-            !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall")) // and maybe duration player falling
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall"))
         {
             jumpAnimStart = false;
             falling = true;
@@ -295,15 +296,15 @@ public class PlayerController : MonoBehaviour
     // Sets distance to mesh collider below player in variable distanceToGround
     void SetDistanceToGround()
     {
+        int ignoreRaycastLayerMask = LayerMask.GetMask("Ignore Raycast");
         RaycastHit hit;
-
         if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
             new Vector3(controller.radius * 0.5f,  0.01f, controller.radius * 0.5f),
-            -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100))
+            -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100, ~ignoreRaycastLayerMask))
         {
 
 
-             // Debug.Log("collided obj: " + hit.transform.name);
+            // Debug.Log("collided obj: " + hit.transform.name);
 
         }
         float distance = hit.distance;

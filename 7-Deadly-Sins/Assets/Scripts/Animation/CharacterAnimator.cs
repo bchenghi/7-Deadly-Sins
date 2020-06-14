@@ -15,7 +15,7 @@ public class CharacterAnimator : MonoBehaviour
     protected Animator animator;
     protected CharacterCombat combat;
     protected CharacterStats stats;
-    protected AnimatorOverrideController overrideContoller;
+    public AnimatorOverrideController overrideContoller;
     
 
 
@@ -23,7 +23,7 @@ public class CharacterAnimator : MonoBehaviour
     protected virtual void Start()
     {
 
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         combat = GetComponent<CharacterCombat>();
         stats = GetComponent<CharacterStats>();
         

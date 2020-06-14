@@ -11,6 +11,9 @@ public class EquipmentUI : MonoBehaviour
     EquipmentManager equipmentManager;
     EquipmentUISlot[] equipmentSlots;
 
+    void Awake() {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
