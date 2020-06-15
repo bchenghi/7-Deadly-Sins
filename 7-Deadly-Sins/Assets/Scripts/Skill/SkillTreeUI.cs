@@ -22,6 +22,7 @@ public class SkillTreeUI : MonoBehaviour
     public Button button1;
     public Button button2;
     public Button button3;
+    public Button button4;
 
 
     public GameObject Counter;
