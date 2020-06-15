@@ -14,12 +14,11 @@ public class StatUI : MonoBehaviour
     protected virtual void Start()
     {
         playerStats = PlayerManager.instance.player.GetComponent<CharacterStats>();
-        EquipmentManager.instance.onEquipmentChanged += UpdateStatUI;
         displayText = GetComponentInChildren<Text>();
     }
 
     // When equipment is updated, text in display will be updated
-    public virtual void UpdateStatUI(Equipment newEquipment, Equipment oldEquipment)
+    public virtual void UpdateStatUI()
     {
     }
 

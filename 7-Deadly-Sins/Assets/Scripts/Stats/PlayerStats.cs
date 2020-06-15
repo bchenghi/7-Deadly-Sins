@@ -5,6 +5,7 @@ using UnityEngine.Analytics;
 
 public class PlayerStats : CharacterStats
 {
+    public StatUIManager statUIManager;
     public int maxMana = 100;
     public PlayerManaUI playerManaUI;
     public int CurrentMana { get; private set; }
@@ -38,6 +39,7 @@ public class PlayerStats : CharacterStats
             armor.RemoveModifier(oldItem.armorModifier);
             damage.RemoveModifier(oldItem.damageModifier);
         }
+        statUIManager.UpdateStatUIs();
     }
 
     public override void Die()

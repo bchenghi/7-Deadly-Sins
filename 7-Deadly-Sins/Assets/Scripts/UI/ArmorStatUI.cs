@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 // Gets armor stat from player, then displays in stat area in UI
 public class ArmorStatUI : StatUI
@@ -13,7 +14,7 @@ public class ArmorStatUI : StatUI
     }
 
     // When equipment is updated, text in display will be updated
-    public override void UpdateStatUI(Equipment newEquipment, Equipment oldEquipment)
+    public override void UpdateStatUI()
     {
         displayText.text = textEditor(playerStats.armor.GetValue().ToString());
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 // Gets damage stat from player, then displays in stat area in UI
 public class DamageStatUI : StatUI
@@ -14,7 +15,7 @@ public class DamageStatUI : StatUI
     }
 
     // When equipment is updated, text in display will be updated
-    public override void UpdateStatUI(Equipment newEquipment, Equipment oldEquipment)
+    public override void UpdateStatUI()
     {
         displayText.text = textEditor(playerStats.damage.GetValue().ToString());
     }
