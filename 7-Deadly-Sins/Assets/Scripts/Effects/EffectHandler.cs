@@ -10,6 +10,8 @@ public class EffectHandler : MonoBehaviour
     public int effectNum = 0; //refers to the effect number in hierachy
     public bool effectOnAndFollow = false; // set to on in skill script
     EffectsManager effectsManager;
+    Transform targetEnemy;
+    public bool targetHit = false;
     /*public void EffectEvent(int number)
     {
         effectsManager.EnableEffectObject(number);
@@ -32,9 +34,11 @@ public class EffectHandler : MonoBehaviour
                 Debug.Log(number);
                 StartCoroutine(SkillCoolDown(number, 6));
                 Transform effect = effectsManager.returnEffect(number);
+                Vector3 playerPos = transform.position;
+                Vector3 playerDirection = transform.forward;
+                float spawnDistance = 1;
                 effect.rotation = transform.rotation;
-                effect.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                break;
+                effect.position = playerPos + playerDirection * spawnDistance;
             }
         }
         
@@ -82,4 +86,47 @@ public class EffectHandler : MonoBehaviour
         Transform effect = effectsManager.returnEffect(effectNumber);
         effect.position = transform.position;
     }
+
+    public void EnableAndActivate(int effectNumber)
+    {
+        Transform effect = effectsManager.returnEffect(effectNumber);
+        effect.position = transform.position;
+        effectsManager.EnableEffectObject(effectNumber);
+        effectsManager.ActivateParticleSystem(effect);
+        
+    }
+
+    public void DisableAndDeactivate(int effectNumber)
+    {
+        effectsManager.DisableEffectObject(effectNumber);
+        Transform effect = effectsManager.returnEffect(effectNumber);
+        effectsManager.DeactivateParticleSystem(effect);
+    }
+
+    public void TargetEnemy(int effectNumber, Transform target)
+    {
+        
+        targetEnemy = target;
+        Transform effect = effectsManager.returnEffect(effectNumber);
+        if (targetEnemy != null)
+        {
+            Vector3 targetPos = new Vector3(targetEnemy.position.x, targetEnemy.position.y, targetEnemy.position.z);
+            effect.LookAt(targetPos);
+            float distanceTo = Vector3.Distance(targetEnemy.position, effect.position);
+
+            if (distanceTo > 0.3f)
+            {
+                effect.Translate(Vector3.forward * 2f * Time.deltaTime);
+            } else
+            {
+                targetHit = true;
+                DisableAndDeactivate(effectNumber);
+                Debug.Log("Target Hit by Spell");
+            }
+        }
+    }
+    
+
+
+    
 }

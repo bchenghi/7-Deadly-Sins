@@ -76,6 +76,11 @@ public class CharacterAnimator : MonoBehaviour
         
     }
 
+    public virtual void CastRangeSpell()
+    {
+        animator.SetTrigger("RangeSpell");
+    }
+
    
 
 }
