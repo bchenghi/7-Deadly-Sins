@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     LineRenderer lineRenderer;
 
-    Interactable focus;
+    public Interactable focus;
 
     float distanceToGround;
 

@@ -115,9 +115,5 @@ public class EffectsManager : MonoBehaviour
         DisableAll();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
