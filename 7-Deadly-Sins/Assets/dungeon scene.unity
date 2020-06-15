@@ -6637,7 +6637,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0.3
-  attackDelay: 3
   SpecialActivated: 0
   count: 0
   attackDistance: 0
@@ -13657,34 +13656,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 555787918}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &556950184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7657117452553139531, guid: 327d498b2b53f4f4f9d051db3b314149,
-    type: 3}
-  m_PrefabInstance: {fileID: 7657117452689801947}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &556950190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556950184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650ec2b6cecac30448399219a1d5514c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
-  Icon: {fileID: 21300000, guid: b537b66dd1c4c794fb6c36fbe9d815cc, type: 3}
-  skillLevel: 1
-  isCoolingDown: 0
-  CooldownTime: 1
-  ManaCost: 5
-  Description: 
-  MaxSkillLevel: 0
-  spellRadius: 10
-  target: {fileID: 0}
 --- !u!1 &557564826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1321917378138086, guid: 475b905fe3b32864fb3448b79d6bc815,
@@ -28774,11 +28745,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -43049,7 +43015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
-  attackDelay: 0.6
   SpecialActivated: 0
   count: 0
   attackDistance: 0
@@ -43070,6 +43035,7 @@ MonoBehaviour:
     baseValue: 5
   armor:
     baseValue: 0
+  statUIManager: {fileID: 0}
   maxMana: 100
   playerManaUI: {fileID: 0}
 --- !u!114 &1665286595
@@ -45590,12 +45556,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.98, z: 0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 209008544}
-  - {fileID: 159540201}
-  - {fileID: 723013661}
   - {fileID: 987863475}
   - {fileID: 89985756}
   - {fileID: 1683260113}
+  - {fileID: 209008544}
+  - {fileID: 159540201}
+  - {fileID: 723013661}
   - {fileID: 1740044099}
   - {fileID: 304512592}
   - {fileID: 1713130841}
@@ -53601,7 +53567,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0.2
-  attackDelay: 0.6
   SpecialActivated: 0
   count: 0
   attackDistance: 1
@@ -57626,6 +57591,7 @@ MonoBehaviour:
     baseValue: 5
   armor:
     baseValue: 5
+  statUIManager: {fileID: 0}
   maxMana: 100
   playerManaUI: {fileID: 1464792653}
 --- !u!114 &1578187404483420163
@@ -57641,7 +57607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
-  attackDelay: 0.6
   SpecialActivated: 0
   count: 0
   attackDistance: 2
@@ -61159,7 +61124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
-  attackDelay: 0.6
   SpecialActivated: 0
   count: 0
   attackDistance: 0
