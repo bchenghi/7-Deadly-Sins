@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class CharacterAnimator : MonoBehaviour
 {
+    public bool reactsToDamage = true;
     public AnimationClip replacebleAttackAnim;
     public AnimationClip[] defaultAttackAnimSet;
     protected AnimationClip[] currentAttackAnimSet;
@@ -66,7 +67,8 @@ public class CharacterAnimator : MonoBehaviour
 
     protected virtual void takenDamage()
     {
-        animator.SetTrigger("Hurt");
+        if (reactsToDamage)
+            animator.SetTrigger("Hurt");
     }
 
     public virtual void UseSpecial()

@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class DoorAOpen : MonoBehaviour
 {
+    // enemies to be killed before opening door
+    [SerializeField]
+    GameObject[] enemiesToKill;
 
-    // Use this for initialization
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (CheckOpenCondition()) {
+            DoorOpen();
+        } 
     }
-    void OnTriggerEnter(Collider other)
+
+    // Opens door
+    void DoorOpen()
     {
-        GetComponent<Animator>().SetTrigger("DoorATrigger");
+        GetComponent<Animator>().SetTrigger("DoorOpenTrigger");
+    }
+
+    // returns true if condition to open is met
+    bool CheckOpenCondition() {
+        bool open = true;
+        foreach (GameObject enemy in enemiesToKill) {
+            if (enemy != null) {
+                open = false;
+                break;
+            }
+        }
+        return open;
     }
 }
