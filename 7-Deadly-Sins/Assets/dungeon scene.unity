@@ -4603,7 +4603,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &184674795 stripped
 GameObject:
@@ -9365,10 +9365,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7843577106524940997, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577106665890153, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7843577107230063763, guid: c9670e7f84479334185881d152f19735,
         type: 3}
       propertyPath: m_Name
       value: Large Bottle_Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577107230063763, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577108294953383, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577108700790187, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9670e7f84479334185881d152f19735, type: 3}
@@ -9669,6 +9694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Body Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010255678869012270, guid: d0740299835959d4b9f146e8581fd4f9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7374919354434308838, guid: d0740299835959d4b9f146e8581fd4f9,
         type: 3}
@@ -11006,10 +11036,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7843577106524940997, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577106665890153, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7843577107230063763, guid: c9670e7f84479334185881d152f19735,
         type: 3}
       propertyPath: m_Name
       value: Large Bottle_Health (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577107230063763, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577108294953383, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843577108700790187, guid: c9670e7f84479334185881d152f19735,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9670e7f84479334185881d152f19735, type: 3}
@@ -16915,7 +16970,7 @@ GameObject:
   - component: {fileID: 681238681}
   - component: {fileID: 681238683}
   - component: {fileID: 681238682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leather Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17769,7 +17824,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &702441302 stripped
 GameObject:
@@ -18089,7 +18144,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18243,7 +18298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461022, guid: 97a5370926a5afe459de07335829d2d3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 461022, guid: 97a5370926a5afe459de07335829d2d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19297,7 +19352,7 @@ Transform:
   - {fileID: 1424574026}
   - {fileID: 70643909}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &765397516 stripped
 RectTransform:
@@ -21416,7 +21471,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1be8ece847607a941a3bb4fe66157aac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1be8ece847607a941a3bb4fe66157aac,
         type: 3}
@@ -21725,7 +21780,7 @@ Transform:
   m_Children:
   - {fileID: 471715819}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &886057305
 PrefabInstance:
@@ -22782,7 +22837,7 @@ PrefabInstance:
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
@@ -23480,10 +23535,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6325374533661765468, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535403486032, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535713880114, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535864169374, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015,
         type: 3}
       propertyPath: m_Name
       value: Small Bottle_Health (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
@@ -23498,6 +23578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Leg Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930607389965713566, guid: 30e61cf0d13c2fd4ba585dda039a694e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5987563980788060413, guid: 30e61cf0d13c2fd4ba585dda039a694e,
         type: 3}
@@ -25018,10 +25103,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4088801397974918544, guid: 04cf596a9b85abb4bb5e5d71c281bc1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088801398094868028, guid: 04cf596a9b85abb4bb5e5d71c281bc1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4088801398680007622, guid: 04cf596a9b85abb4bb5e5d71c281bc1c,
         type: 3}
       propertyPath: m_Name
       value: Medium Bottle_Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088801398680007622, guid: 04cf596a9b85abb4bb5e5d71c281bc1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088801399761676018, guid: 04cf596a9b85abb4bb5e5d71c281bc1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088801400163316478, guid: 04cf596a9b85abb4bb5e5d71c281bc1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04cf596a9b85abb4bb5e5d71c281bc1c, type: 3}
@@ -25359,7 +25469,7 @@ PrefabInstance:
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693,
         type: 3}
@@ -26000,7 +26110,7 @@ GameObject:
   - component: {fileID: 1024171254}
   - component: {fileID: 1024171256}
   - component: {fileID: 1024171255}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leather helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26425,7 +26535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044789915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Potions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26450,7 +26560,7 @@ Transform:
   - {fileID: 1759534941}
   - {fileID: 634599025}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1046570293 stripped
 RectTransform:
@@ -28741,7 +28851,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
         type: 3}
@@ -31442,7 +31552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461022, guid: 97a5370926a5afe459de07335829d2d3, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 461022, guid: 97a5370926a5afe459de07335829d2d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -31782,7 +31892,7 @@ RectTransform:
   - {fileID: 106418531}
   - {fileID: 805668860}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -33730,7 +33840,7 @@ Transform:
   m_LocalScale: {x: 0.43742, y: 0.43742, z: 0.43742}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1350970694
 PrefabInstance:
@@ -35490,7 +35600,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403044159
 MonoBehaviour:
@@ -35813,6 +35923,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637226677954896685, guid: bf60812916001f240aad3926eda7077a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf60812916001f240aad3926eda7077a, type: 3}
@@ -38122,6 +38237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Helmet '
       objectReference: {fileID: 0}
+    - target: {fileID: 2615240860461432700, guid: c42bb9809f8a9e8448e8ba229b90f83c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c42bb9809f8a9e8448e8ba229b90f83c, type: 3}
 --- !u!1001 &1511585474
@@ -39495,10 +39615,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6325374533661765468, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535403486032, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535713880114, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535864169374, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015,
         type: 3}
       propertyPath: m_Name
       value: Small Bottle_Health (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
@@ -42207,10 +42352,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6325374533661765468, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535403486032, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535713880114, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374535864169374, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015,
         type: 3}
       propertyPath: m_Name
       value: Small Bottle_Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
@@ -45567,7 +45737,7 @@ Transform:
   - {fileID: 1713130841}
   - {fileID: 8910854967077185757}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1734234738
 GameObject:
@@ -45676,7 +45846,7 @@ Transform:
   - {fileID: 1428396086}
   - {fileID: 1343032853}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1736483339
 PrefabInstance:
@@ -46197,7 +46367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1750219388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leather Armor PickUps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46220,7 +46390,7 @@ Transform:
   - {fileID: 1024171254}
   - {fileID: 681238681}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1751346595 stripped
 Transform:
@@ -48091,7 +48261,7 @@ Transform:
   - {fileID: 1642429913}
   - {fileID: 1164746374}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1838102958 stripped
 Transform:
@@ -51295,7 +51465,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1974717553
 PrefabInstance:
@@ -53237,6 +53407,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2031518574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2031518575}
+  m_Layer: 0
+  m_Name: TestObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2031518575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031518574}
+  m_LocalRotation: {x: -0.07639832, y: -0, z: -0, w: 0.9970774}
+  m_LocalPosition: {x: 0, y: 0.98, z: 0.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032875273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1321917378138086, guid: 475b905fe3b32864fb3448b79d6bc815,
@@ -53675,7 +53875,7 @@ GameObject:
   - component: {fileID: 2042306667}
   - component: {fileID: 2042306669}
   - component: {fileID: 2042306668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leather legs armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53889,7 +54089,7 @@ GameObject:
   - component: {fileID: 2059952552}
   - component: {fileID: 2059952554}
   - component: {fileID: 2059952553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leather body armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55972,7 +56172,7 @@ Transform:
   m_Children:
   - {fileID: 4855440651143252}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -2.877, y: -65.130005, z: 88.66701}
 --- !u!4 &13473982891619585
 Transform:
@@ -56087,7 +56287,7 @@ Transform:
   - {fileID: 8630732702960257771}
   - {fileID: 6676642262181870772}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33139005938877088
 MeshFilter:
@@ -59408,7 +59608,7 @@ Transform:
   - {fileID: 414564909}
   - {fileID: 931923415}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2584712732086614235
 GameObject:
@@ -62625,7 +62825,7 @@ Transform:
   - {fileID: 7098872}
   - {fileID: 1927347461}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5024423671918770532
 Transform:
