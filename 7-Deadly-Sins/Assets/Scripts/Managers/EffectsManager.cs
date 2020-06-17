@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectsManager : MonoBehaviour
 {
-
+    
 
     #region Singelton
 
@@ -27,7 +27,23 @@ public class EffectsManager : MonoBehaviour
 
     #endregion
     public GameObject EffectsPool;
+    public GameObject MichellenousEffects;
 
+
+    public Transform returnMichellenousEffects(int effectNumber)
+    {
+        int childCount = MichellenousEffects.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            if (i == effectNumber)
+            {
+                return MichellenousEffects.transform.GetChild(effectNumber);
+            }
+        }
+        return null;
+    }
+
+ 
     public Transform returnEffect(int number)
     {
         for (int i = 0; i < EffectsPool.transform.childCount; i++)
@@ -74,6 +90,7 @@ public class EffectsManager : MonoBehaviour
         {
             if (i == number)
             {
+                
                 EffectsPool.transform.GetChild(number).gameObject.SetActive(true);
                 
             }
@@ -81,6 +98,19 @@ public class EffectsManager : MonoBehaviour
 
         }
         
+    }
+
+    public void EnableMischellenousEffect(int number)
+    {
+        for (int i = 0; i < MichellenousEffects.transform.childCount; i++)
+        {
+            if (i == number)
+            {
+                MichellenousEffects.transform.GetChild(number).gameObject.SetActive(true);
+            }
+
+
+        }
     }
 
     public void DisableEffectObject(int number)
@@ -97,6 +127,20 @@ public class EffectsManager : MonoBehaviour
 
     }
 
+
+    public void DisableMischellenousEffect(int number)
+    {
+        for (int i = 0; i < MichellenousEffects.transform.childCount; i++)
+        {
+            if (i == number)
+            {
+                MichellenousEffects.transform.GetChild(number).gameObject.SetActive(false);
+            }
+
+
+        }
+    }
+
     public void DisableAll()
     {
         for (int i = 0; i < EffectsPool.transform.childCount; i++)
@@ -107,12 +151,21 @@ public class EffectsManager : MonoBehaviour
         }
     }
 
+    public void DisableAllMischellenous()
+    {
+        for (int i = 0; i < MichellenousEffects.transform.childCount; i++) 
+        {
+            MichellenousEffects.transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         DisableAll();
+        DisableAllMischellenous();
     }
 
     
