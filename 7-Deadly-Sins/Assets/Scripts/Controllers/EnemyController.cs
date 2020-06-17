@@ -11,19 +11,21 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
     CharacterCombat combat;
     Animator animator;
+    Vector3 originalPos;
    
 
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
         animator = GetComponentInChildren<Animator>();
+        originalPos = transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
@@ -43,10 +45,14 @@ public class EnemyController : MonoBehaviour
                 agent.SetDestination(target.position);
                 DecideOnChasing();
             }
+            else if (distance > lookRadius)
+            {
+                agent.SetDestination(originalPos);
+            }
         }
     }
 
-    void FaceTarget()
+    public void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
