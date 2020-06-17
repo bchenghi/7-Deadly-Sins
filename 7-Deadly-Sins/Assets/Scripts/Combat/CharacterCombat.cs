@@ -82,4 +82,9 @@ public class CharacterCombat : MonoBehaviour
         InCombat = true;
         lastAttackTime = Time.time;
     }
+
+    public Transform ReturnTargetTransform()
+    {
+        return opponentStats.transform;
+    }
 }

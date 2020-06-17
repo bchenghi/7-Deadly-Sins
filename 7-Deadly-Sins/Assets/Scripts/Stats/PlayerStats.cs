@@ -69,6 +69,8 @@ public class PlayerStats : CharacterStats
     {
         CurrentMana += increase;
         CurrentMana = Mathf.Clamp(CurrentMana, 0, maxMana);
+        playerManaUI.SetMana(CurrentMana);
+
     }
 
     public void SetInitialPoints(int amount)

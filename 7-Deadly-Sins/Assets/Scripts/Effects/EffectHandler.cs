@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
+using System.Threading;
 using UnityEngine;
 
 public class EffectHandler : MonoBehaviour
@@ -31,7 +33,7 @@ public class EffectHandler : MonoBehaviour
         {
             if (SmashDownSwitches[i] == true && number == i)
             {
-                Debug.Log(number);
+ 
                 StartCoroutine(SkillCoolDown(number, 6));
                 Transform effect = effectsManager.returnEffect(number);
                 Vector3 playerPos = transform.position;
@@ -125,6 +127,18 @@ public class EffectHandler : MonoBehaviour
             }
         }
     }
+
+    public void BloodEffectEvent(Transform targetPos, int effectNumber)
+    {
+        effectNumber = Random.Range(0, effectNumber);
+        effectsManager.EnableMischellenousEffect(effectNumber);
+        Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
+        effect.position = new Vector3(targetPos.position.x, targetPos.position.y + 0.7f, targetPos.position.z);
+        effectsManager.ActivateParticleSystem(effect);
+
+    }
+
+    
     
 
 

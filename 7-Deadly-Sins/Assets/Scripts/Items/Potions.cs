@@ -6,14 +6,30 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Potion", menuName = "Inventory/Consumable/Potion")]
 public class Potions : Consumables , IUsable
 {
+    PlayerStats playerStats;
+    public bool Health;
+    public bool Mana;
     
     public override void Use()
     {
+        Debug.Log(playerStats);
         base.Use();
-        increaseStats = 10;
-        PlayerManager.instance.player.GetComponent<CharacterStats>().IncreaseHealth(increaseStats);
+        if (Health)
+        {
+            PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseHealth(increaseStats);
+        } else
+        {
+
+            PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseMana(increaseStats);
+            
+        }
         RemoveFromInventory();
         
+    }
+
+    public void Start()
+    {
+        playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
     }
 
     public Sprite Image
