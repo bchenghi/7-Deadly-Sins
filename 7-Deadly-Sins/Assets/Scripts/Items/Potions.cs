@@ -6,41 +6,75 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Potion", menuName = "Inventory/Consumable/Potion")]
 public class Potions : Consumables , IUsable
 {
-    PlayerStats playerStats;
+    bool potUsed;
     public bool Health;
     public bool Mana;
     
     public override void Use()
     {
-        Debug.Log(playerStats);
-        base.Use();
         if (Health)
         {
-            PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseHealth(increaseStats);
+            potUsed = true;
         } else
         {
-
-            PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseMana(increaseStats);
-            
+            potUsed = false;
         }
+        PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        Animator animator = PlayerManager.instance.player.GetComponent<Animator>();
+        PlayerAnimator playerAnim = PlayerManager.instance.player.GetComponent<PlayerAnimator>();
+        base.Use();
+       
+        playerStats.SetIncreaseInStats(increaseStats, potUsed);
+        
+        Transform[] ts = PlayerManager.instance.player.transform.GetComponentsInChildren<Transform>(true);
+        if (Health)
+        {
+            foreach (Transform t in ts)
+            {
+                Debug.Log(t.gameObject.name);
+                if (t.gameObject.name == "PlayerHpBottle")
+                {
+                    t.gameObject.SetActive(true);
+                    break;
+                }
+            }
+        } else
+        {
+            foreach (Transform t in ts)
+            {
+                Debug.Log(t.gameObject.name);
+                if (t.gameObject.name == "PlayerManaBottle")
+                {
+                    t.gameObject.SetActive(true);
+                    break;
+                }
+            }
+        }
+        playerAnim.UsePotion();
         RemoveFromInventory();
         
     }
 
+
+
     public void Start()
     {
-        playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        
     }
 
     public Sprite Image
     {
-        get {
+        get 
+        {
             return icon;
         }
-
-        set {
-            throw new System.NotImplementedException();
+        set
+        {
+            return;
         }
+        
+
+        
     }
 
 }

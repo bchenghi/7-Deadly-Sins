@@ -85,6 +85,10 @@ public class PlayerController : MonoBehaviour
             lineRenderer.SetPosition(1, hit1.point);
         }
         */
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Drinking"))
+        {
+            return;
+        }
 
         if (ActionsAllowed())
         {
