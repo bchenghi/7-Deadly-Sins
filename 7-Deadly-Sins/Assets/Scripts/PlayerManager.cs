@@ -24,11 +24,14 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (player == null)
+            player = GameObject.Find("Player");
     }
 
     #endregion
 
     public GameObject player;
+
 
 
     public void KillPlayer()

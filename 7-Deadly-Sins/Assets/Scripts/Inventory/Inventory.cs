@@ -159,7 +159,7 @@ public class Inventory : MonoBehaviour
         int index = -1;
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].Key == item && items[i].Value <= consumablesPerSlot)
+            if (items[i].Key.name == item.name && items[i].Value <= consumablesPerSlot)
             {
                 index = i;
 
@@ -176,7 +176,7 @@ public class Inventory : MonoBehaviour
         int index = -1;
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].Key == item && items[i].Value < consumablesPerSlot)
+            if (items[i].Key.name == item.name && items[i].Value < consumablesPerSlot)
             {
                 index = i;
                 break;

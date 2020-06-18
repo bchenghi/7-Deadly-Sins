@@ -23,12 +23,10 @@ public class ShopSlot : UISlot
 
     public void Buy() {
         Debug.Log("buy called");
-        Item clone = Object.Instantiate(item) as Item;
-        if (Inventory.instance.Add(clone)) 
-        {
-            Debug.Log("bought");
-            int price = item.GetPrice();
-            GoldCounter.instance.Spend(price);
+        int price = item.GetPrice();
+        if (GoldCounter.instance.Spend(price)) {
+            Item clone = Object.Instantiate(item) as Item;
+            Inventory.instance.Add(clone);
         }
     }
 }

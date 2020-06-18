@@ -11,10 +11,12 @@ public class StatUI : MonoBehaviour
     protected Text displayText;
 
     // Start is called before the first frame update
+    void Awake() {
+        displayText = GetComponentInChildren<Text>();
+        playerStats = GameObject.Find("Player").GetComponent<CharacterStats>();
+    }
     protected virtual void Start()
     {
-        playerStats = PlayerManager.instance.player.GetComponent<CharacterStats>();
-        displayText = GetComponentInChildren<Text>();
     }
 
     // When equipment is updated, text in display will be updated

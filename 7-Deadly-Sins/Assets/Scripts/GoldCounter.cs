@@ -22,16 +22,18 @@ public class GoldCounter : MonoBehaviour
         onGoldChange(this.gold);
     }
 
-    public void Spend(int gold)
+    public bool Spend(int gold)
     {
         if (this.gold >= gold)
         {
             this.gold -= gold;
             onGoldChange(this.gold);
+            return true;
         }
         else
         {
             Debug.Log("Not enough gold");
+            return false;
         }
     }
 }

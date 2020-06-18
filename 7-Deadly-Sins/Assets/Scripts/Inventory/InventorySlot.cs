@@ -18,8 +18,8 @@ public class InventorySlot : UISlot
     public void AddItem(Item newItem)
     {
         item = newItem;
-        icon.sprite = item.icon;
         icon.enabled = true;
+        icon.sprite = item.icon;
         removeButton.interactable = true;
         UpdateConsumableCounter();
     }
