@@ -27951,6 +27951,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1101501750}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1101607786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2681956757778336384, guid: a1bbe7e8cd0d77f4fb68cbc035dc43df,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138147241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1101607788
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101607786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11759783, y: 0.6681252, z: 0.15696874}
+  m_Center: {x: 0.0037988871, y: 0.3244138, z: 0.0023959493}
+--- !u!114 &1101607789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101607786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ce9b58130b13146a356a254aa706a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1104417520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 94a963044347f1f44a95dcc57f8c1145,
@@ -48273,6 +48304,9 @@ MonoBehaviour:
   gravity: -12
   jumpHeight: 1
   airControlPercent: 0
+  DelayBeforeInvisible: 0.2
+  InvisibleDuration: 0.5
+  DodgeCoolDown: 1
   running: 0
   isSlowed: 0
   groundedDistance: 0.39
@@ -48475,6 +48509,7 @@ MonoBehaviour:
   statUIManager: {fileID: 0}
   maxMana: 100
   playerManaUI: {fileID: 0}
+  InvisibleAmt: 0
 --- !u!114 &1665286595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63330,6 +63365,7 @@ GameObject:
   - component: {fileID: 1578187404483420159}
   - component: {fileID: 1578187404483420169}
   - component: {fileID: 1578187404483420170}
+  - component: {fileID: 1578187404483420171}
   m_Layer: 9
   m_Name: Model Character
   m_TagString: Untagged
@@ -63447,6 +63483,7 @@ MonoBehaviour:
   statUIManager: {fileID: 1441965153}
   maxMana: 100
   playerManaUI: {fileID: 1464792653}
+  InvisibleAmt: 0
 --- !u!114 &1578187404483420163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63601,6 +63638,9 @@ MonoBehaviour:
   gravity: -9.8
   jumpHeight: 1
   airControlPercent: 0
+  DelayBeforeInvisible: 0.2
+  InvisibleDuration: 0.5
+  DodgeCoolDown: 2
   running: 0
   isSlowed: 0
   groundedDistance: 0.39
@@ -63668,6 +63708,20 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
+--- !u!136 &1578187404483420171
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578187404483420157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.72
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!1 &1580712431801797218
 GameObject:
   m_ObjectHideFlags: 0
@@ -67145,6 +67199,9 @@ MonoBehaviour:
   gravity: -12
   jumpHeight: 1
   airControlPercent: 0
+  DelayBeforeInvisible: 0.2
+  InvisibleDuration: 0.5
+  DodgeCoolDown: 1
   running: 0
   isSlowed: 0
   groundedDistance: 0.39
