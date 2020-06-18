@@ -66,7 +66,7 @@ public class RangedSpell : Skill, IUsable
                 if (distance <= spellRadius)
                 {
                     
-                    player.GetComponent<CharacterAnimator>().CastRangeSpell();
+                    player.GetComponent<PlayerAnimator>().CastRangeSpell();
                     target = hit.collider.GetComponent<Interactable>().transform;
                     if (target.GetComponent<EnemyStats>().currentHealth > 0)
                     {

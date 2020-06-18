@@ -14,6 +14,7 @@ public class CharacterCombat : MonoBehaviour
     public bool SpecialActivated = false;
     public int count = 0;
     
+    
 
     // Max distance from the opponent to be able damage it
     public float attackDistance;
@@ -26,12 +27,12 @@ public class CharacterCombat : MonoBehaviour
     public bool attacking { get; private set; }
     public event System.Action OnAttack;
 
-    private void Start()
+    protected virtual void Start()
     {
         myStats = GetComponent<CharacterStats>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         attackCooldown -= Time.deltaTime;
 
@@ -63,12 +64,21 @@ public class CharacterCombat : MonoBehaviour
     }
 
     // Called via attack hit event in animation, will deal damage if target is within attackdistance
-    public void AttackHit_AnimationEvent()
+    public virtual void AttackHit_AnimationEvent()
     {
         float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
         if (distance <= attackDistance)
         {
-            opponentStats.TakeDamage(myStats.damage.GetValue());
+            if (opponentStats.transform.GetComponent<PlayerStats>() != null)
+            {
+                if (opponentStats.transform.GetComponent<PlayerStats>().InvisibleAmt <= 0)
+                {
+                    opponentStats.TakeDamage(myStats.damage.GetValue());
+                }
+            } else
+            {
+                opponentStats.TakeDamage(myStats.damage.GetValue());
+            }
         }
 
         if (opponentStats.currentHealth <= 0)

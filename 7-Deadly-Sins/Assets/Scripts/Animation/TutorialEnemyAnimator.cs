@@ -23,7 +23,6 @@ public class TutorialEnemyAnimator : CharacterAnimator
         currentAttackAnimSet = defaultAttackAnimSet;
 
         combat.OnAttack += OnAttack;
-        combat.OnAttack += UseSpecial;
         stats.takenDamage += takenDamage;
         
         agent = GetComponent<NavMeshAgent>();

@@ -138,6 +138,14 @@ public class EffectHandler : MonoBehaviour
 
     }
 
+    public void HealEffectEvent(int effectNumber)
+    {
+        effectsManager.EnableMischellenousEffect(effectNumber);
+        Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
+        effect.position = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
+        effectsManager.ActivateParticleSystem(effect);
+    }
+
     
     
 
