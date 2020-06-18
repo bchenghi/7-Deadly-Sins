@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     [Range(0,1)]
     public float airControlPercent;
 
+    //For Dodging 
+    public float DelayBeforeInvisible = 0.2f;
+    public float InvisibleDuration = 0.5f;
+    public float DodgeCoolDown = 1f;
+    private float ActCoolDown;
+    
 
     public bool running = false;
     public bool isSlowed = false;
@@ -51,6 +57,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Transform cameraT;
     CharacterController controller;
+    PlayerStats playerStats;
     LineRenderer lineRenderer;
 
     public Interactable focus;
@@ -66,6 +73,8 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         lineRenderer = GetComponent<LineRenderer>();
         //previousPosition = transform.position;
+        playerStats = GetComponent<PlayerStats>();
+       
     }
 
     // Update is called once per frame
@@ -85,6 +94,8 @@ public class PlayerController : MonoBehaviour
             lineRenderer.SetPosition(1, hit1.point);
         }
         */
+
+        //Stops the player from moving, add namespace for any animation that requires this
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Drinking"))
         {
             return;
@@ -123,6 +134,7 @@ public class PlayerController : MonoBehaviour
 
             FallAnim();
             LandAnim();
+            Rolling();
 
             float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * 0.5f);
             animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
@@ -330,4 +342,33 @@ public class PlayerController : MonoBehaviour
            isGrounded =  false;
         }
     }
+
+    //Rolling and Dodging
+    public void Rolling()
+    {
+        Debug.Log(ActCoolDown);
+        bool Roll = Input.GetButtonDown("Roll");
+        if (ActCoolDown <= 0)
+        {
+            animator.ResetTrigger("Roll");
+            if (Roll)
+            {
+                Dodge();
+            }
+        } else
+        {
+            ActCoolDown -= Time.deltaTime;
+        }
+    }
+
+    public void Dodge()
+    {
+        ActCoolDown = DodgeCoolDown;
+        playerStats.Invisible(DelayBeforeInvisible, InvisibleDuration);
+        animator.SetTrigger("Roll");
+
+
+    }
+
+    
 }

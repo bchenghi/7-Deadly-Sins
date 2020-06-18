@@ -14,6 +14,8 @@ public class PlayerStats : CharacterStats
 
     public int SkillPoints { get; private set; }
 
+    public float InvisibleAmt;
+
 
     // Start is called before the first frame update
     protected override void Start()
@@ -25,8 +27,17 @@ public class PlayerStats : CharacterStats
         SetInitialPoints(2);
     }
 
-    
-        
+    public override void Update()
+    {
+        base.Update();
+        if (InvisibleAmt > 0)
+        {
+            InvisibleAmt -= Time.deltaTime;
+        }
+
+    }
+
+
 
     void onEquipmentChanged (Equipment newItem, Equipment oldItem)
     {
@@ -96,8 +107,28 @@ public class PlayerStats : CharacterStats
     {
         increaseInStats = value;
         PotUsed = HpOrMana;
-    } 
+    }
 
-   
+    public void Invisible(float delay, float invisibleLength)
+    {
+        if (delay > 0)
+        {
+            StartCoroutine(StartInvisible(delay, invisibleLength));
+        } else
+        {
+            InvisibleAmt = invisibleLength;
+        }
+    }
+
+    IEnumerator StartInvisible(float delay, float invisibleLength)
+    {
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Invisible");
+        InvisibleAmt = invisibleLength;
+    }
+    
+        
+    
+
 
 }
