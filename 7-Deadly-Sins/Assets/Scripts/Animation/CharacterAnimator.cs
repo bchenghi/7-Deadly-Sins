@@ -37,7 +37,6 @@ public class CharacterAnimator : MonoBehaviour
         currentAttackAnimSet = defaultAttackAnimSet;
 
         combat.OnAttack += OnAttack;
-        combat.OnAttack += UseSpecial;
         stats.takenDamage += takenDamage;
 
     }
@@ -71,17 +70,7 @@ public class CharacterAnimator : MonoBehaviour
             animator.SetTrigger("Hurt");
     }
 
-    public virtual void UseSpecial()
-    {
-
-        animator.SetBool("Special", combat.SpecialActivated);
-        
-    }
-
-    public virtual void CastRangeSpell()
-    {
-        animator.SetTrigger("RangeSpell");
-    }
+    
 
    
 

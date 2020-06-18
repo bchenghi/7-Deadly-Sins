@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimator : CharacterAnimator
-{
-
+{   
     public WeaponAnimations[] weaponAnimations;
     Dictionary<Equipment, AnimationClip[]> weaponAnimationDict;
 
@@ -19,6 +18,8 @@ public class PlayerAnimator : CharacterAnimator
         {
             weaponAnimationDict.Add(a.weapon, a.clips);
         }
+
+        combat.OnAttack += UseSpecial;
     }
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
@@ -55,5 +56,22 @@ public class PlayerAnimator : CharacterAnimator
         public AnimationClip[] clips;
     }
 
-   
+    public virtual void UseSpecial()
+    {
+
+        animator.SetBool("Special", combat.SpecialActivated);
+
+    }
+
+    public virtual void CastRangeSpell()
+    {
+        animator.SetTrigger("RangeSpell");
+    }
+
+    public void UsePotion()
+    {
+        animator.SetTrigger("PotionUsed");
+    }
+
+
 }

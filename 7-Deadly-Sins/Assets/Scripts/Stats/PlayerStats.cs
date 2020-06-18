@@ -5,6 +5,8 @@ using UnityEngine.Analytics;
 
 public class PlayerStats : CharacterStats
 {
+    public bool PotUsed;
+    public int increaseInStats;
     public StatUIManager statUIManager;
     public int maxMana = 100;
     public PlayerManaUI playerManaUI;
@@ -89,5 +91,13 @@ public class PlayerStats : CharacterStats
         SkillPoints = Mathf.Clamp(SkillPoints, 0, int.MaxValue);
         Debug.Log(SkillPoints + "left");
     }
+
+    public void SetIncreaseInStats(int value, bool HpOrMana)
+    {
+        increaseInStats = value;
+        PotUsed = HpOrMana;
+    } 
+
+   
 
 }
