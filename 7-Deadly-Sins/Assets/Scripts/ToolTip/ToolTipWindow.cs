@@ -138,15 +138,30 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     string ConsumableStatsString(Consumables consumable)
     {
 
-        if (consumable != null)
+        if (consumable != null && consumable is Potions)
         {
+            Potions potion = (Potions) consumable;
             StringBuilder str = new StringBuilder();
-            string name = consumable.name;
-            string statsBoost = consumable.increaseStats.ToString();
+            string name = potion.name;
+            string statsBoost = potion.increaseStats.ToString();
+            
             str.Append(name).AppendLine();
-            str.Append("<color=green>Health Boost: +").Append(statsBoost).Append("</color>");
+
+            if (potion.Health) {
+                str.Append("<color=green>Health Boost: +").Append(statsBoost).Append("</color>");
+            }
+            else {
+                str.Append("<color=blue>Mana Boost: +").Append(statsBoost).Append("</color>");
+            }
+            
             return str.ToString();
         } 
+        else if (consumable != null) {
+            StringBuilder str = new StringBuilder();
+            string name = consumable.name;
+            str.Append(name);
+            return str.ToString();
+        }
         else
         {
             return null;

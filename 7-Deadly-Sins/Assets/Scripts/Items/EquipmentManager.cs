@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
-    #region Singelton
+    #region Singleton
     public static EquipmentManager instance;
 
     void Awake()
     {
+        if (instance != null) {
+            Debug.Log("more than one instance of equipment managers found!");
+            return;
+        }
         instance = this;
     }
     #endregion
@@ -17,7 +21,7 @@ public class EquipmentManager : MonoBehaviour
     public Transform Sword;
 
     public SkinnedMeshRenderer targetMesh;
-    Equipment[] currentEquipment;
+    public Equipment[] currentEquipment;
     SkinnedMeshRenderer[] currentMeshes;
     public Equipment[] defaultItems;
 
@@ -45,11 +49,10 @@ public class EquipmentManager : MonoBehaviour
             onEquipmentChanged.Invoke(newItem, null);
         }
 
-        SetEquipmentBlendShapes(newItem, 100);
+        
         currentEquipment[slotIndex] = newItem;
-        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newItem.mesh);
-        Debug.Log("New mesh is " + newMesh);
-        currentMeshes[slotIndex] = newMesh;
+        SetEquipmentMesh(newItem);
+
 
         /*if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)
         {
@@ -62,9 +65,7 @@ public class EquipmentManager : MonoBehaviour
         else
         {
         */
-            newMesh.transform.parent = targetMesh.transform;
-            newMesh.bones = targetMesh.bones;
-            newMesh.rootBone = targetMesh.rootBone;
+
         
     }
 
@@ -113,6 +114,17 @@ public class EquipmentManager : MonoBehaviour
         return equipment;
     }
 
+    public void SetEquipmentMesh(Equipment equipment) {
+        int slotIndex = (int) equipment.equipmentSlot;
+        SetEquipmentBlendShapes(equipment, 100);
+        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(equipment.mesh);
+        Debug.Log("New mesh is " + newMesh);
+        currentMeshes[slotIndex] = newMesh;
+        newMesh.transform.parent = targetMesh.transform;
+        newMesh.bones = targetMesh.bones;
+        newMesh.rootBone = targetMesh.rootBone;
+    }
+
     public void UnequipAll()
     {
         for(int i = 0; i < currentEquipment.Length; i++) 
@@ -143,6 +155,13 @@ public class EquipmentManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             UnequipAll();
+        }
+    }
+
+    public void EquipCurrentItems() {
+        foreach(Equipment equipment in currentEquipment) {
+            if (equipment != null)
+                Equip(equipment);
         }
     }
 }

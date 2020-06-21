@@ -7,10 +7,5 @@ using UnityEngine.Analytics;
 
 public class Consumables : Item
 {
-    
-     public int increaseStats;
-   
-
-   
 
 }

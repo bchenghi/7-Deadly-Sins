@@ -20,6 +20,7 @@ public class EquipmentUI : MonoBehaviour
         equipmentManager = EquipmentManager.instance;
         equipmentManager.onEquipmentChanged += UpdateUI;
         equipmentSlots = equipmentParent.GetComponentsInChildren<EquipmentUISlot>();
+        NewSceneSetUp();
     }
 
     // Clears slot that belonged to oldEquipment and adds newEquipment to the Equipment UI
@@ -29,6 +30,16 @@ public class EquipmentUI : MonoBehaviour
             equipmentSlots[(int) oldEquipment.equipmentSlot].ClearSlot();
         if (newEquipment != null)
             equipmentSlots[(int) newEquipment.equipmentSlot].AddEquipment(newEquipment);
+    }
+
+
+    // Updates equipment ui according to current equipment, used when entering new scene. Called in Start.
+    public void NewSceneSetUp() {
+        foreach(Equipment equipment in EquipmentManager.instance.currentEquipment) {
+            if (equipment != null) {
+                UpdateUI(equipment, null);
+            }
+        }
     }
 
 }

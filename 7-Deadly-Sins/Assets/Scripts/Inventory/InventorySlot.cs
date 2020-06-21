@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InventorySlot : UISlot
 {
@@ -13,6 +14,9 @@ public class InventorySlot : UISlot
     private void Start()
     {
         maxCount = Inventory.instance.consumablesPerSlot;
+    }
+
+    void Update() {
     }
 
     public void AddItem(Item newItem)

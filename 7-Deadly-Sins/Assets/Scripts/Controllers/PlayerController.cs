@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     float distanceAboveGroundTriggerLandAnim = 0.7f;
     // Max distance the player is above the ground to count as grounded
     [SerializeField]
-    float groundedDistance = 0.39f;
+    float groundedDistance = 0.75f;
     //Reference object distance to ground is measured from
     public GameObject distanceFromGroundReference;
     // Distance to subtract from height from reference to ground, as the reference is above ground level 

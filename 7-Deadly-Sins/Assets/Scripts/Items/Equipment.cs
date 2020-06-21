@@ -20,6 +20,10 @@ public class Equipment : Item
         // Remove item from inventory
         RemoveFromInventory();
     }
+
+    public override int GetPrice(){
+        return (int) (armorModifier + damageModifier) * 10;
+    }
 }
 
 public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet}

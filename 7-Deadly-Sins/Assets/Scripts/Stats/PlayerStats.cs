@@ -25,6 +25,7 @@ public class PlayerStats : CharacterStats
         playerManaUI.SetMaxMana(maxMana);
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
         SetInitialPoints(2);
+        NewSceneSetUp();
     }
 
     public override void Update()
@@ -83,7 +84,12 @@ public class PlayerStats : CharacterStats
         CurrentMana += increase;
         CurrentMana = Mathf.Clamp(CurrentMana, 0, maxMana);
         playerManaUI.SetMana(CurrentMana);
+    }
 
+    public void SetMana(int newCurrentMana) {
+        CurrentMana = newCurrentMana;
+        CurrentMana = Mathf.Clamp(CurrentMana, 0, maxMana);
+        playerManaUI.SetMana(CurrentMana);
     }
 
     public void SetInitialPoints(int amount)
@@ -127,7 +133,18 @@ public class PlayerStats : CharacterStats
         InvisibleAmt = invisibleLength;
     }
     
-        
+    // Will update stats and update stat uis according to current equipment for armor and dmg, while health and mana
+    // is based on saved data from previous scene.
+    // used when entering new scene, called in Start.
+    public void NewSceneSetUp() {
+        foreach(Equipment equipment in EquipmentManager.instance.currentEquipment) {
+            if (equipment != null) {
+                onEquipmentChanged(equipment, null);
+            }
+        }
+        SetHealth(SaveLoad.instance.HP);
+        SetMana(SaveLoad.instance.Mana);
+    }
     
 
 

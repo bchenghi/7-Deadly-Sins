@@ -6,19 +6,34 @@ using SimpleJSON;
 
 public class SaveLoad : MonoBehaviour
 {
+    #region Singleton
+    public static SaveLoad instance;
+    void Awake() {
+        if (instance != null) {
+            Debug.Log("more than one instance of SaveLoad found!");
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion
+
     public string Name;
     public int HP;
     public int Armor;
     public int Damage;
     public int Gold;
+    public int Mana;
     
-    void Save()
+    public void Save()
     {
+        GetData();
         JSONObject playerJson = new JSONObject();
         playerJson.Add("HP", HP);
         playerJson.Add("Armor", Armor);
         playerJson.Add("Damage", Damage);
         playerJson.Add("Gold", Gold);
+        playerJson.Add("Mana", Mana);
 
         Debug.Log(playerJson.ToString());
 
@@ -33,12 +48,11 @@ public class SaveLoad : MonoBehaviour
         Armor = PlayerManager.instance.player.GetComponent<PlayerStats>().armor.GetValue();
         Damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage.GetValue();
         Gold = GoldCounter.instance.gold;
-
-        
+        Mana = PlayerManager.instance.player.GetComponent<PlayerStats>().CurrentMana;
     }
 
 
-    private void Load()
+    public void Load()
     {
         string path = Application.persistentDataPath + "/PlayerSave.Json";
         string jsonString = File.ReadAllText(path);
@@ -47,6 +61,7 @@ public class SaveLoad : MonoBehaviour
         Armor = playerJson["Armor"];
         Damage = playerJson["Damage"];
         Gold = playerJson["Gold"];
+        Mana = playerJson["Mana"];
 
         Debug.Log(playerJson.ToString());
     }
@@ -60,7 +75,7 @@ public class SaveLoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetData();
+        //GetData();
         if (Input.GetKeyDown(KeyCode.G)) Save();
         if (Input.GetKeyDown(KeyCode.L)) Load();
     }

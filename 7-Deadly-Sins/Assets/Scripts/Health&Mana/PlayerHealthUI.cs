@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealthUI : MonoBehaviour
 {
     public GameObject uiPrefab;
+    CharacterStats stats;
 
     Transform ui;
     Image healthSlider;
@@ -14,12 +15,13 @@ public class PlayerHealthUI : MonoBehaviour
     // Set the text for health bar, initialize bar slider and health bar transform
     void Start()
     {
-        CharacterStats stats = GetComponent<CharacterStats>();
+        stats = GetComponent<CharacterStats>();
         ui = uiPrefab.transform;
         healthSlider = ui.GetChild(0).GetComponent<Image>();
         display = ui.GetChild(1).GetComponent<Text>();
         display.text = stats.currentHealth + "/" + stats.maxHealth;
         GetComponent<PlayerStats>().OnHealthChanged += OnHealthChanged;
+        NewSceneSetUp();
     }
 
 
@@ -39,5 +41,10 @@ public class PlayerHealthUI : MonoBehaviour
                 display.text = "0/" + maxHealth;
             }
         }
+    }
+
+    // Sets up health ui text and health bar in new scene
+    void NewSceneSetUp() {
+        OnHealthChanged(stats.maxHealth, stats.currentHealth);
     }
 }

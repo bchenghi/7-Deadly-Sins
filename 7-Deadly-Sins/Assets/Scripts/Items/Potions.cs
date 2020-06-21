@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "New Potion", menuName = "Inventory/Consumable/Potion")]
 public class Potions : Consumables , IUsable
 {
+    public int increaseStats;
     bool potUsed;
     public bool Health;
     public bool Mana;
@@ -75,6 +76,10 @@ public class Potions : Consumables , IUsable
         
 
         
+    }
+
+    public override int GetPrice() {
+        return (int) increaseStats;
     }
 
 }

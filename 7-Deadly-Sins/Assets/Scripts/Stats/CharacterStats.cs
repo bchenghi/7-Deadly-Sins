@@ -6,7 +6,7 @@ public class CharacterStats : MonoBehaviour
 {
    
     public int maxHealth = 100;
-    public int currentHealth { get; private set; }
+    public int currentHealth { get; set; }
 
     public Stat damage;
     public Stat armor;
@@ -69,6 +69,15 @@ public class CharacterStats : MonoBehaviour
 
         if (OnHealthChanged != null)
         {
+            OnHealthChanged(maxHealth, currentHealth);
+        }
+    }
+
+    public void SetHealth(int newCurrentHealth) {
+        currentHealth = newCurrentHealth;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (OnHealthChanged != null) {
             OnHealthChanged(maxHealth, currentHealth);
         }
     }

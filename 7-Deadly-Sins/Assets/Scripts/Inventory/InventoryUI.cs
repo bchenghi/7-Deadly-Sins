@@ -18,6 +18,7 @@ public class InventoryUI : MonoBehaviour
        inventory = Inventory.instance;
         inventory.onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        NewSceneSetUp();
     }
 
 
@@ -42,6 +43,11 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlotCompletely();
             }
         }
+    }
+
+    // Updates ui for inventory, used when entering new scene, called in Start.
+    void NewSceneSetUp() {
+        UpdateUI();
     }
 
 }
