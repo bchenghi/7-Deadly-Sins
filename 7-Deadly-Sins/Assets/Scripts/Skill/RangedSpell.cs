@@ -13,6 +13,10 @@ public class RangedSpell : Skill, IUsable
     public Transform target;
     int minDamage;
     int maxDamage;
+    public int skilleffectNumber;
+    public float offx;
+    public float offy;
+    public float offz;
  
     
 
@@ -46,7 +50,7 @@ public class RangedSpell : Skill, IUsable
     public void CastSpell()
     {
 
-        effectHandler.TargetEnemy(9, target);
+        effectHandler.TargetEnemy(skilleffectNumber, target);
 
     }
 
@@ -73,7 +77,7 @@ public class RangedSpell : Skill, IUsable
                         hasActivated = true;
                         effectHandler.targetHit = false;
                         StartCoroutine(CoolDownRoutine());
-                        effectHandler.EnableAndActivate(9);
+                        effectHandler.EnableAndActivate(skilleffectNumber);
                         base.Use();
                     }
                         

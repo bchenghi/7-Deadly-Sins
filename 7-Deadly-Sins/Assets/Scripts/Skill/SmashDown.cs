@@ -37,9 +37,9 @@ public class SmashDown : Skill, IUsable
         playerStats.damage.AddModifier(currentDamage * skillLevel);
         nextAttackDone = false;
         combat.SpecialActivated = true;
-        effectHandler.SmashDownSwitches[1] = true;
+        effectHandler.SmashDownSwitches[0] = true;
         yield return new WaitForSeconds(5);
-        effectHandler.SmashDownSwitches[1] = false;
+        effectHandler.SmashDownSwitches[0] = false;
         playerStats.damage.RemoveModifier(currentDamage * skillLevel);
         nextAttackDone = true;
         combat.SpecialActivated = false;
