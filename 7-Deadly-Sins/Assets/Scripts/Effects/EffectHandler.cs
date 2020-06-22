@@ -75,6 +75,7 @@ public class EffectHandler : MonoBehaviour
     IEnumerator SkillCoolDown(int effectNumber, int cooldown)
     {
         effectsManager.EnableEffectObject(effectNumber);
+        Debug.Log("Effect");
         Transform effect = effectsManager.returnEffect(effectNumber);
         effectsManager.ActivateParticleSystem(effect);
         yield return new WaitForSeconds(cooldown);
@@ -96,6 +97,14 @@ public class EffectHandler : MonoBehaviour
         effectsManager.EnableEffectObject(effectNumber);
         effectsManager.ActivateParticleSystem(effect);
         
+    }
+
+    public void EnableAndActivateWithOffSet(int effectNumber, float offx, float offy, float offz) 
+    {
+        Transform effect = effectsManager.returnEffect(effectNumber);
+        effect.position = new Vector3(transform.position.x + offx, transform.position.y + offy, transform.position.z + offz);
+        effectsManager.EnableEffectObject(effectNumber);
+        effectsManager.ActivateParticleSystem(effect);
     }
 
     public void DisableAndDeactivate(int effectNumber)
