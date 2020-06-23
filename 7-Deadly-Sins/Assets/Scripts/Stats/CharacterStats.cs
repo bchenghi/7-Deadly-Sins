@@ -27,10 +27,6 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
     }
 
     // takes damage to healh, runs animation for receiving damage, updates health

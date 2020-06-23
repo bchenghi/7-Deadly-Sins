@@ -72,6 +72,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
+            DisplayTextManager.instance.Display("Inventory: Not enough space!", 3f);
             Debug.Log("Inventory: Not enough space " + SlotsUsed());
             return false;
         }
@@ -106,6 +107,7 @@ public class Inventory : MonoBehaviour
 
             else
             {
+                DisplayTextManager.instance.Display("Inventory: Not enough space!", 3f);
                 Debug.Log("Inventory: Not enough space");
                 return false;
             }

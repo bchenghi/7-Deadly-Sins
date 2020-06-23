@@ -12,10 +12,11 @@ public class EnemyStats : CharacterStats
         base.Start();
         lootDropTest = GetComponent<LootDrop>();
     }
+
     public override void Die()
     {
         base.Die();
-
+        Destroy(GetComponent<Collider>());
         // Add ragdoll/loot
         if (lootDrop != null)
             Instantiate(lootDrop, transform.position, Quaternion.identity);

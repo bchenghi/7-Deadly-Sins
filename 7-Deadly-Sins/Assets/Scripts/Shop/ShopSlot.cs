@@ -25,6 +25,7 @@ public class ShopSlot : UISlot
         Debug.Log("buy called");
         int price = item.GetPrice();
         if (GoldCounter.instance.Spend(price)) {
+            DisplayTextManager.instance.Display("Bought " + item.name + "!", 2f);
             Item clone = Object.Instantiate(item) as Item;
             Inventory.instance.Add(clone);
         }

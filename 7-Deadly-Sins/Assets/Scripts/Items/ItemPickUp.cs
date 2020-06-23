@@ -11,6 +11,7 @@ public class ItemPickUp : Interactable
     }
     void PickUp()
     {
+        DisplayTextManager.instance.Display("Picked up " + item.name, 3f);
         Debug.Log("Picking up " + item.name);
         if (item.GetType() == typeof(Equipment))
         {

@@ -32,6 +32,7 @@ public class GoldCounter : MonoBehaviour
         }
         else
         {
+            DisplayTextManager.instance.Display("Not enough gold", 2f);
             Debug.Log("Not enough gold");
             return false;
         }

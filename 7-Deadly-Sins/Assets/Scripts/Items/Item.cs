@@ -9,6 +9,7 @@ public class Item : ScriptableObject
 
     public virtual void Use()
     {
+        DisplayTextManager.instance.Display("Using " + name, 3f);
         Debug.Log("Using " + name);
     }
 
