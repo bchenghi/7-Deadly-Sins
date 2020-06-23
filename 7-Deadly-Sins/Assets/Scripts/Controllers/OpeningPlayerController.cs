@@ -40,10 +40,13 @@ public class OpeningPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("grounded: " + isGrounded);
         float animationSpeedPercent = currentSpeed / walkSpeed * 0.5f;
         animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
         Move();
+        SetDistanceToGround();
         SetIsGrounded();
+        
     }
 
     void Move()
@@ -65,17 +68,18 @@ public class OpeningPlayerController : MonoBehaviour
     {
         int ignoreRaycastLayerMask = LayerMask.GetMask("Ignore Raycast");
         RaycastHit hit;
+        float distance;
         if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
             new Vector3(controller.radius * 0.5f,  0.01f, controller.radius * 0.5f),
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100, ~ignoreRaycastLayerMask))
         {
-
-
-            // Debug.Log("collided obj: " + hit.transform.name);
-
+            Debug.Log("collided obj: " + hit.transform.name);
+            distance = hit.distance;
         }
-        float distance = hit.distance;
-        //Debug.Log("distance: " + (distance - groundRefOffset));
+        else {
+            distance = Mathf.Infinity;
+        }
+        Debug.Log("distance: " + (distance - groundRefOffset));
         distanceToGround =  Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }
     void SetIsGrounded() {
