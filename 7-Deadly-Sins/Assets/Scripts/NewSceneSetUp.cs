@@ -11,6 +11,9 @@ public class NewSceneSetUp : MonoBehaviour
 
     [SerializeField]
     GameObject player;
+
+    [SerializeField]
+    string startSound;
     // Sets player and target mesh, and sets cursor to visible and unlocked
     void Awake(){
         if (PlayerManager.instance.player == null) {
@@ -30,6 +33,9 @@ public class NewSceneSetUp : MonoBehaviour
                 EquipmentManager.instance.SetEquipmentMesh(equipment);
             }
 
+        }
+        if (startSound != null) {
+            AudioManager.instance.Play(startSound);
         }
     }
 
