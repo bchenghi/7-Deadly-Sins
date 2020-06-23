@@ -11,12 +11,13 @@ public class DialogueOpening : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
-    public Animator animation;
+    public Animator animationOpening;
 
 
     private void Start()
     {
         StartCoroutine(Type());
+        
     }
 
 
@@ -31,7 +32,8 @@ public class DialogueOpening : MonoBehaviour
 
     public void NextSentence()
     {
-        animation.SetTrigger("Change");
+        
+        animationOpening.SetTrigger("Change");
         if (index < sentences.Length - 1)
         {
             index++;
