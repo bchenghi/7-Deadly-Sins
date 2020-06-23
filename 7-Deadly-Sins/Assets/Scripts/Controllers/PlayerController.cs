@@ -302,7 +302,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // If player is not in hurt, attack, landing animation, return true.
-    // In Update method, he can do actions (move, jump, set focus, face target, pick up)
+    // In Update method, he can do actions (move, jump, set focus, face target, pick up) if returns true, 
+    // else no actions can be done by player
     bool ActionsAllowed()
     {
         return !animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction") &&
