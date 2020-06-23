@@ -17,6 +17,9 @@ public class DialogueOpening : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Type());
+        AudioManager.instance.Play("Background Piano");
+        AudioManager.instance.Play("Rain");
+        AudioManager.instance.Play("Thunder");
         
     }
 
