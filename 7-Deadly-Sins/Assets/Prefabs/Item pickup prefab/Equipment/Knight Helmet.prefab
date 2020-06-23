@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1918640567088297216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918640567088297217}
+  - component: {fileID: 1918640567088297223}
+  - component: {fileID: 1918640567088297222}
+  m_Layer: 10
+  m_Name: Knight Helmet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918640567088297217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918640567088297216}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9651244, y: 0.146, z: -2.409}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children:
+  - {fileID: 8139368292103974672}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1918640567088297223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918640567088297216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.27, y: 0.8, z: 1.16}
+  m_Center: {x: -0.26, y: -1.72, z: 0.4}
+--- !u!114 &1918640567088297222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918640567088297216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6431f2629c4ef3f4793141ee2e839936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.71
+  interactionTransform: {fileID: 1918640567088297217}
+  item: {fileID: 11400000, guid: a3a5ebadf176f3c46aa8ca09cd0c3768, type: 2}
+--- !u!1001 &1918640567180191610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1918640567088297217}
+    m_Modifications:
+    - target: {fileID: 3267877648961623249, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_Name
+      value: Helmet Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9991907
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.04022436
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 175.389
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 249.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 249.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 249.19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bfb4aea2f22b3fb43965457c08ff4272, type: 3}
+--- !u!4 &8139368292103974672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7661952517584095338, guid: bfb4aea2f22b3fb43965457c08ff4272,
+    type: 3}
+  m_PrefabInstance: {fileID: 1918640567180191610}
+  m_PrefabAsset: {fileID: 0}

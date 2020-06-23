@@ -67,4 +67,9 @@ public class AttackAnimationEventReceiver : MonoBehaviour
             }
         }
     }
+
+    public void EffectEventSmash(int number)
+    {
+        effects.EffectEvent(number);
+    }
 }
