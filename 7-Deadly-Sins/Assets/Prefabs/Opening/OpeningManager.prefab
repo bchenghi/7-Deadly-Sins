@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5559647422494818082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5559647422494818108}
+  - component: {fileID: 5559647422494818083}
+  m_Layer: 0
+  m_Name: OpeningManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5559647422494818108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559647422494818082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.24003, y: 61.03477, z: -5.015625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5559647422494818083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559647422494818082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b3f3a290745dc4989f2f7b75f29bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 0}
+  sentences:
+  - 'Leonard: What is the point of living?'
+  - 'Leonard: I have committed so many sins, my desires have consumed me...'
+  - 'Pride : This sin is the root of all sins. I am always thinking I am better than
+    the rest, everybody seems inferior to me.  '
+  - 'Wrath : I get pissed off at small little things in life. Once a stranger bumbed
+    into me accidentally, I immediately turned around, pushed him on the floor and
+    made him regret bumping into me.  '
+  - 'Envy : Im jealous whenever someone has something I dont. Im jealous that some
+    of my friends are born with good looks, how I wish I can be like them... '
+  - 'Lust : Committed Relationship? What''s that? So many sexual desires and inappropriate
+    thoughts.. What if I cant control them?'
+  - 'Gluttony : The alcohol and the fast food... Ahhhh just what I needed to keep
+    me going.'
+  - 'Avarice : I have been chasing money since young, money is what makes me happy,
+    to feed my other desires.'
+  - 'Sloth : Im a Lazy Bum, no hopes and dreams, just an empty shell doing what it
+    takes to survive..'
+  - 'I have lost it.. '
+  typingSpeed: 0.02
+  animation: {fileID: 0}
