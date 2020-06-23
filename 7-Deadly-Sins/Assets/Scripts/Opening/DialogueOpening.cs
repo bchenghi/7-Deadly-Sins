@@ -17,6 +17,7 @@ public class DialogueOpening : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Type());
+        
     }
 
 
@@ -31,6 +32,7 @@ public class DialogueOpening : MonoBehaviour
 
     public void NextSentence()
     {
+        
         animationOpening.SetTrigger("Change");
         if (index < sentences.Length - 1)
         {
