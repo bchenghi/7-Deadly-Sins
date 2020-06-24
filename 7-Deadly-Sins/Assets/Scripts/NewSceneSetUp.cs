@@ -35,7 +35,7 @@ public class NewSceneSetUp : MonoBehaviour
 
         }
         if (startSound != null) {
-            Debug.Log("playing rain");
+            AudioManager.instance.StopPlayingAll();
             AudioManager.instance.Play(startSound);
         }
     }

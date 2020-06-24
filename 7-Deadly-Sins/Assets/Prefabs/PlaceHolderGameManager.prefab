@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1128765268864473535}
   - component: {fileID: 1128765268864473534}
   - component: {fileID: 1128765268864473521}
+  - component: {fileID: 2119813442}
   m_Layer: 0
   m_Name: PlaceHolderGameManager
   m_TagString: Untagged
@@ -68,9 +69,7 @@ MonoBehaviour:
   Sword: {fileID: 0}
   targetMesh: {fileID: 0}
   currentEquipment: []
-  defaultItems:
-  - {fileID: 11400000, guid: 54d64fb64d9db424893e1075cc486767, type: 2}
-  - {fileID: 11400000, guid: 1e80aed0036dc3145992d3c3926e49ce, type: 2}
+  defaultItems: []
 --- !u!114 &1128765268864473529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +162,41 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a61565d75c7b9e5428d36632c4646b6c, type: 2}
   - {fileID: 11400000, guid: 871f015135276904b92bdd872865dd94, type: 2}
   path: 
+--- !u!114 &2119813442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128765268864473414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7706b3e6c3bc2f4ab00473eb63eea76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Rain
+    clip: {fileID: 8300000, guid: 9310bbeb62a333543a81c9c2b5995be9, type: 3}
+    volume: 0.198
+    pitch: 0.27
+    loop: 1
+    source: {fileID: 0}
+  - name: Background Piano
+    clip: {fileID: 8300000, guid: f9ab345a6cec233499c8da60a58fb5b7, type: 3}
+    volume: 0.376
+    pitch: 1.66
+    loop: 1
+    source: {fileID: 0}
+  - name: Thunder
+    clip: {fileID: 8300000, guid: 366a7e5aa57892549930ea8e6ee1c3fc, type: 3}
+    volume: 1
+    pitch: 0.87
+    loop: 1
+    source: {fileID: 0}
+  - name: DungeonAmbience
+    clip: {fileID: 8300000, guid: 6db93a4d6b436194aae006b7e24beac7, type: 3}
+    volume: 1
+    pitch: 0.87
+    loop: 1
+    source: {fileID: 0}
+  audioMixer: {fileID: 24300002, guid: f39a99e57a82c8445bf3a248652b7c74, type: 2}

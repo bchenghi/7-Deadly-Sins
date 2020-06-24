@@ -73,5 +73,10 @@ public class PlayerAnimator : CharacterAnimator
         animator.SetTrigger("PotionUsed");
     }
 
+    public void KneelDown()
+    {
+        animator.SetTrigger("KneelDown");
+    }
+
 
 }
