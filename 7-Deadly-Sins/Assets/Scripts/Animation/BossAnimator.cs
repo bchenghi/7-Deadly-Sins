@@ -7,7 +7,7 @@ public class BossAnimator : EnemyAnimator
     [SerializeField]
     AnimatorOverrideController powerUpController;
     [SerializeField]
-    float triggerPowerUpHealth;
+    public float triggerPowerUpHealth;
     bool changedAnimatorController = false;
 
     // Start is called before the first frame update
