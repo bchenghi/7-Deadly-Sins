@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
+   
     public GameObject lootDrop;
-
     LootDrop lootDropTest;
     
     override protected void Start() {
         base.Start();
         lootDropTest = GetComponent<LootDrop>();
     }
+
+  
 
     public override void Die()
     {
