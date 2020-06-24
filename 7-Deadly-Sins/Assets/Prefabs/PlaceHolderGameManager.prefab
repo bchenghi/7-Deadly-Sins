@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1128765268864473535}
   - component: {fileID: 1128765268864473534}
   - component: {fileID: 1128765268864473521}
+  - component: {fileID: 2211655334517400999}
   - component: {fileID: 2119813442}
   m_Layer: 0
   m_Name: PlaceHolderGameManager
@@ -162,6 +163,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a61565d75c7b9e5428d36632c4646b6c, type: 2}
   - {fileID: 11400000, guid: 871f015135276904b92bdd872865dd94, type: 2}
   path: 
+--- !u!114 &2211655334517400999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128765268864473414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e219122b8ad8741a9188156be31c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectsPool: {fileID: 0}
+  MichellenousEffects: {fileID: 0}
 --- !u!114 &2119813442
 MonoBehaviour:
   m_ObjectHideFlags: 0
