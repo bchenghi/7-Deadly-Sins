@@ -17480,6 +17480,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1643678247}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: startSound
+      value: DungeonAmbience
+      objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -68102,6 +68107,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: DungeonAmbience
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6db93a4d6b436194aae006b7e24beac7, type: 3}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_Name
@@ -68960,8 +68989,7 @@ PrefabInstance:
         type: 3}
       propertyPath: coolDownImage
       value: 
-      objectReference: {fileID: 2684407609129011783, guid: da13be8313d32524596360fa57ab5852,
-        type: 3}
+      objectReference: {fileID: 6006568923215443684}
     - target: {fileID: 8278435058785182959, guid: 30bf011ff31fda2428fb040679cb1238,
         type: 3}
       propertyPath: m_Name
@@ -69475,6 +69503,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b407f184b75d0954b8040e14155f02ce, type: 3}
+--- !u!1 &6006568923215443684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8510520043406306476, guid: b407f184b75d0954b8040e14155f02ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6006568923215443683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6447563368443565520
 GameObject:
   m_ObjectHideFlags: 0

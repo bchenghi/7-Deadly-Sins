@@ -10,7 +10,7 @@ public class OpeningPlayerController : MonoBehaviour
     float speedSmoothTime = 0.1f;
 
     [SerializeField]
-    float walkSpeed = 2f;
+    public float walkSpeed = 2f;
     float speedSmoothVelocity;
     float velocityY;
     
