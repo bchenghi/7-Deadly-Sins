@@ -16,6 +16,8 @@ public class DeathTriggerBridge : MonoBehaviour
     }
 
     // Update is called once per frame
+    // If trigger is not yet triggered, and CheckTriggerCondition is true, 
+    // trigger the ITrigger
     void Update()
     {
         if (!triggered) {
@@ -26,6 +28,7 @@ public class DeathTriggerBridge : MonoBehaviour
         }
     }
 
+    // Returns true if all obj in array are null, false if at least one is not null
     bool CheckTriggerCondition() {
         bool willTrigger = true;
         foreach(GameObject obj in gameObjects) {
