@@ -23,7 +23,11 @@ public class AttackAnimationEventReceiver : MonoBehaviour
     public void MichellenousEvent(int eventNumberRange)
     {
         Debug.Log("Effect event");
-        effects.BloodEffectEvent(combat.ReturnTargetTransform(), eventNumberRange);
+        if (combat.returnCloseEnough())
+        {
+            effects.BloodEffectEvent(combat.ReturnTargetTransform(), eventNumberRange);
+            combat.ResetCloseEnough();
+        }
     }
 
     public void DrinkPotionEvent()

@@ -28,7 +28,7 @@ public class BossEffectHandler : MonoBehaviour
                 AudioManager.instance.Play("TutorialBossRoar");
                 CameraShake = true;
                 PowerUp = true;
-                CameraShaker.Instance.ShakeOnce(10f, 4f, 0.1f, 0.1f);
+                //CameraShaker.Instance.ShakeOnce(10f, 4f, 0.1f, 0.1f);
                 StartCoroutine(CameraShakerBuffer());
                 
             }

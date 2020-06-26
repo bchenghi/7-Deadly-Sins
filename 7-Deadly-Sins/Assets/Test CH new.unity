@@ -9675,6 +9675,7 @@ MonoBehaviour:
     baseValue: 3
   armor:
     baseValue: 0
+  enemyDeathSound: 
   lootDrop: {fileID: 0}
 --- !u!114 &298000655
 MonoBehaviour:
@@ -17058,6 +17059,7 @@ MonoBehaviour:
     baseValue: 3
   armor:
     baseValue: 0
+  enemyDeathSound: 
   lootDrop: {fileID: 0}
 --- !u!114 &527197288
 MonoBehaviour:
@@ -18546,6 +18548,7 @@ MonoBehaviour:
     baseValue: 0
   armor:
     baseValue: 0
+  enemyDeathSound: 
   lootDrop: {fileID: 0}
 --- !u!114 &577839595
 MonoBehaviour:
@@ -30665,6 +30668,7 @@ GameObject:
   - component: {fileID: 948891730}
   - component: {fileID: 948891731}
   - component: {fileID: 948891732}
+  - component: {fileID: 948891733}
   m_Layer: 10
   m_Name: Tutorial Boss
   m_TagString: Untagged
@@ -30746,6 +30750,7 @@ MonoBehaviour:
     baseValue: 10
   armor:
     baseValue: 0
+  enemyDeathSound: BossDeath
   lootDrop: {fileID: 0}
 --- !u!114 &948891726
 MonoBehaviour:
@@ -30759,7 +30764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e469058dc277d458ac97705c7f73d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.05
+  attackSpeed: 0.2
   SpecialActivated: 0
   count: 0
   attackDistance: 3
@@ -30859,7 +30864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee0817bf8f4b4c458648c2f51a25805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactsToDamage: 1
+  reactsToDamage: 0
   replacebleAttackAnim: {fileID: 7400000, guid: 5cfb8f8889eef8d4aaec9b7105c8f447,
     type: 2}
   defaultAttackAnimSet:
@@ -30868,6 +30873,18 @@ MonoBehaviour:
   overrideContoller: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
   powerUpController: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
   triggerPowerUpHealth: 40
+--- !u!114 &948891733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948891720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd39b40171e78aa4dab46aa4260e4b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &949187517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53672,6 +53689,18 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
+--- !u!114 &1643678257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643678247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd39b40171e78aa4dab46aa4260e4b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1644890299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 821697842945565480, guid: ad723011623795149ab723c33c434c37,
@@ -68441,58 +68470,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[3].name
-      value: DungeonAmbience
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[3].clip
+      propertyPath: sounds.Array.data[5].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 6db93a4d6b436194aae006b7e24beac7, type: 3}
+      objectReference: {fileID: 8300000, guid: 40fa991db955bc643b01f6df8ad16c5a, type: 3}
     - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[3].volume
+      propertyPath: sounds.Array.data[5].name
+      value: Slash1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[12].pitch
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[12].volume
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[3].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[3].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: TutorialBossRoar
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 644f58d86a7e844bbbe222da2ac8c336, type: 3}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[4].loop
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_Name
       value: PlaceHolderGameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1128765268864473528, guid: 945640c5bc295a94891f95bac5526842,
-        type: 3}
-      propertyPath: defaultItems.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473528, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
@@ -70180,7 +70192,6 @@ GameObject:
   - component: {fileID: 7275556995415062199}
   - component: {fileID: 7275556995415062198}
   - component: {fileID: 7275556995415062193}
-  - component: {fileID: 7275556995415062202}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -70188,23 +70199,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7275556995415062202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7275556995415062201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Boss: {fileID: 948891720}
-  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
-  DefaultRotInfluence: {x: 1, y: 1, z: 1}
-  RestPositionOffset: {x: 0, y: 0, z: 0}
-  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &7302949417789522309
 PrefabInstance:
   m_ObjectHideFlags: 0
