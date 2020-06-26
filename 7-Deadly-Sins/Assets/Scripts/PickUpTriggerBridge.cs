@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpDialogueTrigger : MonoBehaviour
+public class PickUpTriggerBridge : MonoBehaviour
 {
     ITrigger trigger;
     public GameObject item;

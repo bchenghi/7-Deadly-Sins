@@ -66,6 +66,8 @@ public class LootDrop : MonoBehaviour
         }
     }
 
+    // Randomly generates locations to spawn a loot, and tests if it can be spawned. 
+    // Will give up after a given number of tests. Will return a location that can spawn loot.
     Vector3 LocationToSpawnLoot(GameObject loot) {
         BoxCollider collider = loot.GetComponent<BoxCollider>();
         bool found = false;

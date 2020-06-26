@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderTrigger : MonoBehaviour
+public class ColliderTriggerBridge : MonoBehaviour
 {
     // Can retrigger means if the player walks into the trigger again,
     // the same dialogue box will appear again. If false, it will only

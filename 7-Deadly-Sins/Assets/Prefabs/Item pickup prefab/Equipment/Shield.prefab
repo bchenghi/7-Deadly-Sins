@@ -1,33 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &3442503789561097211
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135531944765253726}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1272481795433867914, guid: 0f99798ab26f4044b94f082597c9f926, type: 3}
---- !u!114 &3442503789561096964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135531944765253726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccf12170d54c404cab75a72c773c150, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxOutlineWidth: 1
-  OutlineColor: {r: 0.9528302, g: 0.91566396, b: 0.05842829, a: 0}
 --- !u!1 &3442503790482777967
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,9 +58,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6431f2629c4ef3f4793141ee2e839936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.78
+  radius: 1
   interactionTransform: {fileID: 3442503790482777966}
   item: {fileID: 11400000, guid: 528d5e6cb9cd0db4980b70573e3af968, type: 2}
+--- !u!64 &3442503789561097211
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135531944765253726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1272481795433867914, guid: 0f99798ab26f4044b94f082597c9f926, type: 3}
+--- !u!114 &3442503789561096964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135531944765253726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccf12170d54c404cab75a72c773c150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOutlineWidth: 1
+  OutlineColor: {r: 0.9528302, g: 0.91566396, b: 0.05842829, a: 0}
 --- !u!1001 &3442503789273940669
 PrefabInstance:
   m_ObjectHideFlags: 0
