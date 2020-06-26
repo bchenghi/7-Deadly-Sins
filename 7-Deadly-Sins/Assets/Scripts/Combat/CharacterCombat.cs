@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour
 {
-
+    private bool CloseEnough = false;
     public float attackSpeed = 1f;
     private float attackCooldown = 0f;
     const float combatCooldown = 5;
@@ -30,6 +30,7 @@ public class CharacterCombat : MonoBehaviour
     protected virtual void Start()
     {
         myStats = GetComponent<CharacterStats>();
+        
     }
 
     protected virtual void Update()
@@ -73,11 +74,12 @@ public class CharacterCombat : MonoBehaviour
             {
                 if (opponentStats.transform.GetComponent<PlayerStats>().InvisibleAmt <= 0)
                 {
-                    opponentStats.TakeDamage(myStats.damage.GetValue());
+                    opponentStats.TakeDamage(myStats.damage.GetValue()); 
                 }
             } else
             {
                 opponentStats.TakeDamage(myStats.damage.GetValue());
+                CloseEnough = true;
             }
         }
 
@@ -97,4 +99,15 @@ public class CharacterCombat : MonoBehaviour
     {
         return opponentStats.transform;
     }
+
+    public bool returnCloseEnough()
+    {
+        return this.CloseEnough;
+    }
+
+    public void ResetCloseEnough()
+    {
+        this.CloseEnough = false;
+    }
+
 }

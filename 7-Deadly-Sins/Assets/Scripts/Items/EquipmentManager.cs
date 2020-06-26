@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +35,12 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment = new Equipment[numberOfSlots];
         currentMeshes = new SkinnedMeshRenderer[numberOfSlots];
         EquipDefaultItems();
+        
+    }
+
+    public int GetWeaponIndex()
+    {
+        return Array.IndexOf(Enum.GetValues(typeof(EquipmentSlot)), EquipmentSlot.Weapon);
     }
 
 
