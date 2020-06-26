@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     PlayerStats playerStats;
     LineRenderer lineRenderer;
+    SoundHandler soundHandler;
 
     public Interactable focus;
 
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         //previousPosition = transform.position;
         playerStats = GetComponent<PlayerStats>();
+        soundHandler = GetComponent<SoundHandler>();
        
     }
 
@@ -130,6 +132,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
+                soundHandler.PlaySoundByName("Jump");
             }
 
             FallAnim();

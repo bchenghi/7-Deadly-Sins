@@ -6,6 +6,7 @@ public class PlayerAnimator : CharacterAnimator
 {   
     public WeaponAnimations[] weaponAnimations;
     Dictionary<Equipment, AnimationClip[]> weaponAnimationDict;
+    SoundHandler soundHandler;
 
     protected override void Start()
     {
@@ -20,6 +21,7 @@ public class PlayerAnimator : CharacterAnimator
         }
 
         combat.OnAttack += UseSpecial;
+        soundHandler = GetComponent<SoundHandler>();
     }
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
@@ -54,6 +56,18 @@ public class PlayerAnimator : CharacterAnimator
     {
         public Equipment weapon;
         public AnimationClip[] clips;
+    }
+
+    protected override void OnAttack()
+    {
+        base.OnAttack();
+        if (EquipmentManager.instance.currentEquipment[EquipmentManager.instance.GetWeaponIndex()] != null)
+        {
+            soundHandler.PlaySlashSound();
+        } else
+        {
+            soundHandler.PlayPunchSound();
+        }
     }
 
     public virtual void UseSpecial()
