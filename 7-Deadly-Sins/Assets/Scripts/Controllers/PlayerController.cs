@@ -350,7 +350,6 @@ public class PlayerController : MonoBehaviour
     //Rolling and Dodging
     public void Rolling()
     {
-        Debug.Log(ActCoolDown);
         bool Roll = Input.GetButtonDown("Roll");
         if (ActCoolDown <= 0)
         {

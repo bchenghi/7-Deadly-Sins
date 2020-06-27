@@ -16227,6 +16227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effects
       objectReference: {fileID: 0}
+    - target: {fileID: 4672259527038042115, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d36dfe796d217794189c575e3abfaeb8, type: 3}
 --- !u!1001 &486764606
@@ -17833,10 +17838,25 @@ PrefabInstance:
       propertyPath: startSound
       value: DungeonAmbience
       objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: effectsPool
+      value: 
+      objectReference: {fileID: 1716002352}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: miscelleaneousEffects
+      value: 
+      objectReference: {fileID: 742301516}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
       value: SceneSetUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815145, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
@@ -19137,6 +19157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MischellenousEffects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431664082466234738, guid: 9896a77538c12b7459a12c8cd4aa5ab1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4431664082466234739, guid: 9896a77538c12b7459a12c8cd4aa5ab1,
         type: 3}
@@ -68664,6 +68689,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceHolderGameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473528, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: targetMesh
@@ -68896,7 +68926,7 @@ PrefabInstance:
     - target: {fileID: 2658235348617152197, guid: b059a392006b1a94ebd0aac8bf58b7c7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000013351
+      value: 153
       objectReference: {fileID: 0}
     - target: {fileID: 2658235348617152197, guid: b059a392006b1a94ebd0aac8bf58b7c7,
         type: 3}
@@ -70102,17 +70132,17 @@ PrefabInstance:
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.29
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.2
+      value: 8.12
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.32
+      value: 11.22
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}

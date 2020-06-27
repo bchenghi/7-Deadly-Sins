@@ -5,6 +5,10 @@ using UnityEngine;
 // Sets up necessary components 
 public class NewSceneSetUp : MonoBehaviour
 {
+    [SerializeField]
+    GameObject effectsPool;
+    [SerializeField]
+    GameObject miscelleaneousEffects;
 
     [SerializeField]
     SkinnedMeshRenderer targetMesh;
@@ -20,6 +24,10 @@ public class NewSceneSetUp : MonoBehaviour
             PlayerManager.instance.player = player;
         if (EquipmentManager.instance.targetMesh == null) {
             EquipmentManager.instance.targetMesh = targetMesh;
+        } if (EffectsManager.instance.EffectsPool == null) {
+            EffectsManager.instance.EffectsPool = effectsPool;
+        } if (EffectsManager.instance.MichellenousEffects == null) {
+            EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
         }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -38,6 +46,7 @@ public class NewSceneSetUp : MonoBehaviour
             AudioManager.instance.StopPlayingAll();
             AudioManager.instance.Play(startSound);
         }
+        EffectsManager.instance.Start();
     }
 
 }

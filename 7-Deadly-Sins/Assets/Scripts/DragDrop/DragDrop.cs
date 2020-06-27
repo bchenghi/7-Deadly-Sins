@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     GameObject itemBeingDragged;
     Vector3 startPosition;
@@ -12,6 +12,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     GraphicRaycaster graphicRaycaster;
     PointerEventData pointerEventData;
     List<RaycastResult> raycastResults;
+
+    bool clicked = false;
     
     
 
@@ -28,6 +30,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
+        clicked = false;
         itemBeingDragged = gameObject;
         startPosition = transform.position;
         startParent = transform.parent;
@@ -100,8 +103,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
+        clicked = true;
         
-        GetComponentInParent<Button>().onClick.Invoke();
+        
+    }
+
+    public void OnPointerUp(PointerEventData eventData) {
+        if (clicked) {
+            GetComponentInParent<Button>().onClick.Invoke();
+        }
     }
 
     

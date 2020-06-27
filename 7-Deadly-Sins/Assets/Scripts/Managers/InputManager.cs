@@ -16,16 +16,17 @@ public class InputManager : MonoBehaviour
         if (Input.anyKeyDown)
         {
             if (KeyPressDown != null) KeyPressDown();
-            print("Ïnput Key : " + Input.inputString);
             string inputKey = "";
             if (Input.inputString != "")
             {
-                inputKey = Input.inputString[0].ToString();
+                int length = Input.inputString.Length;
+                inputKey = Input.inputString[length - 1].ToString();
+                Debug.Log("input key is " + inputKey);
                 int hotkeyIndex = HotKeyBar.instance.HotKeyString.IndexOf(inputKey);
                 HotKeyBar.instance.UseHotKey(hotkeyIndex);
             }
-            
-            
         }
+
+        
     }
 }
