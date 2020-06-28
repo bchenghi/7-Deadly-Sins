@@ -81,7 +81,6 @@ public class RigidBodyPlayerController : MonoBehaviour
     public float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
     float currentSpeed;
-    float velocityY;
 
     Camera cam;
     Animator animator;
@@ -158,7 +157,6 @@ public class RigidBodyPlayerController : MonoBehaviour
             {
                 running = false;
             }
-
             Move(inputDir, running);
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -207,7 +205,6 @@ public class RigidBodyPlayerController : MonoBehaviour
                 }
             }
         }
-
     }
 
     void Move(Vector2 inputDir, bool running)
@@ -222,20 +219,11 @@ public class RigidBodyPlayerController : MonoBehaviour
 
         float targetSpeed = (running) ? runSpeed : walkSpeed * inputDir.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, GetModifiedSmoothTime(speedSmoothTime));
-        velocityY += (Time.deltaTime * gravity);
-        
         Vector3 velocity = transform.forward * currentSpeed + new Vector3(0, rigidBody.velocity.y, 0);
         //controller.Move(velocity * Time.deltaTime);
         //currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
         rigidBody.velocity = velocity;
 	    currentSpeed = new Vector2(rigidBody.velocity.x, rigidBody.velocity.z).magnitude;
-
-        if (isGrounded && !jumping)
-        {
-            velocityY = 0;
-        }
-        // Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-        // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
@@ -258,20 +246,20 @@ public class RigidBodyPlayerController : MonoBehaviour
         jumpAnimStart = true;
         animator.SetTrigger("jump");
         yield return new WaitForSeconds(0.52f);
-        jumping = true;
         if (isGrounded)
         {
-            float jumpVelocity = Mathf.Sqrt(-2 * Physics.gravity.magnitude * jumpHeight);
-            velocityY = jumpVelocity;
-            rigidBody.AddForce(Vector3.up * jumpVelocity);
-        } 
+            float jumpVelocity = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight);
+            rigidBody.velocity += new Vector3(0, jumpVelocity, 0);
+            //Debug.Log("jump force added. y velocity is: " + rigidBody.velocity.y + " jumpVelocity is: " + jumpVelocity + " gravity.y is: " + Physics.gravity.y);
+        }
+        jumping = true; 
     }
 
     // if distance above ground is high enough and is falling but fall animation not running
     // , run fall animation
     void FallAnim()
     {
-        if (distanceToGround >= distanceAboveGroundTriggerFallAnim && (velocityY < 0) && 
+        if (distanceToGround >= distanceAboveGroundTriggerFallAnim && (rigidBody.velocity.y < 0) && 
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Fall"))
         {
             jumpAnimStart = false;
@@ -286,7 +274,7 @@ public class RigidBodyPlayerController : MonoBehaviour
     void LandAnim()
     {
         if (distanceToGround <= distanceAboveGroundTriggerLandAnim && 
-            (jumping || falling) && velocityY <= 0 )
+            (jumping || falling) && rigidBody.velocity.y <= 0 )
         {
             animator.SetBool("fall", false);
             animator.SetTrigger("land");
@@ -353,6 +341,7 @@ public class RigidBodyPlayerController : MonoBehaviour
     {
         int ignoreRaycastLayerMask = LayerMask.GetMask("Ignore Raycast");
         RaycastHit hit;
+        float distance;
         if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
             new Vector3(capsuleCollider.radius * 0.5f,  0.01f, capsuleCollider.radius * 0.5f),
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100, ~ignoreRaycastLayerMask))
@@ -360,9 +349,13 @@ public class RigidBodyPlayerController : MonoBehaviour
 
 
             Debug.Log("collided obj: " + hit.transform.name);
+            distance = hit.distance;
 
         }
-        float distance = hit.distance;
+        else 
+        {
+            distance = int.MaxValue;
+        }
         Debug.Log("distance: " + (distance - groundRefOffset));
         distanceToGround =  Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }

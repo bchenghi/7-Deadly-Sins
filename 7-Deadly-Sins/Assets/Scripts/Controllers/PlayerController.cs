@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     private float ActCoolDown;
     
 
+    [HideInInspector]
     public bool running = false;
+    [HideInInspector]
     public bool isSlowed = false;
     // animation
     bool falling = false;
@@ -37,12 +39,17 @@ public class PlayerController : MonoBehaviour
     float distanceAboveGroundTriggerLandAnim = 0.7f;
     // Max distance the player is above the ground to count as grounded
     [SerializeField]
-    float groundedDistance = 0.75f;
+    float groundedDistance = 0.1f;
+
+    // A gameobject that contains gameobjects as children that are used measure dist from ground
+    public GameObject distFromGroundComponents;
     //Reference object distance to ground is measured from
-    public GameObject distanceFromGroundReference;
+    Transform distanceFromGroundReference;
+    // Reference for feet/bottom of player
+    Transform feetReference;
     // Distance to subtract from height from reference to ground, as the reference is above ground level 
     // (value needs specific adjustment)
-    float groundRefOffset = 0.63f;
+    float groundRefOffset;
     bool isGrounded;
 
     public float turnSmoothTime = 0.2f;
@@ -61,7 +68,7 @@ public class PlayerController : MonoBehaviour
     LineRenderer lineRenderer;
     SoundHandler soundHandler;
 
-    public Interactable focus;
+    Interactable focus;
 
     float distanceToGround;
 
@@ -76,7 +83,9 @@ public class PlayerController : MonoBehaviour
         //previousPosition = transform.position;
         playerStats = GetComponent<PlayerStats>();
         soundHandler = GetComponent<SoundHandler>();
-       
+        feetReference = distFromGroundComponents.transform.GetChild(1);
+        distanceFromGroundReference = distFromGroundComponents.transform.GetChild(0);
+        groundRefOffset = Vector3.Distance(feetReference.position, distanceFromGroundReference.position);
     }
 
     // Update is called once per frame
@@ -202,7 +211,7 @@ public class PlayerController : MonoBehaviour
             velocityY = 0;
         }
         // Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-        // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
+         Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
@@ -319,6 +328,7 @@ public class PlayerController : MonoBehaviour
     {
         int ignoreRaycastLayerMask = LayerMask.GetMask("Ignore Raycast");
         RaycastHit hit;
+        float distance;
         if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
             new Vector3(controller.radius * 0.5f,  0.01f, controller.radius * 0.5f),
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100, ~ignoreRaycastLayerMask))
@@ -326,26 +336,33 @@ public class PlayerController : MonoBehaviour
 
 
             // Debug.Log("collided obj: " + hit.transform.name);
+            distance = hit.distance;
 
+        } else {
+            distance = int.MaxValue;
         }
-        float distance = hit.distance;
         //Debug.Log("distance: " + (distance - groundRefOffset));
         distanceToGround =  Mathf.Clamp(distance - groundRefOffset, 0, distance - groundRefOffset);
     }
 
-    // Measures rate of change of y axis of player per second. If less than 0.5, or distance from ground is less than threshold
+    // If vertical velocity of player is approximately 0 and not in the air (not falling or jumping),
+    // or distance from ground is less than a certain threshold,
     // player is grounded and result is stored in isGrounded variable
     void SetIsGrounded()
     {
-        if ( distanceToGround <= groundedDistance)
+        Debug.Log("vertical velocity of controller " + Mathf.Abs(controller.velocity.y) + " < " + Mathf.Pow(1,-10));
+        if ((Mathf.Abs(controller.velocity.y) < Mathf.Pow(10, -5) && !jumping && !falling) || distanceToGround <= groundedDistance)
         {
+            Debug.Log("is grounded set to true");
             isGrounded = true;
         }
         else
         {
+            Debug.Log("isgrounded set to false");
            isGrounded =  false;
         }
     }
+
 
     //Rolling and Dodging
     public void Rolling()
