@@ -9,7 +9,7 @@ public class ColliderSceneLoad : MonoBehaviour
     [SerializeField]
     string nameOfSceneToLoad;
     void Start() {
-        sceneLoader = GetComponent<SceneLoader>();
+        sceneLoader = SceneLoader.instance;
     }
     void OnTriggerEnter(Collider collider) {
         if (collider.gameObject.name == "Player")
