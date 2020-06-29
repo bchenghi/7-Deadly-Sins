@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
             velocityY = 0;
         }
         // Debug.Log("velocity: " + velocity * Time.deltaTime + " controller y velocity: " + controller.velocity.y);
-         Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
+        // Debug.Log("velocityY: " + velocityY+ ", distance to ground: " + distanceToGround);
     }
 
     // If grounded, not jumping, falling or landing then animate jump
@@ -350,7 +350,7 @@ public class PlayerController : MonoBehaviour
     // player is grounded and result is stored in isGrounded variable
     void SetIsGrounded()
     {
-        Debug.Log("vertical velocity of controller " + Mathf.Abs(controller.velocity.y) + " < " + Mathf.Pow(1,-10));
+        //Debug.Log("vertical velocity of controller " + Mathf.Abs(controller.velocity.y) + " < " + Mathf.Pow(1,-10));
         if ((Mathf.Abs(controller.velocity.y) < Mathf.Pow(10, -5) && !jumping && !falling) || distanceToGround <= groundedDistance)
         {
             Debug.Log("is grounded set to true");
