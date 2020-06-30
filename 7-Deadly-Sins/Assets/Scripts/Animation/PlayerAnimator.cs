@@ -92,5 +92,10 @@ public class PlayerAnimator : CharacterAnimator
         animator.SetTrigger("KneelDown");
     }
 
+    public void Climbing()
+    {
+        animator.SetBool("Climbing", GetComponent<PlayerController>().Climbing);
+    }
+
 
 }

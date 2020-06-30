@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public float InvisibleDuration = 0.5f;
     public float DodgeCoolDown = 1f;
     private float ActCoolDown;
+
+    // For climbing
+    [HideInInspector]
+    public bool Climbing;
     
 
     [HideInInspector]
@@ -112,7 +116,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (ActionsAllowed())
+       
+        animator.SetBool("Climbing", Climbing);
+        
+
+        if (ActionsAllowed() && !Climbing)
         {
             if (focus != null)
             {
