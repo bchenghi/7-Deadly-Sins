@@ -37,11 +37,15 @@ public class Ladder : MonoBehaviour
             //target.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             if (Input.GetKey(KeyCode.W))
             {
-                Debug.Log("Going up");
+                target.GetComponent<PlayerController>().ClimbingButStop = false;
                 target.Translate(Vector3.up * Time.deltaTime * speed);
             } else if (Input.GetKey(KeyCode.S))
             {
+                target.GetComponent<PlayerController>().ClimbingButStop = false;
                 target.Translate(Vector3.down * Time.deltaTime * speed, Space.World);
+            } else
+            {
+                target.GetComponent<PlayerController>().ClimbingButStop = true;
             }
         }
     }

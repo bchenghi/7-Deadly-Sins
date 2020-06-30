@@ -1,6 +1,8 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 using System.Collections;
+using Cinemachine;
+using UnityEngine.Video;
 
 // Movement, focused gameobject, and interaction of player
 public class PlayerController : MonoBehaviour
@@ -19,10 +21,15 @@ public class PlayerController : MonoBehaviour
     public float InvisibleDuration = 0.5f;
     public float DodgeCoolDown = 1f;
     private float ActCoolDown;
+    private bool isRolling;
+
 
     // For climbing
     [HideInInspector]
     public bool Climbing;
+    [HideInInspector]
+    public bool ClimbingButStop;
+    private float prevSpeed;
     
 
     [HideInInspector]
@@ -90,6 +97,7 @@ public class PlayerController : MonoBehaviour
         feetReference = distFromGroundComponents.transform.GetChild(1);
         distanceFromGroundReference = distFromGroundComponents.transform.GetChild(0);
         groundRefOffset = Vector3.Distance(feetReference.position, distanceFromGroundReference.position);
+        prevSpeed = animator.speed;
     }
 
     // Update is called once per frame
@@ -116,8 +124,22 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-       
-        animator.SetBool("Climbing", Climbing);
+        if (Climbing)
+        {
+            if (ClimbingButStop == false)
+            {
+                animator.speed = prevSpeed;
+                animator.SetBool("Climbing", true);
+            } else
+            {
+                animator.speed = 0;
+            }
+            
+        } else
+        {
+            animator.SetBool("Climbing", false);
+        }
+        
         
 
         if (ActionsAllowed() && !Climbing)
@@ -155,6 +177,11 @@ public class PlayerController : MonoBehaviour
             FallAnim();
             LandAnim();
             Rolling();
+
+            if (isRolling)
+            {
+                DodgeForwward();
+            }
 
             float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * 0.5f);
             animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
@@ -381,6 +408,7 @@ public class PlayerController : MonoBehaviour
             animator.ResetTrigger("Roll");
             if (Roll)
             {
+                StartCoroutine(RollDuration());
                 Dodge();
             }
         } else
@@ -394,8 +422,21 @@ public class PlayerController : MonoBehaviour
         ActCoolDown = DodgeCoolDown;
         playerStats.Invisible(DelayBeforeInvisible, InvisibleDuration);
         animator.SetTrigger("Roll");
+       
 
 
+    }
+
+    public void DodgeForwward()
+    {
+        transform.position += transform.forward * Time.deltaTime * 3f;
+    }
+
+    IEnumerator RollDuration()
+    {
+        isRolling = true;
+        yield return new WaitForSeconds(0.8f);
+        isRolling = false;
     }
 
     
