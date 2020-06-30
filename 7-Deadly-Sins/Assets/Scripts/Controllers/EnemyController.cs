@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public float maxZ;
     private float waitTime;
     public float startWaitTime;
+    private float StoppingDist;
     Transform target;
     NavMeshAgent agent;
     CharacterCombat combat;
@@ -32,7 +33,7 @@ public class EnemyController : MonoBehaviour
         
         waitTime = startWaitTime;
         moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
-        
+        StoppingDist = agent.stoppingDistance;
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class EnemyController : MonoBehaviour
         {
             if (distance <= agent.stoppingDistance)
             {
+                agent.stoppingDistance = StoppingDist;
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
                 if (targetStats != null)
                 {
@@ -54,6 +56,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (distance <= lookRadius)
             {
+                agent.stoppingDistance = StoppingDist;
                 agent.SetDestination(target.position);
                 DecideOnChasing();
             }
@@ -61,11 +64,13 @@ public class EnemyController : MonoBehaviour
             {
                 if (FreeRoamer)
                 {
+                    agent.stoppingDistance = 0;
                     FreeRoam();
 
                 }
                 else
                 {
+                    agent.stoppingDistance = StoppingDist;
                     agent.SetDestination(originalPos);
                 }
             }
@@ -103,8 +108,8 @@ public class EnemyController : MonoBehaviour
     private void FreeRoam()
     {
         agent.SetDestination(moveSpot.position);
-        Debug.Log(Vector3.Distance(transform.position, moveSpot.position));
-        if (Vector3.Distance(transform.position, moveSpot.position) < 0.9f)
+        //Debug.Log(Vector3.Distance(transform.position, moveSpot.position));
+        if (Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
         {
             if (waitTime <= 0)
             {
