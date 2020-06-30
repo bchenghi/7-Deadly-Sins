@@ -9964,6 +9964,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 4
+  moveSpot: {fileID: 0}
+  FreeRoamer: 0
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
+  startWaitTime: 0
 --- !u!114 &298000654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17413,6 +17420,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 4
+  moveSpot: {fileID: 0}
+  FreeRoamer: 0
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
+  startWaitTime: 0
 --- !u!114 &527197287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18922,6 +18936,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 0
+  moveSpot: {fileID: 0}
+  FreeRoamer: 0
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
+  startWaitTime: 0
 --- !u!114 &577839594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31113,6 +31134,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 10
+  moveSpot: {fileID: 0}
+  FreeRoamer: 0
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
+  startWaitTime: 0
 --- !u!114 &948891725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70306,6 +70334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: groundedDistance
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976121, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976122, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}

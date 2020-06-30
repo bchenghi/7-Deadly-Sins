@@ -365,7 +365,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         float distance;
         if (Physics.BoxCast(distanceFromGroundReference.transform.position, 
-            new Vector3(controller.radius * 0.5f,  0.01f, controller.radius * 0.5f),
+            new Vector3(controller.radius * 0.9f,  0.01f, controller.radius * 0.9f),
             -transform.TransformDirection(Vector3.up), out hit, transform.rotation, 100, ~ignoreRaycastLayerMask))
         {
 

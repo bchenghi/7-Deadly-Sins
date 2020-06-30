@@ -30865,6 +30865,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976121, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976122, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: uiPrefab
@@ -34679,6 +34684,8 @@ MonoBehaviour:
   DelayBeforeInvisible: 0.2
   InvisibleDuration: 0.5
   DodgeCoolDown: 1
+  Climbing: 0
+  ClimbingButStop: 0
   running: 0
   isSlowed: 0
   groundedDistance: 0.39
@@ -43308,6 +43315,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 2.93
+  moveSpot: {fileID: 0}
+  FreeRoamer: 0
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
+  startWaitTime: 0
 --- !u!114 &2042257714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47243,6 +47257,8 @@ MonoBehaviour:
   DelayBeforeInvisible: 0.2
   InvisibleDuration: 1
   DodgeCoolDown: 2
+  Climbing: 0
+  ClimbingButStop: 0
   running: 0
   isSlowed: 0
   groundedDistance: 0.39
@@ -50968,6 +50984,8 @@ MonoBehaviour:
   DelayBeforeInvisible: 0.2
   InvisibleDuration: 0.5
   DodgeCoolDown: 1
+  Climbing: 0
+  ClimbingButStop: 0
   running: 0
   isSlowed: 0
   groundedDistance: 0.39
