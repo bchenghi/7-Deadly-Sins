@@ -6,7 +6,14 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
-
+    public Transform moveSpot;
+    public bool FreeRoamer;
+    public float minX;
+    public float maxX;
+    public float minZ;
+    public float maxZ;
+    private float waitTime;
+    public float startWaitTime;
     Transform target;
     NavMeshAgent agent;
     CharacterCombat combat;
@@ -22,11 +29,16 @@ public class EnemyController : MonoBehaviour
         combat = GetComponent<CharacterCombat>();
         animator = GetComponentInChildren<Animator>();
         originalPos = transform.position;
+        
+        waitTime = startWaitTime;
+        moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+        
     }
 
     // Update is called once per frame
      void Update()
     {
+        
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (!combat.dead)
@@ -47,7 +59,15 @@ public class EnemyController : MonoBehaviour
             }
             else if (distance > lookRadius)
             {
-                agent.SetDestination(originalPos);
+                if (FreeRoamer)
+                {
+                    FreeRoam();
+
+                }
+                else
+                {
+                    agent.SetDestination(originalPos);
+                }
             }
         }
     }
@@ -77,4 +97,32 @@ public class EnemyController : MonoBehaviour
             agent.isStopped = false;
         }
     }
+
+    
+
+    private void FreeRoam()
+    {
+        agent.SetDestination(moveSpot.position);
+        Debug.Log(Vector3.Distance(transform.position, moveSpot.position));
+        if (Vector3.Distance(transform.position, moveSpot.position) < 0.9f)
+        {
+            if (waitTime <= 0)
+            {
+                moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+                waitTime = startWaitTime;
+                
+            } else
+            {
+                waitTime -= Time.deltaTime;
+                
+            }
+        }
+    }
+
+    public bool Approximately(float a, float b, float epsilon)
+    {
+        return (Mathf.Abs(a - b) < epsilon) || (Mathf.Approximately(Mathf.Abs(a - b), epsilon));
+    }
+
+    
 }
