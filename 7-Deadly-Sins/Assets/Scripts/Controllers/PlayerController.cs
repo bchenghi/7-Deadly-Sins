@@ -430,6 +430,8 @@ public class PlayerController : MonoBehaviour
     public void DodgeForwward()
     {
         transform.position += transform.forward * Time.deltaTime * 3f;
+        //transform.Translate(Vector3.forward * Time.deltaTime * 2f);
+        
     }
 
     IEnumerator RollDuration()
