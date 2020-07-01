@@ -34,7 +34,7 @@ public class Ladder : MonoBehaviour
             target.position = new Vector3(transform.position.x, target.position.y, transform.position.z);
             target.rotation = Quaternion.LookRotation(target.forward, Vector3.up);
             //Vector3 direction = (transform.position - target.position).normalized;
-            //target.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            //target.rotation = Quaternion.LookRotation(target.forward);
             if (Input.GetKey(KeyCode.W))
             {
                 target.GetComponent<PlayerController>().ClimbingButStop = false;

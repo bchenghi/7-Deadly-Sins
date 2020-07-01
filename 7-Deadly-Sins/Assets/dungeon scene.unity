@@ -5135,6 +5135,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: dfe7234da013195408b5f12da6c3c65c, type: 3}
+--- !u!1 &281926825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
+    type: 3}
+  m_PrefabInstance: {fileID: 1498610160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &281926838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281926825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e7bd988becc1a46813a094cc0da26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &282502863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2317576605586290934, guid: 5adaedd4c0081614da171fecdf6bbd37,
@@ -52538,22 +52556,22 @@ PrefabInstance:
     - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 8.74e-43
+      value: 6e-45
       objectReference: {fileID: 0}
     - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1.4033e-41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 8.74e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 8.670959
+      value: -2.5907947e-29
       objectReference: {fileID: 0}
     - target: {fileID: 4672259525545162738, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
@@ -54727,6 +54745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870372211059488, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6441870372211059500, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}

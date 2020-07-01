@@ -39,4 +39,22 @@ public class HotKeyBar : MonoBehaviour
             hotkey.Refresh();
         }
     }
+
+    public void EnableAll()
+    {
+        foreach(HotKey hotkey in Hotkeys)
+        {
+            hotkey.EnableHotKey();
+        }
+    }
+
+    public void DisableAll()
+    {
+        foreach (HotKey hotkey in Hotkeys)
+        {
+            hotkey.DisableHotKey();
+        }
+    }
+
+
 }

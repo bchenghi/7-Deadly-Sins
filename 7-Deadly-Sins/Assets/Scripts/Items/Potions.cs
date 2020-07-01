@@ -26,7 +26,7 @@ public class Potions : Consumables , IUsable
         base.Use();
        
         playerStats.SetIncreaseInStats(increaseStats, potUsed);
-        
+        Monobehaviour.instance.StartCoroutine(DisableHotkeyTiming(2.5f));
         Transform[] ts = PlayerManager.instance.player.transform.GetComponentsInChildren<Transform>(true);
         if (Health)
         {
@@ -80,6 +80,13 @@ public class Potions : Consumables , IUsable
 
     public override int GetPrice() {
         return (int) increaseStats;
+    }
+
+    IEnumerator DisableHotkeyTiming(float Timing)
+    {
+        HotKeyBar.instance.DisableAll();
+        yield return new WaitForSeconds(Timing);
+        HotKeyBar.instance.EnableAll();
     }
 
 }
