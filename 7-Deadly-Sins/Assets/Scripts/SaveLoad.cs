@@ -44,11 +44,13 @@ public class SaveLoad : MonoBehaviour
 
     void GetData()
     {
-        HP = PlayerManager.instance.player.GetComponent<PlayerStats>().currentHealth;
-        Armor = PlayerManager.instance.player.GetComponent<PlayerStats>().armor.GetValue();
-        Damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage.GetValue();
-        Gold = GoldCounter.instance.gold;
-        Mana = PlayerManager.instance.player.GetComponent<PlayerStats>().CurrentMana;
+        if (PlayerManager.instance.player != null) {
+            HP = PlayerManager.instance.player.GetComponent<PlayerStats>().currentHealth;
+            Armor = PlayerManager.instance.player.GetComponent<PlayerStats>().armor.GetValue();
+            Damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage.GetValue();
+            Gold = GoldCounter.instance.gold;
+            Mana = PlayerManager.instance.player.GetComponent<PlayerStats>().CurrentMana;
+        }
     }
 
 

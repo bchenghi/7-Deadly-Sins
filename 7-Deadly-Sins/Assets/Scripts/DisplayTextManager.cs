@@ -24,6 +24,8 @@ public class DisplayTextManager : MonoBehaviour
     [SerializeField]
     float fadeOutTime = 0.4f;
 
+    Coroutine currentCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +40,17 @@ public class DisplayTextManager : MonoBehaviour
 
     public void Display(string text, float durationTextDisplayed) {
         displayText.text = text;
-        StartCoroutine(DisplayText(text, durationTextDisplayed));
+        if (currentCoroutine != null) {
+            StopCoroutine(currentCoroutine);
+        }
+        currentCoroutine = StartCoroutine(DisplayText(text, durationTextDisplayed));
     }
 
     IEnumerator FadeIn(float timeTakenToFadeIn) {
         displayText.color = new Color(displayText.color.r, displayText.color.g, displayText.color.b, 0);
         while(displayText.color.a < 1.0f) {
             displayText.color = new Color(displayText.color.r, displayText.color.g, 
-            displayText.color.b, displayText.color.a + (Time.deltaTime / timeTakenToFadeIn));
+            displayText.color.b, displayText.color.a + (Time.unscaledDeltaTime / timeTakenToFadeIn));
             yield return null;
         }
     }
@@ -54,7 +59,7 @@ public class DisplayTextManager : MonoBehaviour
         displayText.color = new Color(displayText.color.r, displayText.color.g, displayText.color.b, 1f);
         while(displayText.color.a > 0) {
             displayText.color = new Color(displayText.color.r, displayText.color.g, 
-            displayText.color.b, displayText.color.a - (Time.deltaTime / timeTakenToFadeOut));
+            displayText.color.b, displayText.color.a - (Time.unscaledDeltaTime / timeTakenToFadeOut));
             yield return null;
         }
     }
@@ -62,7 +67,7 @@ public class DisplayTextManager : MonoBehaviour
     IEnumerator DisplayText(string text, float durationTextDisplayed) {
         displayTextObject.SetActive(true);
         yield return FadeIn(fadeInTime);
-        yield return new WaitForSeconds(durationTextDisplayed);
+        yield return new WaitForSecondsRealtime(durationTextDisplayed);
         yield return FadeOut(fadeOutTime);
         displayTextObject.SetActive(false);
     }

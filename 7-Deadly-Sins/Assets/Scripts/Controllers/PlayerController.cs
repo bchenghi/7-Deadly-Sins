@@ -388,12 +388,12 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("vertical velocity of controller " + Mathf.Abs(controller.velocity.y) + " < " + Mathf.Pow(1,-10));
         if ((Mathf.Abs(controller.velocity.y) < Mathf.Pow(10, -5) && !jumping && !falling) || distanceToGround <= groundedDistance)
         {
-            Debug.Log("is grounded set to true");
+            //Debug.Log("is grounded set to true");
             isGrounded = true;
         }
         else
         {
-            Debug.Log("isgrounded set to false");
+           // Debug.Log("isgrounded set to false");
            isGrounded =  false;
         }
     }
