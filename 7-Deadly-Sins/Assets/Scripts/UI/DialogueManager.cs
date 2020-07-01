@@ -7,9 +7,13 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject dialogueBox;
+    [SerializeField]
+    float typeSpeed;
     TextMeshProUGUI nameText;
     TextMeshProUGUI dialogueText;
     private Queue<string> sentences;
+
+    Coroutine currentCoroutine = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,14 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     } 
 
+    IEnumerator TypeSentence(string sentence) {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray()) {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typeSpeed);
+        }
+    }
+
     public void DisplayNextSentence() {
         if (sentences.Count == 0) {
             EndDialogue();
@@ -40,7 +52,10 @@ public class DialogueManager : MonoBehaviour
         else
         {
             string sentence = sentences.Dequeue();
-            dialogueText.text = sentence;
+            if (currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
+
+            currentCoroutine = StartCoroutine(TypeSentence(sentence));
         }
     }
 

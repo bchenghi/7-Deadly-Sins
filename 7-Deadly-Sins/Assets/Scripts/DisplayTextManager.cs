@@ -24,6 +24,8 @@ public class DisplayTextManager : MonoBehaviour
     [SerializeField]
     float fadeOutTime = 0.4f;
 
+    Coroutine currentCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,10 @@ public class DisplayTextManager : MonoBehaviour
 
     public void Display(string text, float durationTextDisplayed) {
         displayText.text = text;
-        StartCoroutine(DisplayText(text, durationTextDisplayed));
+        if (currentCoroutine != null) {
+            StopCoroutine(currentCoroutine);
+        }
+        currentCoroutine = StartCoroutine(DisplayText(text, durationTextDisplayed));
     }
 
     IEnumerator FadeIn(float timeTakenToFadeIn) {

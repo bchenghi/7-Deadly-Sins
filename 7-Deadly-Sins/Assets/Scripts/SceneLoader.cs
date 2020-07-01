@@ -35,8 +35,12 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneWithTransition(transitionDuration, sceneNumber));
     }
 
-    public void LoadFirstStage(int sceneNumber) {
-        StartCoroutine(LoadFirstStageWithTransition(transitionDuration, sceneNumber));
+    public void LoadWithoutStats(int sceneNumber) {
+        StartCoroutine(LoadWithoutStatsWithTransition(transitionDuration, sceneNumber));
+    }
+
+    public void LoadWithoutStats(string sceneName) {
+        StartCoroutine(LoadWithoutStatsWithTransition(transitionDuration, sceneName));
     }
 
     // Before loading new scene delegates need to be cleared as new scene will set up delegates again
@@ -63,26 +67,36 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadSceneWithTransition(float transitionDuration, int sceneNumber) {
         animator.SetTrigger("StartTransition");
-        SaveLoad.instance.Save();
-        ClearDelegates();
+        PreparationForNextScene();
         yield return new WaitForSeconds(transitionDuration);
         SceneManager.LoadScene(sceneNumber);
     }
 
     IEnumerator LoadSceneWithTransition(float transitionDuration, string sceneName) {
         animator.SetTrigger("StartTransition");
-        SaveLoad.instance.Save();
-        ClearDelegates();
+        PreparationForNextScene();
         yield return new WaitForSeconds(transitionDuration);
         SceneManager.LoadScene(sceneName);
     }
 
-    IEnumerator LoadFirstStageWithTransition(float transitionDuration, int sceneNumber) {
+    // Load next scene by scene number. Does not save the stats of player as opening scene has no stats for player
+    IEnumerator LoadWithoutStatsWithTransition(float transitionDuration, int sceneNumber) {
         animator.SetTrigger("StartTransition");
         ClearDelegates();
         yield return new WaitForSeconds(transitionDuration);
         SceneManager.LoadScene(sceneNumber);
     }
+    IEnumerator LoadWithoutStatsWithTransition(float transitionDuration, string sceneName) {
+        animator.SetTrigger("StartTransition");
+        ClearDelegates();
+        yield return new WaitForSeconds(transitionDuration);
+        SceneManager.LoadScene(sceneName);
+    }
 
+    void PreparationForNextScene() {
+        SaveLoad.instance.Save();
+        ClearDelegates();
+        PreviousScene.instance.UpdatePreviousSceneName(SceneManager.GetActiveScene().name);
+    }
 
 }

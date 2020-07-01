@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1128765268864473521}
   - component: {fileID: 2211655334517400999}
   - component: {fileID: 2119813442}
+  - component: {fileID: 1277534972852530480}
   m_Layer: 0
   m_Name: PlaceHolderGameManager
   m_TagString: Untagged
@@ -269,3 +270,16 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   audioMixer: {fileID: 24300002, guid: f39a99e57a82c8445bf3a248652b7c74, type: 2}
+--- !u!114 &1277534972852530480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128765268864473414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa236242f546e647945235c11e36731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousSceneName: 
