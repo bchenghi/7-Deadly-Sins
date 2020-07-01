@@ -50,7 +50,7 @@ public class DisplayTextManager : MonoBehaviour
         displayText.color = new Color(displayText.color.r, displayText.color.g, displayText.color.b, 0);
         while(displayText.color.a < 1.0f) {
             displayText.color = new Color(displayText.color.r, displayText.color.g, 
-            displayText.color.b, displayText.color.a + (Time.deltaTime / timeTakenToFadeIn));
+            displayText.color.b, displayText.color.a + (Time.unscaledDeltaTime / timeTakenToFadeIn));
             yield return null;
         }
     }
@@ -59,7 +59,7 @@ public class DisplayTextManager : MonoBehaviour
         displayText.color = new Color(displayText.color.r, displayText.color.g, displayText.color.b, 1f);
         while(displayText.color.a > 0) {
             displayText.color = new Color(displayText.color.r, displayText.color.g, 
-            displayText.color.b, displayText.color.a - (Time.deltaTime / timeTakenToFadeOut));
+            displayText.color.b, displayText.color.a - (Time.unscaledDeltaTime / timeTakenToFadeOut));
             yield return null;
         }
     }
@@ -67,7 +67,7 @@ public class DisplayTextManager : MonoBehaviour
     IEnumerator DisplayText(string text, float durationTextDisplayed) {
         displayTextObject.SetActive(true);
         yield return FadeIn(fadeInTime);
-        yield return new WaitForSeconds(durationTextDisplayed);
+        yield return new WaitForSecondsRealtime(durationTextDisplayed);
         yield return FadeOut(fadeOutTime);
         displayTextObject.SetActive(false);
     }

@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typeSpeed);
+            yield return new WaitForSeconds(1/typeSpeed);
         }
     }
 

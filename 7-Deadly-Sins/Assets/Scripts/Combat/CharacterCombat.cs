@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(CharacterStats))]
+
 public class CharacterCombat : MonoBehaviour
 {
     private bool CloseEnough = false;
