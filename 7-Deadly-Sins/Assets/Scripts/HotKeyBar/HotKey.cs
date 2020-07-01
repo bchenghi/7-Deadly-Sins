@@ -13,6 +13,7 @@ public class HotKey : MonoBehaviour
     private Text _quantityText;
     public bool isUsed = false;
     public bool isFilled = false;
+    bool HotKeyDisabled;
 
 
     // Start is called before the first frame update
@@ -50,6 +51,11 @@ public class HotKey : MonoBehaviour
 
     public void RemoveFromHotKey()
     {
+        MonoBehaviour mb = _usable as MonoBehaviour;
+        if (mb != null)
+        {
+            mb.transform.GetComponent<DragDropSkill>().enabled = true;
+        }
         _image.sprite = null;
         removeButton.GetComponent<Button>().interactable = false;
         removeButton.SetActive(false);
@@ -72,14 +78,16 @@ public class HotKey : MonoBehaviour
 
     public void UseUsable()
     {
-
-        if (_usable != null)
+        if (!HotKeyDisabled)
         {
-            _usable.Use();
-            isUsed = true;
-        }
+            if (_usable != null)
+            {
+                _usable.Use();
+                isUsed = true;
+            }
 
-        HotKeyBar.instance.RefreshHotkeys();
+            HotKeyBar.instance.RefreshHotkeys();
+        }
     }
 
     public void SetCooldown()
@@ -107,5 +115,15 @@ public class HotKey : MonoBehaviour
         }
         
         
+    }
+
+    public void DisableHotKey()
+    {
+        HotKeyDisabled = true;
+    }
+
+    public void EnableHotKey()
+    {
+        HotKeyDisabled = false;
     }
 }
