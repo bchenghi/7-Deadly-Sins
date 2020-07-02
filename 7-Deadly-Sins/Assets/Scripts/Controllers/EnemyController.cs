@@ -32,7 +32,9 @@ public class EnemyController : MonoBehaviour
         originalPos = transform.position;
         
         waitTime = startWaitTime;
-        moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+        if (moveSpot != null) {
+            moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+        }
         StoppingDist = agent.stoppingDistance;
     }
 

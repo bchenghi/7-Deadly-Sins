@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &1840262049761799437
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685394429981272730}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 706db93283af38049b954f4606a157f3, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1840262049761799434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685394429981272730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1840262050420794899
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +78,6 @@ GameObject:
   - component: {fileID: 5327309865314210143}
   - component: {fileID: 5327309865314210142}
   - component: {fileID: 5327309865314210137}
-  - component: {fileID: 5327309865314210136}
   m_Layer: 10
   m_Name: GreenWomen (1)
   m_TagString: Interact
@@ -190,6 +158,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 4
+  moveSpot: {fileID: 0}
+  FreeRoamer: 0
+  minX: 0
+  maxX: 0
+  minZ: 0
+  maxZ: 0
+  startWaitTime: 0
 --- !u!114 &5327309865314210141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10c3e2a213ced040a90f0f8beb6a03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reactsToDamage: 1
   replacebleAttackAnim: {fileID: 7400000, guid: 5cfb8f8889eef8d4aaec9b7105c8f447,
     type: 2}
   defaultAttackAnimSet:
@@ -225,6 +201,7 @@ MonoBehaviour:
     baseValue: 5
   armor:
     baseValue: 0
+  enemyDeathSound: 
   lootDrop: {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127,
     type: 3}
 --- !u!195 &5327309865314210143
@@ -262,7 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0.2
-  attackDelay: 0.6
   SpecialActivated: 0
   count: 0
   attackDistance: 1
@@ -281,16 +257,35 @@ MonoBehaviour:
   uiPrefab: {fileID: 6797572942265217086, guid: e71e54c2a53cfd342996a1cf6fc9c7f5,
     type: 3}
   target: {fileID: 1840262050420794896}
---- !u!114 &5327309865314210136
+--- !u!95 &1840262049761799437
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685394429981272730}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 706db93283af38049b954f4606a157f3, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1840262049761799434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5327309865314210139}
+  m_GameObject: {fileID: 7685394429981272730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1992971939a42454baf5599e59043d98, type: 3}
+  m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1840262050467804051
