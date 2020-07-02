@@ -429,7 +429,7 @@ public class PlayerController : MonoBehaviour
 
     public void DodgeForwward()
     {
-       // transform.position += transform.forward * Time.deltaTime * 3f;
+         //transform.position += transform.forward * Time.deltaTime * 3f;
         //transform.Translate(Vector3.forward * Time.deltaTime * 2f);
         transform.Translate(transform.forward * Time.deltaTime * 2f, Space.World); // transform.forward is vector3.forward(0,0,1) * transform.rotation in world Space. So use Space.World. If using Space.Self, use Vector3.forward as the Z axis of person will be facing in the direction it is facing so dont need to take into account the rotation anymore.
         
