@@ -1,7 +1,7 @@
 ﻿using System.Collections.Specialized;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor.UIElements;
 
 public class Inventory : MonoBehaviour
 {
@@ -26,14 +26,18 @@ public class Inventory : MonoBehaviour
     public int space = 20;
 
     public int consumablesPerSlot = 4;
+    public int othersPerSlot = 100;
 
     public bool Add(Item item)
     {
         bool successful = true;
         if (!item.isDefaultItem)
         {
-
-            if (item is Consumables)
+            if (item is Others)
+            {
+                successful = AddOthers(item);
+            }
+            else if (item is Consumables)
             {
                 successful = AddConsumable(item);
             }
@@ -50,6 +54,7 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
+       
         if (item is Consumables)
         {
             RemoveConsumable(item);
@@ -59,6 +64,16 @@ public class Inventory : MonoBehaviour
             RemoveNormalItem(item);
         }
 
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
+    }
+
+    public void Remove(Item item, int quantity)
+    {
+        if (item is Others)
+        {
+            RemoveOthers(item, quantity);
+        }
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
     }
@@ -140,6 +155,61 @@ public class Inventory : MonoBehaviour
     }
 
 
+    public bool AddOthers(Item others)
+    {
+        var othersItem = others as Others;
+        int indexFound = IndexToAddOthers(others);
+        bool hasSlotToAddOthers = (indexFound == -1 ? false : true);
+
+
+        if (hasSlotToAddOthers)
+        {
+            int currentNumOfOthersInSlot = items[indexFound].Value;
+           
+            items[indexFound] = new KeyValuePair<Item, int>(others, currentNumOfOthersInSlot + othersItem.quantity);
+        }
+        else
+        {
+            if (SlotsUsed() < space)
+            {
+                items.Add(new KeyValuePair<Item, int>(others, othersItem.quantity));
+            }
+
+            else
+            {
+                DisplayTextManager.instance.Display("Inventory: Not enough space!", 3f);
+                Debug.Log("Inventory: Not enough space");
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    public void RemoveOthers(Item others, int quantity)
+    {
+        var othersItem = others as Others;
+        int indexFound = IndexOfLastOthers(others);
+        bool containsOthers = (indexFound == -1 ? false : true);
+
+        if (containsOthers)
+        {
+            if (items[indexFound].Value <= quantity)
+            {
+                items.RemoveAt(indexFound);
+            }
+            else
+            {
+                int currentNumOfOthers = items[indexFound].Value;
+                items[indexFound] = new KeyValuePair<Item, int>(others, currentNumOfOthers - quantity);
+            }
+        }
+        else
+        {
+            Debug.Log("Inventory: No such others in inventory to remove");
+        }
+    }
+
     // Returns index of item. -1 if item is not in list
     public int IndexOfItem(Item item)
     {
@@ -150,6 +220,22 @@ public class Inventory : MonoBehaviour
             {
                 index = i;
                 break;
+            }
+        }
+        return index;
+    }
+
+    public int IndexOfLastOthers(Item item)
+    {
+        int index = -1;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Key.name == item.name && items[i].Value <= othersPerSlot)
+            {
+                index = i;
+
+                if (items[i].Value < othersPerSlot)
+                    break;
             }
         }
         return index;
@@ -179,6 +265,20 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].Key.name == item.name && items[i].Value < consumablesPerSlot)
+            {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    public int IndexToAddOthers(Item item)
+    {
+        int index = -1;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Key.name == item.name && items[i].Value < othersPerSlot)
             {
                 index = i;
                 break;
