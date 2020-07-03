@@ -32,6 +32,11 @@ public class ItemPickUp : Interactable
             bool wasPickedUp = Inventory.instance.Add(item);
             if (wasPickedUp)
                 Destroy(gameObject);
+        } else if (item is Others)
+        {
+            bool wasPickedUp = Inventory.instance.Add(item);
+            if (wasPickedUp)
+                Destroy(gameObject);
         }
     }
 }
