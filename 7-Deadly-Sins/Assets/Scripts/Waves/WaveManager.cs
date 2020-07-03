@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField]
+    float delayBeforeStartWaves;
+    [SerializeField]
     float delayBetweenWaves;
 
     [SerializeField]
@@ -17,7 +19,7 @@ public class WaveManager : MonoBehaviour
     int numberOfWaves;
 
     float waveCoolDown;
-    bool firstFrame = true;
+    bool wavesStarted = false;
 
     // If all enemies from all waves are killed, done set to true
     [HideInInspector]
@@ -32,9 +34,12 @@ public class WaveManager : MonoBehaviour
 
     // In first frame, calls SpawnWaves()
     void Update() {
-        if (firstFrame) {   
+        if (delayBeforeStartWaves > 0) {
+            delayBeforeStartWaves -= Time.deltaTime;
+        }
+        if (delayBeforeStartWaves <= 0 && !wavesStarted) {   
             StartCoroutine(SpawnWaves());
-            firstFrame = false;
+            wavesStarted = true;
         }
 
         // checks if all enemies spawned from all waves are dead, assigns 'done' variable true or false.
@@ -70,11 +75,18 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < wave.numberOfEnemies; i++) {
             GameObject enemy = ChooseRandomEnemy(wave.enemiesToChooseFrom);
             Vector3 spawnLocation = RandomSpawnPosition();
+            
             enemy.GetComponent<EffectHandler>().SmokeEffectEvent(spawnLocation, 5, 2f);
-            enemy.GetComponent<SoundHandler>().PlaySoundsRandomly("Whoosh", "Whoosh1");
+
             yield return new WaitForSeconds(0.5f);
+
             Instantiate(enemy, spawnLocation, Quaternion.identity);
+            
+            string[] sounds = new string[] {"Whoosh", "Whoosh1"};
+            enemy.GetComponent<SoundHandler>().PlaySoundRandomly(sounds, enemy.transform);
+
             enemiesSpawned.Add(enemy);
+
             yield return new WaitForSeconds(wave.delayBetweenEachSpawn);
         }
     }

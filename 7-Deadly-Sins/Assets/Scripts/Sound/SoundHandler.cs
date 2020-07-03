@@ -117,10 +117,17 @@ public class SoundHandler : MonoBehaviour
     }
 
     // Input arbitrary number of arguments, plays one of them randomly
-    public void PlaySoundsRandomly(params string[] names) {
+    public void PlaySoundRandomly(params string[] names) {
         int lengthOfArray = names.Length;
         int index = Random.Range(0, lengthOfArray);
         audioManager.Play(names[index]);
+    }
+
+    // Random sound played from array of sounds, audio source placed on given transform
+    public void PlaySoundRandomly(string[] names, Transform transformOfObj) {
+        int lengthOfArray = names.Length;
+        int index = Random.Range(0, lengthOfArray);
+        audioManager.Play(transformOfObj, names[index]);
     }
    
 }
