@@ -26,11 +26,11 @@ public class DisplayTextManager : MonoBehaviour
 
     Coroutine currentCoroutine;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         displayText = displayTextObject.GetComponentInChildren<TextMeshProUGUI>();
     }
+
+
 
     // Update is called once per frame
     void Update()
