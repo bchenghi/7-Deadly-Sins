@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackAnimationEventReceiver : MonoBehaviour
+public class AnimationEventReceiver : MonoBehaviour
 {
     CharacterCombat combat;
     EffectHandler effects;

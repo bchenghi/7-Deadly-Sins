@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -39,6 +40,30 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    // Can play sound from the gameobject of the transform.
+    // Same sound can be played from multiple game objects. E.g. same attack sounds by enemies and player
+    public void Play(Transform transformOfObject, string name) {
+        StartCoroutine(PlayOnOtherGameObject(transformOfObject, name));
+    }
+
+    IEnumerator PlayOnOtherGameObject(Transform transformOfObject, string name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) {
+            Debug.LogWarning("Sound " + name + " not found!");
+            yield return null;
+        }
+        AudioSource audioSource = transformOfObject.gameObject.AddComponent<AudioSource>();
+        audioSource.clip = s.clip;
+
+        audioSource.outputAudioMixerGroup = audioMixer;
+        audioSource.volume = s.volume;
+        audioSource.pitch = s.pitch;
+        audioSource.loop = s.loop;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        Destroy(audioSource);
     }
 
     public void StopPlaying(string sound)

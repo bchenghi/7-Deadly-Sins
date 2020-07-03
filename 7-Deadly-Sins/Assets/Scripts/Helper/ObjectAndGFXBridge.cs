@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ObjectAndGFXBridge : MonoBehaviour
 {
-    AttackAnimationEventReceiver eventReceiver;
+    AnimationEventReceiver eventReceiver;
     // Start is called before the first frame update
     void Start()
     {
-        eventReceiver = GetComponentInParent<AttackAnimationEventReceiver>();
+        eventReceiver = GetComponentInParent<AnimationEventReceiver>();
     }
 
     public void AttackHitEvent() {

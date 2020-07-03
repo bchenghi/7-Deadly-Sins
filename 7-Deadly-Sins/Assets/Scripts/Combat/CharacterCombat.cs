@@ -13,6 +13,8 @@ public class CharacterCombat : MonoBehaviour
     float lastAttackTime;
     public bool SpecialActivated = false;
     public int count = 0;
+
+    SoundHandler soundHandler;
     
     
 
@@ -30,6 +32,7 @@ public class CharacterCombat : MonoBehaviour
     protected virtual void Start()
     {
         myStats = GetComponent<CharacterStats>();
+        soundHandler = GetComponent<SoundHandler>();
         
     }
 
@@ -65,6 +68,7 @@ public class CharacterCombat : MonoBehaviour
     }
 
     // Called via attack hit event in animation, will deal damage if target is within attackdistance
+    // Also plays attack sounds
     public virtual void AttackHit_AnimationEvent()
     {
         float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
@@ -75,10 +79,12 @@ public class CharacterCombat : MonoBehaviour
                 if (opponentStats.transform.GetComponent<PlayerStats>().InvisibleAmt <= 0)
                 {
                     opponentStats.TakeDamage(myStats.damage.GetValue()); 
+                    soundHandler.PlayAttackSoundBy(myStats.transform);
                 }
             } else
             {
                 opponentStats.TakeDamage(myStats.damage.GetValue());
+                soundHandler.PlayAttackSoundBy(myStats.transform);
                 CloseEnough = true;
             }
         }

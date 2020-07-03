@@ -58,17 +58,6 @@ public class PlayerAnimator : CharacterAnimator
         public AnimationClip[] clips;
     }
 
-    protected override void OnAttack()
-    {
-        base.OnAttack();
-        if (EquipmentManager.instance.currentEquipment[EquipmentManager.instance.GetWeaponIndex()] != null)
-        {
-            soundHandler.PlaySlashSound();
-        } else
-        {
-            soundHandler.PlayPunchSound();
-        }
-    }
 
     public virtual void UseSpecial()
     {

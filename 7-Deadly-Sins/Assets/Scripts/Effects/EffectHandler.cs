@@ -155,9 +155,49 @@ public class EffectHandler : MonoBehaviour
         effectsManager.ActivateParticleSystem(effect);
     }
 
-    
-    
 
 
-    
+    // -------------------------- Smoke effect -----------------------------
+
+    // Activates smoke effect coroutine, which will activate smoke effect for 
+    // a given duration at the given position
+    public void SmokeEffectEvent(Transform targetTransform, int effectNumber, float duration){
+        StartCoroutine(SmokeEffectCoroutine(targetTransform.position, effectNumber, duration));
+    }
+
+    public void SmokeEffectEvent(Vector3 position, int effectNumber, float duration) {
+        StartCoroutine(SmokeEffectCoroutine(position, effectNumber, duration));
+    }
+
+
+
+    // called in SmokeEffectEvent method. Activates smoke effect for a given duration at the given position
+    public IEnumerator SmokeEffectCoroutine(Vector3 targetPos, int effectNumber, float duration) {
+        Transform effect = Instantiate(effectsManager.returnMichellenousEffects(effectNumber));
+        effect.gameObject.SetActive(true);
+        effect.position = new Vector3(targetPos.x, targetPos.y, targetPos.z);
+
+        effectsManager.ActivateParticleSystem(effect);
+        yield return new WaitForSeconds(duration);
+        effectsManager.DeactivateParticleSystem(effect);
+        Destroy(effect.gameObject, effect.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+    }
+
+    // Same as previous smoke effect coroutine, but has additional argument, scale, 
+    // can increase or decrease scale of smoke effect
+    public IEnumerator SmokeEffectCoroutine(Vector3 targetPos, Vector3 scale, 
+    int effectNumber, float duration) {
+        Transform effect = Instantiate(effectsManager.returnMichellenousEffects(effectNumber));
+        effect.gameObject.SetActive(true);
+        effect.position = targetPos;
+        Vector3 previousScale = effect.localScale;
+        effect.localScale = scale;
+
+        effectsManager.ActivateParticleSystem(effect);
+        yield return new WaitForSeconds(duration);
+        effectsManager.DeactivateParticleSystem(effect);
+        Destroy(effect.gameObject, effect.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+    }
+
+    // ----------------------- End of smoke effect --------------------------
 }
