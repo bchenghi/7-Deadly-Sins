@@ -50,17 +50,24 @@ public class TrapCollider : MonoBehaviour
         {
             TakingDamage = false;
         }
+        
     }
 
     private void Update()
     {
         if (TakingDamage && dealsDamageOverTime)
         {
+
             if (intervalOver)
             {
                 StartCoroutine(TakeDamageInterval());
             }
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            TakingDamage = false;
         }
     }
 
