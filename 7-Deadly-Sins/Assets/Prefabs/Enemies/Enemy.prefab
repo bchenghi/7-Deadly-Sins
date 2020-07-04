@@ -30,11 +30,10 @@ GameObject:
   - component: {fileID: 8582899301195117357}
   - component: {fileID: 8582899301195117356}
   - component: {fileID: 8582899301195117348}
-  - component: {fileID: 7061577615924520903}
-  - component: {fileID: 540740934}
-  - component: {fileID: 540740942}
+  - component: {fileID: 1607029952024717544}
+  - component: {fileID: 87298323519028749}
   m_Layer: 10
-  m_Name: Zombie
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +46,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8582899301195117359}
-  m_LocalRotation: {x: 0, y: 0.7228707, z: 0, w: 0.6909833}
+  m_LocalRotation: {x: -0, y: 0.7228706, z: -0, w: 0.6909834}
   m_LocalPosition: {x: -42.91787, y: -8.365941, z: -0.23082352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -70,7 +69,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -122,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   damage:
-    baseValue: 2
+    baseValue: 0
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -139,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93335a8b99a873c4e930e6da7c4546b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 100
+  lookRadius: 0
   moveSpot: {fileID: 0}
   FreeRoamer: 0
   minX: 0
@@ -190,6 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127, type: 3}
+  - {fileID: 4534222363311154637, guid: 32758fe7789afc54c853d30897083c8b, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &8582899301195117348
 MonoBehaviour:
@@ -203,23 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd39b40171e78aa4dab46aa4260e4b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7061577615924520903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8582899301195117359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c78039d3986f614db458ce2ad312a29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SmashDownSwitches: 
-  effectNum: 0
-  effectOnAndFollow: 0
-  targetHit: 0
---- !u!114 &540740934
+--- !u!114 &1607029952024717544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,13 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactsToDamage: 1
-  replacebleAttackAnim: {fileID: 7400000, guid: 5cfb8f8889eef8d4aaec9b7105c8f447,
-    type: 2}
-  defaultAttackAnimSet:
-  - {fileID: 7400000, guid: 6ab71407af1b9f34b9e85d5dca9bacf3, type: 2}
-  - {fileID: 7400000, guid: b8347172f7dff8b43918904f9462bcbf, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 583d122520c453548885cf9c12bc769f, type: 2}
---- !u!114 &540740942
+  replacebleAttackAnim: {fileID: 0}
+  defaultAttackAnimSet: []
+  overrideContoller: {fileID: 0}
+--- !u!114 &87298323519028749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,7 +277,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 583d122520c453548885cf9c12bc769f,
+      objectReference: {fileID: 22100000, guid: 88358f3891bebfa40a9d3bdbe8e7c708,
         type: 2}
     - target: {fileID: -6057140222963153312, guid: b7d0a2c786ecc064aa70a052c10ac2cc,
         type: 3}
@@ -375,7 +357,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b7d0a2c786ecc064aa70a052c10ac2cc,
         type: 3}
       propertyPath: m_Name
-      value: zombie
+      value: GFX with animator + animation event receiver
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7d0a2c786ecc064aa70a052c10ac2cc, type: 3}
