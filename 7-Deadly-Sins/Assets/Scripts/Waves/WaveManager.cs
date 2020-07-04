@@ -11,9 +11,10 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField]
     Wave[] waves;
-    // bottom left and upper right corners of spawn area
+
+    // regions to spawn gameobjects
     [SerializeField]
-    Cube[] spawnRegions;
+    Region regionsToSpawn;
 
     int waveNumber = 0;
     int numberOfWaves;
@@ -93,14 +94,7 @@ public class WaveManager : MonoBehaviour
 
     // Returns a random position to spawn based on regions to spawn, specified in spawnRegions
     Vector3 RandomSpawnPosition() {
-        int indexOfSpawnRegion = Random.Range(0, spawnRegions.Length);
-
-        Vector3 lowerXYZ = spawnRegions[indexOfSpawnRegion].lowerXYZValues;
-        Vector3 higherXYZ = spawnRegions[indexOfSpawnRegion].higherXYZValues;
-        float x = Random.Range(lowerXYZ[0], higherXYZ[0]);
-        float y = Random.Range(lowerXYZ[1], higherXYZ[1]);
-        float z = Random.Range(lowerXYZ[2], higherXYZ[2]);
-        return new Vector3(x, y, z);
+        return regionsToSpawn.RandomPosition();
     }
 
     // Used to choose a random enemy to spawn in SpawnWave()
