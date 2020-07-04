@@ -36,8 +36,11 @@ public class GrapplingHooks : MonoBehaviour
 
     private void Update()
     {
-        if (Inventory.instance.getValue(hooks) > 0)
+        
+
+        if (Inventory.instance.getValue(hooks) != -1)
         {
+            rope.enabled = true;
             //Firing the hook
             if (Input.GetMouseButtonDown(1) && !fired)
             {
@@ -96,7 +99,7 @@ public class GrapplingHooks : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, hook.transform.position, playerTravelSpeed * Time.deltaTime);
                 float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
                 //Debug.Log(distanceToHook);
-                if (distanceToHook <= 2)
+                if (distanceToHook <= 1)
                 {
                     CheckIfGrounded();
                     if (grounded == false)
@@ -118,6 +121,9 @@ public class GrapplingHooks : MonoBehaviour
                 animator.Hook();
 
             }
+        } else
+        {
+            rope.enabled = false;
         }
     }
 
@@ -135,6 +141,7 @@ public class GrapplingHooks : MonoBehaviour
         hooked = false;
         hookCollider.enabled = false;
         rope.positionCount = 0;
+        
     }
 
 
@@ -145,7 +152,7 @@ public class GrapplingHooks : MonoBehaviour
 
         Vector3 dir = new Vector3(0, -1);
 
-        if (Physics.Raycast(transform.position, dir, out hit, distance))
+        if (Physics.Raycast(transform.position, dir, out hit, 100))
         {
             grounded = true;
         }

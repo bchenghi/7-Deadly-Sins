@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3705028537381535112}
   - component: {fileID: 5634532462982891454}
   - component: {fileID: 2093443782267337543}
-  - component: {fileID: 4097195505043946274}
-  m_Layer: 0
+  - component: {fileID: 1308756807}
+  - component: {fileID: 1308756806}
+  m_Layer: 10
   m_Name: rust_key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,8 +81,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4097195505043946274
-MeshCollider:
+--- !u!65 &1308756807
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,7 +91,21 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1215533875317036940, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.34, y: 0.25, z: 0.23262405}
+  m_Center: {x: 0, y: -9.313226e-10, z: 0.0000000037252903}
+--- !u!114 &1308756806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374289202576707483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6431f2629c4ef3f4793141ee2e839936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  interactionTransform: {fileID: 3705028537381535112}
+  item: {fileID: 11400000, guid: 820d54da52d1fa045babf427aeebde8c, type: 2}

@@ -35,6 +35,7 @@ public class ChestInventoryUI : MonoBehaviour
 
     void UpdateUI()
     {
+        
         for (int i = 0; i < slots.Length; i++)
         {
             
@@ -45,10 +46,12 @@ public class ChestInventoryUI : MonoBehaviour
                 {
                     
                     slots[i].AddConsumable(chestInventory.items[i].Key, chestInventory.items[i].Value);
+                    
                 }
                 else
                 {
                     slots[i].AddItem(chestInventory.items[i].Key);
+                    
                 }
             }
             else
