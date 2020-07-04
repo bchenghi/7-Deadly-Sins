@@ -50,12 +50,14 @@ public class TrapCollider : MonoBehaviour
         {
             TakingDamage = false;
         }
+        
     }
 
     private void Update()
     {
         if (TakingDamage && dealsDamageOverTime)
         {
+
             if (intervalOver)
             {
                 StartCoroutine(TakeDamageInterval());

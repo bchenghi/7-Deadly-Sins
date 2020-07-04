@@ -52,7 +52,7 @@ public class Ladder : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (target)
+        if (target && other.GetComponent<PlayerController>())
         {
             target.GetComponent<PlayerController>().Climbing = false;
             target.GetComponent<PlayerController>().gravity = intitalGravity;
