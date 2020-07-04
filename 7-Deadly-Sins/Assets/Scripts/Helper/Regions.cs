@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Region : MonoBehaviour
+public class Regions : MonoBehaviour
 {
     public Cube[] regions;
 

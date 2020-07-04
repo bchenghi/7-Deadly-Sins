@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
 
     // regions to spawn gameobjects
     [SerializeField]
-    Region regionsToSpawn;
+    Regions regionsToSpawn;
 
     int waveNumber = 0;
     int numberOfWaves;
