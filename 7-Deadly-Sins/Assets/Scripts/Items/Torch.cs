@@ -38,8 +38,9 @@ public class Torch : Consumables, IUsable
             if (distance <= minDistance)
             {
                 hasWallPosition = true;
-                Debug.Log(hit.point);
+                //Debug.Log(hit.point);
                 Monobehaviour.instance.StartCoroutine(WaitTime(hit));
+                HotKeyBar.instance.RefreshHotkeys();
                 //Place torch at hitpoint
                 
             }
@@ -74,18 +75,27 @@ public class Torch : Consumables, IUsable
             
 
         }
-        GameObject.Instantiate(TorchObject, hit.point, TorchObject.transform.rotation);
+        Vector3 point = hit.point - PlayerManager.instance.player.transform.position;
+        // GameObject.Instantiate(TorchObject, point, TorchObject.transform.rotation);
+        Debug.Log(point);
+        point.z = point.z * -1;
+        //GameObject.Instantiate(TorchObject, hit.point, TorchObject.transform.rotation);
+        
+        GameObject pc = GameObject.Instantiate(TorchObject, hit.point, Quaternion.LookRotation(hit.normal));
+        pc.transform.Rotate(new Vector3(-45, 0, 0));
+
+
     }
 
-    
 
-           
-            
 
-        
-    
 
-    
+
+
+
+
+
+
     public Sprite Image
     {
         get
