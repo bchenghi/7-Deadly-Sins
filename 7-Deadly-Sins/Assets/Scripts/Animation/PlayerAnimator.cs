@@ -97,5 +97,9 @@ public class PlayerAnimator : CharacterAnimator
         animator.SetBool("Climbing", GetComponent<PlayerController>().Climbing);
     }
 
+    public void Hook()
+    {
+        animator.SetBool("Hooked", GetComponent<GrapplingHooks>().fired);
+    }
 
 }

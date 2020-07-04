@@ -24,7 +24,7 @@ public class GrapplingGun : MonoBehaviour
             player.GetComponent<CharacterController>().enabled = false;
             player.gameObject.AddComponent<Rigidbody>();
             player.GetComponent<Rigidbody>().useGravity = false;
-            player.GetComponent<Rigidbody>().mass = 5;
+            player.GetComponent<Rigidbody>().mass = 100;
             StartGrapple();
         } else if (Input.GetMouseButtonUp(0))
         {
