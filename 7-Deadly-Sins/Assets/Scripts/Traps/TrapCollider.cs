@@ -64,6 +64,11 @@ public class TrapCollider : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            TakingDamage = false;
+        }
     }
 
     IEnumerator TakeDamageInterval()
