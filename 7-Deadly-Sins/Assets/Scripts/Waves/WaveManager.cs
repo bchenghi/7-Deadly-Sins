@@ -5,74 +5,102 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField]
-    float delayBetweenWaves;
+    float delayBeforeStartWaves;
     [SerializeField]
-    bool startNextWaveOnceCleared;
+    float delayBetweenWaves;
 
     [SerializeField]
     Wave[] waves;
-    // bottom left and upper right corners of spawn area
+
+    // regions to spawn gameobjects
     [SerializeField]
-    Cube[] spawnRegions;
-    // each list of enemies refers to 
-    List<GameObject>[] spawnedEnemies;
+    Region regionsToSpawn;
 
     int waveNumber = 0;
     int numberOfWaves;
 
     float waveCoolDown;
-    bool firstFrame = true;
+    bool wavesStarted = false;
+
+    // If all enemies from all waves are killed, done set to true
+    [HideInInspector]
+    public bool done = false;
+
+    // Tracks enemies spawned.
+    List<GameObject> enemiesSpawned = new List<GameObject>();
 
     void Start() {
         numberOfWaves = waves.Length;
     }
 
-
+    // In first frame, calls SpawnWaves()
     void Update() {
-        if (firstFrame) {   
+        if (delayBeforeStartWaves > 0) {
+            delayBeforeStartWaves -= Time.deltaTime;
+        }
+        if (delayBeforeStartWaves <= 0 && !wavesStarted) {   
             StartCoroutine(SpawnWaves());
-            firstFrame = false;
+            wavesStarted = true;
+        }
+
+        // checks if all enemies spawned from all waves are dead, assigns 'done' variable true or false.
+        if (waveNumber == numberOfWaves && !done) {
+            bool allDead = true;
+            foreach(GameObject obj in enemiesSpawned) {
+                if (obj != null) {
+                    allDead = false;
+                    break;
+                }
+            } done = allDead;
         }
     }
 
+    // Starts spawning waves, wait for a duration 'delayBetweenWaves' before spawning next wave
     IEnumerator SpawnWaves() {
         while(waveNumber < numberOfWaves) {
-            Debug.Log("spawn waves, wave number is " + waveNumber + " number of waves " + numberOfWaves);
-            DisplayTextManager.instance.Display("Wave " + (waveNumber + 1) + " started!", 2f);
+            if (waveNumber < numberOfWaves - 1) {
+                DisplayTextManager.instance.Display("Wave " + (waveNumber + 1) + " started!", 2f);
+            } else {
+                DisplayTextManager.instance.Display("Last wave started!", 2f);
+            }
             StartCoroutine(SpawnWave(waveNumber));
             yield return new WaitForSeconds(delayBetweenWaves);
             waveNumber++;
-            Debug.Log("+ 1 to wavenumber");
         }
     }
 
+    // Spawns a wave. Chooses wave to spawn based on index 'waveNum', from array of waves called 'waves'
+    // spawns each enemy after a delay, delay specified in the wave itself
     IEnumerator SpawnWave(int waveNum) {
         Wave wave = waves[waveNum];
         for (int i = 0; i < wave.numberOfEnemies; i++) {
-            Debug.Log("spawn a single wave: i is " + i);
             GameObject enemy = ChooseRandomEnemy(wave.enemiesToChooseFrom);
-            //add enemy to list for given wave
             Vector3 spawnLocation = RandomSpawnPosition();
+            
+            enemy.GetComponent<EffectHandler>().SmokeEffectEvent(spawnLocation, 5, 2f);
+
+            yield return new WaitForSeconds(0.5f);
+
             Instantiate(enemy, spawnLocation, Quaternion.identity);
+            
+            string[] sounds = new string[] {"Whoosh", "Whoosh1"};
+            enemy.GetComponent<SoundHandler>().PlaySoundRandomly(sounds, enemy.transform);
+
+            enemiesSpawned.Add(enemy);
+
             yield return new WaitForSeconds(wave.delayBetweenEachSpawn);
         }
     }
 
-
+    // Returns a random position to spawn based on regions to spawn, specified in spawnRegions
     Vector3 RandomSpawnPosition() {
-        int indexOfSpawnRegion = Random.Range(0, spawnRegions.Length);
-
-        Vector3 lowerLeft = spawnRegions[indexOfSpawnRegion].lowerXYZValues;
-        Vector3 upperRight = spawnRegions[indexOfSpawnRegion].higherXYZValues;
-        float x = Random.Range(lowerLeft[0], upperRight[0]);
-        float y = Random.Range(lowerLeft[1], upperRight[1]);
-        float z = Random.Range(lowerLeft[2], upperRight[2]);
-        return new Vector3(x, y, z);
+        return regionsToSpawn.RandomPosition();
     }
 
+    // Used to choose a random enemy to spawn in SpawnWave()
     GameObject ChooseRandomEnemy(GameObject[] enemies) {
-        int numberOfEnemies = enemies.Length;
-        int index = Random.Range(0, numberOfEnemies);
+        int numberOfEnemiesInArr = enemies.Length;
+        int index = Random.Range(0, numberOfEnemiesInArr);
         return enemies[index];
     }
 

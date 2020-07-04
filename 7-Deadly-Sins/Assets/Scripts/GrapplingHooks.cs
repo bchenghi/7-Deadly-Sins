@@ -96,7 +96,7 @@ public class GrapplingHooks : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, hook.transform.position, playerTravelSpeed * Time.deltaTime);
                 float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
                 //Debug.Log(distanceToHook);
-                if (distanceToHook <= 1)
+                if (distanceToHook <= 2)
                 {
                     CheckIfGrounded();
                     if (grounded == false)
