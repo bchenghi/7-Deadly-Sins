@@ -101,6 +101,11 @@ public class SoundHandler : MonoBehaviour
         audioManager.Play(name);
     }
 
+    // Same as playSoundByName, but creates audio source in transform of object instead of gameManager
+    public void PlaySoundByName(Transform transformOfObject, string name) {
+        audioManager.Play(transformOfObject, name);
+    }
+
     public void Play2SoundRandomly(string name1, string name2)
     {
         int index = Random.Range(1, 3);

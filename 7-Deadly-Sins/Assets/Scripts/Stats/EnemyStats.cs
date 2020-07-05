@@ -20,7 +20,7 @@ public class EnemyStats : CharacterStats
     public override void Die()
     {
         base.Die();
-        soundHandler.PlaySoundByName(enemyDeathSound);
+        soundHandler.PlaySoundByName(transform, enemyDeathSound);
         Destroy(GetComponent<Collider>());
         // Add ragdoll/loot
         if (lootDrop != null)

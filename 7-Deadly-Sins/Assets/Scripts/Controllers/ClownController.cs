@@ -14,12 +14,19 @@ public class ClownController : MonoBehaviour
     [SerializeField]
     
     float teleportCooldown;
+    [SerializeField]
+    GameObject idleHandEffects;
     float timePassedSinceTeleport = 0;
     EffectHandler effectHandler;
+    SoundHandler soundHandler;
     Animator animator;
     Transform target;
-    CharacterCombat combat;
-    bool teleporting = false;
+    ClownCombat combat;
+    [HideInInspector]
+    public bool teleporting = false;
+
+    bool firstFrame = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,35 +34,39 @@ public class ClownController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         effectHandler = GetComponent<EffectHandler>();
         animator = GetComponentInChildren<Animator>();
-        combat = GetComponent<CharacterCombat>();
+        combat = GetComponent<ClownCombat>();
+        soundHandler = GetComponent<SoundHandler>();
 
         if (regionsAvailableForTeleport.Diameter() 
         < distanceAwayFromTargetToTeleport) {
             Debug.LogWarning("distance to teleport away from target is too large");
         }
 
-        effectHandler.SmokeEffectEvent(transform, 5, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (firstFrame) {
+            effectHandler.SmokeEffectEvent(transform, 5, 2f);
+            firstFrame = false;
+        }
         timePassedSinceTeleport += Time.deltaTime;
         if (timePassedSinceTeleport >= teleportCooldown) {
             if (Vector3.Distance(target.position, transform.position) < distanceFromTargetStartTeleport
              && !teleporting) {
-            Teleport();
-            teleporting = true;
-            timePassedSinceTeleport = 0;
+                Teleport();
+                timePassedSinceTeleport = 0;
             }
         }
         FaceTarget();
-
-        if (!combat.dead) {
+        //Debug.Log("CheckIfWillHitTarget()" + CheckIfWillHitTarget());
+        if (!combat.dead && !teleporting && CheckIfWillHitTarget()) {
             CharacterStats targetStats = target.GetComponent<CharacterStats>();
             if (targetStats != null)
             {
-                //combat.Attack(targetStats);
+                Debug.Log("attack in controller called");
+                combat.Attack(targetStats);
             }
         }
     }
@@ -69,7 +80,9 @@ public class ClownController : MonoBehaviour
             if (Vector3.Distance(target.position, randomPosition) >= distanceAwayFromTargetToTeleport) {
                 StartCoroutine(TeleportCoroutine(randomPosition));
                 teleported = true;
-            } else {  
+            } 
+            else 
+            {  
                 tries++;
             }
         }
@@ -77,12 +90,17 @@ public class ClownController : MonoBehaviour
 
 
     IEnumerator TeleportCoroutine(Vector3 teleportPosition) {
-        animator.SetTrigger("teleport");    
+        teleporting = true;
+        idleHandEffects.SetActive(false);
+        animator.SetTrigger("teleport");
+        string[] teleportSounds = new string[] {"Whoosh", "Whoosh1"};
+        soundHandler.PlaySoundRandomly(teleportSounds, transform);
         yield return new WaitForSeconds(1.3f);
         effectHandler.SmokeEffectEvent(transform, 6, 0.5f);
         this.gameObject.transform.position = teleportPosition;
         effectHandler.SmokeEffectEvent(transform, 6, 0.5f);
         teleporting = false;
+        idleHandEffects.SetActive(true);
     }
 
     public void FaceTarget()
@@ -90,6 +108,21 @@ public class ClownController : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    // Checks for obstacles between firing point and player. Returns true if no obstacles, false if there is
+    bool CheckIfWillHitTarget() {
+        ProjectileHandler projectileHandler = GetComponent<ProjectileHandler>();
+        Ray ray = new Ray(projectileHandler.projectileFirePoint.position, (target.position - transform.position));
+        RaycastHit hit;
+        int playerLayerMask = LayerMask.GetMask("Player");
+        if (Physics.Raycast(ray,out hit, 100)) {
+            Debug.Log(hit.transform.name);
+            if (hit.transform.name == "Player") {
+                return true;
+            }
+        } 
+        return false;
     }
 
 

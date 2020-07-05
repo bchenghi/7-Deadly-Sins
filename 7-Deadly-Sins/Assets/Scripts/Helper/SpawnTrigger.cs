@@ -12,5 +12,6 @@ public class SpawnTrigger : MonoBehaviour, ITrigger
 
     public void Trigger() {
         Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity);
+        Destroy(objectToSpawn);
     }
 }
