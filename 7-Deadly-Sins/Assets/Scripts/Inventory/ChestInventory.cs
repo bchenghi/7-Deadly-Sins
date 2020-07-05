@@ -31,8 +31,18 @@ public class ChestInventory : MonoBehaviour
 
         for (int i = 0; i < itemsToBeAdded.Length; i++)
         {
-            
-            items.Add(new KeyValuePair<Item, int>(itemsToBeAdded[i].item, itemsToBeAdded[i].quantity));
+            if (itemsToBeAdded[i].item is Consumables)
+            {
+
+                items.Add(new KeyValuePair<Item, int>(itemsToBeAdded[i].item, itemsToBeAdded[i].quantity));
+            } else if (itemsToBeAdded[i].item is Others)
+            {
+                var othersObj = itemsToBeAdded[i].item as Others;
+                items.Add(new KeyValuePair<Item, int>(itemsToBeAdded[i].item, othersObj.quantity));
+            } else
+            {
+                items.Add(new KeyValuePair<Item, int>(itemsToBeAdded[i].item, itemsToBeAdded[i].quantity));
+            }
            
         }
 
