@@ -33,6 +33,14 @@ public class ChestSlots : UISlot
         UpdateConsumableCounter();
     }
 
+    public void AddOthers(Item others, int num)
+    {
+        item = others;
+        icon.sprite = item.icon;
+        icon.enabled = true;
+        count = num;
+        UpdateOthersCounter();
+    }
 
     public void ClearSlotCompletely()
     {
@@ -67,7 +75,7 @@ public class ChestSlots : UISlot
         {
             if (item.GetType() == typeof(Currency))
             {
-                Currency currency = new Currency(item);
+                var currency = item as Currency;
                 
                 GoldCounter.instance.Earn(currency.GetPickUpAmount());
             } else
@@ -113,6 +121,17 @@ public class ChestSlots : UISlot
             consumableCounter.text = count.ToString();
         }
         else
+        {
+            consumableCounter.text = null;
+        }
+    }
+
+    public void UpdateOthersCounter()
+    {
+        if (item is Others && count >= 1)
+        {
+            consumableCounter.text = count.ToString();
+        } else
         {
             consumableCounter.text = null;
         }

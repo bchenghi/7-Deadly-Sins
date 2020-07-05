@@ -48,10 +48,13 @@ public class ChestInventoryUI : MonoBehaviour
                     slots[i].AddConsumable(chestInventory.items[i].Key, chestInventory.items[i].Value);
                     
                 }
-                else
+                else if (chestInventory.items[i].Key is Others) 
+                {
+                    slots[i].AddOthers(chestInventory.items[i].Key, chestInventory.items[i].Value);
+
+                } else
                 {
                     slots[i].AddItem(chestInventory.items[i].Key);
-                    
                 }
             }
             else
