@@ -5178,7 +5178,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
       propertyPath: sounds.Array.size
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
       propertyPath: sounds.Array.data[13].name
@@ -5210,6 +5210,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
       propertyPath: sounds.Array.data[14].pitch
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[15].name
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e536a30598dd4e47adcfd21c35cbd8b, type: 3}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[15].volume
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[15].pitch
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[16].name
+      value: Magic Impact
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[16].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a236734f7929e24aaef7bc60fc61836, type: 3}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[16].volume
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[16].pitch
       value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
@@ -7084,7 +7116,11 @@ PrefabInstance:
       objectReference: {fileID: 1580739233}
     - target: {fileID: 567281179, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: teleportCooldown
-      value: 20
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 567281179, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
+      propertyPath: distanceAwayFromTargetToTeleport
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 567281180, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: replacebleAttackAnim
@@ -7100,11 +7136,19 @@ PrefabInstance:
       objectReference: {fileID: 1809184167}
     - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: projectileSpeed.baseValue
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
+      propertyPath: damage.baseValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 567281186, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: attackSpeed
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 567281186, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: attackDistance
@@ -7112,11 +7156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1543163297, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.29
+      value: 1.484
       objectReference: {fileID: 0}
     - target: {fileID: 1543163297, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.02
+      value: 0.958
       objectReference: {fileID: 0}
     - target: {fileID: 6408341009909285573, guid: cb551d445d5d90f4c9bb829b2befad5f,
         type: 3}
@@ -7197,6 +7241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408341009909285583, guid: cb551d445d5d90f4c9bb829b2befad5f,
+        type: 3}
+      propertyPath: name
+      value: The Clown
       objectReference: {fileID: 0}
     - target: {fileID: 7618597406771623696, guid: cb551d445d5d90f4c9bb829b2befad5f,
         type: 3}
@@ -9105,7 +9154,7 @@ PrefabInstance:
     - target: {fileID: 6209339104734491756, guid: c5fc534a361cf6948a16418cbcff170e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6209339104734491756, guid: c5fc534a361cf6948a16418cbcff170e,
         type: 3}
@@ -11801,7 +11850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580739232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.45398, y: -0.083165646, z: 12.50638}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -29256,6 +29305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 8582899300706659022}
+  name: 
 --- !u!4 &8582899300706659022
 Transform:
   m_ObjectHideFlags: 0

@@ -47,13 +47,27 @@ public class ProjectileController : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider otherCollider) {
-        if (otherCollider.transform.name == "Player") {
-            PlayerStats playerStats = otherCollider.GetComponent<PlayerStats>();
-            playerStats.TakeDamage(damage);
-            Destroy(this.gameObject);
-        } else {
-            // explosion effect
+        Debug.Log("name of collider" + otherCollider.transform.name);
+        if (otherCollider.transform.GetComponent<Enemy>() != null && 
+        otherCollider.transform.GetComponent<Enemy>().name == "Clown") 
+        {
+            return;
         }
-        // play explosion sound
+        else 
+        {
+            if (otherCollider.transform.name == "Player") 
+            {
+                PlayerStats playerStats = otherCollider.GetComponent<PlayerStats>();
+                playerStats.TakeDamage(damage);
+            } 
+            else 
+            {
+                // explosion effect
+            }
+            // play explosion sound
+            AudioManager.instance.Play(otherCollider.transform, "Magic Impact");
+            Destroy(this.gameObject); 
+        }
+        
     } 
 }

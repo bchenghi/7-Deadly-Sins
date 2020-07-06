@@ -11,6 +11,7 @@ public class ProjectileHandler : MonoBehaviour
 
     public void ShootProjectile(int damage, float speed, Transform targetTransform) {
         GameObject newProjectile = Instantiate(projectile, projectileFirePoint);
+        GetComponent<SoundHandler>().PlaySoundByName(newProjectile.transform, "Fireball");
         newProjectile.SetActive(true);
         ProjectileController projectileController = newProjectile.GetComponent<ProjectileController>();
         projectileController.FaceTarget(targetTransform);

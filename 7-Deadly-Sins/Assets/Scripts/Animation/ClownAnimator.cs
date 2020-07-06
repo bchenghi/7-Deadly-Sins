@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ClownAnimator : Monobehaviour
 {
+    // Setting on inspector to change, used as reference in code
     public bool reactsToDamage = true;
+
+    // Actual react to damage bool used in code
+    [HideInInspector]
+    public bool damageReaction;
     public AnimationClip replacebleAttackAnim;
     public AnimationClip[] defaultAttackAnimSet;
     protected AnimationClip[] currentAttackAnimSet;
@@ -18,6 +23,7 @@ public class ClownAnimator : Monobehaviour
     ClownCombat clownCombat;
     ClownStats clownStats;
     protected virtual void Start(){
+        damageReaction = reactsToDamage;
         animator = GetComponentInChildren<Animator>();
         clownCombat = GetComponent<ClownCombat>();
         clownStats = GetComponent<ClownStats>();
@@ -38,10 +44,20 @@ public class ClownAnimator : Monobehaviour
     {
         if (clownCombat.dead)
         {
-
             Death();
         }
+
+        if (reactsToDamage) {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Magic Attack") || animator.GetCurrentAnimatorStateInfo(0).IsName("Teleport")) {
+                damageReaction = false;
+            } 
+            else if (!damageReaction) {
+                damageReaction = true;
+            }
+        }
     }
+        
+    
 
     protected virtual void OnAttack()
     {
@@ -58,7 +74,7 @@ public class ClownAnimator : Monobehaviour
 
     protected virtual void takenDamage()
     {
-        if (reactsToDamage)
+        if (reactsToDamage && damageReaction)
             animator.SetTrigger("Hurt");
     }
 
