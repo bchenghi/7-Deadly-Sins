@@ -54,9 +54,13 @@ public class GrapplingHooks : MonoBehaviour
                 {
                     directionOfTravel = hit.point - hook.transform.position;
                     directionOfTravel.Normalize();
+                    Vector3 pos = (hit.point - transform.position).normalized;
+                    transform.rotation = Quaternion.LookRotation(new Vector3(pos.x,0,pos.z), Vector3.up);
+                    
 
 
-                }
+                } 
+                
 
 
 
@@ -96,6 +100,8 @@ public class GrapplingHooks : MonoBehaviour
             {
                 hook.transform.parent = hookedObj.transform;
                 GetComponent<CharacterController>().enabled = false;
+                Vector3 pos = hook.transform.position - transform.position;
+                transform.rotation = Quaternion.LookRotation(new Vector3(0,0,pos.z), Vector3.up);
                 transform.position = Vector3.MoveTowards(transform.position, hook.transform.position, playerTravelSpeed * Time.deltaTime);
                 float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
                 //Debug.Log(distanceToHook);

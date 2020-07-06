@@ -7,6 +7,13 @@ public class AutomaticTurretBullet : MonoBehaviour
     public float movementSpeed;
     public int Damage;
     public AutomaticTurret turret;
+    public string turretName;
+
+
+    private void Start()
+    {
+        turret = GameObject.Find(turretName).GetComponent<AutomaticTurret>();
+    }
     private void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
@@ -17,6 +24,7 @@ public class AutomaticTurretBullet : MonoBehaviour
     {
         if (other.GetComponent<EnemyStats>())
         {
+            
             other.GetComponent<EnemyStats>().TakeDamage(Damage);
             if (other.GetComponent<EnemyStats>().currentHealth <= 0)
             {
