@@ -6,21 +6,42 @@ public class AutomaticTurret : MonoBehaviour
 {
     private GameObject target;
     private bool targetLocked;
-    public GameObject bulletSpawnPoint;
+    public GameObject[] bulletSpawnPoint;
     public GameObject turretHead;
     public GameObject bullet;
     public float fireTimer;
     private bool shotReady;
     public float range;
+    private bool isUpgrading;
+    private List<Collider> CollidersInRange;
+    private GameObject previousTarget;
+
+    
 
 
     private void Start()
     {
         shotReady = true;
+        previousTarget = null;
+        CollidersInRange = new List<Collider>();
+        
     }
 
     private void Update()
     {
+        Debug.Log(target);
+        if (!GetComponent<AutomaticTurretUpgrading>())
+        {
+            isUpgrading = false;
+        }
+        else
+        {
+            isUpgrading = GetComponent<AutomaticTurretUpgrading>().isUpgrading;
+        }
+        if (target == null)
+        {
+            targetLocked = false;
+        }
         //Shooting and detecting enemies
         if (targetLocked)
         {
@@ -31,10 +52,12 @@ public class AutomaticTurret : MonoBehaviour
                 targetLocked = false;
                 return;
             }
-            turretHead.transform.LookAt(target.transform);
+            Vector3 pos = target.transform.position;
+            pos.y += 0.7f;
+            turretHead.transform.LookAt(pos);
             turretHead.transform.Rotate(new Vector3(0, -90, 0));
 
-            if (shotReady)
+            if (shotReady && isUpgrading == false)
             {
                 Shoot();
             }
@@ -44,26 +67,57 @@ public class AutomaticTurret : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!CollidersInRange.Contains(other))
         {
-            if (target != null)
+            CollidersInRange.Add(other);
+        }
+
+        for (int i = 0; i < CollidersInRange.Count; i++) {
+            if (CollidersInRange[i] != null)
             {
-                targetLocked = true;
+                if (CollidersInRange[i].CompareTag("Enemy"))
+                {
+                    if (target != null)
+                    {
+                        targetLocked = true;
+                    }
+                    else
+                    {
+                        if (CollidersInRange[i].gameObject != previousTarget)
+                        {
+                            targetLocked = false;
+                            target = CollidersInRange[i].gameObject;
+                            previousTarget = CollidersInRange[i].gameObject;
+                           
+                            break;
+                        }
+                    }
+                }
             }
-            else
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (CollidersInRange.Contains(other))
+        {
+            if (other.gameObject == previousTarget)
             {
-                targetLocked = false;
-                target = other.gameObject;
+                previousTarget = null;
             }
+            CollidersInRange.Remove(other);
         }
     }
 
     public void Shoot()
     {
-        Transform _bullet = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-        _bullet.transform.rotation = bulletSpawnPoint.transform.rotation;
-        shotReady = false;
-        StartCoroutine(FireRate());
+        for (int i = 0; i < bulletSpawnPoint.Length; i++)
+        {
+            Transform _bullet = Instantiate(bullet.transform, bulletSpawnPoint[i].transform.position, Quaternion.identity);
+            _bullet.transform.rotation = bulletSpawnPoint[i].transform.rotation;
+            shotReady = false;
+            StartCoroutine(FireRate());
+        }
 
     }
 
@@ -75,6 +129,9 @@ public class AutomaticTurret : MonoBehaviour
 
     public void SetTargetNull()
     {
+        
         target = null;
+        targetLocked = false;
+        
     }
 }

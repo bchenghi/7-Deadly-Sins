@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -17,7 +18,7 @@ public class TrapCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (dealsDamageOverTime)
+        if (dealsDamageOverTime && other.GetComponent<PlayerStats>())
         {
             TakingDamage = true;
         }
