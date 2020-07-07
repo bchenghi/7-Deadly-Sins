@@ -14,6 +14,7 @@ public class TrapCollider : MonoBehaviour
     public float pushX;
     public float pushY;
     public float pushZ;
+    private bool playerTakenDamage;
    
 
     private void OnTriggerEnter(Collider other)
@@ -40,9 +41,19 @@ public class TrapCollider : MonoBehaviour
         }
         else if (other.GetComponent<PlayerStats>())
         {
-            other.GetComponent<PlayerStats>().TakeDamage(Damage);
+            if (!playerTakenDamage)
+            {
+                other.GetComponent<PlayerStats>().TakeDamage(Damage);
+                playerTakenDamage = true;
+            }
         }
         
+    }
+
+    IEnumerator takenDamgeRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+        playerTakenDamage = false;
     }
 
     private void OnTriggerExit(Collider other)
