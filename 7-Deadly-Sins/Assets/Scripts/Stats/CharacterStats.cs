@@ -29,7 +29,7 @@ public class CharacterStats : MonoBehaviour
     }
 
     // takes damage to healh, runs animation for receiving damage, updates health
-    public void TakeDamage (int damage)
+    public virtual void TakeDamage (int damage)
     {
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -49,7 +49,7 @@ public class CharacterStats : MonoBehaviour
             OnHealthChanged(maxHealth, currentHealth);
         }
 
-        if (currentHealth <= 0 && !combat.dead)
+        if (currentHealth <= 0 && combat != null && !combat.dead)
         {
 
             Die();

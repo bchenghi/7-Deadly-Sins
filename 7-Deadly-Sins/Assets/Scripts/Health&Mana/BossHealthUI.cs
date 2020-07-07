@@ -30,7 +30,7 @@ public class BossHealthUI : MonoBehaviour
 
 
         display.text = stats.currentHealth + "/" + stats.maxHealth;
-        bossName.text = this.gameObject.name;
+        bossName.text = GetComponent<Enemy>().name;
         stats.OnHealthChanged += OnHealthChanged;
 
         bossHealthPrefab.SetActive(false);

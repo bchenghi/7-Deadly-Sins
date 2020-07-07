@@ -27,6 +27,10 @@ public class ClownController : MonoBehaviour
 
     bool firstFrame = true;
 
+    ClownCombat clownCombat;
+    ClownAnimator clownAnimator;
+
+    Coroutine currentTeleportCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,7 @@ public class ClownController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         combat = GetComponent<ClownCombat>();
         soundHandler = GetComponent<SoundHandler>();
+        clownCombat = GetComponent<ClownCombat>();
 
         if (regionsAvailableForTeleport.Diameter() 
         < distanceAwayFromTargetToTeleport) {
@@ -51,24 +56,36 @@ public class ClownController : MonoBehaviour
             effectHandler.SmokeEffectEvent(transform, 5, 2f);
             firstFrame = false;
         }
-        timePassedSinceTeleport += Time.deltaTime;
-        if (timePassedSinceTeleport >= teleportCooldown) {
-            if (Vector3.Distance(target.position, transform.position) < distanceFromTargetStartTeleport
-             && !teleporting) {
-                Teleport();
-                timePassedSinceTeleport = 0;
+
+        if (clownCombat.dead && idleHandEffects.activeSelf) 
+        {
+            idleHandEffects.SetActive(false);
+        }
+
+        if (ActionsAllowed()) {
+            timePassedSinceTeleport += Time.deltaTime;
+            if (timePassedSinceTeleport >= teleportCooldown) {
+                if (Vector3.Distance(target.position, transform.position) < distanceFromTargetStartTeleport
+                && !teleporting) {
+                    Teleport();
+                    timePassedSinceTeleport = 0;
+                }
+            }
+            FaceTarget();
+            //Debug.Log("CheckIfWillHitTarget()" + CheckIfWillHitTarget());
+            if (!combat.dead && !teleporting && CheckIfWillHitTarget()) {
+                CharacterStats targetStats = target.GetComponent<CharacterStats>();
+                if (targetStats != null)
+                {
+                    combat.Attack(targetStats);
+                }
             }
         }
-        FaceTarget();
-        //Debug.Log("CheckIfWillHitTarget()" + CheckIfWillHitTarget());
-        if (!combat.dead && !teleporting && CheckIfWillHitTarget()) {
-            CharacterStats targetStats = target.GetComponent<CharacterStats>();
-            if (targetStats != null)
-            {
-                Debug.Log("attack in controller called");
-                combat.Attack(targetStats);
-            }
+
+        if (combat.dead && currentTeleportCoroutine != null) {
+            StopCoroutine(currentTeleportCoroutine);
         }
+        
     }
 
     void Teleport() {
@@ -78,7 +95,7 @@ public class ClownController : MonoBehaviour
         while (!teleported && tries < maxTries) {
             Vector3 randomPosition = regionsAvailableForTeleport.RandomPosition();
             if (Vector3.Distance(target.position, randomPosition) >= distanceAwayFromTargetToTeleport) {
-                StartCoroutine(TeleportCoroutine(randomPosition));
+                currentTeleportCoroutine = StartCoroutine(TeleportCoroutine(randomPosition));
                 teleported = true;
             } 
             else 
@@ -91,15 +108,22 @@ public class ClownController : MonoBehaviour
 
     IEnumerator TeleportCoroutine(Vector3 teleportPosition) {
         teleporting = true;
+
         idleHandEffects.SetActive(false);
+
         animator.SetTrigger("teleport");
+
         string[] teleportSounds = new string[] {"Whoosh", "Whoosh1"};
         soundHandler.PlaySoundRandomly(teleportSounds, transform);
+
         yield return new WaitForSeconds(1.3f);
+
         effectHandler.SmokeEffectEvent(transform, 6, 0.5f);
         this.gameObject.transform.position = teleportPosition;
         effectHandler.SmokeEffectEvent(transform, 6, 0.5f);
         teleporting = false;
+
+
         idleHandEffects.SetActive(true);
     }
 
@@ -117,12 +141,15 @@ public class ClownController : MonoBehaviour
         RaycastHit hit;
         int playerLayerMask = LayerMask.GetMask("Player");
         if (Physics.Raycast(ray,out hit, 100)) {
-            Debug.Log(hit.transform.name);
             if (hit.transform.name == "Player") {
                 return true;
             }
         } 
         return false;
+    }
+
+    bool ActionsAllowed() {
+        return !clownCombat.dead;
     }
 
 

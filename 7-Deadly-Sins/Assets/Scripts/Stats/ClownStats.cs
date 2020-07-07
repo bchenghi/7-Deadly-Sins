@@ -25,13 +25,25 @@ public class ClownStats : CharacterStats
         currentHealth = maxHealth;
     }
 
+    public override void TakeDamage (int damage)
+    {
+        base.TakeDamage(damage);
+        
+
+        if (currentHealth <= 0 && !clownCombat.dead)
+        {
+            Die();
+        }
+    }
+
 
 
     public override void Die()
     {
         //Die in some way
         //method meant to be overriden
-        base.Die();
+        clownCombat.dead = true;
+        Debug.Log(transform.name + " died.");
         Destroy(GetComponent<Collider>());
 
         lootDropTest.DropLoot();

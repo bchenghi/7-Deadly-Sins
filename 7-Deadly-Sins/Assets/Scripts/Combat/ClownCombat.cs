@@ -45,7 +45,6 @@ public class ClownCombat : MonoBehaviour
     // attack time to current time
     public void Attack (CharacterStats targetStats)
     {
-        Debug.Log(!controller.teleporting);
         if (!dead && !controller.teleporting)
         {
             if (attackCooldown <= 0f)
@@ -53,7 +52,6 @@ public class ClownCombat : MonoBehaviour
                 opponentStats = targetStats;
                 if (OnAttack != null)
                 {
-                    Debug.Log("attack called in combat");
                     OnAttack();
                 }
 
@@ -67,28 +65,9 @@ public class ClownCombat : MonoBehaviour
     // Also plays attack sounds
     public virtual void RangedDamage_AnimationEvent()
     {
-        float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
-        if (distance <= attackDistance)
-        /*
-        {
-            if (opponentStats.transform.GetComponent<PlayerStats>() != null)
-            {
-                if (opponentStats.transform.GetComponent<PlayerStats>().InvisibleAmt <= 0)
-                {
-                    opponentStats.TakeDamage(myStats.damage.GetValue()); 
-                    soundHandler.PlayAttackSoundBy(myStats.transform);
-                }
-            } else
-            {
-                //opponentStats.TakeDamage(myStats.damage.GetValue());
-                soundHandler.PlayAttackSoundBy(myStats.transform);
-                CloseEnough = true;
-            }
-        } */
-        {
-            //shoot projectile, pass damage value into projectile, play sound for shooting
-            projectileHandler.ShootProjectile(myStats.damage.GetValue(), myStats.projectileSpeed.GetValue(), opponentStats.transform);
-        }
+        Debug.Log("fire fireball from combat");
+        projectileHandler.ShootProjectile(myStats.damage.GetValue(), 
+        myStats.projectileSpeed.GetValue(), opponentStats.transform);
     }
 
     public Transform ReturnTargetTransform()

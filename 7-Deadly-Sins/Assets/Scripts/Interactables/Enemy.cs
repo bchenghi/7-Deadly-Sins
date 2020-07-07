@@ -7,11 +7,16 @@ public class Enemy : Interactable
 {
     PlayerManager playerManager;
     CharacterStats myStats;
+    
+    new public string name;
 
     private void Start()
     {
         playerManager = PlayerManager.instance;
         myStats = GetComponent<CharacterStats>();
+        if (name == null) {
+            name = transform.name;
+        }
     }
 
     public override void Interact()
