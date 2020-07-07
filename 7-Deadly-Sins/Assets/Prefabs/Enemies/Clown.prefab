@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543163296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 137, z: 119.9}
+  m_LocalPosition: {x: 0, y: 1.484, z: 0.958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6408341009909285580}
@@ -9840,7 +9840,7 @@ GameObject:
   - component: {fileID: 567281189}
   m_Layer: 10
   m_Name: Clown
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9854,7 +9854,7 @@ Transform:
   m_GameObject: {fileID: 6408341009909285581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7618597406771623696}
   - {fileID: 6408341009899520315}
@@ -9912,6 +9912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   interactionTransform: {fileID: 6408341009909285580}
+  name: The Clown
 --- !u!114 &6408341009909285582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9956,7 +9957,7 @@ MonoBehaviour:
   regionsAvailableForTeleport: {fileID: 0}
   distanceAwayFromTargetToTeleport: 10
   distanceFromTargetStartTeleport: 3
-  teleportCooldown: 5
+  teleportCooldown: 15
   idleHandEffects: {fileID: 2057828918371320744}
   teleporting: 0
 --- !u!114 &567281180
@@ -9972,7 +9973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactsToDamage: 1
-  replacebleAttackAnim: {fileID: 7400000, guid: b65cca0207d0708449f2fd345ba243e6,
+  damageReaction: 0
+  replacebleAttackAnim: {fileID: 7400000, guid: ff315edce1051dd4b8346061a349ae70,
     type: 2}
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: b65cca0207d0708449f2fd345ba243e6, type: 2}
@@ -10020,11 +10022,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 5
+    baseValue: 20
   armor:
     baseValue: 0
   projectileSpeed:
-    baseValue: 1
+    baseValue: 4
   enemyDeathSound: 
 --- !u!114 &567281186
 MonoBehaviour:
@@ -10038,9 +10040,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfad40353ff30e4484bfe9aaf8873e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
+  attackSpeed: 0.2
   count: 0
-  attackDistance: 20
+  attackDistance: 30
 --- !u!114 &567281189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10139,17 +10141,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1304bc8b99afb7441b55aec094f51eff,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1304bc8b99afb7441b55aec094f51eff,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1304bc8b99afb7441b55aec094f51eff,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 1304bc8b99afb7441b55aec094f51eff,
         type: 3}
