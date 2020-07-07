@@ -26,8 +26,15 @@ public class HotKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFilled)
-        SetCooldown();
+        if (isFilled && !isUsed)
+        {
+            setCooldownImage();
+        }
+
+        if (isUsed)
+        {
+            SetCooldown();
+        }
     }
 
     public void Refresh()
@@ -92,11 +99,7 @@ public class HotKey : MonoBehaviour
 
     public void SetCooldown()
     {
-        if (_usable is Skill && isUsed == false)
-        {
-            isUsed = true;
-            coolDownImage.GetComponent<Image>().fillAmount = 1;
-        }
+        
 
 
         if (_usable is Skill)
@@ -110,11 +113,20 @@ public class HotKey : MonoBehaviour
                     coolDownImage.GetComponent<Image>().fillAmount = 0;
                     isUsed = false;
                     coolDownImage.SetActive(false);
+                    
                 }
             }
         }
         
         
+    }
+
+    private void setCooldownImage()
+    {
+        if (_usable is Skill)
+        {
+            coolDownImage.GetComponent<Image>().fillAmount = 1;
+        }
     }
 
     public void DisableHotKey()

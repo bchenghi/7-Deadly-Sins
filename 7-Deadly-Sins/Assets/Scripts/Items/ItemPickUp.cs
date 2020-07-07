@@ -23,7 +23,7 @@ public class ItemPickUp : Interactable
         }
         else if (item.GetType() == typeof(Currency))
         {
-            Currency currency = new Currency(item); 
+            var currency = item as Currency;
             GoldCounter.instance.Earn(currency.GetPickUpAmount());
             Destroy(gameObject);
         }

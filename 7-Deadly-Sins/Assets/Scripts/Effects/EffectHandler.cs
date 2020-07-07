@@ -75,7 +75,6 @@ public class EffectHandler : MonoBehaviour
     IEnumerator SkillCoolDown(int effectNumber, int cooldown)
     {
         effectsManager.EnableEffectObject(effectNumber);
-        Debug.Log("Effect");
         Transform effect = effectsManager.returnEffect(effectNumber);
         effectsManager.ActivateParticleSystem(effect);
         yield return new WaitForSeconds(cooldown);

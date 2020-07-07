@@ -627,7 +627,7 @@ MonoBehaviour:
   turretHead: {fileID: 6991057568544785244}
   bullet: {fileID: 1720834754998865810, guid: 557d08c8124834d4bb098d0dadf2514e, type: 3}
   fireTimer: 0.7
-  range: 30
+  range: 8
 --- !u!114 &6025998488226789812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +645,8 @@ MonoBehaviour:
   ToolsRequired: 5
   Tools: {fileID: 11400000, guid: b8b788266019e9043b0fc1812d00d730, type: 2}
   UpgradingTime: 5
+  isUpgrading: 0
+  UpgradingIcon: {fileID: 0}
 --- !u!54 &7554297896983223337
 Rigidbody:
   m_ObjectHideFlags: 0

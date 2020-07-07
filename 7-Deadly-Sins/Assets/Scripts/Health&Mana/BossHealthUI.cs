@@ -36,6 +36,13 @@ public class BossHealthUI : MonoBehaviour
         bossHealthPrefab.SetActive(false);
     }
 
+    private void Update()
+    {
+        if(stats.currentHealth <= 0)
+        {
+            bossHealthPrefab.SetActive(false);
+        }
+    }
 
     // Updates slider and text on health bar
     void OnHealthChanged(int maxHealth, int currentHealth)
