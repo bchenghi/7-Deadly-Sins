@@ -3222,13 +3222,14 @@ MonoBehaviour:
   DelayBeforeInvisible: 0.2
   InvisibleDuration: 0.5
   DodgeCoolDown: 1
+  Climbing: 0
+  ClimbingButStop: 0
   running: 0
   isSlowed: 0
   groundedDistance: 0.1
   distFromGroundComponents: {fileID: 5864591568140687250}
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
-  focus: {fileID: 0}
 --- !u!114 &7202750333497976123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,6 +3251,10 @@ MonoBehaviour:
   overrideContoller: {fileID: 0}
   weaponAnimations:
   - weapon: {fileID: 11400000, guid: 1e80aed0036dc3145992d3c3926e49ce, type: 2}
+    clips:
+    - {fileID: 7400000, guid: 17582e2672c3bfe4c9e3c7c249941f31, type: 2}
+    - {fileID: 7400000, guid: 847cf1bce23010f4ebad07033c5f262a, type: 2}
+  - weapon: {fileID: 11400000, guid: a61565d75c7b9e5428d36632c4646b6c, type: 2}
     clips:
     - {fileID: 7400000, guid: 17582e2672c3bfe4c9e3c7c249941f31, type: 2}
     - {fileID: 7400000, guid: 847cf1bce23010f4ebad07033c5f262a, type: 2}

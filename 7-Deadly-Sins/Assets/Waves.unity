@@ -2729,6 +2729,53 @@ PrefabInstance:
       propertyPath: uiPrefab
       value: 
       objectReference: {fileID: 8629454256021474637}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[1].clips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[2].clips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[1].weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a61565d75c7b9e5428d36632c4646b6c,
+        type: 2}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[1].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 17582e2672c3bfe4c9e3c7c249941f31, type: 2}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[1].clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 847cf1bce23010f4ebad07033c5f262a, type: 2}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[2].weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: a61565d75c7b9e5428d36632c4646b6c,
+        type: 2}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[2].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 17582e2672c3bfe4c9e3c7c249941f31, type: 2}
+    - target: {fileID: 7202750333497976123, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: weaponAnimations.Array.data[2].clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 847cf1bce23010f4ebad07033c5f262a, type: 2}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5860,7 +5907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ceb2c597d9aa645a78633a77eb5b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfSceneToLoad: Stage1
+  nameOfSceneToLoad: Shop-CH
 --- !u!137 &796730331 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8918551563485136514, guid: 2061633b5c934ef45873bfdc68222d55,
@@ -9500,7 +9547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1312961271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9852,7 +9899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1367328135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13151,7 +13198,7 @@ MonoBehaviour:
     name: 
     sentences:
     - Here you will have to take on multiple waves of enemies... Good luck!
-    - The turret in the corner looks interesting... But looks like it is out of ammo.
+    - The turret in the middle looks interesting... But looks like it is out of ammo.
 --- !u!114 &1854406633
 MonoBehaviour:
   m_ObjectHideFlags: 0

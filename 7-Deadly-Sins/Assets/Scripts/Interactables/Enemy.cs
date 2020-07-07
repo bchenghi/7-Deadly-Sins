@@ -14,7 +14,7 @@ public class Enemy : Interactable
     {
         playerManager = PlayerManager.instance;
         myStats = GetComponent<CharacterStats>();
-        if (name == null) {
+        if (name == "") {
             name = transform.name;
         }
     }
