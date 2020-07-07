@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   space: 20
   consumablesPerSlot: 4
+  othersPerSlot: 100
 --- !u!114 &1128765268864473528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +267,30 @@ MonoBehaviour:
   - name: Jump
     clip: {fileID: 8300000, guid: 5ac0226cb1a66d743811ce3a38a9dd46, type: 3}
     volume: 0.66
+    pitch: 0.87
+    loop: 0
+    source: {fileID: 0}
+  - name: Whoosh
+    clip: {fileID: 8300000, guid: 9979ef9c774af424f97d34354a3e9fd3, type: 3}
+    volume: 0.66
+    pitch: 0.87
+    loop: 0
+    source: {fileID: 0}
+  - name: Whoosh1
+    clip: {fileID: 8300000, guid: ea9a6325964ebaf419e27510802aab24, type: 3}
+    volume: 0.66
+    pitch: 0.87
+    loop: 0
+    source: {fileID: 0}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: 5e536a30598dd4e47adcfd21c35cbd8b, type: 3}
+    volume: 0.39
+    pitch: 0.87
+    loop: 0
+    source: {fileID: 0}
+  - name: Magic Impact
+    clip: {fileID: 8300000, guid: 9a236734f7929e24aaef7bc60fc61836, type: 3}
+    volume: 0.39
     pitch: 0.87
     loop: 0
     source: {fileID: 0}

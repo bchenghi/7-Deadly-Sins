@@ -4783,6 +4783,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7208309035310035422, guid: 0657c8751a7c874448c2445b64fa4953,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7208309035310035410, guid: 0657c8751a7c874448c2445b64fa4953, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0657c8751a7c874448c2445b64fa4953, type: 3}
@@ -4803,6 +4808,7 @@ GameObject:
   - component: {fileID: 1031949957}
   - component: {fileID: 1031949960}
   - component: {fileID: 1031949958}
+  - component: {fileID: 1031949959}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -4848,6 +4854,29 @@ MonoBehaviour:
   SpecialActivated: 0
   count: 0
   attackDistance: 0
+--- !u!114 &1031949959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031949956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f6695d1b73c144a902e9aea14e3cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+  PotUsed: 0
+  increaseInStats: 0
+  statUIManager: {fileID: 0}
+  maxMana: 100
+  playerManaUI: {fileID: 0}
+  InvisibleAmt: 0
 --- !u!114 &1031949960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,7 +5316,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: dungeon scene
+          m_StringArgument: Waves
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1081465472
@@ -8192,6 +8221,7 @@ GameObject:
   - component: {fileID: 1958762312}
   - component: {fileID: 1958762313}
   - component: {fileID: 1958762314}
+  - component: {fileID: 1958762315}
   m_Layer: 0
   m_Name: ShopPlaceholderGameManager
   m_TagString: Untagged
@@ -8260,6 +8290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   space: 20
   consumablesPerSlot: 4
+  othersPerSlot: 100
 --- !u!114 &1958762311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8321,6 +8352,19 @@ MonoBehaviour:
   Damage: 0
   Gold: 0
   Mana: 0
+--- !u!114 &1958762315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958762307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa236242f546e647945235c11e36731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousSceneName: 
 --- !u!1001 &1962418497
 PrefabInstance:
   m_ObjectHideFlags: 0

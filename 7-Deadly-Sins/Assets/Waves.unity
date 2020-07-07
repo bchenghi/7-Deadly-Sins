@@ -880,11 +880,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 118432803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9ebe3f252904141aa0ee1676a5a91d, type: 3}
+  m_Script: {fileID: 11500000, guid: 284dce4c3c1c8494d99221fdb35c0b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 1259754318}
-  positionToSpawn: {x: 14, y: 0, z: 15}
+  objectToTeleport: {fileID: 1259754318}
+  positionToTeleport: {x: 14, y: 0, z: 5}
 --- !u!114 &118432805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30a245ee1b8d1438840df23757caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveManager: {fileID: 1367328135}
+  waveManager: {fileID: 1312961271}
 --- !u!4 &118432806
 Transform:
   m_ObjectHideFlags: 0
@@ -5780,6 +5780,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7653852968824312140, guid: ae190da442c39bf43bf85aa8b17603e7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8742741954223640637, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5818,7 +5823,7 @@ PrefabInstance:
     - target: {fileID: 8742741954223640637, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8742741954223640637, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
@@ -5843,6 +5848,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 767081501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &767081503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767081502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ceb2c597d9aa645a78633a77eb5b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfSceneToLoad: Stage1
 --- !u!137 &796730331 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8918551563485136514, guid: 2061633b5c934ef45873bfdc68222d55,
@@ -8139,7 +8157,7 @@ PrefabInstance:
     - target: {fileID: 3620425096901086154, guid: be9b1403532ac2c48819812917901d6b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3620425096901086158, guid: be9b1403532ac2c48819812917901d6b,
         type: 3}
@@ -9497,7 +9515,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayBeforeStartWaves: 1
   delayBetweenWaves: 5
-  waves: [{numberOfEnemies: 1, enemiesToChooseFrom: [{fileID: 454968474}], delayBetweenEachSpawn: 1}]
+  waves:
+  - numberOfEnemies: 1
+    enemiesToChooseFrom:
+    - {fileID: 454968474}
+    delayBetweenEachSpawn: 1
   regionsToSpawn: {fileID: 1580739233}
   done: 0
 --- !u!4 &1312961272
@@ -9843,7 +9865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3bac87b9f58e14781d843588e559ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStartWaves: 1
+  delayBeforeStartWaves: 10
   delayBetweenWaves: 60
   waves:
   - numberOfEnemies: 3
@@ -11440,7 +11462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjects:
-  - {fileID: 0}
+  - {fileID: 1259754318}
 --- !u!1001 &1589138143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31293,6 +31315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 8582899300706659022}
+  name: 
 --- !u!4 &8582899300706659022
 Transform:
   m_ObjectHideFlags: 0
