@@ -7,6 +7,7 @@ public class Switch : MonoBehaviour
     public int SwitchNumber;
     public bool engaged;
     Animator animator;
+    public PuzzleToSwitchBridge bridge;
 
     private void Start()
     {
@@ -16,13 +17,22 @@ public class Switch : MonoBehaviour
 
     private void Update()
     {
-        if (engaged)
+        if (bridge.AllPiecesPieced)
         {
-            animator.SetBool("SwitchOn", true);
-        } else
-        {
-            animator.SetBool("SwitchOn", false);
+            if (engaged)
+            {
+                animator.SetBool("SwitchOn", true);
+            }
+            else
+            {
+                animator.SetBool("SwitchOn", false);
+            }
         }
+    }
+
+    public void SetToEngage()
+    {
+        engaged = true;
     }
 
 }

@@ -16,6 +16,7 @@ public class CheckSequence : MonoBehaviour
     private int correctSwitches;
     public bool Success;
     private List<int> correctSwitchesCount;
+   
 
     private void Start()
     {
@@ -42,6 +43,11 @@ public class CheckSequence : MonoBehaviour
             GetPlayerSequence();
             CheckSequenceByCount();
             CheckSuccess();
+        }
+
+        if (Success)
+        {
+            //Open Door
         }
 
     }
@@ -77,7 +83,7 @@ public class CheckSequence : MonoBehaviour
                     switchCount = 0;
                     correctSwitches = 0;
                     correctSwitchesCount.Clear();
-                    resetSwitches();
+                    StartCoroutine(CheckcoolDown());
                     break;
                     
                 } else
@@ -136,6 +142,12 @@ public class CheckSequence : MonoBehaviour
         {
             switches[i].engaged = false;
         }
+    }
+
+    IEnumerator CheckcoolDown()
+    {
+        yield return new WaitForSeconds(0.75f);
+        resetSwitches();
     }
    
 

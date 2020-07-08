@@ -68,7 +68,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             {
                 foreach (var result in raycastResults)
                 {
-                    Debug.Log(result);
+                    //Debug.Log(result);
                     if (result.gameObject.CompareTag("Hotkey"))
                     {
 
