@@ -134,7 +134,7 @@ public class WaveManager : MonoBehaviour
     }
 
     IEnumerator SpawnWavesInfinite() {
-        while(waveNumber < numberOfWaves) {
+        while(waveNumber < numberOfWaves && !done) {
             if (waveNumber == 0) {
                 ResetWavesDoneSpawning();
             }
@@ -158,7 +158,7 @@ public class WaveManager : MonoBehaviour
                 }
             }
 
-            if (waveNumber < numberOfWaves) 
+            if (waveNumber < numberOfWaves - 1) 
             {
                 waveNumber++;
             }

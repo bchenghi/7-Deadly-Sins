@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30a245ee1b8d1438840df23757caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveManager: {fileID: 1312961271}
+  waveManager: {fileID: 1367328135}
 --- !u!4 &118432806
 Transform:
   m_ObjectHideFlags: 0
@@ -9125,8 +9125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3bac87b9f58e14781d843588e559ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStartWaves: 0
-  delayBetweenWaves: 30
+  delayBeforeStartWaves: 5
+  delayBetweenWaves: 60
   waves:
   - numberOfEnemies: 3
     enemiesToChooseFrom:
@@ -9812,7 +9812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1312961271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9826,7 +9826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStartWaves: 1
-  delayBetweenWaves: 5
+  delayBetweenWaves: 20
   waves:
   - numberOfEnemies: 1
     enemiesToChooseFrom:
@@ -10165,7 +10165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1367328135
 MonoBehaviour:
   m_ObjectHideFlags: 0

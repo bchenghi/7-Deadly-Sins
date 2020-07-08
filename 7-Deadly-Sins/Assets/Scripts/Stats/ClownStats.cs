@@ -45,7 +45,7 @@ public class ClownStats : CharacterStats
         clownCombat.dead = true;
         Debug.Log(transform.name + " died.");
         Destroy(GetComponent<Collider>());
-
+        GetComponent<WaveManager>().done = true;
         lootDropTest.DropLoot();
         Destroy(gameObject, 5);
 

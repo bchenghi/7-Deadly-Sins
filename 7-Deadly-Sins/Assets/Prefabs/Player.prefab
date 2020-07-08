@@ -3162,6 +3162,8 @@ GameObject:
   - component: {fileID: 7202750333497976124}
   - component: {fileID: 7202750333497976127}
   - component: {fileID: 7202750333497976125}
+  - component: {fileID: -6357504690422154360}
+  - component: {fileID: 4196821828005990811}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -3324,6 +3326,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanRegen: 0
   onlyWalk: 0
+--- !u!114 &-6357504690422154360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202750333497976113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78039d3986f614db458ce2ad312a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmashDownSwitches: 
+  effectNum: 0
+  effectOnAndFollow: 0
+  targetHit: 0
+--- !u!114 &4196821828005990811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202750333497976113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd39b40171e78aa4dab46aa4260e4b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7376500311643810198
 GameObject:
   m_ObjectHideFlags: 0
