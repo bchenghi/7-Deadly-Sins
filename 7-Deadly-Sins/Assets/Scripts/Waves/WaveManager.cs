@@ -15,6 +15,8 @@ public class WaveManager : MonoBehaviour
     // regions to spawn gameobjects
     [SerializeField]
     Regions regionsToSpawn;
+    [SerializeField]
+    bool infiniteLoop;
 
     int waveNumber = 0;
     int numberOfWaves;
@@ -40,10 +42,7 @@ public class WaveManager : MonoBehaviour
             enemiesInWaves[i] = new List<GameObject>();
         }
 
-        wavesDoneSpawning = new bool[numberOfWaves];
-        for (int i = 0; i<numberOfWaves; i++) {
-            wavesDoneSpawning[i] = false;
-        }
+        ResetWavesDoneSpawning();
     }
 
     void Update() {
@@ -53,14 +52,19 @@ public class WaveManager : MonoBehaviour
         if (delayBeforeStartWaves > 0) {
             delayBeforeStartWaves -= Time.deltaTime;
         }
-        if (delayBeforeStartWaves <= 0 && !wavesStarted) {   
+        if (!infiniteLoop && delayBeforeStartWaves <= 0 && !wavesStarted) {   
             //Debug.Log("spawnwaves called");
             StartCoroutine(SpawnWaves());
             wavesStarted = true;
         }
 
+        if (infiniteLoop && delayBeforeStartWaves <= 0 && !wavesStarted) {
+            StartCoroutine(SpawnWavesInfinite());
+            wavesStarted = true;
+        }
+
         // checks if all enemies spawned from all waves are dead, assigns 'done' variable true or false.
-        if (waveNumber == numberOfWaves && !done) {
+        if (waveNumber == numberOfWaves && !done && !infiniteLoop) {
             bool allDead = true;
             foreach(GameObject obj in enemiesSpawned) {
                 if (obj != null) {
@@ -129,6 +133,44 @@ public class WaveManager : MonoBehaviour
         wavesDoneSpawning[waveNum] = true;
     }
 
+    IEnumerator SpawnWavesInfinite() {
+        while(waveNumber < numberOfWaves) {
+            if (waveNumber == 0) {
+                ResetWavesDoneSpawning();
+            }
+            int currentWaveNumber = waveNumber;
+            //Debug.Log("entered while loop in spawnwaves");
+            StartCoroutine(SpawnWave(waveNumber));
+            
+
+            waveCoolDown = 0;
+            while (waveCoolDown < delayBetweenWaves) {
+
+                if (CheckCurrentAndBeforeWavesCleared(currentWaveNumber)) {
+                    Debug.Log("check cleared wave");
+                    waveCoolDown = delayBetweenWaves;
+                    yield return new WaitForSeconds(0);
+                    break;
+                }
+                else 
+                {
+                    yield return new WaitForSeconds(0);
+                }
+            }
+
+            if (waveNumber < numberOfWaves) 
+            {
+                waveNumber++;
+            }
+            else 
+            {
+                waveNumber = 0;
+            }
+            yield return new WaitForSeconds(0);
+        }
+        
+    }
+
     // Returns a random position to spawn based on regions to spawn, specified in spawnRegions
     Vector3 RandomSpawnPosition() {
         return regionsToSpawn.RandomPosition();
@@ -168,6 +210,14 @@ public class WaveManager : MonoBehaviour
         else 
         {
             return false;
+        }
+    }
+
+
+    void ResetWavesDoneSpawning() {
+        wavesDoneSpawning = new bool[numberOfWaves];
+        for (int i = 0; i<numberOfWaves; i++) {
+            wavesDoneSpawning[i] = false;
         }
     }
         

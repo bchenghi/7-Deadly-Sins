@@ -28,13 +28,20 @@ public class DeathTriggerBridge : MonoBehaviour
         }
     }
 
-    // Returns true if all obj in array are null, false if at least one is not null
+    // Returns true if all obj in array have character combat and are dead, 
+    // false if at least one is dead
     bool CheckTriggerCondition() {
         bool willTrigger = true;
         foreach(GameObject obj in gameObjects) {
-            if (obj != null) {
+            if (obj.GetComponent<CharacterCombat>()) {
+                if (!obj.GetComponent<CharacterCombat>().dead) {
+                    willTrigger = false;
+                    break;
+                }
+            }
+            else 
+            {
                 willTrigger = false;
-                break;
             }
         }
         return willTrigger;

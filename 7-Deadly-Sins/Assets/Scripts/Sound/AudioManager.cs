@@ -55,16 +55,17 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
         AudioSource audioSource = transformOfObject.gameObject.AddComponent<AudioSource>();
-
-        audioSource.clip = s.clip;
-        audioSource.outputAudioMixerGroup = audioMixer;
-        audioSource.volume = s.volume;
-        audioSource.pitch = s.pitch;
-        audioSource.loop = s.loop;
-        
-        audioSource.Play();
-        yield return new WaitForSeconds(audioSource.clip.length);
-        Destroy(audioSource);
+        if (audioSource != null && s != null) {
+            audioSource.clip = s.clip;
+            audioSource.outputAudioMixerGroup = audioMixer;
+            audioSource.volume = s.volume;
+            audioSource.pitch = s.pitch;
+            audioSource.loop = s.loop;
+            
+            audioSource.Play();
+            yield return new WaitForSeconds(audioSource.clip.length);
+            Destroy(audioSource);
+        }
     }
 
     public void StopPlaying(string sound)

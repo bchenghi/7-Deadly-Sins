@@ -22,6 +22,7 @@ public class PlayerAnimator : CharacterAnimator
 
         combat.OnAttack += UseSpecial;
         soundHandler = GetComponent<SoundHandler>();
+        SceneSetUp();
     }
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
@@ -89,6 +90,17 @@ public class PlayerAnimator : CharacterAnimator
     public void Hook()
     {
         animator.SetBool("Hooked", GetComponent<GrapplingHooks>().fired);
+    }
+
+
+    // When scene is setup, prepares attack animation clips based on current equipment
+    // e.g sword attack animation if sword is equipped
+    void SceneSetUp() {
+        foreach(Equipment equipment in EquipmentManager.instance.currentEquipment) {
+            if (equipment != null) {
+                this.OnEquipmentChanged(equipment, null);
+            }
+        }
     }
 
 }

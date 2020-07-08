@@ -32,6 +32,8 @@ public class ClownCombat : MonoBehaviour
         myStats = GetComponent<ClownStats>();
         soundHandler = GetComponent<SoundHandler>();
         projectileHandler = GetComponentInParent<ProjectileHandler>();
+        dead = false;
+        attacking = false;
     }
 
     protected virtual void Update()

@@ -43,9 +43,9 @@ public class TurretShooting : MonoBehaviour
                     {
                         var Clone = GameObject.Instantiate(effect, hit.point, Quaternion.LookRotation(hit.normal));
                         Destroy(Clone.gameObject, 2f);
-                        if (hit.transform.GetComponent<EnemyStats>())
+                        if (hit.transform.GetComponent<EnemyStats>() || hit.transform.GetComponent<ClownStats>())
                         {
-                            hit.transform.GetComponent<EnemyStats>().TakeDamage(damage);
+                            hit.transform.GetComponent<CharacterStats>().TakeDamage(damage);
                             crossHair.SetActive(true);
                             StartCoroutine(crossHairRoutine());
 

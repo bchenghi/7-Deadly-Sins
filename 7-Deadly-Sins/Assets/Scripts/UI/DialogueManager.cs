@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     Coroutine currentCoroutine = null;
+    bool coroutineTypeSentenceRunning = false;
+    string currentSentence = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,30 +39,50 @@ public class DialogueManager : MonoBehaviour
     } 
 
     IEnumerator TypeSentence(string sentence) {
+        coroutineTypeSentenceRunning = true;
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray()) {
             dialogueText.text += letter;
             yield return new WaitForSeconds(1/typeSpeed);
         }
+        coroutineTypeSentenceRunning = false;
     }
 
+    // Will show entire sentence if sentence is still being typed. If not being
+    // typed, will move on to next sentence or end dialogue if no more sentences.
     public void DisplayNextSentence() {
-        if (sentences.Count == 0) {
-            EndDialogue();
-            return;
-        }
-        else
+        if (coroutineTypeSentenceRunning) 
         {
-            string sentence = sentences.Dequeue();
             if (currentCoroutine != null)
                 StopCoroutine(currentCoroutine);
+            
+            dialogueText.text = currentSentence;
+            coroutineTypeSentenceRunning = false;
+        }
+        else 
+        {
+            if (sentences.Count == 0) {
+                EndDialogue();
+                return;
+            }
+            else 
+            {
+                string sentence = sentences.Dequeue();
+                currentSentence = sentence;
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
 
-            currentCoroutine = StartCoroutine(TypeSentence(sentence));
+                currentCoroutine = StartCoroutine(TypeSentence(sentence));
+            }
         }
     }
 
     public void EndDialogue() {
         dialogueBox.SetActive(false);
         Debug.Log("End of Conversation");
+    }
+
+    void FinishSentence() {
+        
     }
 }
