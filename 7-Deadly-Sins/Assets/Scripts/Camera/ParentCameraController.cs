@@ -9,7 +9,6 @@ public class ParentCameraController : MonoBehaviour
     bool equipmentUIUsed = false;
     bool ChestUIUsed = false;
     bool dialogueBoxOn = false;
-
     bool skillTreeOn = false;
     bool pauseMenuOn = false;
     

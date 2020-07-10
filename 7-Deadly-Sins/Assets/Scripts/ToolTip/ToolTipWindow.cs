@@ -84,6 +84,9 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }else if (skill != null)
         {
             stringToShow = StatsString(skill);
+        } else
+        {
+            stringToShow = "";
         }
     }
 
@@ -107,7 +110,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
         else
         {
-            result =  new StringBuilder();
+            result = new StringBuilder();
         }
 
         if (UISlot is ShopSlot && item != null)
