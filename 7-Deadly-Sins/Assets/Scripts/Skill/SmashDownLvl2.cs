@@ -60,7 +60,7 @@ public class SmashDownLvl2 : Skill, IUsable
         player = PlayerManager.instance.player;
         effectHandler = player.GetComponent<EffectHandler>();
         combat = player.GetComponent<CharacterCombat>();
-        Description = "Deals a heavy strike, use within 5 seconds of cast";
+        Description = "Deals a heavy strike (currentDamage * skill level), Press E in front of enemy within 5 seconds of cast";
         MaxSkillLevel = 3;
     }
 

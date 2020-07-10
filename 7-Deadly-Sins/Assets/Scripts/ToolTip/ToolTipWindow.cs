@@ -9,14 +9,17 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     ToolTip toolTip;
     UISlot UISlot;
+    Skill skill;
     string stringToShow = null;
     bool mouseCurrentlyHere = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         toolTip = ToolTip.instance;
         UISlot = GetComponent<UISlot>();
+        skill = GetComponent<Skill>();
     }
 
     void Update()
@@ -25,6 +28,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             if (stringToShow != "")
             {
+                
                 toolTip.ShowToolTip(stringToShow);
                 CheckSlot();
             }
@@ -58,6 +62,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Sets the string to be shown on tooltip, sets null if object in slot is null
     public void CheckSlot()
     {
+        Skill skills = null;
         Item item = null;
         if (UISlot is EquipmentUISlot)
         {
@@ -69,8 +74,17 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         } else if (UISlot is ShopSlot) 
         {
             item = ((ShopSlot) UISlot).item;
+        } else
+        {
+            skills = skill;
         }
-        stringToShow = StatsString(item);
+        if (item != null)
+        {
+            stringToShow = StatsString(item);
+        }else if (skill != null)
+        {
+            stringToShow = StatsString(skill);
+        }
     }
 
 
@@ -98,6 +112,20 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         if (UISlot is ShopSlot && item != null)
             result.AppendLine().Append(PriceString(item));
+
+        return result.ToString();
+    }
+
+    string StatsString(Skill skill)
+    {
+        StringBuilder result;
+        if (skill != null)
+        {
+            result = new StringBuilder(SkillDescription(skill));
+        } else
+        {
+            result = new StringBuilder();
+        }
 
         return result.ToString();
     }
@@ -176,6 +204,20 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             str.Append("<color=yellow>Price: ").Append(item.GetPrice()).Append("</color>");
         } 
         else 
+        {
+            return null;
+        }
+
+        return str.ToString();
+    }
+
+    string SkillDescription(Skill skill)
+    {
+        StringBuilder str = new StringBuilder();
+        if (skill != null)
+        {
+            str.Append("<color=#FB9298>Description: ").Append(skill.Description).Append("</color>");
+        } else
         {
             return null;
         }
