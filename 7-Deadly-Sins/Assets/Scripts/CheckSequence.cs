@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class CheckSequence : MonoBehaviour
     private int correctSwitches;
     public bool Success;
     private List<int> correctSwitchesCount;
+    public Transform Text;
    
 
     private void Start()
@@ -47,7 +49,8 @@ public class CheckSequence : MonoBehaviour
 
         if (Success)
         {
-            //Open Door
+            Text.GetComponent<TextMeshProUGUI>().text = "Puzzle Solved, Enter the Portal!";
+
         }
 
     }
@@ -132,7 +135,7 @@ public class CheckSequence : MonoBehaviour
         if (correctSwitches == correctSequence.Length)
         {
             Success = true;
-            Debug.Log("Successful");
+            //Debug.Log("Successful");
         }
     }
 
