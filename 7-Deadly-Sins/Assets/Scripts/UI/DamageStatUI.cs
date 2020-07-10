@@ -20,6 +20,11 @@ public class DamageStatUI : StatUI
         displayText.text = textEditor(playerStats.damage.GetValue().ToString());
     }
 
+    private void Update()
+    {
+        displayText.text = textEditor(playerStats.damage.GetValue().ToString());
+    }
+
     // Returns edited string
     public override string textEditor(string text)
     {

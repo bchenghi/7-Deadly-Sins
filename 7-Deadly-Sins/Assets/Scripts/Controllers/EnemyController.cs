@@ -111,7 +111,7 @@ public class EnemyController : MonoBehaviour
     {
         agent.SetDestination(moveSpot.position);
         //Debug.Log(Vector3.Distance(transform.position, moveSpot.position));
-        if (Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
+        if (Vector3.Distance(transform.position, moveSpot.position) < 1f)
         {
             if (waitTime <= 0)
             {

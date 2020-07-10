@@ -86,7 +86,7 @@ public class EffectHandler : MonoBehaviour
     public void FollowPlayer(int effectNumber)
     {
         Transform effect = effectsManager.returnEffect(effectNumber);
-        effect.position = transform.position;
+        effect.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
     }
 
     public void EnableAndActivate(int effectNumber)
@@ -126,7 +126,7 @@ public class EffectHandler : MonoBehaviour
 
             if (distanceTo > 0.3f)
             {
-                effect.Translate(Vector3.forward * 2f * Time.deltaTime);
+                effect.Translate(Vector3.forward * 5f * Time.deltaTime);
             } else
             {
                 targetHit = true;

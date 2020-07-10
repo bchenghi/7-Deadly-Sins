@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PuzzleToSwitchBridge : MonoBehaviour
 {
+    public Transform text;
     public GameObject puzzle;
     DragAndDropPuzzle[] puzzlePieces;
     public bool AllPiecesPieced;
@@ -22,7 +24,9 @@ public class PuzzleToSwitchBridge : MonoBehaviour
         CheckPieces();
         if (AllPiecesPieced)
         {
-            Debug.Log("Switches Activated");
+            GetComponent<InventoryCheckPuzzle>().enabled = false;
+            text.GetComponent<TextMeshProUGUI>().text = "Solve the Switches to escape!";
+            
         }
     }
 

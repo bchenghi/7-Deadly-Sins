@@ -19,6 +19,11 @@ public class ArmorStatUI : StatUI
         displayText.text = textEditor(playerStats.armor.GetValue().ToString());
     }
 
+    private void Update()
+    {
+        displayText.text = textEditor(playerStats.armor.GetValue().ToString());
+    }
+
     // Returns edited string
     public override string textEditor(string text)
     {

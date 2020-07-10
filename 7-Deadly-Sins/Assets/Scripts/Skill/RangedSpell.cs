@@ -110,21 +110,24 @@ public class RangedSpell : Skill, IUsable
         combat = player.GetComponent<CharacterCombat>();
         effectsManager = EffectsManager.instance;
         effectHandler = player.GetComponent<EffectHandler>();
-        Description = "Cast a fire ball dealing 15-20 damage";
-        MaxSkillLevel = 3;
         if (skillLevel == 1)
         {
             minDamage = 15;
             maxDamage = 20;
-        } else if (skillLevel == 2)
+        }
+        else if (skillLevel == 2)
         {
             minDamage = 25;
             maxDamage = 30;
-        } else
+        }
+        else
         {
             minDamage = 35;
             maxDamage = 40;
         }
+        Description = "Cast a fire ball dealing " + minDamage + " - " + maxDamage + " damage";
+        MaxSkillLevel = 3;
+        
     }
 
     // Update is called once per frame
@@ -139,8 +142,9 @@ public class RangedSpell : Skill, IUsable
         {
             if (effectHandler.targetHit)
             {
+                
                 target.GetComponent<CharacterStats>().TakeDamage(Random.Range(minDamage,maxDamage));
-                target.GetComponent<Animator>().SetTrigger("Hurt");
+                
                 hasActivated = false;
             }
         }

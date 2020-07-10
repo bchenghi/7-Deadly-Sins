@@ -68,7 +68,7 @@ public class Fury : Skill, IUsable
     public override void Start()
     {
         base.Start();
-        Description = "Increases players damage by 5 * skill Level for 5 seconds";
+        Description = "Increases player's damage by 5 for 5 seconds";
         MaxSkillLevel = 3;
         //systems = effect.GetComponentsInChildren<ParticleSystem>();
     }

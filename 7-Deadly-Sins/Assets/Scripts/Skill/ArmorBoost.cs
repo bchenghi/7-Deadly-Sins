@@ -50,7 +50,7 @@ public class ArmorBoost : Skill, IUsable
     public override void Start()
     {
         base.Start();
-        Description = "Increases players armor by 10 * skill Level but decreases walkspeed by 1 and runspeed by 3 for 5 seconds";
+        Description = "Increases player's armor by 10 but decreases walkspeed by 1 and runspeed by 3 for 5 seconds";
         MaxSkillLevel = 3;
         //systems = effect.GetComponentsInChildren<ParticleSystem>();
     }
