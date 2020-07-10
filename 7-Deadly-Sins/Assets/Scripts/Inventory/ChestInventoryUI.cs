@@ -12,6 +12,9 @@ public class ChestInventoryUI : MonoBehaviour
     ChestInventory chestInventory;
     Chest chest;
 
+    [HideInInspector]
+    public bool displayOn = false;
+
 
     private void Start()
     {
@@ -25,12 +28,14 @@ public class ChestInventoryUI : MonoBehaviour
     public void DisplayUI()
     {
         inventoryChestUI.SetActive(true);
+        displayOn = true;
 
     }
 
     public void UnDisplay()
     {
         inventoryChestUI.SetActive(false);
+        displayOn = false;
     }
 
     void UpdateUI()

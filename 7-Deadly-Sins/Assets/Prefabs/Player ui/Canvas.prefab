@@ -1538,6 +1538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 1682121263009213786}
   typeSpeed: 100
+  currentlyInDialogue: 0
 --- !u!1 &6441870372435732453
 GameObject:
   m_ObjectHideFlags: 0
@@ -5151,6 +5152,16 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5637951039002908330, guid: acaa299724d62de4ba79c50f4b7bc36f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9137220407748969456}
+    - target: {fileID: 5637951039002908330, guid: acaa299724d62de4ba79c50f4b7bc36f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     - target: {fileID: 5637951039316249482, guid: acaa299724d62de4ba79c50f4b7bc36f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7159,6 +7170,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658235349721135174, guid: b059a392006b1a94ebd0aac8bf58b7c7,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a7f76d2b7fb25b4bba147007454429f,
+        type: 2}
+    - target: {fileID: 2658235349721135174, guid: b059a392006b1a94ebd0aac8bf58b7c7,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b059a392006b1a94ebd0aac8bf58b7c7, type: 3}

@@ -14,17 +14,23 @@ public class Chest : Interactable
     public event System.Action CanOpen;
     private bool hasTriggered;
     ChestInventoryUI chestInventoryUI;
+    [SerializeField]
+    bool requiresKey = true;
+    
+    // bool value to know if chest was interacted by the player (left click)
+    bool hasInteracted = false;
+
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
-
+    GameObject floatingText = null;
 
     private void Start()
     {
         chestInventoryUI = GetComponent<ChestInventoryUI>();
         
         
-}
+    }
 
 
 
@@ -32,31 +38,33 @@ public class Chest : Interactable
     {
         base.Update();
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (hasInteracted && Input.GetKeyDown(KeyCode.E) && !chestInventoryUI.displayOn)
         { 
             PlayerGavePermission = true;
 
-            if (hasTriggered == false && checkKey == true)
+            if (hasTriggered == false && ((requiresKey && checkKey == true) || !requiresKey))
             {
                 
                 if (CanOpen != null)
                 {
                     CanOpen();
                 }
-                Inventory.instance.Remove(keyRequired);
+                if (keyRequired) {
+                    Inventory.instance.Remove(keyRequired);
+                }
                 DisplayUI();
                 hasTriggered = true;
                 
 
-            } 
+            }
 
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        else if (hasInteracted && Input.GetKeyDown(KeyCode.E) && chestInventoryUI.displayOn)
         {
-            
             chestInventoryUI.UnDisplay();
+            RemoveFloatingText();
         }
 
 
@@ -93,6 +101,8 @@ public class Chest : Interactable
             //Does nothing
         }
 
+        hasInteracted = true;
+
 
 
     }
@@ -106,32 +116,42 @@ public class Chest : Interactable
 
     public void checkInventory()
     {
-        inventory = Inventory.instance;
-        int indexOfKey = inventory.IndexOfItem(keyRequired);
-        if (indexOfKey == -1)
-        {
-            checkKey = false;
-        } else
-        {
+        if (requiresKey) {
+            inventory = Inventory.instance;
+            int indexOfKey = inventory.IndexOfItem(keyRequired);
+            if (indexOfKey == -1)
+            {
+                checkKey = false;
+            } else
+            {
 
-            checkKey = true;
+                checkKey = true;
 
+            }
         }
-
-
     }
 
     public void ShowFloatingText()
     {
-        var floatingText = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
-        if (checkKey == true)
+        RemoveFloatingText();
+        floatingText = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
+        if (requiresKey && checkKey == true)
         {
             floatingText.GetComponent<TextMeshPro>().text = "You have a key, Press E to open chest";
             
 
-        } else
+        } else if (requiresKey && !checkKey)
         {
             floatingText.GetComponent<TextMeshPro>().text = "You do not have a key";
+        } else if (!requiresKey) 
+        {
+            floatingText.GetComponent<TextMeshPro>().text = "Press E to open chest";
+        }
+    }
+
+    void RemoveFloatingText() {
+        if (floatingText != null) {
+            Destroy(floatingText);
         }
     }
 

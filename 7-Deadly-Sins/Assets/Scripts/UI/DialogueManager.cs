@@ -6,6 +6,17 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    #region Singleton
+    public static DialogueManager instance;
+    void Awake() {
+        if (DialogueManager.instance == null) {
+            DialogueManager.instance = this;
+        } else {
+            Destroy(this);
+        }
+    }
+    #endregion
+
     public GameObject dialogueBox;
     [SerializeField]
     float typeSpeed;
@@ -16,6 +27,9 @@ public class DialogueManager : MonoBehaviour
     Coroutine currentCoroutine = null;
     bool coroutineTypeSentenceRunning = false;
     string currentSentence = null;
+
+    [HideInInspector]
+    public bool currentlyInDialogue = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue) {
+        currentlyInDialogue = true;
         dialogueBox.SetActive(true);
 
         nameText.text = dialogue.name;
@@ -66,7 +81,7 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
             else 
-            {
+            {   
                 string sentence = sentences.Dequeue();
                 currentSentence = sentence;
                 if (currentCoroutine != null)
@@ -80,9 +95,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue() {
         dialogueBox.SetActive(false);
         Debug.Log("End of Conversation");
+        currentlyInDialogue = false;
     }
 
-    void FinishSentence() {
-        
-    }
-}
+ }

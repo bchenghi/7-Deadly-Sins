@@ -204,7 +204,8 @@ public class PlayerController : MonoBehaviour
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
                     if (Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<ItemPickUp>() != null
                         || Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.GetComponent<Enemy>() != null
-                        || Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<Chest>() != null)
+                        || Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<Chest>() != null
+                        || Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<NPC>() != null)
                     {
                         if (interactable != null)
                         {
