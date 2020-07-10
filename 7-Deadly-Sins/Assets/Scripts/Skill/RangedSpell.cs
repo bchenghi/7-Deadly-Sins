@@ -142,8 +142,9 @@ public class RangedSpell : Skill, IUsable
         {
             if (effectHandler.targetHit)
             {
+                
                 target.GetComponent<CharacterStats>().TakeDamage(Random.Range(minDamage,maxDamage));
-                target.GetComponent<Animator>().SetTrigger("Hurt");
+                
                 hasActivated = false;
             }
         }

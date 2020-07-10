@@ -126,7 +126,7 @@ public class EffectHandler : MonoBehaviour
 
             if (distanceTo > 0.3f)
             {
-                effect.Translate(Vector3.forward * 2f * Time.deltaTime);
+                effect.Translate(Vector3.forward * 5f * Time.deltaTime);
             } else
             {
                 targetHit = true;

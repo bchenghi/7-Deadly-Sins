@@ -24,7 +24,9 @@ public class PuzzleToSwitchBridge : MonoBehaviour
         CheckPieces();
         if (AllPiecesPieced)
         {
+            GetComponent<InventoryCheckPuzzle>().enabled = false;
             text.GetComponent<TextMeshProUGUI>().text = "Solve the Switches to escape!";
+            
         }
     }
 

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DragDropSkill : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public GameObject AllDragDrops;
+    ToolTipWindow[] tips;
     GameObject itemBeingDragged;
     Vector3 startPosition;
     Transform startParent;
@@ -20,6 +22,7 @@ public class DragDropSkill : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         graphicRaycaster = GameObject.Find("Canvas").GetComponent<GraphicRaycaster>();
         pointerEventData = new PointerEventData(null);
         raycastResults = new List<RaycastResult>();
+        tips = AllDragDrops.GetComponentsInChildren<ToolTipWindow>();
     }
 
 
@@ -42,11 +45,19 @@ public class DragDropSkill : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     {
         Debug.Log("OnDrag");
         transform.position = Input.mousePosition;
+        foreach(ToolTipWindow tip in tips)
+        {
+            tip.enabled = false;
+        }
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
+        foreach (ToolTipWindow tip in tips)
+        {
+            tip.enabled = true;
+        }
         Debug.Log("OnEndDrag");
 
 
