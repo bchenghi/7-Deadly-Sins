@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueNPCController : NPCController
 {
     [SerializeField]
-    NPCMissionDialogue missionDialogue;
+    NPCDialogue missionDialogue;
 
     // Start is called before the first frame update
     void Start()

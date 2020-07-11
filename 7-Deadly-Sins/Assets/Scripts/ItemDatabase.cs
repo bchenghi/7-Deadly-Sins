@@ -45,7 +45,6 @@ public class ItemDatabase : MonoBehaviour
 class ItemComparator : IComparer<Item> 
 {   
     public int Compare(Item thisItem, Item thatItem) {
-        Debug.Log("compare called");
         if (thisItem is Consumables && thatItem is Equipment) {
             return -1;
         }

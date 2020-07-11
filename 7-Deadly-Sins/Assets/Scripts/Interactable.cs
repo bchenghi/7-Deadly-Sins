@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
 
     bool isFocus = false;
     Transform player;
-    bool hasInteracted = false;
+    protected bool hasInteracted = false;
     public Transform interactionTransform;
     
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Checks with NPCMission for status of mission, adjusts dialogue accordingly and animates npc
-public class NPCMissionDialogue : MonoBehaviour
+public class NPCMissionDialogue : NPCDialogue
 {
     [SerializeField]
     NPCMission mission;
@@ -40,7 +40,7 @@ public class NPCMissionDialogue : MonoBehaviour
         }
     }
 
-    public void StartDialogue() {
+    public override void StartDialogue() {
         SetMissionState();
         conversingWithThisNPC = true;
         if (mission.celebration) {

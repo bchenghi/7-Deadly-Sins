@@ -22,6 +22,7 @@ public class ChestInventoryUI : MonoBehaviour
         chest = GetComponent<Chest>();
         chest.onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<ChestSlots>();
+        
     }
 
 
@@ -40,6 +41,9 @@ public class ChestInventoryUI : MonoBehaviour
 
     void UpdateUI()
     {
+        foreach(ChestSlots slot in slots) {
+            slot.currentChestInventory = chestInventory;
+        }
         
         for (int i = 0; i < slots.Length; i++)
         {
@@ -76,4 +80,5 @@ public class ChestInventoryUI : MonoBehaviour
             slots[i].ClearSlotCompletely();
         }
     }
+
 }

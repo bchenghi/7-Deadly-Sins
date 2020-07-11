@@ -24,23 +24,23 @@ public class LootBoxAnimation : MonoBehaviour
 
     
     public void hasKeyAnimate() {
-
-        
-            animator.SetBool("HasKey", true);
-            Debug.Log("has key is true");
-        
-            
-        }
+        animator.SetBool("HasKey", true);
+        Debug.Log("has key is true");
+    }
 
     public void hasPermissionAnimate()
     {
+        animator.SetTrigger("OnHit");
+        Debug.Log("On hit triggered");
+    }
 
-        
-            animator.SetTrigger("OnHit");
-            Debug.Log("On hit triggered");
-        
+    public void CloseChest() {
+        animator.SetBool("Opened" , false);
     }
     
+    public void OpenChest() {
+        animator.SetBool("Opened", true);
+    }
     
 
 

@@ -16,19 +16,22 @@ public class Chest : Interactable
     ChestInventoryUI chestInventoryUI;
     [SerializeField]
     bool requiresKey = true;
+    [SerializeField]
+    bool canReopen = false;
     
     // bool value to know if chest was interacted by the player (left click)
-    bool hasInteracted = false;
 
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
     GameObject floatingText = null;
 
+    LootBoxAnimation animator;
+
     private void Start()
     {
         chestInventoryUI = GetComponent<ChestInventoryUI>();
-        
+        animator = GetComponent<LootBoxAnimation>();
         
     }
 
@@ -41,23 +44,36 @@ public class Chest : Interactable
         if (hasInteracted && Input.GetKeyDown(KeyCode.E) && !chestInventoryUI.displayOn)
         { 
             PlayerGavePermission = true;
-
-            if (hasTriggered == false && ((requiresKey && checkKey == true) || !requiresKey))
-            {
-                
-                if (CanOpen != null)
+            if (!canReopen) {
+                if (hasTriggered == false && ((requiresKey && checkKey == true) || !requiresKey))
                 {
-                    CanOpen();
+                    
+                    if (CanOpen != null)
+                    {
+                        CanOpen();
+                    }
+                    if (keyRequired) {
+                        Inventory.instance.Remove(keyRequired);
+                    }
+                    DisplayUI();
+                    hasTriggered = true;
+                    animator.OpenChest();
                 }
-                if (keyRequired) {
-                    Inventory.instance.Remove(keyRequired);
-                }
-                DisplayUI();
-                hasTriggered = true;
-                
-
             }
-
+            else if (canReopen) {
+                if ((requiresKey && checkKey == true) || !requiresKey) {
+                    if (CanOpen != null)
+                    {
+                        CanOpen();
+                    }
+                    if (keyRequired) {
+                        Inventory.instance.Remove(keyRequired);
+                    }
+                    DisplayUI();
+                    hasTriggered = true;
+                    animator.OpenChest();
+                }
+            }
         }
 
 
@@ -65,6 +81,7 @@ public class Chest : Interactable
         {
             chestInventoryUI.UnDisplay();
             RemoveFloatingText();
+            animator.CloseChest();
         }
 
 
@@ -100,11 +117,6 @@ public class Chest : Interactable
             Debug.Log("No key");
             //Does nothing
         }
-
-        hasInteracted = true;
-
-
-
     }
 
     public void DisplayUI()

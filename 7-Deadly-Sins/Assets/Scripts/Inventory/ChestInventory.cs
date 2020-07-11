@@ -168,11 +168,15 @@ public class ChestInventory : MonoBehaviour
         int index = -1;
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].Key.Equals(item))
-            {
-                index = i;
-                break;
+            if (items[i].Key != null) {
+                
+                if (items[i].Key.name == item.name)
+                {
+                    index = i;
+                    break;
+                }
             }
+            
         }
         return index;
     }

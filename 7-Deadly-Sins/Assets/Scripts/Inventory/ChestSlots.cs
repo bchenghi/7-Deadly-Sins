@@ -11,6 +11,9 @@ public class ChestSlots : UISlot
     public int count = 0;
     public int maxCount = 0;
 
+    [HideInInspector]
+    public ChestInventory currentChestInventory;
+
     private void Start()
     {
         maxCount = Inventory.instance.consumablesPerSlot;
@@ -64,11 +67,6 @@ public class ChestSlots : UISlot
         }
     }
 
-    public void OnRemoveButton()
-    {
-        Inventory.instance.Remove(item);
-    }
-
     public void UseItem()
     {
         if (item != null)
@@ -83,8 +81,9 @@ public class ChestSlots : UISlot
                 Inventory.instance.Add(item);
                 
             }
-            ClearSlot();
-           
+            
+            currentChestInventory.RemoveFromChest(item);
+            ClearSlot();     
         }
     }
 
