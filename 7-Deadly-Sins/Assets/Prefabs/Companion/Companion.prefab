@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913b823a2f8556a4095b0715d7f62706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agressive: 1
+  Agressive: 0
 --- !u!114 &8068650470346187665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,7 +2157,7 @@ MonoBehaviour:
     baseValue: 20
   armor:
     baseValue: 0
-  RegenerativeCompanion: 1
+  RegenerativeCompanion: 0
   regenTime: 5
   isRegen: 0
   regenAmountPerSec: 5
@@ -2202,7 +2202,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
