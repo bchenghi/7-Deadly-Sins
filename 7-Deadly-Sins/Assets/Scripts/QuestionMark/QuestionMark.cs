@@ -17,8 +17,7 @@ public class QuestionMark : MonoBehaviour
         
         GameObject Go = GameObject.Instantiate(floatingQuestion, transform.position, Quaternion.identity, transform);
         
-        Debug.Log(Go.transform.position + "Object");
-        Debug.Log(transform.position + "Transform");
+   
         isChecked = false;
         if (SpawnObject != null)
         {

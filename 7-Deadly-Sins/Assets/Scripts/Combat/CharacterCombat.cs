@@ -11,7 +11,9 @@ public class CharacterCombat : MonoBehaviour
     private float attackCooldown = 0f;
     const float combatCooldown = 5;
     float lastAttackTime;
+    [HideInInspector]
     public bool SpecialActivated = false;
+    [HideInInspector]
     public int count = 0;
 
     SoundHandler soundHandler;

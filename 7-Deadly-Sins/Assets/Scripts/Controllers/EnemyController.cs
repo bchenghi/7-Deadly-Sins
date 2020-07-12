@@ -20,11 +20,18 @@ public class EnemyController : MonoBehaviour
     CharacterCombat combat;
     Animator animator;
     Vector3 originalPos;
+    [HideInInspector]
+    public bool PlayerTargeted;
+    [HideInInspector]
+    public Transform PlayerCompanionTarget;
+    [HideInInspector]
+    public bool CompanionTargeted;
    
 
     // Start is called before the first frame update
      void Start()
     {
+        PlayerTargeted = false;
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
@@ -41,6 +48,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
+        if (CompanionTargeted)
+        {
+            target = PlayerCompanionTarget;
+        } else
+        {
+            target = PlayerManager.instance.player.transform;
+        }
+
         
         float distance = Vector3.Distance(target.position, transform.position);
 
@@ -54,6 +69,12 @@ public class EnemyController : MonoBehaviour
                 {
                     combat.Attack(targetStats);
                     FaceTarget();
+                    if (targetStats.currentHealth <= 0)
+                    {
+
+                        CompanionTargeted = false;
+                    }
+                   
                 }
             }
             else if (distance <= lookRadius)
@@ -61,6 +82,7 @@ public class EnemyController : MonoBehaviour
                 agent.stoppingDistance = StoppingDist;
                 agent.SetDestination(target.position);
                 DecideOnChasing();
+                PlayerTargeted = true;
             }
             else if (distance > lookRadius)
             {
@@ -75,6 +97,7 @@ public class EnemyController : MonoBehaviour
                     agent.stoppingDistance = StoppingDist;
                     agent.SetDestination(originalPos);
                 }
+                PlayerTargeted = false;
             }
         }
     }
