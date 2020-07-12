@@ -146,19 +146,21 @@ public class Chest : Interactable
     public void ShowFloatingText()
     {
         RemoveFloatingText();
-        floatingText = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
-        if (requiresKey && checkKey == true)
-        {
-            floatingText.GetComponent<TextMeshPro>().text = "You have a key, Press E to open chest";
-            
-
-        } else if (requiresKey && !checkKey)
-        {
-            floatingText.GetComponent<TextMeshPro>().text = "You do not have a key";
-        } else if (!requiresKey) 
-        {
-            floatingText.GetComponent<TextMeshPro>().text = "Press E to open chest";
+        
+        if ((!hasTriggered && !canReopen) || canReopen) {
+            floatingText = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
+            if (requiresKey && checkKey == true)
+            {
+                floatingText.GetComponent<TextMeshPro>().text = "You have a key, Press E to open chest";
+            } else if (requiresKey && !checkKey)
+            {
+                floatingText.GetComponent<TextMeshPro>().text = "You do not have a key";
+            } else if (!requiresKey) 
+            {
+                floatingText.GetComponent<TextMeshPro>().text = "Press E to open chest";
+            }
         }
+        
     }
 
     void RemoveFloatingText() {

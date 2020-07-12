@@ -13,13 +13,16 @@ public class GoldCounter : MonoBehaviour
     #endregion
 
     public int gold = 0;
-    public delegate void OnGoldChange(int currentGold);
+    public delegate void OnGoldChange(int previousGold, int currentGold);
     public OnGoldChange onGoldChange; 
 
     public void Earn(int gold)
     {
-        this.gold += gold;
-        onGoldChange(this.gold);
+        if (gold >= 0) {
+            this.gold += gold;
+            onGoldChange(this.gold - gold, this.gold);
+        }
+        
     }
 
     public bool Spend(int gold)
@@ -27,7 +30,7 @@ public class GoldCounter : MonoBehaviour
         if (this.gold >= gold)
         {
             this.gold -= gold;
-            onGoldChange(this.gold);
+            onGoldChange(this.gold + gold, this.gold);
             return true;
         }
         else

@@ -15,6 +15,7 @@ public class Equipment : Item
     public override void Use()
     {
         base.Use();
+        DisplayTextManager.instance.Display("Equipped " + name, 3f);
         // Equip item
         EquipmentManager.instance.Equip(this);
         // Remove item from inventory

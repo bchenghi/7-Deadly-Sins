@@ -33,6 +33,10 @@ public class NPCRewardGift : NPCReward
     }
 
     void Give(Item item) {
-        Inventory.instance.Add(item);
+        if (item is Currency){
+            GoldCounter.instance.Earn(((Currency)item).GetPickUpAmount());
+        } else {
+            Inventory.instance.Add(item);
+        }
     }
 }

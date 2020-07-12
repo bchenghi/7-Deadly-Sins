@@ -13,6 +13,7 @@ public class Potions : Consumables , IUsable
     
     public override void Use()
     {
+        DisplayTextManager.instance.Display("Using " + name, 3f);
         if (Health)
         {
             potUsed = true;
