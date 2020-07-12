@@ -55,17 +55,17 @@ public class CheckPlayer : MonoBehaviour
                     puzzleShown = true;
                 }
                 
-            }
-
-            if (puzzleShown)
-            {
-                if (Input.GetKeyDown(KeyCode.M))
+            } else if (puzzleShown)
                 {
-                    Puzzle.SetActive(false);
-                    PuzzleTemplate.SetActive(false);
-                    puzzleShown = false;
+                    if (Input.GetKeyDown(KeyCode.N))
+                    {
+                        Puzzle.SetActive(false);
+                        PuzzleTemplate.SetActive(false);
+                        puzzleShown = false;
+                    }
                 }
-            }
+
+           
             
         }
 

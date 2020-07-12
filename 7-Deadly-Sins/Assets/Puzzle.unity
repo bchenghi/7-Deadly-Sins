@@ -324,7 +324,7 @@ Transform:
   - {fileID: 1358049072}
   - {fileID: 788582402}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3931556
 GameObject:
@@ -513,7 +513,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1312,7 +1312,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -4430,7 +4430,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9072,7 +9072,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -9494,6 +9494,9 @@ MonoBehaviour:
   minZ: -21.56
   maxZ: -10.09
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &290073687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12224,7 +12227,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -14807,7 +14810,7 @@ PrefabInstance:
     - target: {fileID: 4431664082466234739, guid: 9896a77538c12b7459a12c8cd4aa5ab1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4431664082466234739, guid: 9896a77538c12b7459a12c8cd4aa5ab1,
         type: 3}
@@ -15146,6 +15149,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &502873624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15512,7 +15518,7 @@ PrefabInstance:
     - target: {fileID: 1128765268864473530, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473530, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
@@ -16913,6 +16919,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &568488798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17599,6 +17608,9 @@ MonoBehaviour:
   minZ: -23.09
   maxZ: -9.7
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &592575119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18069,7 +18081,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -24135,6 +24147,9 @@ MonoBehaviour:
   minZ: -20.8
   maxZ: -2.31
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &808508088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26168,7 +26183,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -28257,6 +28272,9 @@ MonoBehaviour:
   minZ: -30.86
   maxZ: -14.79
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &952193406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32586,7 +32604,7 @@ PrefabInstance:
     - target: {fileID: 4017014755872359895, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4017014755872359895, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
@@ -32709,7 +32727,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -33570,6 +33588,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &1152797026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34270,6 +34291,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4ad67a7cd19345449ac3646963ee9aa, type: 3}
+--- !u!1 &1174143365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373398751175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179138474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1174710845
 GameObject:
   m_ObjectHideFlags: 0
@@ -34955,7 +34982,7 @@ PrefabInstance:
         type: 3}
       propertyPath: AllDragDrops
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1174143365}
     - target: {fileID: 6441870373398751169, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_Sprite
@@ -35342,6 +35369,9 @@ MonoBehaviour:
   minZ: -20.8
   maxZ: -2.31
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &1189198896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35691,6 +35721,9 @@ MonoBehaviour:
   minZ: -7.26
   maxZ: -0.86
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &1192776492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36013,7 +36046,7 @@ Transform:
   - {fileID: 78677157}
   - {fileID: 243784945}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200650651
 GameObject:
@@ -36233,7 +36266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203642535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.85666, y: 0.03, z: 0}
+  m_LocalPosition: {x: -38.85666, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485040332}
@@ -37630,7 +37663,7 @@ Transform:
   - {fileID: 605326039}
   - {fileID: 5006512735594941961}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1257618488
 PrefabInstance:
@@ -39527,7 +39560,7 @@ PrefabInstance:
     - target: {fileID: 4672259527038042114, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4672259527038042114, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
@@ -41142,7 +41175,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -45807,7 +45840,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -46774,7 +46807,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -49160,7 +49193,7 @@ Transform:
   - {fileID: 8075917419916428167}
   - {fileID: 1189198888}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1725039718
 PrefabInstance:
@@ -50778,7 +50811,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -52627,6 +52660,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &1851500174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54455,6 +54491,9 @@ MonoBehaviour:
   minZ: -35.38
   maxZ: -26.91
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &1933731064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56604,6 +56643,9 @@ MonoBehaviour:
   minZ: -32.73
   maxZ: -20.19
   startWaitTime: 1.5
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &2010622703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63453,7 +63495,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -68001,6 +68043,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &8075917419916428173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68688,7 +68733,7 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
