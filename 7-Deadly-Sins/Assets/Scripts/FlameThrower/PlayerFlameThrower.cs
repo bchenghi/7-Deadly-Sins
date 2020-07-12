@@ -9,7 +9,6 @@ public class PlayerFlameThrower : MonoBehaviour
     ParticleSystem[] ps;
     Animator animator;
     public bool inUse;
-    public Item item; //Test
     public Item ammo;
     private bool hasAmmo;
     public float UseTimePerAmmo;
@@ -24,9 +23,7 @@ public class PlayerFlameThrower : MonoBehaviour
         inUse = false;
         ps = flameThrower.GetComponentsInChildren<ParticleSystem>();
         runOutOfTime = false;
-        Inventory.instance.Add(item);//Test
-        Inventory.instance.Add(ammo); // Test
-        Inventory.instance.Add(ammo); // Test
+        
     }
 
     private void Update()
