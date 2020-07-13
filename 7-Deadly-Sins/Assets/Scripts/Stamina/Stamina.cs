@@ -70,7 +70,7 @@ public class Stamina : MonoBehaviour
 
     IEnumerator RegenBuffer()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2f);
         CanRegen = true;
     }
 

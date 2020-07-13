@@ -14,6 +14,7 @@ public class LiftMovement : MonoBehaviour
     private bool doorClosed;
     public bool reachedLevel2;
     public bool reachedLevel3;
+    public Timer time;
 
 
 
@@ -22,6 +23,7 @@ public class LiftMovement : MonoBehaviour
         if (other.GetComponent<PlayerController>())
         {
             PlayerEntered = true;
+            time.StopTime();
         }
     }
 
@@ -31,6 +33,7 @@ public class LiftMovement : MonoBehaviour
         {
             GetComponent<BoxCollider>().enabled = false;
             PlayerEntered = false;
+           
         }
     }
 

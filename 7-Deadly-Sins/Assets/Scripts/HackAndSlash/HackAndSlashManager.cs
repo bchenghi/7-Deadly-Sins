@@ -31,6 +31,7 @@ public class HackAndSlashManager : MonoBehaviour
     public LiftMovement liftMovement;
     private bool level1Done;
     private bool level2Done;
+    public bool allLevelDone;
 
     private void Update()
     {
@@ -48,7 +49,7 @@ public class HackAndSlashManager : MonoBehaviour
 
         if (level3Manager.allEnemiesDead)
         {
-            Debug.Log("Success");
+            allLevelDone = true;
         }
     }
 

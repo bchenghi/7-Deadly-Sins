@@ -2673,7 +2673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6441870373237584710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4250,16 +4250,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6441870372211059500}
     m_Modifications:
-    - target: {fileID: 370541646740625197, guid: 24a55d07b96b65249ad99d72702eb776,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 370541646740625197, guid: 24a55d07b96b65249ad99d72702eb776,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 29
-      objectReference: {fileID: 0}
     - target: {fileID: 1869343169885033943, guid: 24a55d07b96b65249ad99d72702eb776,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5265,7 +5255,7 @@ PrefabInstance:
     - target: {fileID: 1450639833153634330, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14.599976
+      value: -14.600098
       objectReference: {fileID: 0}
     - target: {fileID: 1450639833153634330, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -5275,7 +5265,7 @@ PrefabInstance:
     - target: {fileID: 1450639833153634330, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.399994
+      value: -15.400024
       objectReference: {fileID: 0}
     - target: {fileID: 1450639833153634330, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -5321,6 +5311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SkillTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450639834208351066, guid: 3ecc34153685a0646867c8329988fe12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1450639834208351069, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -5456,7 +5451,7 @@ PrefabInstance:
     - target: {fileID: 1450639834649405117, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -17.299988
+      value: -17.300049
       objectReference: {fileID: 0}
     - target: {fileID: 1450639834649405117, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -5466,7 +5461,7 @@ PrefabInstance:
     - target: {fileID: 1450639834649405117, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.4
+      value: -16.400024
       objectReference: {fileID: 0}
     - target: {fileID: 1450639834649405117, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -5766,6 +5761,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637951039316249483, guid: acaa299724d62de4ba79c50f4b7bc36f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5637951039646544358, guid: acaa299724d62de4ba79c50f4b7bc36f,
         type: 3}
@@ -8862,7 +8862,7 @@ PrefabInstance:
     - target: {fileID: 740142794792218586, guid: b407f184b75d0954b8040e14155f02ce,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0.002562495
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6802796441694489466, guid: b407f184b75d0954b8040e14155f02ce,
         type: 3}
