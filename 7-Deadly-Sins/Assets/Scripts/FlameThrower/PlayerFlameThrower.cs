@@ -42,7 +42,7 @@ public class PlayerFlameThrower : MonoBehaviour
             runOutOfTime = false;
             flameThrower.GetComponent<BoxCollider>().enabled = false;
         }
-        Debug.Log(runOutOfTime);
+        //Debug.Log(runOutOfTime);
     }
 
 
