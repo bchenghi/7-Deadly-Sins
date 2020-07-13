@@ -20,6 +20,8 @@ public class SoundHandler : MonoBehaviour
     public void PlayAttackSoundBy(Transform transformOfObject) {
         if (transformOfObject.name == "Player") {
             PlayerAttackSound();
+        } else if (transformOfObject.GetComponent<Enemy>()){
+            EnemyAttackSound(transformOfObject);
         } else {
             DefaultAttackSound(transform);
         }
@@ -31,6 +33,14 @@ public class SoundHandler : MonoBehaviour
             PlaySlashSound(PlayerManager.instance.player.transform);
         } else {
             PlayPunchSound(PlayerManager.instance.player.transform);
+        }
+    }
+
+    void EnemyAttackSound(Transform transformOfEnemy) {
+        if (transformOfEnemy.GetComponent<Enemy>().name == "Palladin") {
+            PlaySlashSound(transformOfEnemy);
+        } else {
+            PlayPunchSound(transformOfEnemy);
         }
     }
 
@@ -132,7 +142,11 @@ public class SoundHandler : MonoBehaviour
     public void PlaySoundRandomly(string[] names, Transform transformOfObj) {
         int lengthOfArray = names.Length;
         int index = Random.Range(0, lengthOfArray);
-        audioManager.Play(transformOfObj, names[index]);
+        if (audioManager == null) {  
+            AudioManager.instance.Play(transformOfObj, names[index]);
+        } else {
+            audioManager.Play(transformOfObj, names[index]);
+        }
     }
    
 }

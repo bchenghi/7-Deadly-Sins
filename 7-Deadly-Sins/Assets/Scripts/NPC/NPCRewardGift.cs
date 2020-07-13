@@ -19,11 +19,17 @@ public class NPCRewardGift : NPCReward
     {
         
     }
-
+    
     public override void ActivateReward() {
+        int goldReward = 0;
         foreach(ItemIntPair pair in itemsToGivePlayer) {
-            Give(pair.item, pair.numberOfItem);
+            if (!(pair.item is Currency)) {
+                Give(pair.item, pair.numberOfItem);
+            } else {
+                goldReward += ((Currency) pair.item).GetPickUpAmount() * pair.numberOfItem;
+            }
         }
+        GoldCounter.instance.Earn(goldReward);
     }
 
     void Give(Item item, int numberOfTheItem) {

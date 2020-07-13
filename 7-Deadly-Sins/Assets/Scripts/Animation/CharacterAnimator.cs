@@ -16,7 +16,7 @@ public class CharacterAnimator : MonoBehaviour
     protected Animator animator;
     protected CharacterCombat combat;
     protected CharacterStats stats;
-    public AnimatorOverrideController overrideContoller;
+    public AnimatorOverrideController overrideController;
     
 
 
@@ -29,10 +29,10 @@ public class CharacterAnimator : MonoBehaviour
         stats = GetComponent<CharacterStats>();
         
 
-        if (overrideContoller == null)
-            overrideContoller = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        if (overrideController == null)
+            overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
 
-        animator.runtimeAnimatorController = overrideContoller;
+        animator.runtimeAnimatorController = overrideController;
 
         currentAttackAnimSet = defaultAttackAnimSet;
 
@@ -56,7 +56,7 @@ public class CharacterAnimator : MonoBehaviour
     {
         animator.SetTrigger("attack");
         int attackIndex = Random.Range(0, currentAttackAnimSet.Length);
-        overrideContoller[replacebleAttackAnim.name] = currentAttackAnimSet[attackIndex];
+        overrideController[replacebleAttackAnim.name] = currentAttackAnimSet[attackIndex];
     }
 
     public virtual void Death()

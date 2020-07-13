@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour
     bool wavesStarted = false;
 
     // If all enemies from all waves are killed, done set to true
-    [HideInInspector]
+    //[HideInInspector]
     public bool done = false;
 
     // Tracks enemies spawned.
@@ -116,15 +116,15 @@ public class WaveManager : MonoBehaviour
         {
             GameObject enemy = ChooseRandomEnemy(wave.enemiesToChooseFrom);
             Vector3 spawnLocation = RandomSpawnPosition();
-            
-            enemy.GetComponent<EffectHandler>().SmokeEffectEvent(spawnLocation, 5, 2f);
+            GetComponent<EffectHandler>().SmokeEffectEvent(spawnLocation, 5, 2f);
 
             yield return new WaitForSeconds(0.5f);
-
             GameObject newEnemy = Instantiate(enemy, spawnLocation, Quaternion.identity);
+            newEnemy.SetActive(true);
+            
             
             string[] sounds = new string[] {"Whoosh", "Whoosh1"};
-            enemy.GetComponent<SoundHandler>().PlaySoundRandomly(sounds, enemy.transform);
+            newEnemy.GetComponent<SoundHandler>().PlaySoundRandomly(sounds, newEnemy.transform);
 
             enemiesSpawned.Add(newEnemy);
             enemiesInWaves[waveNum].Add(newEnemy);
@@ -180,6 +180,7 @@ public class WaveManager : MonoBehaviour
     GameObject ChooseRandomEnemy(GameObject[] enemies) {
         int numberOfEnemiesInArr = enemies.Length;
         int index = Random.Range(0, numberOfEnemiesInArr);
+        Debug.Log("random index to choose enemy " + index);
         return enemies[index];
     }
 

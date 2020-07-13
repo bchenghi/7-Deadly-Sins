@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &9083884965725996869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950712696594076621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9083884964625351808
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +191,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &9083884964727646805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 9083884964727646798}
+  name: 
 --- !u!114 &9083884964727646797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +258,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: b8347172f7dff8b43918904f9462bcbf, type: 2}
   - {fileID: 7400000, guid: 6ab71407af1b9f34b9e85d5dca9bacf3, type: 2}
-  overrideContoller: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
+  overrideController: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
   powerUpController: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
   triggerPowerUpHealth: 40
 --- !u!114 &9083884964727646794
@@ -257,18 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd39b40171e78aa4dab46aa4260e4b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9083884965725996869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950712696594076621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &9083884965917018820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,20 +284,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 61e494df75d201849b08abde00452abc, type: 2}
+      objectReference: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586,
+        type: 2}
     - target: {fileID: -6057140222963153312, guid: 1be8ece847607a941a3bb4fe66157aac,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'Mutant Idle'\n\tFrom
-        animation clip 'Mutant Walking'\n\tFrom animation clip 'Mutant Walking'\n\tFrom
-        animation clip 'Standing Idle'\n\tFrom animation clip 'Mutant Punch'\n\tFrom
-        animation clip 'Normal Death'\n\tFrom animation clip 'Reaction'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1be8ece847607a941a3bb4fe66157aac,
         type: 3}
