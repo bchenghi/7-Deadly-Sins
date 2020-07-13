@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     ToolTip toolTip;
     UISlot UISlot;
     Skill skill;
+    HackAndSlashUiSlot hackSlashSlot;
     string stringToShow = null;
     bool mouseCurrentlyHere = false;
 
@@ -20,6 +22,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         toolTip = ToolTip.instance;
         UISlot = GetComponent<UISlot>();
         skill = GetComponent<Skill>();
+        hackSlashSlot = GetComponent<HackAndSlashUiSlot>();
     }
 
     void Update()
@@ -64,6 +67,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         Skill skills = null;
         Item item = null;
+        HackAndSlashUiSlot hackSlashSlots = null;
         if (UISlot is EquipmentUISlot)
         {
             item = ((EquipmentUISlot)UISlot).equipment;
@@ -76,7 +80,13 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             item = ((ShopSlot) UISlot).item;
         } else
         {
-            skills = skill;
+            if (skill != null)
+            {
+                skills = skill;
+            } else if (hackSlashSlot != null)
+            {
+                hackSlashSlots = hackSlashSlot;
+            }
         }
         if (item != null)
         {
@@ -84,7 +94,10 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }else if (skill != null)
         {
             stringToShow = StatsString(skill);
-        } else
+        }else if (hackSlashSlots != null)
+        {
+            stringToShow = StatsString(hackSlashSlots);
+        }else
         {
             stringToShow = "";
         }
@@ -115,6 +128,20 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         if (UISlot is ShopSlot && item != null)
             result.AppendLine().Append(PriceString(item));
+
+        return result.ToString();
+    }
+
+    string StatsString(HackAndSlashUiSlot slot)
+    {
+        StringBuilder result;
+        if (slot != null)
+        {
+            result = new StringBuilder(HackAndSlashSlotDescription(slot));
+        } else
+        {
+            result = new StringBuilder();
+        }
 
         return result.ToString();
     }
@@ -226,5 +253,21 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
 
         return str.ToString();
+    }
+
+    string HackAndSlashSlotDescription(HackAndSlashUiSlot slot)
+    {
+        StringBuilder str = new StringBuilder();
+        if (slot != null)
+        {
+            str.Append("<color=white>Description: ").Append(slot.description).Append("</color>").AppendLine();
+            str.Append("<color=white>Price: ").Append(slot.price).Append("</color>");
+        } else
+        {
+            return null;
+        }
+
+        return str.ToString();
+
     }
 }
