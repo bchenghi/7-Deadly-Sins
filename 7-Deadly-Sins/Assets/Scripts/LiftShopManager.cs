@@ -15,8 +15,10 @@ public class LiftShopManager : MonoBehaviour
     private bool UIShownLevel2;
     private bool UIShownLevel3;
     public CompanionsManager companionManager;
+    public Timer time;
     public Image[] crossesForFlameThrower;
     private bool boughtFlameThrower;
+   
 
     private void Start()
     {
@@ -24,78 +26,109 @@ public class LiftShopManager : MonoBehaviour
     }
 
 
-    public void ButtonForNonRegenAndPassive()
+    public void ButtonForNonRegenAndPassive(int cost)
     {
         if (!companionManager.maxCompanionReached)
         {
-            companion.GetComponent<CompanionStats>().RegenerativeCompanion = false;
-            companion.GetComponent<TargetDetector>().Agressive = false;
-            GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
-            Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
-            go.transform.position = newPos;
-            companionManager.AddCompanionToList(go);
-        }
-
-    }
-
-    public void ButtonForNonRegenAndAggressive()
-    {
-        if (!companionManager.maxCompanionReached)
-        {
-            companion.GetComponent<CompanionStats>().RegenerativeCompanion = false;
-            companion.GetComponent<TargetDetector>().Agressive = true;
-            GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
-            Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
-            go.transform.position = newPos;
-            companionManager.AddCompanionToList(go);
-        }
-    }
-
-    public void ButtonForRegenAndPassive()
-    {
-        if (!companionManager.maxCompanionReached)
-        {
-            companion.GetComponent<CompanionStats>().RegenerativeCompanion = true;
-            companion.GetComponent<TargetDetector>().Agressive = false;
-            GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
-            Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
-            go.transform.position = newPos;
-            companionManager.AddCompanionToList(go);
-        }
-    }
-
-    public void ButtonForRegenAndAggressive()
-    {
-        if (!companionManager.maxCompanionReached)
-        {
-            companion.GetComponent<CompanionStats>().RegenerativeCompanion = true;
-            companion.GetComponent<TargetDetector>().Agressive = true;
-            GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
-            Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
-            go.transform.position = newPos;
-            companionManager.AddCompanionToList(go);
-        }
-    }
-
-    public void ButtonForFlameThrower(float timePerUse)
-    {
-        if (!boughtFlameThrower)
-        {
-            foreach (Image im in crossesForFlameThrower)
+            if (GoldCounter.instance.gold >= cost)
             {
-                im.enabled = true;
+                companion.GetComponent<CompanionStats>().RegenerativeCompanion = false;
+                companion.GetComponent<TargetDetector>().Agressive = false;
+                GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
+                Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
+                go.transform.position = newPos;
+                GoldCounter.instance.Spend(cost);
+                companionManager.AddCompanionToList(go);
             }
-            player.GetComponent<PlayerFlameThrower>().UseTimePerAmmo = timePerUse;
-            Inventory.instance.Add(flameThrower);
-            boughtFlameThrower = true;
+        }
+
+    }
+
+    public void ButtonForNonRegenAndAggressive(int cost)
+    {
+        if (!companionManager.maxCompanionReached)
+        {
+            if (GoldCounter.instance.gold >= cost)
+            {
+                companion.GetComponent<CompanionStats>().RegenerativeCompanion = false;
+                companion.GetComponent<TargetDetector>().Agressive = true;
+                GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
+                Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
+                go.transform.position = newPos;
+                GoldCounter.instance.Spend(cost);
+                companionManager.AddCompanionToList(go);
+            }
         }
     }
 
-    public void ButtonForFlameThrowerAmmo(int quantity)
+    public void ButtonForRegenAndPassive(int cost)
     {
-        var ammo = flameThrowerAmmo as Others;
-        ammo.quantity = quantity;
-        Inventory.instance.Add(ammo);
+        if (!companionManager.maxCompanionReached)
+        {
+            if (GoldCounter.instance.gold >= cost)
+            {
+                companion.GetComponent<CompanionStats>().RegenerativeCompanion = true;
+                companion.GetComponent<TargetDetector>().Agressive = false;
+                GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
+                Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
+                go.transform.position = newPos;
+                GoldCounter.instance.Spend(cost);
+                companionManager.AddCompanionToList(go);
+            }
+        }
+    }
+
+    public void ButtonForRegenAndAggressive(int cost)
+    {
+        if (!companionManager.maxCompanionReached)
+        {
+            if (GoldCounter.instance.gold >= cost)
+            {
+                companion.GetComponent<CompanionStats>().RegenerativeCompanion = true;
+                companion.GetComponent<TargetDetector>().Agressive = true;
+                GameObject go = GameObject.Instantiate(companion, transform.position, Quaternion.identity);
+                Vector3 newPos = new Vector3(player.position.x + Random.Range(-4f, 4f), player.position.y, player.position.z + 2f);
+                go.transform.position = newPos;
+                GoldCounter.instance.Spend(cost);
+                companionManager.AddCompanionToList(go);
+            }
+        }
+    }
+
+    public void ButtonForFlameThrower(string timePeruseAndCost)
+    {
+
+        string[] arr = timePeruseAndCost.Split(","[0]);
+        float timePerUse = float.Parse(arr[0]);
+        int cost = int.Parse(arr[1]);
+        if (GoldCounter.instance.gold >= cost) {
+            if (!boughtFlameThrower)
+            {
+                foreach (Image im in crossesForFlameThrower)
+                {
+                    im.enabled = true;
+                }
+                player.GetComponent<PlayerFlameThrower>().UseTimePerAmmo = timePerUse;
+                Inventory.instance.Add(flameThrower);
+                boughtFlameThrower = true;
+                GoldCounter.instance.Spend(cost);
+            }
+            
+        }
+    }
+
+    public void ButtonForFlameThrowerAmmo(string quantityAndCost)
+    {
+        string[] arr = quantityAndCost.Split(","[0]);
+        int quantity = int.Parse(arr[0]);
+        int cost = int.Parse(arr[1]);
+        if (GoldCounter.instance.gold >= cost)
+        {
+            var ammo = flameThrowerAmmo as Others;
+            ammo.quantity = quantity;
+            Inventory.instance.Add(ammo);
+            GoldCounter.instance.Spend(cost);
+        }
     }
 
 
@@ -103,6 +136,7 @@ public class LiftShopManager : MonoBehaviour
     {
         shopUI.SetActive(false);
         liftDoor.GetComponent<Animator>().SetBool("DoorOpen", true);
+        time.StartTime();
 
     }
 
