@@ -20,7 +20,9 @@ public class GoldCounter : MonoBehaviour
     {
         if (gold >= 0) {
             this.gold += gold;
-            onGoldChange(this.gold - gold, this.gold);
+            if (gold != 0) { 
+                onGoldChange(this.gold - gold, this.gold);
+            }
         }
         
     }
@@ -30,7 +32,9 @@ public class GoldCounter : MonoBehaviour
         if (this.gold >= gold)
         {
             this.gold -= gold;
-            onGoldChange(this.gold + gold, this.gold);
+            if (gold != 0) {
+                onGoldChange(this.gold + gold, this.gold);
+            }
             return true;
         }
         else

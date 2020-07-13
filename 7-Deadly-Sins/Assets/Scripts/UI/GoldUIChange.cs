@@ -21,12 +21,10 @@ public class GoldUIChange : MonoBehaviour
     [SerializeField]
     Animator animator;
 
-    Vector3 originalPosition;
     Coroutine currentCoroutine;
     // Start is called before the first frame update
     void Start()
     {
-        originalPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -59,13 +57,16 @@ public class GoldUIChange : MonoBehaviour
             //this.transform.position = originalPosition;
             currentCoroutine = StartCoroutine(Display());
         }
+        else 
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator Display() {
-        animator.SetTrigger("open");
         moveUp = true;
         yield return new WaitForSeconds(duration);
-        animator.SetTrigger("close");
+        animator.SetBool("close", true);
         prepareToDisable = true;
     }
 }

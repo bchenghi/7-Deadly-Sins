@@ -24,24 +24,44 @@ public class NPCMissionCollect : NPCMission
 
     
 
-    // Returns true if inventory contains items to find
-    bool CheckPlayerInventoryForItems() {
+    // Returns true if inventory contains items to find or currency to pay
+    bool CheckPlayerForItems() {
         bool result = true;
+        int hypotheticalGoldLeft = GoldCounter.instance.gold;
         foreach (ItemIntPair pair in itemsToTakeFromPlayer) {
-            if (!Inventory.instance.Exists(pair.item, pair.numberOfItem)) {
+            if (!(pair.item is Currency)) {
+                if (!Inventory.instance.Exists(pair.item, pair.numberOfItem)) {
                 result = false;
                 break;
+                }
+            }
+            else 
+            {
+                int goldRequired = ((Currency) pair.item).GetPickUpAmount() * pair.numberOfItem;
+                hypotheticalGoldLeft -= goldRequired;
+                if (hypotheticalGoldLeft < 0) {
+                    result = false;
+                    break;
+                }
             }
         }
         return result;
     }
 
-    // Checks if mission is complete, and finishes transactions, sets missionComplete
+    // Checks if mission is complete, and finishes transactions
+    // (in foreach loop, add total amount of gold to take, before taking. For items,
+    // takes item in each loop), sets missionComplete
     public override void RequestMissionComplete() {
         if (CheckAndSetIfMissionComplete()) {
+            int goldToTake = 0;
             foreach (ItemIntPair pair in itemsToTakeFromPlayer) {
-                Take(pair.item, pair.numberOfItem);
+                if (!(pair.item is Currency)) {
+                    Take(pair.item, pair.numberOfItem);
+                } else {
+                    goldToTake += ((Currency) pair.item).GetPickUpAmount() * pair.numberOfItem;
+                }
             }
+            GoldCounter.instance.Spend(goldToTake);
             GiveReward();
         } else {
             Debug.Log("Mission not complete");
@@ -49,15 +69,19 @@ public class NPCMissionCollect : NPCMission
     }
 
     public override bool CheckAndSetIfMissionComplete() {
-        missionComplete = CheckPlayerInventoryForItems();
+        missionComplete = CheckPlayerForItems();
         return missionComplete;
     }
 
     public void Take(Item item) {
         // remove from player inventory
-        if (!(item is Others)) {
+        if (!(item is Currency)&& !(item is Others)) {
             Inventory.instance.Remove(item);
-        } else {
+        } 
+        else if ((item is Currency)) {
+            GoldCounter.instance.Spend(((Currency) item).GetPickUpAmount());
+        }
+        else {
             Inventory.instance.Remove(item, 1);
         }
     }

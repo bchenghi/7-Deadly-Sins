@@ -27,6 +27,7 @@ public class ItemDatabase : MonoBehaviour
     [SerializeField]
     public List<Item> allItems = new List<Item>();
 
+    [HideInInspector]
     public bool sorted = false;
     // Start is called before the first frame update
     void Start()

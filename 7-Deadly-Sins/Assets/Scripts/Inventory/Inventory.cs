@@ -320,20 +320,24 @@ public class Inventory : MonoBehaviour
 
     // Returns true if there are at least the given number of the item in the inventory
     public bool Exists(Item item, int numberOfTheItem) {
-        bool result = false;
-        int numberLeftToFind = numberOfTheItem;
-        foreach(KeyValuePair<Item, int> pair in items) {
-            Debug.Log("pair.key.name: "+pair.Key.name);
-            Debug.Log("item.name: "+item.name);
-            if (pair.Key.name == item.name) {
-                numberLeftToFind -= pair.Value;
+        if (numberOfTheItem == 0) {
+            return true;
+        } else {
+            bool result = false;
+            int numberLeftToFind = numberOfTheItem;
+            foreach(KeyValuePair<Item, int> pair in items) {
+                Debug.Log("pair.key.name: "+pair.Key.name);
+                Debug.Log("item.name: "+item.name);
+                if (pair.Key.name == item.name) {
+                    numberLeftToFind -= pair.Value;
+                }
                 if (numberLeftToFind <= 0) {
                     result = true;
                     break;
                 }
             }
-        }
         return result;
+        }
     }
 }
 
