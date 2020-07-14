@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public Canvas timerCanvas;
     public TextMeshProUGUI timerText;
     private float startTime;
     public bool TimerStart;
     HackAndSlashManager manager;
     public float finalTime;
     public bool finalTimeUpdated;
+    public LiftMovement liftMovement;
+    private bool timerto2;
+    private bool timerto3;
+    RectTransform timerTransform;
     
     
 
@@ -21,6 +26,7 @@ public class Timer : MonoBehaviour
         startTime = 0;
         TimerStart = false;
         manager = HackAndSlashManager.instance;
+        timerTransform = timerCanvas.transform.GetComponent<RectTransform>();
     }
 
     private void Update()
@@ -43,6 +49,17 @@ public class Timer : MonoBehaviour
             
         }
 
+        if (liftMovement.reachedLevel2 && !timerto2 )
+        {
+            timerto2 = true;
+            timerTransform.anchoredPosition = new Vector3(timerTransform.anchoredPosition.x, 2.06f, timerTransform.position.z);
+        }else if (liftMovement.reachedLevel3 && !timerto3)
+        {
+            timerto3 = true;
+            timerTransform.anchoredPosition = new Vector3(timerTransform.anchoredPosition.x, 5.63f, timerTransform.position.z);
+        }
+
+        
        
     }
 
