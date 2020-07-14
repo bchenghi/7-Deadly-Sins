@@ -43,7 +43,7 @@ public class TurretController : MonoBehaviour
             idleCrossHair.SetActive(true);
             inPosition = true;
         } 
-        else if (playerDetection.PlayerShooting() && turretShooting.OutOfAmmo) 
+        else if (playerDetection.PlayerShooting() && turretShooting.OutOfAmmo && inPosition) 
         {
             player.GetComponent<PlayerController>().ChangeActionsAllowed(true);
             turretGraphics.SetActive(true);
@@ -59,14 +59,10 @@ public class TurretController : MonoBehaviour
 
             inPosition = false;
         } 
-        else if (!playerDetection.PlayerShooting() && inPosition)
+        else if (playerDetection.PlayerShooting() && turretShooting.OutOfAmmo && !inPosition) 
         {
-            player.GetComponent<PlayerController>().ChangeActionsAllowed(true);
-            turretGraphics.SetActive(true);
-            playerGraphics.SetActive(true);
-            idleCrossHair.SetActive(false);
-            
-            inPosition = false;
+            turretReload.Reload();
+            playerDetection.SetPlayerShooting(false);
         }
     }
 

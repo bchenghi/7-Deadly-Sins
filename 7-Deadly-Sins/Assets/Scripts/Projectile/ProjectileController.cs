@@ -60,11 +60,14 @@ public class ProjectileController : MonoBehaviour
                 PlayerStats playerStats = otherCollider.GetComponent<PlayerStats>();
                 playerStats.TakeDamage(damage);
             } 
+            if (otherCollider.transform.GetComponent<CharacterStats>()) {
+                CharacterStats characterStats = otherCollider.GetComponent<CharacterStats>();
+                characterStats.TakeDamage(damage);
+            }
             else 
             {
-                // explosion effect
+                // explosion effect when hit wall
             }
-            // play explosion sound
             AudioManager.instance.Play(otherCollider.transform, "Magic Impact");
             Destroy(this.gameObject); 
         }

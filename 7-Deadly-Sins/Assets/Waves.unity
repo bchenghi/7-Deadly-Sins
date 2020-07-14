@@ -6766,6 +6766,9 @@ MonoBehaviour:
   PlayerTargeted: 0
   PlayerCompanionTarget: {fileID: 0}
   CompanionTargeted: 0
+  easyRoam: 0
+  easyRoamX: 0
+  easyRoamZ: 0
 --- !u!114 &853200444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9298,6 +9301,10 @@ PrefabInstance:
       propertyPath: bossHealthPrefab
       value: 
       objectReference: {fileID: 1751257909}
+    - target: {fileID: 567281182, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6408341009909285580, guid: cb551d445d5d90f4c9bb829b2befad5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14114,6 +14121,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870372448174433, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.299805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870372448174433, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16.399902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870373398751174, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.399902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
@@ -32392,6 +32414,9 @@ MonoBehaviour:
   PlayerTargeted: 0
   PlayerCompanionTarget: {fileID: 0}
   CompanionTargeted: 0
+  easyRoam: 0
+  easyRoamX: 0
+  easyRoamZ: 0
 --- !u!114 &8582899300706659011
 MonoBehaviour:
   m_ObjectHideFlags: 0
