@@ -8620,7 +8620,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 3e8b89d037de3f845a24a5922d9ab092, type: 2}
   - {fileID: 7400000, guid: f2fcb1bca8a5ab8489e64a9fcf696c6d, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
+  overrideController: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
 --- !u!114 &290073682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13718,7 +13718,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 7115752380e8cdd48a61b0d7cab23ef2, type: 2}
   - {fileID: 7400000, guid: bbea91a098ace0b4ab71cd0b6ee3636f, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
+  overrideController: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
 --- !u!114 &502873619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15391,7 +15391,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 3e8b89d037de3f845a24a5922d9ab092, type: 2}
   - {fileID: 7400000, guid: f2fcb1bca8a5ab8489e64a9fcf696c6d, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
+  overrideController: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
 --- !u!114 &568488793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16048,7 +16048,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 7115752380e8cdd48a61b0d7cab23ef2, type: 2}
   - {fileID: 7400000, guid: bbea91a098ace0b4ab71cd0b6ee3636f, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
+  overrideController: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
 --- !u!114 &592575114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22230,7 +22230,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: cf742d2a983d8464c916758b4ac166c4, type: 2}
   - {fileID: 7400000, guid: 97b2985484fd8b844915e78faff29b36, type: 2}
-  overrideContoller: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
+  overrideController: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
 --- !u!114 &808508083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26262,7 +26262,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 3e8b89d037de3f845a24a5922d9ab092, type: 2}
   - {fileID: 7400000, guid: f2fcb1bca8a5ab8489e64a9fcf696c6d, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
+  overrideController: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
 --- !u!114 &952193401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32034,6 +32034,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 387814021007479933, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 419246236026943722, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -32372,7 +32377,7 @@ PrefabInstance:
     - target: {fileID: 6441870372041135434, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6441870372203519004, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -32852,7 +32857,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: cf742d2a983d8464c916758b4ac166c4, type: 2}
   - {fileID: 7400000, guid: 97b2985484fd8b844915e78faff29b36, type: 2}
-  overrideContoller: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
+  overrideController: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
 --- !u!114 &1189198891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33203,7 +33208,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 7115752380e8cdd48a61b0d7cab23ef2, type: 2}
   - {fileID: 7400000, guid: bbea91a098ace0b4ab71cd0b6ee3636f, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
+  overrideController: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
 --- !u!114 &1192776487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48932,7 +48937,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 7115752380e8cdd48a61b0d7cab23ef2, type: 2}
   - {fileID: 7400000, guid: bbea91a098ace0b4ab71cd0b6ee3636f, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
+  overrideController: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
 --- !u!114 &1851500169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50730,7 +50735,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: cf742d2a983d8464c916758b4ac166c4, type: 2}
   - {fileID: 7400000, guid: 97b2985484fd8b844915e78faff29b36, type: 2}
-  overrideContoller: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
+  overrideController: {fileID: 22100000, guid: d7026717f821fe7419be0aa9b99129d3, type: 2}
 --- !u!114 &1933731059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52685,7 +52690,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 7115752380e8cdd48a61b0d7cab23ef2, type: 2}
   - {fileID: 7400000, guid: bbea91a098ace0b4ab71cd0b6ee3636f, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
+  overrideController: {fileID: 22100000, guid: 32b8bc43227971a4d997f9650f7c5b26, type: 2}
 --- !u!114 &2010622698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57500,7 +57505,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 3e8b89d037de3f845a24a5922d9ab092, type: 2}
   - {fileID: 7400000, guid: f2fcb1bca8a5ab8489e64a9fcf696c6d, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
+  overrideController: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e, type: 2}
 --- !u!4 &1257637426555506347
 Transform:
   m_ObjectHideFlags: 0
@@ -63600,6 +63605,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1725029205}
     m_Modifications:
+    - target: {fileID: 7692859530391344152, guid: ca09cb6bb44c6694abf450f2d0a4ec5d,
+        type: 3}
+      propertyPath: overrideController
+      value: 
+      objectReference: {fileID: 22100000, guid: 8eb1221c05f6d4c49aec84ed8736e34e,
+        type: 2}
     - target: {fileID: 7692859530391344157, guid: ca09cb6bb44c6694abf450f2d0a4ec5d,
         type: 3}
       propertyPath: m_Name

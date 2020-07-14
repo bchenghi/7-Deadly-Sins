@@ -26,7 +26,11 @@ public class EnemyController : MonoBehaviour
     public Transform PlayerCompanionTarget;
     [HideInInspector]
     public bool CompanionTargeted;
-   
+    public bool easyRoam;
+    public float easyRoamX;
+    public float easyRoamZ;
+    private float initialRoamPointX;
+    private float initialRoamPointZ;
 
     // Start is called before the first frame update
      void Start()
@@ -37,10 +41,20 @@ public class EnemyController : MonoBehaviour
         combat = GetComponent<CharacterCombat>();
         animator = GetComponentInChildren<Animator>();
         originalPos = transform.position;
-        
+        if (FreeRoamer && easyRoam)
+        {
+            initialRoamPointX = moveSpot.transform.position.x;
+            initialRoamPointZ = moveSpot.transform.position.z;
+        }
         waitTime = startWaitTime;
         if (moveSpot != null) {
-            moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+            if (!easyRoam)
+            {
+                moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+            } else
+            {
+                moveSpot.position = new Vector3(Random.Range(moveSpot.position.x - easyRoamX, moveSpot.position.x + easyRoamX), transform.position.y, Random.Range(moveSpot.position.z - easyRoamZ, moveSpot.position.z + easyRoamZ));
+            }
         }
         StoppingDist = agent.stoppingDistance;
     }
@@ -134,12 +148,20 @@ public class EnemyController : MonoBehaviour
     {
         agent.SetDestination(moveSpot.position);
         //Debug.Log(Vector3.Distance(transform.position, moveSpot.position));
-        if (Vector3.Distance(transform.position, moveSpot.position) < 1f)
+        if (Vector3.Distance(transform.position, moveSpot.position) < 1.5f)
         {
             if (waitTime <= 0)
             {
-                moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
-                waitTime = startWaitTime;
+                if (!easyRoam)
+                {
+                    moveSpot.position = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
+                    waitTime = startWaitTime;
+                } else
+                {
+                    moveSpot.position = new Vector3(Random.Range(initialRoamPointX - easyRoamX, initialRoamPointX + easyRoamX), transform.position.y, Random.Range(initialRoamPointZ - easyRoamZ, initialRoamPointZ + easyRoamZ));
+                    waitTime = startWaitTime;
+                }
+            
                 
             } else
             {
