@@ -83,6 +83,9 @@ public class PlayerController : MonoBehaviour
 
     float distanceToGround;
 
+    bool actionsAllowed = true;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -356,7 +359,8 @@ public class PlayerController : MonoBehaviour
     {
         return !animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction") &&
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
-            !animator.GetCurrentAnimatorStateInfo(0).IsName("Land");
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("Land") &&
+            actionsAllowed;
     }
 
     // Sets distance to mesh collider below player in variable distanceToGround
@@ -444,5 +448,8 @@ public class PlayerController : MonoBehaviour
         isRolling = false;
     }
 
+    public void ChangeActionsAllowed(bool boolean) {
+        actionsAllowed = boolean;
+    }
     
 }

@@ -147,6 +147,9 @@ MonoBehaviour:
   minZ: 0
   maxZ: 0
   startWaitTime: 0
+  PlayerTargeted: 0
+  PlayerCompanionTarget: {fileID: 0}
+  CompanionTargeted: 0
 --- !u!114 &8582899301195117347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 8582899301195117358}
+  name: 
 --- !u!114 &8582899301195117356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +241,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: 7400000, guid: 6ab71407af1b9f34b9e85d5dca9bacf3, type: 2}
   - {fileID: 7400000, guid: b8347172f7dff8b43918904f9462bcbf, type: 2}
-  overrideContoller: {fileID: 22100000, guid: 583d122520c453548885cf9c12bc769f, type: 2}
+  overrideController: {fileID: 22100000, guid: 583d122520c453548885cf9c12bc769f, type: 2}
 --- !u!114 &540740942
 MonoBehaviour:
   m_ObjectHideFlags: 0

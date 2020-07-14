@@ -33,7 +33,7 @@ public class DeathTriggerBridge : MonoBehaviour
     bool CheckTriggerCondition() {
         bool willTrigger = true;
         foreach(GameObject obj in gameObjects) {
-            if (obj.GetComponent<CharacterCombat>()) {
+            if (obj != null && obj.GetComponent<CharacterCombat>()) {
                 if (!obj.GetComponent<CharacterCombat>().dead) {
                     willTrigger = false;
                     break;

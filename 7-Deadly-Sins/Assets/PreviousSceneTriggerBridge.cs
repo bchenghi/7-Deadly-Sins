@@ -8,12 +8,12 @@ public class PreviousSceneTriggerBridge : MonoBehaviour
     [SerializeField]
     string previousSceneNameToTrigger;
 
-    bool firstFrame = false;
+    bool firstFrame = true;
     bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        trigger = GetComponent<ITrigger>();
     }
 
     // Update is called once per frame

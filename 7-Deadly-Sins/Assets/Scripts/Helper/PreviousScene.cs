@@ -18,7 +18,6 @@ public class PreviousScene : MonoBehaviour
     }
     #endregion
 
-    [HideInInspector]
     public string previousSceneName;
 
     public void UpdatePreviousSceneName(string name) {

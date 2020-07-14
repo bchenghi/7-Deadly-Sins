@@ -6092,7 +6092,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 0}
+  overrideController: {fileID: 0}
 --- !u!136 &276656446
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17185,7 +17185,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 22100000, guid: 7a1e455260c23b24cb3b0fdc425da224, type: 2}
+  overrideController: {fileID: 0}
 --- !u!114 &823648272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18691,7 +18691,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 22100000, guid: a11dd04f03251944bb6e21a3f795961a, type: 2}
+  overrideController: {fileID: 0}
 --- !u!136 &953399891
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19068,6 +19068,11 @@ PrefabInstance:
       propertyPath: itemsParent
       value: 
       objectReference: {fileID: 1525345111}
+    - target: {fileID: 6921554766579779581, guid: 886789c45fb3f6046a746cd617311734,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b34138d416a8b4f41ae117dddc0a8a99, type: 2}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: requiresKey
@@ -19076,7 +19081,7 @@ PrefabInstance:
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: canReopen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
@@ -21404,7 +21409,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 22100000, guid: 7a1e455260c23b24cb3b0fdc425da224, type: 2}
+  overrideController: {fileID: 0}
 --- !u!136 &1024444534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32321,7 +32326,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 22100000, guid: 7a1e455260c23b24cb3b0fdc425da224, type: 2}
+  overrideController: {fileID: 0}
 --- !u!136 &1457823821
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33336,7 +33341,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 22100000, guid: 7a1e455260c23b24cb3b0fdc425da224, type: 2}
+  overrideController: {fileID: 0}
 --- !u!136 &1515048921
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35853,7 +35858,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 0}
+  overrideController: {fileID: 0}
 --- !u!136 &1633663419
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39783,6 +39788,11 @@ PrefabInstance:
       propertyPath: itemsParent
       value: 
       objectReference: {fileID: 1525345111}
+    - target: {fileID: 6921554766579779581, guid: 886789c45fb3f6046a746cd617311734,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b34138d416a8b4f41ae117dddc0a8a99, type: 2}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: requiresKey
@@ -40004,7 +40014,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 22100000, guid: 0d41383568a8fce48832a2c2d9af86ca, type: 2}
+  overrideController: {fileID: 0}
 --- !u!136 &1764263895
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -44545,6 +44555,11 @@ PrefabInstance:
       propertyPath: itemsParent
       value: 
       objectReference: {fileID: 1525345111}
+    - target: {fileID: 6921554766579779581, guid: 886789c45fb3f6046a746cd617311734,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b34138d416a8b4f41ae117dddc0a8a99, type: 2}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: requiresKey
@@ -44741,6 +44756,11 @@ PrefabInstance:
       propertyPath: itemsParent
       value: 
       objectReference: {fileID: 1525345111}
+    - target: {fileID: 6921554766579779581, guid: 886789c45fb3f6046a746cd617311734,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b34138d416a8b4f41ae117dddc0a8a99, type: 2}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: requiresKey
@@ -45670,6 +45690,11 @@ PrefabInstance:
       propertyPath: itemsParent
       value: 
       objectReference: {fileID: 1525345111}
+    - target: {fileID: 6921554766579779581, guid: 886789c45fb3f6046a746cd617311734,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b34138d416a8b4f41ae117dddc0a8a99, type: 2}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: requiresKey
@@ -46555,7 +46580,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideContoller: {fileID: 0}
+  overrideController: {fileID: 0}
 --- !u!114 &2139742059
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretReload : MonoBehaviour
+public class EditedTurretReload : MonoBehaviour
 {
-    TurretPlayerDetection PlayerDetector;
-    TurretShooting turretShooter;
+    EditedTurretPlayerDetection PlayerDetector;
+    EditedTurretShooting turretShooter;
     public float reloadTime;
-    public bool canReload;
     public Item AmmoRequired;
     int AmmoToReload;
     public GameObject ReloadImage;
@@ -15,32 +14,12 @@ public class TurretReload : MonoBehaviour
 
     private void Start()
     {
-        PlayerDetector = GetComponent<TurretPlayerDetection>();
-        turretShooter = GetComponent<TurretShooting>();
+        PlayerDetector = GetComponent<EditedTurretPlayerDetection>();
+        turretShooter = GetComponent<EditedTurretShooting>();
         AmmoToReload = turretShooter.ammoCount;
-        
-        
-
     }
 
-    private void Update()
-    {
-        if (turretShooter.OutOfAmmo)
-        {
-            canReload = true;
-        } else
-        {
-            canReload = false;
-        }
-
-        if (canReload && Input.GetKeyDown(KeyCode.E) && !isReloading)
-        {
-            isReloading = true;
-            Reload();
-            
-            canReload = false;
-        }
-    }
+    
 
 
     public void Reload()
@@ -51,7 +30,7 @@ public class TurretReload : MonoBehaviour
         } else
         {
             Debug.Log("Not enough Ammo");
-            DisplayTextManager.instance.Display("Not enough ammo", 2f);
+            DisplayTextManager.instance.Display("Not enough Ammo", 2f);
         }
     }
 

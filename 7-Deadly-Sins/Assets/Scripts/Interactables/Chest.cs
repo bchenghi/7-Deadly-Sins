@@ -28,6 +28,8 @@ public class Chest : Interactable
 
     LootBoxAnimation animator;
 
+    Coroutine currentTemporaryFloatingTextCoroutine;
+
     private void Start()
     {
         chestInventoryUI = GetComponent<ChestInventoryUI>();
@@ -154,18 +156,31 @@ public class Chest : Interactable
                 floatingText.GetComponent<TextMeshPro>().text = "You have a key, Press E to open chest";
             } else if (requiresKey && !checkKey)
             {
-                floatingText.GetComponent<TextMeshPro>().text = "You do not have a key";
+                currentTemporaryFloatingTextCoroutine = 
+                StartCoroutine(TemporaryFloatingText("You do not have a key", 3f));
             } else if (!requiresKey) 
             {
                 floatingText.GetComponent<TextMeshPro>().text = "Press E to open chest";
             }
+        } else if (hasTriggered && !canReopen) {
+            currentTemporaryFloatingTextCoroutine = 
+            StartCoroutine(TemporaryFloatingText("This chest can only be opened once", 3f));
         }
         
     }
 
+    IEnumerator TemporaryFloatingText(string text, float duration) {
+        if (currentTemporaryFloatingTextCoroutine != null) {
+            StopCoroutine(currentTemporaryFloatingTextCoroutine);
+        }
+        floatingText.GetComponent<TextMeshPro>().text = text;
+        yield return new WaitForSeconds(duration);
+        RemoveFloatingText();
+    }
+
     void RemoveFloatingText() {
         if (floatingText != null) {
-            Destroy(floatingText);
+            floatingText.GetComponent<TextMeshPro>().text = "";
         }
     }
 

@@ -155,7 +155,7 @@ Animator:
   m_GameObject: {fileID: 6921554766300743991}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 63878c47173aa774687bf1dcb9a14938, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2327e37567347749909132df1e273fe, type: 2}
+  m_Controller: {fileID: 9100000, guid: b34138d416a8b4f41ae117dddc0a8a99, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -181,6 +181,8 @@ MonoBehaviour:
   keyRequired: {fileID: 11400000, guid: 820d54da52d1fa045babf427aeebde8c, type: 2}
   floatingTextPrefab: {fileID: 5921109333259723010, guid: 369af8f395e378341b7694e55878a457,
     type: 3}
+  requiresKey: 1
+  canReopen: 0
 --- !u!114 &6921554766579779329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 0}
   inventoryChestUI: {fileID: 0}
+  displayOn: 0
 --- !u!1 &6921554766300915139
 GameObject:
   m_ObjectHideFlags: 0
