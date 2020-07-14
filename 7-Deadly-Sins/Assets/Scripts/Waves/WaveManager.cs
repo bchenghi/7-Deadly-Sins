@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour
     bool wavesStarted = false;
 
     // If all enemies from all waves are killed, done set to true
-    //[HideInInspector]
+    [HideInInspector]
     public bool done = false;
 
     // Tracks enemies spawned.

@@ -55,6 +55,8 @@ public class CharacterStats : MonoBehaviour
             Die();
 
         }
+
+        GetComponent<EffectHandler>().BloodEffectEvent(transform, 2);
     }
 
     public void IncreaseHealth(int healthIncrease)

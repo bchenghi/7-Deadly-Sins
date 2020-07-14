@@ -405,7 +405,7 @@ Transform:
   - {fileID: 1368046905}
   - {fileID: 1011442531}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &390306565 stripped
 MonoBehaviour:
@@ -586,12 +586,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544989939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 52.19, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 7516766731707367106}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643229218 stripped
 GameObject:
@@ -1487,7 +1487,7 @@ PrefabInstance:
     - target: {fileID: 6441870372448174433, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -17.299988
+      value: -17.300049
       objectReference: {fileID: 0}
     - target: {fileID: 6441870372448174433, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -1497,7 +1497,7 @@ PrefabInstance:
     - target: {fileID: 6441870373398751174, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14.5997925
+      value: -14.5998535
       objectReference: {fileID: 0}
     - target: {fileID: 6441870373398751174, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -1948,7 +1948,7 @@ RectTransform:
   m_GameObject: {fileID: 1252450610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 99.01128}
-  m_LocalScale: {x: 0.15640311, y: 0.15640311, z: 0.15640311}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -2284,23 +2284,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStartWaves: 3
-  delayBetweenWaves: 60
+  delayBetweenWaves: 80
   waves:
-  - numberOfEnemies: 1
+  - numberOfEnemies: 5
     enemiesToChooseFrom:
     - {fileID: 1140939475392033013}
     - {fileID: 1809331012}
-    delayBetweenEachSpawn: 1
-  - numberOfEnemies: 1
+    delayBetweenEachSpawn: 5
+  - numberOfEnemies: 5
     enemiesToChooseFrom:
     - {fileID: 1140939475392033013}
     - {fileID: 1135014764}
-    delayBetweenEachSpawn: 1
-  - numberOfEnemies: 1
+    delayBetweenEachSpawn: 5
+  - numberOfEnemies: 5
     enemiesToChooseFrom:
     - {fileID: 1809331012}
     - {fileID: 1135014764}
-    delayBetweenEachSpawn: 1
+    delayBetweenEachSpawn: 5
   regionsToSpawn: {fileID: 1447902807}
   infiniteLoop: 0
   done: 0
@@ -2691,7 +2691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2033372624
 PrefabInstance:
@@ -3120,7 +3120,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3814,6 +3814,7 @@ Transform:
   m_Children:
   - {fileID: 7516766730299342053}
   - {fileID: 7516766730312916572}
+  - {fileID: 544989942}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
