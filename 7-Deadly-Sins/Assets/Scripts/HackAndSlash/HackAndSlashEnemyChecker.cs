@@ -7,6 +7,7 @@ public class HackAndSlashEnemyChecker : MonoBehaviour
     EnemyStats enemyStats;
     public int level;
     LevelManager manager;
+    private bool charDead;
 
     private void Start()
     {
@@ -22,14 +23,16 @@ public class HackAndSlashEnemyChecker : MonoBehaviour
         }
         enemyStats = GetComponent<EnemyStats>();
         manager.EnemiesCountIncrease();
+        Debug.Log("Counts increase");
     }
 
 
     private void Update()
     {
-        if (enemyStats.currentHealth <= 0)
+        if (enemyStats.currentHealth <= 0 && !charDead)
         {
             manager.EnemiesCountDecrease();
+            charDead = true;
         }
     }
 }
