@@ -138,6 +138,16 @@ PrefabInstance:
       propertyPath: targetMesh
       value: 
       objectReference: {fileID: 970808258}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: effectsPool
+      value: 
+      objectReference: {fileID: 643229218}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: miscelleaneousEffects
+      value: 
+      objectReference: {fileID: 1884745653}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -948,6 +958,81 @@ SkinnedMeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1248808134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &986252149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986252153}
+  - component: {fileID: 986252152}
+  - component: {fileID: 986252151}
+  - component: {fileID: 986252150}
+  m_Layer: 0
+  m_Name: OpeningDialouge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &986252150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986252149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227f4e5e81edb124295f4e266bd570fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canRetrigger: 0
+--- !u!114 &986252151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986252149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b19be1edb33ef6498b0e0e5e1cd135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Tip
+    sentences:
+    - Survive the waves of enemies!
+--- !u!65 &986252152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986252149}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &986252153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986252149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011442527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,7 +1881,7 @@ PrefabInstance:
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
@@ -1806,7 +1891,7 @@ PrefabInstance:
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.643
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
@@ -3060,6 +3145,9 @@ MonoBehaviour:
   PlayerTargeted: 0
   PlayerCompanionTarget: {fileID: 0}
   CompanionTargeted: 0
+  easyRoam: 0
+  easyRoamX: 0
+  easyRoamZ: 0
 --- !u!114 &1140939475392033017
 MonoBehaviour:
   m_ObjectHideFlags: 0

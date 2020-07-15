@@ -7213,7 +7213,7 @@ RectTransform:
   m_GameObject: {fileID: 354423584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 99.01128}
-  m_LocalScale: {x: 0.2982345, y: 0.2982345, z: 0.2982345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -8200,6 +8200,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9523589
       objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: maxDistanceFromTransform
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127,
+        type: 3}
     - target: {fileID: 7298578328602984998, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -15604,6 +15620,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9523589
       objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: maxDistanceFromTransform
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127,
+        type: 3}
     - target: {fileID: 7298578328602984998, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -19081,7 +19113,7 @@ PrefabInstance:
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
       propertyPath: canReopen
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6921554766579779583, guid: 886789c45fb3f6046a746cd617311734,
         type: 3}
@@ -27456,6 +27488,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9523589
       objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: maxDistanceFromTransform
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127,
+        type: 3}
     - target: {fileID: 7298578328602984998, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -42025,6 +42073,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9523589
       objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127,
+        type: 3}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: maxDistanceFromTransform
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7298578328602984998, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -46889,6 +46953,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 168057629601361775, guid: ae190da442c39bf43bf85aa8b17603e7,
+        type: 3}
+      propertyPath: nameOfSceneToLoad
+      value: Shop-CH
+      objectReference: {fileID: 0}
     - target: {fileID: 3628867832345593571, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
       propertyPath: m_Name

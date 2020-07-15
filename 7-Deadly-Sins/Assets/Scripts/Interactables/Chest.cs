@@ -30,6 +30,9 @@ public class Chest : Interactable
 
     Coroutine currentTemporaryFloatingTextCoroutine;
 
+    // A flag used to check if chest was clicked on, if clicked can use E to open
+    bool interacted = false;
+
     private void Start()
     {
         chestInventoryUI = GetComponent<ChestInventoryUI>();
@@ -43,7 +46,8 @@ public class Chest : Interactable
     {
         base.Update();
         
-        if (hasInteracted && Input.GetKeyDown(KeyCode.E) && !chestInventoryUI.displayOn)
+        if (interacted && Input.GetKeyDown(KeyCode.E) && !chestInventoryUI.displayOn 
+        && PlayerWithinRadius())
         { 
             PlayerGavePermission = true;
             if (!canReopen) {
@@ -79,11 +83,17 @@ public class Chest : Interactable
         }
 
 
-        else if (hasInteracted && Input.GetKeyDown(KeyCode.E) && chestInventoryUI.displayOn)
+        else if (interacted && Input.GetKeyDown(KeyCode.E) && chestInventoryUI.displayOn)
         {
             chestInventoryUI.UnDisplay();
             RemoveFloatingText();
             animator.CloseChest();
+            interacted = false;
+        }
+
+
+        if (!isFocus) {
+            RemoveFloatingText();
         }
 
 
@@ -119,6 +129,7 @@ public class Chest : Interactable
             Debug.Log("No key");
             //Does nothing
         }
+        interacted = true;
     }
 
     public void DisplayUI()
