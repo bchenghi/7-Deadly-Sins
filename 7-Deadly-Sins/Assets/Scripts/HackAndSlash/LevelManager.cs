@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private int enemiesCount;
+    public int levelNumber;
+    public int enemiesCount;
     public bool allEnemiesDead;
     public BoxCollider liftCollider;
     private bool colliderActivated;
@@ -18,11 +19,12 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         allEnemiesDead = false;
-        Debug.Log(enemiesCount);
+       
     }
 
     private void Update()
     {
+        
         checkEnemiesCount();
         if (!colliderActivated && allEnemiesDead)
         {
