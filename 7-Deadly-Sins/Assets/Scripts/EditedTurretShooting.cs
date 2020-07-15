@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // changes camera location, and shoots
 public class EditedTurretShooting : MonoBehaviour
 {
     public bool OutOfAmmo;
     public int ammoCount;
+    public int maxAmmo;
     public GameObject changeCamera;
     public Transform effect;
     public float TurretRange;
@@ -18,25 +20,43 @@ public class EditedTurretShooting : MonoBehaviour
     public GameObject crossHair;
     [SerializeField]
     EditedTurretPlayerDetection playerDetection;
+
+    [HideInInspector]
+    public bool canShoot = false;
+
     
+
+    public delegate void OnAmmoChange(int currentAmmo, int maxAmmo);
+    public OnAmmoChange onAmmoChange;
+    bool firstFrame = true;
    
 
     private void Start()
     {
         player = PlayerManager.instance.player;
         originalZoom = changeCamera.GetComponent<ParentCameraController>().dstFromTarget;
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerDetection.PlayerShooting() && ammoCount > 0)
+        if (firstFrame) {
+            if (onAmmoChange != null) {
+                onAmmoChange(ammoCount, maxAmmo);
+            }
+            firstFrame = false;
+        }
+
+        if (canShoot && ammoCount > 0 )
         {
             changeCamera.GetComponent<ParentCameraController>().dstFromTarget = zoomin;
             if (Input.GetMouseButtonDown(0))
             {
                 ammoCount -= 1;
+                if (onAmmoChange != null) {
+                    onAmmoChange(ammoCount, maxAmmo);
+                }
                 Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, TurretRange, TargetMask))
@@ -66,12 +86,26 @@ public class EditedTurretShooting : MonoBehaviour
                 OutOfAmmo = false;
             }
         }
+
+        FixAmmoCount();
+        
+        
     }
 
     IEnumerator crossHairRoutine()
     {
         yield return new WaitForSeconds(0.2f);
         crossHair.SetActive(false);
+    }
+
+    void FixAmmoCount() {
+        if (ammoCount < 0) {
+            ammoCount = 0;
+        }
+
+        if (ammoCount > maxAmmo) {
+            ammoCount = maxAmmo;
+        }
     }
           
 }

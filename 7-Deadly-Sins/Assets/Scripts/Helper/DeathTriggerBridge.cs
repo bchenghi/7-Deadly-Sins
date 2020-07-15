@@ -38,10 +38,12 @@ public class DeathTriggerBridge : MonoBehaviour
                     willTrigger = false;
                     break;
                 }
-            }
-            else 
-            {
+            } else if (obj != null && obj.GetComponent<ClownCombat>()) {
+                if (!obj.GetComponent<ClownCombat>().dead) 
+                {
                 willTrigger = false;
+                break;
+                }
             }
         }
         return willTrigger;

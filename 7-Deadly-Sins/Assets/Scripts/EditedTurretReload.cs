@@ -16,21 +16,23 @@ public class EditedTurretReload : MonoBehaviour
     {
         PlayerDetector = GetComponent<EditedTurretPlayerDetection>();
         turretShooter = GetComponent<EditedTurretShooting>();
-        AmmoToReload = turretShooter.ammoCount;
+        AmmoToReload = turretShooter.maxAmmo;
     }
 
     
 
 
-    public void Reload()
+    public bool Reload()
     {
         if (Inventory.instance.getValue(AmmoRequired) >= AmmoToReload)
         {
             StartCoroutine(reloadTimeRoutine(reloadTime));
+            return true;
         } else
         {
             Debug.Log("Not enough Ammo");
             DisplayTextManager.instance.Display("Not enough Ammo", 2f);
+            return false;
         }
     }
 
@@ -39,9 +41,18 @@ public class EditedTurretReload : MonoBehaviour
     {
         ReloadImage.SetActive(true);
         yield return new WaitForSeconds(time);
-        Inventory.instance.Remove(AmmoRequired, AmmoToReload);
+        int ammoRemovedFromInventory = 0;
+        for (int i = AmmoToReload ; i > 0 ; i--) {
+            if (Inventory.instance.Remove(AmmoRequired, i)) {
+                ammoRemovedFromInventory = i;
+                break;
+            }
+        }
         ReloadImage.SetActive(false);
-        turretShooter.ammoCount += AmmoToReload;
+        turretShooter.ammoCount += ammoRemovedFromInventory;
+        if (turretShooter.onAmmoChange != null) {
+            turretShooter.onAmmoChange(ammoRemovedFromInventory, AmmoToReload);
+        }
         isReloading = false;
     }
 }

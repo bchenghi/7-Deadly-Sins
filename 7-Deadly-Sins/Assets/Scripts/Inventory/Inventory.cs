@@ -68,14 +68,16 @@ public class Inventory : MonoBehaviour
             onItemChangedCallback.Invoke();
     }
 
-    public void Remove(Item item, int quantity)
+    public bool Remove(Item item, int quantity)
     {
+        bool result = false;
         if (item is Others)
         {
-            RemoveOthers(item, quantity);
+            result = RemoveOthers(item, quantity);
         }
         if (onItemChangedCallback != null)
             onItemChangedCallback.Invoke();
+        return result;
     }
 
     public bool AddNormalItem(Item item)
@@ -186,8 +188,12 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void RemoveOthers(Item others, int quantity)
+
+    // returns true if the given quantity of items are removed successfully, else false,
+    // and no removal is made
+    public bool RemoveOthers(Item others, int quantity)
     {
+        /*
         var othersItem = others as Others;
         int indexFound = IndexOfLastOthers(others);
         bool containsOthers = (indexFound == -1 ? false : true);
@@ -207,6 +213,29 @@ public class Inventory : MonoBehaviour
         else
         {
             Debug.Log("Inventory: No such others in inventory to remove");
+        }
+        */
+        bool numberOfItemsExists = Exists(others, quantity);
+        Debug.Log(others.name + "quantity: " + quantity);
+        if (numberOfItemsExists) {
+            int numberLeftToRemove = quantity;
+            for (int i = items.Count - 1; i >= 0 && numberLeftToRemove > 0; i--) {
+                if (items[i].Key.name == others.name) {
+                    if (items[i].Value > numberLeftToRemove) {
+                        Debug.Log("items[i].Value > numberLeftToRemove");
+                        items[i] = new KeyValuePair<Item, int>(others, items[i].Value - numberLeftToRemove);
+                        numberLeftToRemove = 0;
+                        Debug.Log("new value " + items[i].Value);
+                    } else {
+                        Debug.Log("items[i].Value <= numberLeftToRemove");
+                        numberLeftToRemove -= items[i].Value;
+                        items.RemoveAt(i);
+                    }
+                }
+            }
+            return true;
+        } else {
+            return false;
         }
     }
 

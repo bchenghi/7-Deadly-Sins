@@ -25,6 +25,12 @@ public class EditedTurretPlayerDetection : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other) {
+        if (other.GetComponent<PlayerController>()) {
+            playerShooting = false;
+        }
+    }
+
     public bool PlayerShooting() {
         return playerShooting;
     }

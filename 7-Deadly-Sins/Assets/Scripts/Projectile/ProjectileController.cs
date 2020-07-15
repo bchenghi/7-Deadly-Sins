@@ -53,7 +53,7 @@ public class ProjectileController : MonoBehaviour
         {
             return;
         }
-        else 
+        else if (!otherCollider.isTrigger)
         {
             if (otherCollider.transform.name == "Player") 
             {

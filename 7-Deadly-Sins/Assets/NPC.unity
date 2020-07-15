@@ -392,7 +392,7 @@ PrefabInstance:
     - target: {fileID: 3620425096901086154, guid: be9b1403532ac2c48819812917901d6b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3620425096901086158, guid: be9b1403532ac2c48819812917901d6b,
         type: 3}
@@ -18691,7 +18691,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideController: {fileID: 0}
+  overrideController: {fileID: 22100000, guid: a11dd04f03251944bb6e21a3f795961a, type: 2}
 --- !u!136 &953399891
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18802,7 +18802,7 @@ MonoBehaviour:
   done: 0
   itemsToTakeFromPlayer:
   - item: {fileID: 11400000, guid: 57cfe25075fcb2849b7588544899f5d2, type: 2}
-    numberOfItem: 0
+    numberOfItem: 5
 --- !u!114 &953399898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34693,6 +34693,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1539903619}
+    - target: {fileID: 4017014755872359896, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
+        type: 3}
+      propertyPath: dstFromTarget
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4017014755872359897, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
       propertyPath: m_Name
@@ -40014,7 +40019,7 @@ MonoBehaviour:
   reactsToDamage: 1
   replacebleAttackAnim: {fileID: 0}
   defaultAttackAnimSet: []
-  overrideController: {fileID: 0}
+  overrideController: {fileID: 22100000, guid: 0d41383568a8fce48832a2c2d9af86ca, type: 2}
 --- !u!136 &1764263895
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -42312,6 +42317,9 @@ MonoBehaviour:
   PlayerTargeted: 0
   PlayerCompanionTarget: {fileID: 0}
   CompanionTargeted: 0
+  easyRoam: 0
+  easyRoamX: 0
+  easyRoamZ: 0
 --- !u!4 &1850989321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8528820825029762706, guid: a05d4d94c1106004abcd87df4b8f1777,

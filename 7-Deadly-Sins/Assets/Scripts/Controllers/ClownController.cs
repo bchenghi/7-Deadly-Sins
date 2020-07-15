@@ -21,7 +21,8 @@ public class ClownController : MonoBehaviour
     SoundHandler soundHandler;
     Animator animator;
     Transform target;
-    ClownCombat combat;
+
+    // teleporting is true if teleport coroutine has started, false if coroutine ended
     [HideInInspector]
     public bool teleporting = false;
 
@@ -29,8 +30,17 @@ public class ClownController : MonoBehaviour
 
     ClownCombat clownCombat;
     ClownAnimator clownAnimator;
+    ClownStats clownStats;
 
     Coroutine currentTeleportCoroutine;
+
+    // Tracks previous health to calculate percentage of max health clown lost. 
+    // Used for deciding to teleport
+    int previousHealth;
+
+
+    // A condition to teleport is if clown loses a percentage of his max health.
+    float percentageOfHealthLostTeleport = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +48,16 @@ public class ClownController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         effectHandler = GetComponent<EffectHandler>();
         animator = GetComponentInChildren<Animator>();
-        combat = GetComponent<ClownCombat>();
         soundHandler = GetComponent<SoundHandler>();
         clownCombat = GetComponent<ClownCombat>();
+        clownStats = GetComponent<ClownStats>();
 
         if (regionsAvailableForTeleport.Diameter() 
         < distanceAwayFromTargetToTeleport) {
             Debug.LogWarning("distance to teleport away from target is too large");
         }
+
+        previousHealth = clownStats.currentHealth;
 
     }
 
@@ -57,32 +69,31 @@ public class ClownController : MonoBehaviour
             firstFrame = false;
         }
 
-        if (clownCombat.dead && idleHandEffects.activeSelf) 
+        if (clownCombat.dead && idleHandEffects.activeSelf)
         {
             idleHandEffects.SetActive(false);
         }
 
         if (ActionsAllowed()) {
             timePassedSinceTeleport += Time.deltaTime;
-            if (timePassedSinceTeleport >= teleportCooldown) {
-                if (Vector3.Distance(target.position, transform.position) < distanceFromTargetStartTeleport
-                && !teleporting) {
-                    Teleport();
-                    timePassedSinceTeleport = 0;
-                }
+            if (CanTeleport()) 
+             {
+                Teleport();
+                previousHealth = clownStats.currentHealth;
+                timePassedSinceTeleport = 0;
             }
             FaceTarget();
             //Debug.Log("CheckIfWillHitTarget()" + CheckIfWillHitTarget());
-            if (!combat.dead && !teleporting && CheckIfWillHitTarget()) {
+            if (!clownCombat.dead && !teleporting && CheckIfWillHitTarget()) {
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
                 if (targetStats != null)
                 {
-                    combat.Attack(targetStats);
+                    clownCombat.Attack(targetStats);
                 }
             }
         }
 
-        if (combat.dead && currentTeleportCoroutine != null) {
+        if (clownCombat.dead && currentTeleportCoroutine != null) {
             StopCoroutine(currentTeleportCoroutine);
         }
         
@@ -103,6 +114,7 @@ public class ClownController : MonoBehaviour
                 tries++;
             }
         }
+        
     }
 
 
@@ -150,6 +162,16 @@ public class ClownController : MonoBehaviour
 
     bool ActionsAllowed() {
         return !clownCombat.dead;
+    }
+
+    // Current conditions to teleport are (if teleport cooldown is over, or if distance to player is 
+    // close enough, or a percentage of max health was lost), and is not already teleporting
+    bool CanTeleport() {
+        //Debug.Log("health lost: " + ((float) (previousHealth - clownStats.currentHealth)) / clownStats.maxHealth);
+        return (timePassedSinceTeleport >= teleportCooldown || 
+            Vector3.Distance(target.position, transform.position) < distanceFromTargetStartTeleport || 
+            ((float)(previousHealth - clownStats.currentHealth)) / clownStats.maxHealth > percentageOfHealthLostTeleport)
+             && !teleporting;
     }
 
 
