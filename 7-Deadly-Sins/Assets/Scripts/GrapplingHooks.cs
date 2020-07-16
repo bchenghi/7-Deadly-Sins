@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrapplingHooks : MonoBehaviour
 {
@@ -102,7 +103,6 @@ public class GrapplingHooks : MonoBehaviour
                 GetComponent<CharacterController>().enabled = false;
                 Vector3 pos = hook.transform.position - transform.position;
                 transform.rotation = Quaternion.LookRotation(new Vector3(0,0,pos.z), Vector3.up);
-                transform.position = Vector3.MoveTowards(transform.position, hook.transform.position, playerTravelSpeed * Time.deltaTime);
                 float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
                 //Debug.Log(distanceToHook);
                 if (distanceToHook <= 1)
@@ -118,6 +118,9 @@ public class GrapplingHooks : MonoBehaviour
                     StartCoroutine(Climb());
 
 
+                } else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, hook.transform.position, playerTravelSpeed * Time.deltaTime);
                 }
             }
             else
@@ -158,7 +161,7 @@ public class GrapplingHooks : MonoBehaviour
 
         Vector3 dir = new Vector3(0, -1);
 
-        if (Physics.Raycast(transform.position, dir, out hit, 100))
+        if (Physics.Raycast(transform.position, dir, out hit, targetMask))
         {
             grounded = true;
         }

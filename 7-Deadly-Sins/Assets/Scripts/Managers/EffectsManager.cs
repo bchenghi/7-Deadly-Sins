@@ -66,11 +66,30 @@ public class EffectsManager : MonoBehaviour
             if (ps.isStopped)
             {
                 ps.Play();
+                
             }
            
                
             
             
+        }
+    }
+
+    public void Activate(Transform particleSystem)
+    {
+        ParticleSystem[] particleSystems = particleSystem.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem ps in particleSystems)
+        {
+            
+            if (ps.isStopped)
+            {
+                ps.Play();
+
+            }
+
+
+
+
         }
     }
 

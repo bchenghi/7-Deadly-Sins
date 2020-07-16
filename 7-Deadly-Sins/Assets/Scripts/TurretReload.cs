@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TurretReload : MonoBehaviour
 {
@@ -35,10 +36,13 @@ public class TurretReload : MonoBehaviour
 
         if (canReload && Input.GetKeyDown(KeyCode.E) && !isReloading)
         {
-            isReloading = true;
-            Reload();
-            
-            canReload = false;
+            if (turretShooter.playerDetected)
+            {
+                isReloading = true;
+                Reload();
+
+                canReload = false;
+            }
         }
     }
 
