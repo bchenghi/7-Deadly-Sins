@@ -21,6 +21,7 @@ public class HotKey : MonoBehaviour
     {
         _image = transform.Find("Image").GetComponent<Image>();
         _quantityText = transform.Find("QuantityText").GetComponent<Text>();
+        _image.enabled = false;
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class HotKey : MonoBehaviour
             if (Inventory.instance.getValue((Item)_usable) == -1)
             {
                 _image.sprite = null;
+                _image.enabled = false;
                 _quantityText.text = null;
                 _usable = null;
                 isFilled = false;
@@ -64,6 +66,7 @@ public class HotKey : MonoBehaviour
             mb.transform.GetComponent<DragDropSkill>().enabled = true;
         }
         _image.sprite = null;
+        _image.enabled = false;
         removeButton.GetComponent<Button>().interactable = false;
         removeButton.SetActive(false);
         _quantityText.text = null;
@@ -75,7 +78,7 @@ public class HotKey : MonoBehaviour
     {
         
         _usable = usable;
-
+        _image.enabled = true;
         _image.sprite = usable.Image;
         isFilled = true;
         removeButton.GetComponent<Button>().interactable = true;
