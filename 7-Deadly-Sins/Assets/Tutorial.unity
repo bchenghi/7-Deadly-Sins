@@ -11204,9 +11204,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15.399902
       objectReference: {fileID: 0}
+    - target: {fileID: 6441870373469403253, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: hotKeysParent
+      value: 
+      objectReference: {fileID: 339892895}
     m_RemovedComponents:
     - {fileID: 6441870372968949074, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
+--- !u!1 &339892895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373209738175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &340501523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17304,6 +17315,11 @@ PrefabInstance:
       propertyPath: miscelleaneousEffects
       value: 
       objectReference: {fileID: 742301516}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: hotKeysParent
+      value: 
+      objectReference: {fileID: 339892895}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -67673,6 +67689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152b377ccd45f1d43814d1e034dc8c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hotKeysParent: {fileID: 0}
   Hotkeys: []
   HotKeyString: 123456ty
 --- !u!224 &7302949418191857402

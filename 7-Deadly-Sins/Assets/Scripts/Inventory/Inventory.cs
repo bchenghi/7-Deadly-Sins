@@ -334,15 +334,16 @@ public class Inventory : MonoBehaviour
 
     public int getValue(Item item)
     {
+        int totalValue = 0;
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].Key == item)
+            if (items[i].Key.name == item.name)
             {
-                return items[i].Value;
+                totalValue += items[i].Value;
 
             }
         }
-        return -1;
+        return totalValue;
     }
 
     // Returns true if at least one of the item exists in inventory

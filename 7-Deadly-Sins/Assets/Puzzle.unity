@@ -468,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &6585669
 Animator:
   serializedVersion: 3
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &48667423
 Animator:
   serializedVersion: 3
@@ -8359,6 +8361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &273519396
 Animator:
   serializedVersion: 3
@@ -11173,6 +11176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &397376121
 Animator:
   serializedVersion: 3
@@ -16599,6 +16603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &599827754
 Animator:
   serializedVersion: 3
@@ -24284,6 +24289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &871646243
 Animator:
   serializedVersion: 3
@@ -30579,6 +30585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &1119012754
 Animator:
   serializedVersion: 3
@@ -32618,6 +32625,12 @@ PrefabInstance:
     - {fileID: 7151976962109775739, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
     - {fileID: 605707203789261029, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
+--- !u!1 &1179138475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373209738175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179138474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1179736150
 GameObject:
   m_ObjectHideFlags: 0
@@ -42673,6 +42686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &1584143737
 Animator:
   serializedVersion: 3
@@ -42820,6 +42834,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 460101270}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: hotKeysParent
+      value: 
+      objectReference: {fileID: 1179138475}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -43673,6 +43692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &1639453434
 Animator:
   serializedVersion: 3
@@ -45167,6 +45187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!1 &1694657582
 GameObject:
   m_ObjectHideFlags: 0
@@ -47398,6 +47419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!95 &1781188905
 Animator:
   serializedVersion: 3
@@ -58938,6 +58960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!4 &2420744871151403166
 Transform:
   m_ObjectHideFlags: 0

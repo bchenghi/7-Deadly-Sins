@@ -44,4 +44,11 @@ public class GoldCounter : MonoBehaviour
             return false;
         }
     }
+
+    public void SetGold(int newGold) {
+        if (onGoldChange != null)
+            onGoldChange(newGold, newGold);
+
+        gold = newGold;
+    }
 }

@@ -18,6 +18,9 @@ public class NewSceneSetUp : MonoBehaviour
 
     [SerializeField]
     string startSound;
+
+    [SerializeField]
+    GameObject hotKeysParent;
     // Sets player and target mesh, and sets cursor to visible and unlocked
     void Awake(){
         if (PlayerManager.instance.player == null) {
@@ -28,7 +31,7 @@ public class NewSceneSetUp : MonoBehaviour
             EffectsManager.instance.EffectsPool = effectsPool;
         } if (EffectsManager.instance.MichellenousEffects == null) {
             EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
-        }
+        } 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         }
@@ -47,6 +50,7 @@ public class NewSceneSetUp : MonoBehaviour
             AudioManager.instance.Play(startSound);
         }
         EffectsManager.instance.Start();
+        SaveLoad.instance.Load();
     }
 
 }

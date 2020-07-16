@@ -24,4 +24,8 @@ public class FlameThrowerItem : Others, IUsable
     {
         PlayerManager.instance.player.GetComponent<PlayerFlameThrower>().UseFlameThrower();
     }
+
+    public virtual void Start() {
+
+    }
 }

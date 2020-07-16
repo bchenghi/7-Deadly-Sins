@@ -8,20 +8,23 @@ public class HotKey : MonoBehaviour
 
     public GameObject coolDownImage;
     public GameObject removeButton;
-    private IUsable _usable;
+    [HideInInspector]
+    public IUsable _usable;
     private Image _image;
     private Text _quantityText;
     public bool isUsed = false;
     public bool isFilled = false;
     bool HotKeyDisabled;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Awake() {
         _image = transform.Find("Image").GetComponent<Image>();
         _quantityText = transform.Find("QuantityText").GetComponent<Text>();
         _image.enabled = false;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -38,12 +41,14 @@ public class HotKey : MonoBehaviour
         }
     }
 
+
+    // For updating count in hotkey or removing from hotkey if used up in inventory
     public void Refresh()
     {
         if (_usable is Item)
         {
             _quantityText.text = Inventory.instance.getValue((Item)_usable).ToString();
-            if (Inventory.instance.getValue((Item)_usable) == -1)
+            if (Inventory.instance.getValue((Item)_usable) == 0)
             {
                 _image.sprite = null;
                 _image.enabled = false;
@@ -72,6 +77,7 @@ public class HotKey : MonoBehaviour
         _quantityText.text = null;
         _usable = null;
         isFilled = false;
+        HotKeyBar.instance.ClearIUsableInMemory(this);
     }
 
     public void SetUsable(IUsable usable)
@@ -83,6 +89,7 @@ public class HotKey : MonoBehaviour
         isFilled = true;
         removeButton.GetComponent<Button>().interactable = true;
         removeButton.SetActive(true);
+        HotKeyBar.instance.AddIUsableInMemory(this);
         Refresh();
     }
 
@@ -96,7 +103,7 @@ public class HotKey : MonoBehaviour
                 isUsed = true;
             }
 
-            HotKeyBar.instance.RefreshHotkeys();
+            //HotKeyBar.instance.RefreshHotkeys();
         }
     }
 

@@ -11,6 +11,8 @@ public class GoldCountUI : MonoBehaviour
     [SerializeField]
     GameObject goldUIChange;
     RectTransform goldUIChangeRectTransform;
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class GoldCountUI : MonoBehaviour
         displayText = GetComponentInChildren<Text>();
         displayText.text = GoldCounter.instance.gold.ToString();
         goldUIChangeRectTransform = goldUIChange.GetComponent<RectTransform>();
+        NewSceneSetUp();
     }
 
     public void OnGoldChange(int previousGold, int currentGold)
@@ -34,5 +37,9 @@ public class GoldCountUI : MonoBehaviour
         newGoldUpdate.GetComponent<GoldUIChange>().DisplayGoldChange(currentGold - previousGold);
 
         displayText.text = currentGold.ToString();
+    }
+
+    void NewSceneSetUp() {
+        OnGoldChange(GoldCounter.instance.gold, GoldCounter.instance.gold);
     }
 }

@@ -44,7 +44,7 @@ public class SaveLoad : MonoBehaviour
 
     void GetData()
     {
-        if (PlayerManager.instance.player != null) {
+        if (PlayerManager.instance.player != null && PlayerManager.instance.player.GetComponent<PlayerStats>().enabled) {
             HP = PlayerManager.instance.player.GetComponent<PlayerStats>().currentHealth;
             Armor = PlayerManager.instance.player.GetComponent<PlayerStats>().armor.GetValue();
             Damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage.GetValue();
@@ -64,7 +64,9 @@ public class SaveLoad : MonoBehaviour
         Damage = playerJson["Damage"];
         Gold = playerJson["Gold"];
         Mana = playerJson["Mana"];
-
+        GoldCounter.instance.SetGold(Gold);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().SetHealth(HP);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
         Debug.Log(playerJson.ToString());
     }
     

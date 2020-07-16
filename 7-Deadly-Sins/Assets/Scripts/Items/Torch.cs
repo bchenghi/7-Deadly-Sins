@@ -26,6 +26,10 @@ public class Torch : Consumables, IUsable
         }
     }
 
+    public virtual void Start() {
+        
+    }
+
     public void TorchPlacement()
     {
         player = PlayerManager.instance.player;

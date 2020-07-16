@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Transform cameraT;
     CharacterController controller;
-    PlayerStats playerStats;
+    protected PlayerStats playerStats;
     LineRenderer lineRenderer;
     SoundHandler soundHandler;
 
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         animator = GetComponentInChildren<Animator>();
         cam = Camera.main;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         SetIsGrounded();
         SetDistanceToGround();
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         //Stops the player from moving, add namespace for any animation that requires this
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Drinking"))
         {
-            Move(Vector2.zero, running);
+            Move(Vector2.zero, false);
             return;
         }
 

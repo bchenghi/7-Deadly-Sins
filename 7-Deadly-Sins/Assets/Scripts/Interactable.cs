@@ -54,8 +54,12 @@ public class Interactable : MonoBehaviour
     }
 
     public bool PlayerWithinRadius() {
-        float distance = Vector3.Distance(player.position, interactionTransform.position);
-        return distance <= radius;
+        if (isFocus) {
+            float distance = Vector3.Distance(player.position, interactionTransform.position);
+            return distance <= radius;
+        } else {
+            return false;
+        }
     }
 
     

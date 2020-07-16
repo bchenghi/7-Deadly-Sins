@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: miscelleaneousEffects
       value: 
       objectReference: {fileID: 1884745653}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: hotKeysParent
+      value: 
+      objectReference: {fileID: 1033266124}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -1591,6 +1596,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
+--- !u!1 &1033266124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373209738175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1048292293 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6441870371901998660, guid: 867fe124405cf5d45be05a4d725fc64e,
@@ -2553,6 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!1 &1595195331
 GameObject:
   m_ObjectHideFlags: 0
