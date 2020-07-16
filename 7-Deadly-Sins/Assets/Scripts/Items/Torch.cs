@@ -10,6 +10,7 @@ public class Torch : Consumables, IUsable
     public float minDistance;
     Inventory inventory;
     GameObject player;
+    public LayerMask mask;
 
    
 
@@ -31,7 +32,7 @@ public class Torch : Consumables, IUsable
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
         int WallMask = LayerMask.GetMask("Wall");
-        if (Physics.Raycast(ray, out hit, 100, WallMask))
+        if (Physics.Raycast(ray, out hit, 100, mask))
         {
             float distance = Vector3.Distance(player.transform.position, hit.point);
             Debug.Log(distance);
