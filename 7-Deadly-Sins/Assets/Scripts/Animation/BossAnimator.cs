@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossAnimator : EnemyAnimator
 {
+    AnimationClip[] PowerUpAttackAnimSet;
     [SerializeField]
     AnimatorOverrideController powerUpController;
     [SerializeField]
@@ -24,6 +25,7 @@ public class BossAnimator : EnemyAnimator
         base.Update();
         if (stats.currentHealth <= triggerPowerUpHealth && !changedAnimatorController && powerUpController != null) {
             animator.runtimeAnimatorController = powerUpController;
+            currentAttackAnimSet = PowerUpAttackAnimSet;
             PowerUpAnimation();
             changedAnimatorController = true;
         }
