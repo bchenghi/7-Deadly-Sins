@@ -62,7 +62,6 @@ public class CharacterCombat : MonoBehaviour
                 {
                     OnAttack();
                 }
-
                 attackCooldown = 1f / attackSpeed;
                 SetInCombat();
             }
@@ -74,8 +73,10 @@ public class CharacterCombat : MonoBehaviour
     public virtual void AttackHit_AnimationEvent()
     {
         float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
+        Debug.Log(distance);
         if (distance <= attackDistance)
         {
+            
             if (opponentStats.transform.GetComponent<PlayerStats>() != null)
             {
                 if (opponentStats.transform.GetComponent<PlayerStats>().InvisibleAmt <= 0)
