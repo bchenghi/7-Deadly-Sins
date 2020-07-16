@@ -15,7 +15,7 @@ public class EnemyStats : CharacterStats
         soundHandler = GetComponent<SoundHandler>();
     }
 
-  
+    
 
     public override void Die()
     {
@@ -27,8 +27,9 @@ public class EnemyStats : CharacterStats
             Instantiate(lootDrop, transform.position, Quaternion.identity);
 
         lootDropTest.DropLoot();
-
+        Debug.Log("DEstroyed");
         Destroy(gameObject, 5);
+        
     }
 
 }
