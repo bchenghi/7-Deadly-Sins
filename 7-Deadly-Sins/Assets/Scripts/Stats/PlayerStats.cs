@@ -55,7 +55,7 @@ public class PlayerStats : CharacterStats
         }
         statUIManager.UpdateStatUIs();
     }
-
+ 
     public override void Die()
     {
         base.Die();

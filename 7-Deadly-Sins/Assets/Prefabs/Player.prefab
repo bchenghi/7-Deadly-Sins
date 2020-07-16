@@ -549,6 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!1 &1259023062746505209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,7 +3191,7 @@ GameObject:
   - component: {fileID: 7202750333497976120}
   - component: {fileID: 7202750333497976123}
   - component: {fileID: 7202750333497976122}
-  - component: {fileID: 7202750333497976124}
+  - component: {fileID: 104075996685682399}
   - component: {fileID: 7202750333497976127}
   - component: {fileID: 7202750333497976125}
   - component: {fileID: -6357504690422154360}
@@ -3255,6 +3256,8 @@ MonoBehaviour:
   DelayBeforeInvisible: 0.2
   InvisibleDuration: 0.5
   DodgeCoolDown: 1
+  rollDistance: 0
+  rollHeight: 0
   Climbing: 0
   ClimbingButStop: 0
   running: 0
@@ -3304,7 +3307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiPrefab: {fileID: 0}
---- !u!114 &7202750333497976124
+--- !u!114 &104075996685682399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3313,7 +3316,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7202750333497976113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e469058dc277d458ac97705c7f73d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4774822fd4ca64a4a8da4224422470df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1

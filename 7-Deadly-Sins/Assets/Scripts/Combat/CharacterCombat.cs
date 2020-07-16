@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CharacterCombat : MonoBehaviour
 {
-    private bool CloseEnough = false;
+    protected bool CloseEnough = false;
     public float attackSpeed = 1f;
     private float attackCooldown = 0f;
     const float combatCooldown = 5;
@@ -16,17 +16,17 @@ public class CharacterCombat : MonoBehaviour
     [HideInInspector]
     public int count = 0;
 
-    SoundHandler soundHandler;
+    protected SoundHandler soundHandler;
     
     
 
     // Max distance from the opponent to be able damage it
     public float attackDistance;
 
-    CharacterStats myStats;
-    CharacterStats opponentStats;
+    protected CharacterStats myStats;
+    protected CharacterStats opponentStats;
 
-    public bool InCombat { get; private set; }
+    public bool InCombat { get; protected set; }
     public bool dead { get; set; }
     public bool attacking { get; private set; }
     public event System.Action OnAttack;
@@ -82,6 +82,7 @@ public class CharacterCombat : MonoBehaviour
                 {
                     opponentStats.TakeDamage(myStats.damage.GetValue()); 
                     soundHandler.PlayAttackSoundBy(myStats.transform);
+                    PlayerManager.instance.player.GetComponent<PlayerController>().DisablePotionGFX();
                 }
             } else
             {

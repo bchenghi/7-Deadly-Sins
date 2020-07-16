@@ -122,9 +122,27 @@ public class PlayerController : MonoBehaviour
         }
         */
 
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            Vector2 inputDir = input.normalized;
+            if (isSlowed == false)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    running = true;
+                }
+                else if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+                    running = false;
+                }
+            } else
+            {
+                running = false;
+            }
+
         //Stops the player from moving, add namespace for any animation that requires this
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Drinking"))
         {
+            Move(Vector2.zero, running);
             return;
         }
 
@@ -148,29 +166,16 @@ public class PlayerController : MonoBehaviour
 
         if (ActionsAllowed() && !Climbing)
         {
+            Move(inputDir, running);
+
             if (focus != null)
             {
                 FaceTarget();
             }
 
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            Vector2 inputDir = input.normalized;
-            if (isSlowed == false)
-            {
-                if (Input.GetKeyDown(KeyCode.LeftShift))
-                {
-                    running = true;
-                }
-                else if (Input.GetKeyUp(KeyCode.LeftShift))
-                {
-                    running = false;
-                }
-            } else
-            {
-                running = false;
-            }
+            
 
-            Move(inputDir, running);
+            
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -449,8 +454,38 @@ public class PlayerController : MonoBehaviour
         isRolling = false;
     }
 
+    // Actions allowed (can jump, move) is set to the bool argument
     public void ChangeActionsAllowed(bool boolean) {
         actionsAllowed = boolean;
+    }
+
+
+    public void DisablePotionGFX() {
+        Transform[] ts = transform.GetComponentsInChildren<Transform>(true);
+        if (playerStats.PotUsed)
+        {
+            foreach (Transform t in ts)
+            {
+                Debug.Log(t.gameObject.name);
+                if (t.gameObject.name == "PlayerHpBottle")
+                {
+                    t.gameObject.SetActive(false);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            foreach (Transform t in ts)
+            {
+                Debug.Log(t.gameObject.name);
+                if (t.gameObject.name == "PlayerManaBottle")
+                {
+                    t.gameObject.SetActive(false);
+                    break;
+                }
+            }
+        }
     }
     
 }

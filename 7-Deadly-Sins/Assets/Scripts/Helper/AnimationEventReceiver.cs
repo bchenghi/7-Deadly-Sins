@@ -7,12 +7,19 @@ public class AnimationEventReceiver : MonoBehaviour
     CharacterCombat combat;
     EffectHandler effects;
     PlayerStats stats;
+    PlayerController controller;
+
+
+    // In potion script, if potion is used, it will set this as the potion that was used.
+    [HideInInspector]
+    public Potions potionUsed;
 
     private void Start()
     {
         combat = GetComponentInParent<CharacterCombat>();
         effects = GetComponentInParent<EffectHandler>();
         stats = GetComponentInParent<PlayerStats>();
+        controller = GetComponentInParent<PlayerController>();
     }
     public void AttackHitEvent()
     {
@@ -38,40 +45,23 @@ public class AnimationEventReceiver : MonoBehaviour
         {
             stats.IncreaseHealth(stats.increaseInStats);
             effects.HealEffectEvent(2);
+            if (potionUsed != null) {
+                Inventory.instance.Remove(potionUsed);
+            }
+            
         } else
         {
             stats.IncreaseMana(stats.increaseInStats);
             effects.HealEffectEvent(3);
+            if (potionUsed != null) {
+                Inventory.instance.Remove(potionUsed);
+            }
         }
     }
 
     public void StopDrinkingEvent()
     {
-        Transform[] ts = transform.GetComponentsInChildren<Transform>(true);
-        if (stats.PotUsed)
-        {
-            foreach (Transform t in ts)
-            {
-                Debug.Log(t.gameObject.name);
-                if (t.gameObject.name == "PlayerHpBottle")
-                {
-                    t.gameObject.SetActive(false);
-                    break;
-                }
-            }
-        }
-        else
-        {
-            foreach (Transform t in ts)
-            {
-                Debug.Log(t.gameObject.name);
-                if (t.gameObject.name == "PlayerManaBottle")
-                {
-                    t.gameObject.SetActive(false);
-                    break;
-                }
-            }
-        }
+        controller.DisablePotionGFX();
     }
 
     public void EffectEventSmash(int number)

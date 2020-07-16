@@ -24,6 +24,7 @@ public class Potions : Consumables , IUsable
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
         Animator animator = PlayerManager.instance.player.GetComponent<Animator>();
         PlayerAnimator playerAnim = PlayerManager.instance.player.GetComponent<PlayerAnimator>();
+        AnimationEventReceiver animationEventReceiver = PlayerManager.instance.player.GetComponentInChildren<AnimationEventReceiver>();
         base.Use();
        
         playerStats.SetIncreaseInStats(increaseStats, potUsed);
@@ -53,7 +54,8 @@ public class Potions : Consumables , IUsable
             }
         }
         playerAnim.UsePotion();
-        RemoveFromInventory();
+        animationEventReceiver.potionUsed = this;
+        //RemoveFromInventory();
         
     }
 

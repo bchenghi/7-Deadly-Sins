@@ -8,6 +8,8 @@ public class PlayerAnimator : CharacterAnimator
     Dictionary<Equipment, AnimationClip[]> weaponAnimationDict;
     SoundHandler soundHandler;
 
+    bool potionUseAnim = false;
+
     protected override void Start()
     {
         base.Start();
@@ -75,6 +77,7 @@ public class PlayerAnimator : CharacterAnimator
     public void UsePotion()
     {
         animator.SetTrigger("PotionUsed");
+        potionUseAnim = true;
     }
 
     public void KneelDown()

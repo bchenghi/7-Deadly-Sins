@@ -68,6 +68,16 @@ public class Inventory : MonoBehaviour
             onItemChangedCallback.Invoke();
     }
 
+
+    // Remove item by name
+    public void Remove(string name) {
+        for (int i = items.Count - 1; i >= 0; i--) {
+            if (name == items[i].Key.name) {
+                Remove(items[i].Key);
+            }
+        }
+    }
+
     public bool Remove(Item item, int quantity)
     {
         bool result = false;
