@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Threading;
 using UnityEngine;
@@ -153,6 +154,41 @@ public class EffectHandler : MonoBehaviour
         effect.position = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
         effectsManager.ActivateParticleSystem(effect);
     }
+
+    public void EnemiesToTargetPointEffectEvent(int effectNumber, float duration)
+    {
+        StartCoroutine(EnemiesToTarget(effectNumber, duration));
+    }
+
+    IEnumerator EnemiesToTarget(int effectNumber, float duration)
+    {
+
+        Transform effect = Instantiate(effectsManager.returnMichellenousEffects(effectNumber));
+        effect.gameObject.SetActive(true);
+        effect.position = transform.position;
+        effectsManager.ActivateParticleSystem(effect);
+        yield return new WaitForSeconds(effect.GetComponent<ParticleSystem>().main.duration);
+        effectsManager.DeactivateParticleSystem(effect);
+        Destroy(effect.gameObject);
+    }
+
+
+    public void StartbossSpawnEffectEvent(int effectNumber, Vector3 TargetPos)
+    {
+        effectsManager.EnableMischellenousEffect(effectNumber);
+        Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
+        effect.position = TargetPos;
+        effectsManager.Activate(effect);
+    }
+
+    public void StopbossSpawnEffectEvent(int effectNumber)
+    {
+        effectsManager.DisableMischellenousEffect(effectNumber);
+        Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
+        effectsManager.DeactivateParticleSystem(effect);
+    }
+
+   
 
 
 
