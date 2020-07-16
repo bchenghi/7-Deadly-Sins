@@ -3017,7 +3017,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383295524}
   m_HandleRect: {fileID: 243819663}
   m_Direction: 2
-  m_Value: 0.99999934
+  m_Value: 1
   m_Size: 0.7850179
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7182,7 +7182,7 @@ MonoBehaviour:
   - previous: Waves2
     next: HacknSlash
   - previous: HacknSlash
-    next: Final
+    next: FinalBoss
 --- !u!4 &1254597978
 Transform:
   m_ObjectHideFlags: 0
@@ -21147,6 +21147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!1 &8298134752370430137
 GameObject:
   m_ObjectHideFlags: 0
