@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using UnityEngine;
 
 public class ColliderTriggerBridge : MonoBehaviour
@@ -11,17 +12,31 @@ public class ColliderTriggerBridge : MonoBehaviour
     bool canRetrigger;
     bool triggered = false;
     public ITrigger trigger;
+    public bool ExternalTrigger;
     void Start() {
         trigger = GetComponent<ITrigger>();
     }
 
     public void OnTriggerEnter(Collider collider) {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Player")) {
-            if (!canRetrigger && triggered)
-                return;
+        if (!ExternalTrigger)
+        {
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                if (!canRetrigger && triggered)
+                    return;
 
-            trigger.Trigger();
-            triggered = true;
+                trigger.Trigger();
+                triggered = true;
+            }
+        } else
+        {
+            if (collider.CompareTag("TriggerDialogue"))
+            {
+                if (!canRetrigger && triggered)
+                    return;
+                trigger.Trigger();
+                triggered = true;
+            }
         }
     }
 }

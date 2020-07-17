@@ -57,6 +57,7 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetTrigger("attack");
         int attackIndex = Random.Range(0, currentAttackAnimSet.Length);
         overrideController[replacebleAttackAnim.name] = currentAttackAnimSet[attackIndex];
+       
     }
 
     public virtual void Death()

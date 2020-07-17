@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a1cffe00d1d8d48866561ab9b54a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionUsed: {fileID: 0}
 --- !u!1 &9083884964625351808
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +196,9 @@ MonoBehaviour:
   PlayerTargeted: 0
   PlayerCompanionTarget: {fileID: 0}
   CompanionTargeted: 0
+  easyRoam: 0
+  easyRoamX: 0
+  easyRoamZ: 0
 --- !u!114 &9083884964727646805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +264,9 @@ MonoBehaviour:
   - {fileID: 7400000, guid: b8347172f7dff8b43918904f9462bcbf, type: 2}
   - {fileID: 7400000, guid: 6ab71407af1b9f34b9e85d5dca9bacf3, type: 2}
   overrideController: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
+  PowerUpAttackAnimSet:
+  - {fileID: 7400000, guid: b8347172f7dff8b43918904f9462bcbf, type: 2}
+  - {fileID: 7400000, guid: 6ab71407af1b9f34b9e85d5dca9bacf3, type: 2}
   powerUpController: {fileID: 22100000, guid: cb5cb698ab1eb1c44ac7eb0d6a0bd586, type: 2}
   triggerPowerUpHealth: 40
 --- !u!114 &9083884964727646794
