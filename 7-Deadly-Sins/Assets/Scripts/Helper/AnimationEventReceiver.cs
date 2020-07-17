@@ -57,6 +57,7 @@ public class AnimationEventReceiver : MonoBehaviour
                 Inventory.instance.Remove(potionUsed);
             }
         }
+        potionUsed = null;
     }
 
     public void StopDrinkingEvent()

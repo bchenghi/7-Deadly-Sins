@@ -24,6 +24,7 @@ public class SaveLoad : MonoBehaviour
     public int Damage;
     public int Gold;
     public int Mana;
+    public int SkillPoints;
     
     public void Save()
     {
@@ -34,6 +35,7 @@ public class SaveLoad : MonoBehaviour
         playerJson.Add("Damage", Damage);
         playerJson.Add("Gold", Gold);
         playerJson.Add("Mana", Mana);
+        playerJson.Add("SkillPoints", SkillPoints);
 
         Debug.Log(playerJson.ToString());
 
@@ -50,6 +52,7 @@ public class SaveLoad : MonoBehaviour
             Damage = PlayerManager.instance.player.GetComponent<PlayerStats>().damage.GetValue();
             Gold = GoldCounter.instance.gold;
             Mana = PlayerManager.instance.player.GetComponent<PlayerStats>().CurrentMana;
+            SkillPoints = PlayerManager.instance.player.GetComponent<PlayerStats>().SkillPoints;
         }
     }
 
@@ -64,10 +67,33 @@ public class SaveLoad : MonoBehaviour
         Damage = playerJson["Damage"];
         Gold = playerJson["Gold"];
         Mana = playerJson["Mana"];
+        SkillPoints = playerJson["SkillPoints"];
         GoldCounter.instance.SetGold(Gold);
+        
+        //health, mana and skill points will be set in playerstats script
         PlayerManager.instance.player.GetComponent<PlayerStats>().SetHealth(HP);
         PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
+        
         Debug.Log(playerJson.ToString());
+    }
+
+
+    // can specify stats in saveload inspector, then it will be saved. 
+    // The data can be loaded by calling Load()
+    void SetData() {
+        JSONObject playerJson = new JSONObject();
+        playerJson.Add("HP", HP);
+        playerJson.Add("Armor", Armor);
+        playerJson.Add("Damage", Damage);
+        playerJson.Add("Gold", Gold);
+        playerJson.Add("Mana", Mana);
+        playerJson.Add("SkillPoints", SkillPoints);
+
+        Debug.Log(playerJson.ToString());
+
+        string path = Application.persistentDataPath + "/PlayerSave.Json";
+        File.WriteAllText(path, playerJson.ToString());
     }
     
     // Start is called before the first frame update
@@ -82,5 +108,6 @@ public class SaveLoad : MonoBehaviour
         //GetData();
         if (Input.GetKeyDown(KeyCode.G)) Save();
         if (Input.GetKeyDown(KeyCode.L)) Load();
+        if (Input.GetKeyDown(KeyCode.F)) SetData();
     }
 }

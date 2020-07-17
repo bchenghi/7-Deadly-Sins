@@ -19,6 +19,8 @@ public class SkillTree : MonoBehaviour
         instance = this;
     }
     #endregion
+    [SerializeField]
+    GameObject skillsParent;
 
     public Skill[] skills;
 
@@ -26,6 +28,7 @@ public class SkillTree : MonoBehaviour
 
     private void Start()
     {
+        skills = skillsParent.GetComponentsInChildren<Skill>();
         for (int i = 0; i < skills.Length; i++)
         {
             skillTree.Add(new KeyValuePair<Skill, int>(skills[i], 1));

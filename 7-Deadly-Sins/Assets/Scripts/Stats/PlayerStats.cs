@@ -24,8 +24,8 @@ public class PlayerStats : CharacterStats
         CurrentMana = maxMana;
         playerManaUI.SetMaxMana(maxMana);
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
-        SetInitialPoints(2);
         NewSceneSetUp();
+        SkillPoints += 2;
     }
 
     public override void Update()
@@ -132,6 +132,10 @@ public class PlayerStats : CharacterStats
         Debug.Log("Invisible");
         InvisibleAmt = invisibleLength;
     }
+
+    public void SetSkillPoints(int skillPoints) {
+        this.SkillPoints = skillPoints;
+    }
     
     // Will update stats and update stat uis according to current equipment for armor and dmg, while health and mana
     // is based on saved data from previous scene.
@@ -142,8 +146,12 @@ public class PlayerStats : CharacterStats
                 onEquipmentChanged(equipment, null);
             }
         }
+        /*
+        they will be set in saveload
         SetHealth(SaveLoad.instance.HP);
         SetMana(SaveLoad.instance.Mana);
+        SetSkillPoints(SaveLoad.instance.SkillPoints);
+        */
     }
     
 

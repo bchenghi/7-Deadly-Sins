@@ -576,6 +576,16 @@ PrefabInstance:
       propertyPath: miscelleaneousEffects
       value: 
       objectReference: {fileID: 1592248429}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillsParent
+      value: 
+      objectReference: {fileID: 920851450}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: hotKeysParent
+      value: 
+      objectReference: {fileID: 920851451}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -2493,6 +2503,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867fe124405cf5d45be05a4d725fc64e, type: 3}
+--- !u!1 &920851450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373398751175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 920851449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &920851451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373209738175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 920851449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &999472176
 PrefabInstance:
   m_ObjectHideFlags: 0

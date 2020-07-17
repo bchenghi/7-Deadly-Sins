@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ClownController : MonoBehaviour
 {
@@ -131,7 +132,7 @@ public class ClownController : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
 
         effectHandler.SmokeEffectEvent(transform, 6, 0.5f);
-        this.gameObject.transform.position = teleportPosition;
+        GetComponent<NavMeshAgent>().Warp(teleportPosition);
         effectHandler.SmokeEffectEvent(transform, 6, 0.5f);
         teleporting = false;
 

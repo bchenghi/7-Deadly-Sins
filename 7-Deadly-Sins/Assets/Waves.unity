@@ -9348,7 +9348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: damage.baseValue
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: armor.baseValue
@@ -9356,7 +9356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567281186, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: attackSpeed
-      value: 0.2
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6408341009909285580, guid: cb551d445d5d90f4c9bb829b2befad5f,
         type: 3}
@@ -9450,7 +9450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStartWaves: 5
-  delayBetweenWaves: 60
+  delayBetweenWaves: 90
   waves:
   - numberOfEnemies: 3
     enemiesToChooseFrom:
@@ -10819,6 +10819,11 @@ PrefabInstance:
       propertyPath: hotKeysParent
       value: 
       objectReference: {fileID: 372433467}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillsParent
+      value: 
+      objectReference: {fileID: 1830799475}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -11492,7 +11497,7 @@ PrefabInstance:
     - target: {fileID: -3694969383865585275, guid: 304cace6942f6194eac03bdd771798ef,
         type: 3}
       propertyPath: maxAmmo
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -3694969383865585275, guid: 304cace6942f6194eac03bdd771798ef,
         type: 3}
@@ -14558,6 +14563,12 @@ GameObject:
 --- !u!1 &1830799474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6441870373532921019, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1830799475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373398751175, guid: 867fe124405cf5d45be05a4d725fc64e,
     type: 3}
   m_PrefabInstance: {fileID: 1830799464}
   m_PrefabAsset: {fileID: 0}

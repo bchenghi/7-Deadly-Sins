@@ -21,8 +21,12 @@ public class NewSceneSetUp : MonoBehaviour
 
     [SerializeField]
     GameObject hotKeysParent;
+    [SerializeField]
+    GameObject skillsParent;
+    Skill[] skills;
     // Sets player and target mesh, and sets cursor to visible and unlocked
     void Awake(){
+        skills = skillsParent.GetComponentsInChildren<Skill>(true);
         if (PlayerManager.instance.player == null) {
             PlayerManager.instance.player = player;
         if (EquipmentManager.instance.targetMesh == null) {
@@ -32,6 +36,9 @@ public class NewSceneSetUp : MonoBehaviour
         } if (EffectsManager.instance.MichellenousEffects == null) {
             EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
         } 
+            
+        HotKeyBarManager.instance.SetIUsableSkills(skills);
+        SkillTree.instance.skills = skills;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         }

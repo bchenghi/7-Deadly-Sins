@@ -6482,6 +6482,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 681802459}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &193304109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373398751175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &197389098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17320,6 +17326,11 @@ PrefabInstance:
       propertyPath: hotKeysParent
       value: 
       objectReference: {fileID: 339892895}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillsParent
+      value: 
+      objectReference: {fileID: 193304109}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -50913,7 +50924,7 @@ Transform:
   - {fileID: 597170497}
   - {fileID: 1792389348}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1653935228
 PrefabInstance:
@@ -64276,6 +64287,11 @@ PrefabInstance:
       propertyPath: MichellenousEffects
       value: 
       objectReference: {fileID: 742301516}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillsParent
+      value: 
+      objectReference: {fileID: 193304109}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!33 &1331385293860740597
@@ -66038,7 +66054,7 @@ PrefabInstance:
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}

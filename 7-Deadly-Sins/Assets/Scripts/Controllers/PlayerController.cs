@@ -466,7 +466,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (Transform t in ts)
             {
-                Debug.Log(t.gameObject.name);
+                //Debug.Log(t.gameObject.name);
                 if (t.gameObject.name == "PlayerHpBottle")
                 {
                     t.gameObject.SetActive(false);
@@ -478,7 +478,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (Transform t in ts)
             {
-                Debug.Log(t.gameObject.name);
+                //Debug.Log(t.gameObject.name);
                 if (t.gameObject.name == "PlayerManaBottle")
                 {
                     t.gameObject.SetActive(false);

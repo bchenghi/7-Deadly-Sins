@@ -379,5 +379,16 @@ public class Inventory : MonoBehaviour
         return result;
         }
     }
+
+
+    // If reference to item in inventory is required
+    public Item ReferenceToItemInInventory(Item item) {
+        foreach (KeyValuePair<Item, int> pair in items) {
+            if (pair.Key.name == item.name) {
+                return pair.Key;
+            }
+        }
+        return null;
+    }
 }
 

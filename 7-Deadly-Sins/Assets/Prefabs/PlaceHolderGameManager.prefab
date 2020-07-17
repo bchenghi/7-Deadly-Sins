@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1277534972852530480}
   - component: {fileID: -7141703832624042509}
   - component: {fileID: 9168598179196819854}
+  - component: {fileID: 2727473732751423509}
   m_Layer: 0
   m_Name: PlaceHolderGameManager
   m_TagString: Untagged
@@ -118,6 +119,7 @@ MonoBehaviour:
   Damage: 0
   Gold: 0
   Mana: 100
+  SkillPoints: 0
 --- !u!114 &1128765268864473535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,3 +351,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6d436d630043d40a3e11a79d7012c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iusableSkills: []
+--- !u!114 &2727473732751423509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128765268864473414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b318a46c25d84418613c7be8256222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []

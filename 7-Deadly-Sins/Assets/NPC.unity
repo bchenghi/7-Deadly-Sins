@@ -4447,6 +4447,11 @@ PrefabInstance:
       propertyPath: hotKeysParent
       value: 
       objectReference: {fileID: 1539220472}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillsParent
+      value: 
+      objectReference: {fileID: 1539220473}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -34429,6 +34434,12 @@ PrefabInstance:
 --- !u!1 &1539220472 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6441870373209738175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539220471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1539220473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441870373398751175, guid: 867fe124405cf5d45be05a4d725fc64e,
     type: 3}
   m_PrefabInstance: {fileID: 1539220471}
   m_PrefabAsset: {fileID: 0}
