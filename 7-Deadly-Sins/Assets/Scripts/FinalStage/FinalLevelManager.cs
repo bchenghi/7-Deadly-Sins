@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security.Policy;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinalLevelManager : MonoBehaviour
 {
@@ -9,6 +11,13 @@ public class FinalLevelManager : MonoBehaviour
     public Transform TargetPoint;
     public int EnemiesCount;
     EffectHandler effects;
+    private bool bossSpawned;
+    private bool spawnersDestroyed;
+    public GameObject LeonardBoss;
+    public GameObject bossHealth;
+    public bool bossKilled;
+    public TextMeshProUGUI textMesh;
+    ITrigger trigger;
 
     #region Singelton
 
@@ -38,23 +47,32 @@ public class FinalLevelManager : MonoBehaviour
 
     private void Start()
     {
+        trigger = GetComponent<ITrigger>();
         effects = GetComponent<EffectHandler>();
     }
 
     private void Update()
     {
         CheckSpawnersCount();
-        if (AllSpawnerDestroyed && EnemiesCount != 0)
+        if (AllSpawnerDestroyed && EnemiesCount != 0 && !spawnersDestroyed)
         {
+            spawnersDestroyed = true;
             effects.StartbossSpawnEffectEvent(8, TargetPoint.position);
-        } else
+            textMesh.text = "All Spawners destroyed, Something's amiss in the centre!";
+            StartCoroutine(Wait());
+        } else if (AllSpawnerDestroyed && EnemiesCount == 0 && !bossSpawned)
         {
-
+            bossSpawned = true;
             effects.StopbossSpawnEffectEvent(8);
-            Debug.Log("Spawn Leonard");
+            GameObject.Instantiate(LeonardBoss, TargetPoint.position, Quaternion.identity);
+        }
+
+        if (bossKilled)
+        {
+            trigger.Trigger();
+            textMesh.text = "Final Boss Killed, Enter Portal";
         }
     }
-
 
 
     public void IncreaseSpawnCount()
@@ -85,6 +103,12 @@ public class FinalLevelManager : MonoBehaviour
     public void DecreaseEnemyCount()
     {
         EnemiesCount--;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2f);
+        textMesh.text = "";
     }
 
 }

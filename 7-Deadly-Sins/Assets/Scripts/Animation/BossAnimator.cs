@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BossAnimator : EnemyAnimator
 {
+    [SerializeField]
     AnimationClip[] PowerUpAttackAnimSet;
     [SerializeField]
     AnimatorOverrideController powerUpController;
     [SerializeField]
     public float triggerPowerUpHealth;
+    public bool powerUp;
     bool changedAnimatorController = false;
     SoundHandler soundHandler;
 
@@ -24,6 +26,7 @@ public class BossAnimator : EnemyAnimator
     {
         base.Update();
         if (stats.currentHealth <= triggerPowerUpHealth && !changedAnimatorController && powerUpController != null) {
+            powerUp = true;
             animator.runtimeAnimatorController = powerUpController;
             currentAttackAnimSet = PowerUpAttackAnimSet;
             PowerUpAnimation();
@@ -40,4 +43,6 @@ public class BossAnimator : EnemyAnimator
         base.OnAttack();
         soundHandler.Play2SoundRandomly("BossHit1", "BossHit2");
     }
+
+   
 }
