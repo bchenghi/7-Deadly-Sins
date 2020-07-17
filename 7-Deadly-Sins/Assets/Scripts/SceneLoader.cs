@@ -79,7 +79,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // Load next scene by scene number. Does not save the stats of player as opening scene has no stats for player
+    // Load next scene by scene number. Does not save the stats of player as opening scene and After win scene
+    //  has no stats for player. Does not update previous scene also
     IEnumerator LoadWithoutStatsWithTransition(float transitionDuration, int sceneNumber) {
         animator.SetTrigger("StartTransition");
         ClearDelegates();

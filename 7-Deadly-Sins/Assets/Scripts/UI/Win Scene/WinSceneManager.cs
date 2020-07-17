@@ -21,6 +21,8 @@ public class WinSceneManager : Monobehaviour
     DialogueManager dialogueManager;
 
     Dialogue dialogue;
+    bool doneTyping = true;
+    string currentSentence;
 
     // Start dialogue based on what the previous scene was
     void Start() {
@@ -73,19 +75,30 @@ public class WinSceneManager : Monobehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(1/typeSpeed);
         }
+        doneTyping = true;
     }
     public void DisplayNextSentence() {
-         if (sentences.Count == 0) {
+         if (doneTyping && sentences.Count == 0) {
             EndExplanation();
             return;
         }
         else
         {
-            string sentence = sentences.Dequeue();
-            if (currentCoroutine != null)
-                StopCoroutine(currentCoroutine);
+            if (doneTyping) {
+                doneTyping = false;
+                string sentence = sentences.Dequeue();
+                currentSentence = sentence;
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
 
-            currentCoroutine = StartCoroutine(TypeSentence(sentence));
+                currentCoroutine = StartCoroutine(TypeSentence(sentence));
+            } else {
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
+                dialogueText.text = currentSentence;
+                doneTyping = true;
+            }
+
         }
     }
 
