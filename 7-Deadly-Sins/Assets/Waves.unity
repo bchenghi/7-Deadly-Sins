@@ -5538,6 +5538,36 @@ PrefabInstance:
       propertyPath: MichellenousEffects
       value: 
       objectReference: {fileID: 486542929}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 1830799479}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 1830799478}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 1830799477}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 1830799476}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 1830799468}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!1001 &731355946
@@ -10824,6 +10854,11 @@ PrefabInstance:
       propertyPath: skillsParent
       value: 
       objectReference: {fileID: 1830799475}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 1830799468}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -14572,6 +14607,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1830799464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1830799476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373664719757, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650ec2b6cecac30448399219a1d5514c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1830799477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373572625285, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8d914ddd3bca345b5227b265f1feb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1830799478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870372371739968, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41128e5f4d25ec44b4c80510b940741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1830799479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373313910198, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9279172a80be940b35d0f2d7d93607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1851903625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14723,6 +14806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!1001 &1858755625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25322,6 +25406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b318a46c25d84418613c7be8256222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1SkillNames: []
+  skillTreeUI: {fileID: 0}
   skills:
   - {fileID: 1932988823767128430}
   - {fileID: 1932988823767128430}
@@ -25330,6 +25416,7 @@ MonoBehaviour:
   - {fileID: 1932988824529751901}
   - {fileID: 1932988824529751901}
   - {fileID: 1932988824529751901}
+  maxLevel: 3
 --- !u!114 &1932988825491033705
 MonoBehaviour:
   m_ObjectHideFlags: 0

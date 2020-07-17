@@ -9,7 +9,7 @@ public class FinalSpawnerDeath : MonoBehaviour
     public Transform Aliveparticles;
     ParticleSystem[] AlivePs;
     CharacterStats stats;
-    private bool isDead;
+    public bool isDead;
 
     private void Start()
     {

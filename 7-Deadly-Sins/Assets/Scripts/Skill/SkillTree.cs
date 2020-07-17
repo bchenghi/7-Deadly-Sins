@@ -19,16 +19,21 @@ public class SkillTree : MonoBehaviour
         instance = this;
     }
     #endregion
-    [SerializeField]
-    GameObject skillsParent;
 
+    public string[] level1SkillNames;
+    
+    public GameObject skillTreeUI;
+    [HideInInspector]
     public Skill[] skills;
+    [HideInInspector]
 
-    List<KeyValuePair<Skill, int>> skillTree = new List<KeyValuePair<Skill, int>>();
+    public List<KeyValuePair<Skill, int>> skillTree = new List<KeyValuePair<Skill, int>>();
+
+    public int maxLevel = 3;
 
     private void Start()
     {
-        skills = skillsParent.GetComponentsInChildren<Skill>();
+        SetUpSkillsArrayFromNames();
         for (int i = 0; i < skills.Length; i++)
         {
             skillTree.Add(new KeyValuePair<Skill, int>(skills[i], 1));
@@ -36,8 +41,9 @@ public class SkillTree : MonoBehaviour
     }
 
 
-    public void upgrade(Skill skill)
+    public bool upgrade(Skill skill)
     {
+        bool result = false;
         for (int i = 0; i < skillTree.Count; i++)
         {
             if (skillTree[i].Key.Equals(skill))
@@ -47,17 +53,20 @@ public class SkillTree : MonoBehaviour
                 if (currentLevel == currentSkill.MaxSkillLevel)
                 {
                     Debug.Log("Already Max Level");
+                    result = false;
                 }
                 else
                 {
                     skillTree[i] = new KeyValuePair<Skill, int>(skill, currentLevel + 1);
+                    result = true;
                 }
                 break;
             }
         }
+        return result;
     }
 
-    public void UpgradeWithNumber(int position)
+    public bool UpgradeWithNumber(int position)
     {
        
         int currentLevel = skillTree[position].Value;
@@ -65,16 +74,40 @@ public class SkillTree : MonoBehaviour
         if (currentLevel == currentSkill.MaxSkillLevel)
         {
             Debug.Log("Already Max Level");
+            return false;
         }
         else
         {
             skillTree[position] = new KeyValuePair<Skill, int>(skillTree[position].Key, currentLevel + 1);
+            return true;
         }
     }
 
     public int returnLevel(int skillToCheck)
     {
         return skillTree[skillToCheck].Value;
+    }
+
+
+    // Sets up the skillTreeUI object first, then will search for the skills in the skillTreeUI
+    public void NewSceneSetUp(GameObject skillTreeUI) {
+        this.skillTreeUI = skillTreeUI;
+        SetUpSkillsArrayFromNames();
+    }
+
+    // Will form the skills array by finding the skills by name in the skilltreeUI
+    void SetUpSkillsArrayFromNames() {
+        skills = new Skill[level1SkillNames.Length];
+        for (int i = 0; i < level1SkillNames.Length ; i++) {
+            Transform[] ts = skillTreeUI.transform.GetComponentsInChildren<Transform>(true);
+            foreach (Transform t in ts)
+            {
+                if (t.gameObject.name == level1SkillNames[i])
+                {
+                    SkillTree.instance.skills[i] = t.GetComponent<Skill>();
+                }
+            }
+        }
     }
 
 

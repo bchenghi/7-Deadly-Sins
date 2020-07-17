@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: hotKeysParent
       value: 
       objectReference: {fileID: 1033266124}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 662166860}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -995,6 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!114 &986252151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,6 +1608,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1033266123}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1033266125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373664719757, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650ec2b6cecac30448399219a1d5514c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1033266126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373572625285, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8d914ddd3bca345b5227b265f1feb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1033266127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870372371739968, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41128e5f4d25ec44b4c80510b940741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1033266128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373313910198, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9279172a80be940b35d0f2d7d93607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1048292293 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6441870371901998660, guid: 867fe124405cf5d45be05a4d725fc64e,
@@ -2877,6 +2931,36 @@ PrefabInstance:
       propertyPath: MichellenousEffects
       value: 
       objectReference: {fileID: 1884745653}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 1033266128}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 1033266127}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 1033266126}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 1033266125}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 662166860}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!1001 &2047292480

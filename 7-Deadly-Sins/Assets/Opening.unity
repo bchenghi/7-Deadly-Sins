@@ -2510,7 +2510,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325788397}
-  m_LocalRotation: {x: -0.02413824, y: 0.85640377, z: -0.04020406, w: -0.51417273}
+  m_LocalRotation: {x: -0.024138236, y: 0.8564038, z: -0.040204056, w: -0.5141727}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6238,6 +6238,11 @@ PrefabInstance:
       propertyPath: MichellenousEffects
       value: 
       objectReference: {fileID: 1221850847}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 918725932}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!4 &775217121 stripped
@@ -7242,6 +7247,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1640413597}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &918725932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 918725933}
+  m_Layer: 0
+  m_Name: PlaceHolderSkillTreeUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &918725933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918725932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 202.1554, y: 191.81262, z: -109.8125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &925774432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5088994887443934151, guid: f27fe7e22b61ceb409965b2749f105a6,
@@ -9654,6 +9689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!114 &1198838841
 MonoBehaviour:
   m_ObjectHideFlags: 0

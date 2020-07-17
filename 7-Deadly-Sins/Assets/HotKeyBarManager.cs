@@ -22,17 +22,21 @@ public class HotKeyBarManager : MonoBehaviour
     [HideInInspector]
     public IUsable[] hotKeyMemory;
 
-    // skills scripts belonging to the scene
+    // array of skills scripts belonging to the scene, used for updating hot keys after changing scene, 
+    // referencing the skills used in the current scene, instead of old scene. Is setup in newSceneSetUp
     Skill[] iusableSkills;
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Skill skill in iusableSkills) {
-            if (!(skill is IUsable)) {
-                // maybe can remove not isuable skills from array
-                Debug.LogWarning("Skill " + skill + " is not IUsable");
+        if (iusableSkills != null) {
+            foreach(Skill skill in iusableSkills) {
+                if (!(skill is IUsable)) {
+                    // maybe can remove not isuable skills from array
+                    Debug.LogWarning("Skill " + skill + " is not IUsable");
+                }
             }
         }
+        
     }
 
     // Update is called once per frame

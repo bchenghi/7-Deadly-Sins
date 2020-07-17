@@ -113,10 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fac0e6f40ae32c46bf1801f59cb774d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTheseStats: 1
   Name: 
   HP: 100
-  Armor: 0
-  Damage: 0
   Gold: 0
   Mana: 100
   SkillPoints: 0
@@ -351,7 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6d436d630043d40a3e11a79d7012c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iusableSkills: []
 --- !u!114 &2727473732751423509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,4 +362,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b318a46c25d84418613c7be8256222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1SkillNames:
+  - Fury
+  - SmashDownLvl1
+  - Armor Boost
+  - FireSpellLvl1
+  skillTreeUI: {fileID: 0}
   skills: []
+  maxLevel: 3

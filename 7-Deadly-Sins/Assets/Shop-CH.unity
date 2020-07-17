@@ -3023,8 +3023,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383295524}
   m_HandleRect: {fileID: 243819663}
   m_Direction: 2
-  m_Value: 0.99999964
-  m_Size: 0.78501785
+  m_Value: 1.0000004
+  m_Size: 0.7850179
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5052,7 +5052,12 @@ MonoBehaviour:
   player: {fileID: 1031949956}
   startSound: 
   hotKeysParent: {fileID: 9162663820572830086}
-  skillsParent: {fileID: 749425609}
+  skillTreeUI: {fileID: 914735342}
+  level1SkillNames:
+  - Fury
+  - SmashDownLvl1
+  - Armor Boost
+  - FireSpellLvl1
 --- !u!4 &844717952
 Transform:
   m_ObjectHideFlags: 0
@@ -10916,6 +10921,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: SkillPoints
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: Gold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473535, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: player
@@ -10931,6 +10946,41 @@ PrefabInstance:
       propertyPath: MichellenousEffects
       value: 
       objectReference: {fileID: 20508698}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillsParent
+      value: 
+      objectReference: {fileID: 749425609}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 749425692}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 749425672}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 749425654}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 749425636}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 914735342}
     - target: {fileID: 9168598179196819854, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: iusableSkills.Array.size

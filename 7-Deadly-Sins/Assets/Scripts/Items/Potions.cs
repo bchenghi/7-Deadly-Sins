@@ -34,7 +34,7 @@ public class Potions : Consumables , IUsable
         {
             foreach (Transform t in ts)
             {
-                Debug.Log(t.gameObject.name);
+                //Debug.Log(t.gameObject.name);
                 if (t.gameObject.name == "PlayerHpBottle")
                 {
                     t.gameObject.SetActive(true);
@@ -45,7 +45,7 @@ public class Potions : Consumables , IUsable
         {
             foreach (Transform t in ts)
             {
-                Debug.Log(t.gameObject.name);
+                //Debug.Log(t.gameObject.name);
                 if (t.gameObject.name == "PlayerManaBottle")
                 {
                     t.gameObject.SetActive(true);

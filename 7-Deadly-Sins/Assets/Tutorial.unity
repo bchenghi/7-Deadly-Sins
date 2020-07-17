@@ -2802,6 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!1001 &73845505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9693,6 +9694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!4 &303023255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6105861846175250044, guid: 5c582aa33048aaa428a9e969723d47dc,
@@ -17298,6 +17300,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
+      propertyPath: level1Skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1SkillNames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
       propertyPath: targetMesh
       value: 
       objectReference: {fileID: 1742963564735949204}
@@ -17331,6 +17343,51 @@ PrefabInstance:
       propertyPath: skillsParent
       value: 
       objectReference: {fileID: 193304109}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 966445570}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1Skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 1555622954}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1Skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 2135557173}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1Skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 1436433733}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1Skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 1167431552}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1SkillNames.Array.data[0]
+      value: Fury
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1SkillNames.Array.data[1]
+      value: SmashDownLvl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1SkillNames.Array.data[2]
+      value: Armor Boost
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1SkillNames.Array.data[3]
+      value: FireSpellLvl1
+      objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -28249,6 +28306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!114 &900723156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35974,6 +36032,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 463412485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1167431552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373664719757, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650ec2b6cecac30448399219a1d5514c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1168493085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 210442451396089719, guid: 1696222c72e89ab4f9026119ef17826b,
@@ -43384,6 +43454,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9aabdb89511546649992db464a1ed8fe, type: 3}
+--- !u!114 &1436433733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373572625285, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8d914ddd3bca345b5227b265f1feb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1436725079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48198,6 +48280,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 475b905fe3b32864fb3448b79d6bc815, type: 3}
+--- !u!114 &1555622954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870373313910198, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9279172a80be940b35d0f2d7d93607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1557510743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53245,6 +53339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!114 &1740966911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57836,6 +57931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRetrigger: 0
+  ExternalTrigger: 0
 --- !u!114 &1906521271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63771,6 +63867,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2135516097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135557173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441870372371739968, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41128e5f4d25ec44b4c80510b940741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2135633334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6105861846175250044, guid: 5c582aa33048aaa428a9e969723d47dc,
@@ -64272,6 +64380,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: Gold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: SkillPoints
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: Mana
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473535, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: player
@@ -64289,9 +64412,39 @@ PrefabInstance:
       objectReference: {fileID: 742301516}
     - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
+      propertyPath: skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
       propertyPath: skillsParent
       value: 
       objectReference: {fileID: 193304109}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 1555622954}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 2135557173}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 1436433733}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skills.Array.data[3]
+      value: 
+      objectReference: {fileID: 1167431552}
+    - target: {fileID: 2727473732751423509, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: skillTreeUI
+      value: 
+      objectReference: {fileID: 966445570}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!33 &1331385293860740597

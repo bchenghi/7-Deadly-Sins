@@ -44,8 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d854a3bf1919ffb468a8c3355a93be1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectsPool: {fileID: 0}
+  miscelleaneousEffects: {fileID: 0}
   targetMesh: {fileID: 0}
   player: {fileID: 0}
+  startSound: 
+  hotKeysParent: {fileID: 0}
+  skillTreeUI: {fileID: 0}
+  level1SkillNames:
+  - Fury
+  - SmashDownLvl1
+  - Armor Boost
+  - FireSpellLvl1
 --- !u!114 &5743559167642815144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,3 +68,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4f5d3139098ca4ebb589b264897b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  transitionDuration: 1

@@ -93,9 +93,9 @@ public class HotKeyBar : MonoBehaviour
     public void UpdateHotKeysFromMemory() {
         Hotkeys = hotKeysParent.GetComponentsInChildren<HotKey>();
         for (int i = 0; i < hotKeyMemory.Length; i++) {
-            Debug.Log(i);
+            //Debug.Log(i);
             if (hotKeyMemory[i] != null) {
-                Debug.Log((hotKeyMemory[i] is Skill) + " memory is skill");
+                //Debug.Log((hotKeyMemory[i] is Skill) + " memory is skill");
                 if (hotKeyMemory[i] is Skill) {
                     foreach (Skill skill in HotKeyBarManager.instance.GetIUsableSkills()) {
                         if (skill.Description == ((Skill) hotKeyMemory[i]).Description) {

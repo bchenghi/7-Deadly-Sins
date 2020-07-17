@@ -22,11 +22,14 @@ public class NewSceneSetUp : MonoBehaviour
     [SerializeField]
     GameObject hotKeysParent;
     [SerializeField]
-    GameObject skillsParent;
+    GameObject skillTreeUI;
     Skill[] skills;
+
+    [SerializeField]
+    string[] level1SkillNames;
     // Sets player and target mesh, and sets cursor to visible and unlocked
     void Awake(){
-        skills = skillsParent.GetComponentsInChildren<Skill>(true);
+        
         if (PlayerManager.instance.player == null) {
             PlayerManager.instance.player = player;
         if (EquipmentManager.instance.targetMesh == null) {
@@ -36,9 +39,14 @@ public class NewSceneSetUp : MonoBehaviour
         } if (EffectsManager.instance.MichellenousEffects == null) {
             EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
         } 
-            
+        
+        // sets up the skills for hotkeys to reference
+        skills = skillTreeUI.GetComponentsInChildren<Skill>(true);
         HotKeyBarManager.instance.SetIUsableSkills(skills);
-        SkillTree.instance.skills = skills;
+        // Sets up skills array in skill tree based on skill names sepcified in level1SkillNames
+        SkillTree.instance.NewSceneSetUp(skillTreeUI);
+        
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         }
@@ -50,7 +58,6 @@ public class NewSceneSetUp : MonoBehaviour
                 // set equipment mesh will make the player model wear the equipment
                 EquipmentManager.instance.SetEquipmentMesh(equipment);
             }
-
         }
         if (startSound != null) {
             AudioManager.instance.StopPlayingAll();

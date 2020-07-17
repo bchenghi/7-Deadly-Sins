@@ -57,7 +57,7 @@ public class SkillTreeUI : MonoBehaviour
             }
         }
 
-        
+        NewSceneSetUp();
     }
 
     // Update is called once per frame
@@ -71,20 +71,58 @@ public class SkillTreeUI : MonoBehaviour
     {
         if (playerStats.SkillPoints > 0)
         {
-            playerStats.DecreaseSkillPoints();
             index -= 1;
-            Debug.Log(index);
-            SkillTree.instance.UpgradeWithNumber(index);
-            int UIActivated = SkillTree.instance.returnLevel(index) - 1;
-            if (UIActivated <= Children[index].Count)
+            if (SkillTree.instance.UpgradeWithNumber(index)) {
+                playerStats.DecreaseSkillPoints();
+            
+                Debug.Log(index);
+                
+                int UIActivated = SkillTree.instance.returnLevel(index) - 1;
+                if (UIActivated - 1 >= 0) {
+                    Children[index][UIActivated - 1].GetComponent<DragDropSkill>().enabled = false;
+                }
+                if (UIActivated <= Children[index].Count)
+                {
+                    Transform transformActivated = Children[index][UIActivated];
+                    transformActivated.GetComponentInChildren<Image>().color = Color.white;
+                    Children[index][UIActivated].GetComponent<DragDropSkill>().enabled = true;
+                }
+            } 
+            else 
             {
-                Transform transformActivated = Children[index][UIActivated];
-                transformActivated.GetComponentInChildren<Image>().color = Color.white;
-                Children[index][UIActivated].GetComponent<DragDropSkill>().enabled = true;
+                Debug.Log("Already max level");
+                DisplayTextManager.instance.Display("Already Max Level!", 2f);
             }
+            
         } else
         {
             Debug.Log("Not enough skill points");
+            DisplayTextManager.instance.Display("Not enough Skill Points", 2f);
+        }
+    }
+
+    // upgrades the ui, and enables the slot to be dragged
+    public void UpgradeSkillInUI(int skillNum, int level) {
+        skillNum -= 1;
+        //Debug.Log("index of skill that is turned white"+ skillNum);
+        //int UIActivated = SkillTree.instance.returnLevel(index) - 1;
+        //Debug.Log("skill level that is achieved" + UIActivated);
+        for (int levelToUpgrade = 0; levelToUpgrade < level ; levelToUpgrade++) {
+            Transform transformActivated = Children[skillNum][levelToUpgrade];
+            transformActivated.GetComponentInChildren<Image>().color = Color.white;
+            if (levelToUpgrade - 1 >= 0) {
+                Children[skillNum][levelToUpgrade - 1].GetComponent<DragDropSkill>().enabled = false;
+            }
+            Children[skillNum][levelToUpgrade].GetComponent<DragDropSkill>().enabled = true;
+        }
+        
+    }
+
+    // Upgrades the skill tree ui based on the skill tree
+    void NewSceneSetUp() {
+        for (int skillNum = 0; skillNum < SkillTree.instance.skillTree.Count ; skillNum++) {
+            KeyValuePair<Skill, int> pair = SkillTree.instance.skillTree[skillNum];
+            UpgradeSkillInUI(skillNum + 1, pair.Value);
         }
     }
 
