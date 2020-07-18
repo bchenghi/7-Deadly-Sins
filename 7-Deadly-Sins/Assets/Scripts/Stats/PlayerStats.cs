@@ -22,7 +22,7 @@ public class PlayerStats : CharacterStats
     {
         base.Start();
         //CurrentMana = maxMana;
-        //playerManaUI.SetMaxMana(maxMana);
+        playerManaUI.SetMana(CurrentMana);
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
         NewSceneSetUp();
         IncreaseSkillPoints(2);
@@ -147,11 +147,10 @@ public class PlayerStats : CharacterStats
             }
         }
         
-        /* these stats are set up in save load, load method
         SetHealth(SaveLoad.instance.HP);
         SetMana(SaveLoad.instance.Mana);
         SetSkillPoints(SaveLoad.instance.SkillPoints);
-        */
+        
     }
     
 

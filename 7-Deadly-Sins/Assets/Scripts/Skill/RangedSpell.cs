@@ -30,8 +30,13 @@ public class RangedSpell : Skill, IUsable
     public override void Use()
     {
 
-        if (isCoolingDown || !EnoughMana())
+        if (isCoolingDown)
         {
+            //DisplayTextManager.instance.Display("Skill Cooling Down", 2f);
+            return;
+        }
+        if (!EnoughMana()) {
+            //DisplayTextManager.instance.Display("Not enough mana", 2f);
             return;
         }
         // Increase Bonus Damage
@@ -69,10 +74,12 @@ public class RangedSpell : Skill, IUsable
                 float distance = Vector3.Distance(player.transform.position, interactable.transform.position);
                 if (distance <= spellRadius)
                 {
-                    
                     player.GetComponent<PlayerAnimator>().CastRangeSpell();
                     target = hit.collider.GetComponent<Interactable>().transform;
-                    if (target.GetComponent<EnemyStats>().currentHealth > 0)
+                    if ((target.GetComponent<EnemyStats>() &&
+                    target.GetComponent<EnemyStats>().currentHealth > 0) || 
+                    (target.GetComponent<ClownStats>() && 
+                    target.GetComponent<ClownStats>().currentHealth > 0))
                     {
                         hasActivated = true;
                         effectHandler.targetHit = false;

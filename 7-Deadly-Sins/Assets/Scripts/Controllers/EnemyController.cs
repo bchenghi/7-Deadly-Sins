@@ -71,11 +71,11 @@ public class EnemyController : MonoBehaviour
         }
 
         
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distanceToTarget = Vector3.Distance(target.position, transform.position);
 
         if (!combat.dead)
         {
-            if (distance <= agent.stoppingDistance)
+            if (distanceToTarget <= agent.stoppingDistance)
             {
                 agent.stoppingDistance = StoppingDist;
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
@@ -91,14 +91,14 @@ public class EnemyController : MonoBehaviour
                    
                 }
             }
-            else if (distance <= lookRadius)
+            else if (distanceToTarget <= lookRadius)
             {
                 agent.stoppingDistance = StoppingDist;
                 agent.SetDestination(target.position);
                 DecideOnChasing();
                 PlayerTargeted = true;
             }
-            else if (distance > lookRadius)
+            else if (distanceToTarget > lookRadius)
             {
                 if (FreeRoamer)
                 {

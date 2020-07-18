@@ -35,6 +35,7 @@ public class HotKeyBar : MonoBehaviour
     {
         if (index >= 0 && index < HotKeyString.Length)
         {
+            Debug.Log("index in usehotkey: " + index);
             Hotkeys[index].UseUsable();
         }
     }

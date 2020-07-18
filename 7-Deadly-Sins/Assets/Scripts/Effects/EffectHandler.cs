@@ -15,6 +15,8 @@ public class EffectHandler : MonoBehaviour
     EffectsManager effectsManager;
     Transform targetEnemy;
     public bool targetHit = false;
+    // effect location used for potions and blood
+    Transform chestAreaEffectLocation;
     /*public void EffectEvent(int number)
     {
         effectsManager.EnableEffectObject(number);
@@ -53,6 +55,18 @@ public class EffectHandler : MonoBehaviour
     {
         effectsManager = EffectsManager.instance;
         SmashDownSwitches = new bool[3];
+
+        Transform[] ts = transform.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in ts)
+        {
+            //Debug.Log(t.gameObject.name);
+            if (t.gameObject.name == "ChestAreaEffectLocation")
+            {
+                chestAreaEffectLocation = t;
+                break;
+            }
+        }
+        
     }
 
     //Activates the skill, after skill use time is over, deactivate after skill use time
@@ -142,7 +156,8 @@ public class EffectHandler : MonoBehaviour
         effectNumber = Random.Range(0, effectNumber);
         effectsManager.EnableMischellenousEffect(effectNumber);
         Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
-        effect.position = new Vector3(targetPos.position.x, targetPos.position.y + 0.7f, targetPos.position.z);
+        effect.position = chestAreaEffectLocation.position;
+        // new Vector3(targetPos.position.x, targetPos.position.y + 0.7f, targetPos.position.z);
         effectsManager.ActivateParticleSystem(effect);
 
     }
@@ -151,7 +166,8 @@ public class EffectHandler : MonoBehaviour
     {
         effectsManager.EnableMischellenousEffect(effectNumber);
         Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
-        effect.position = new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
+        effect.position = chestAreaEffectLocation.position;
+        // new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z);
         effectsManager.ActivateParticleSystem(effect);
     }
 
@@ -210,7 +226,7 @@ public class EffectHandler : MonoBehaviour
     public IEnumerator SmokeEffectCoroutine(Vector3 targetPos, int effectNumber, float duration) {
         Transform effect = Instantiate(effectsManager.returnMichellenousEffects(effectNumber));
         effect.gameObject.SetActive(true);
-        effect.position = new Vector3(targetPos.x, targetPos.y, targetPos.z);
+        effect.position = targetPos;
 
         effectsManager.ActivateParticleSystem(effect);
         yield return new WaitForSeconds(duration);

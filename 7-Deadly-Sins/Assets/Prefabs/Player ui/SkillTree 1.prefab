@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!1 &1450639833307644860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1283,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1450639834208351069}
   - component: {fileID: 1450639834208351068}
-  - component: {fileID: 1450639834208351071}
   - component: {fileID: 1450639834208351070}
   m_Layer: 5
   m_Name: SkillTree 1
@@ -1321,26 +1321,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450639834208351066}
   m_CullTransparentMesh: 0
---- !u!114 &1450639834208351071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450639834208351066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b318a46c25d84418613c7be8256222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills:
-  - {fileID: 1450639833524659289}
-  - {fileID: 1450639833524659289}
-  - {fileID: 1450639833524659289}
-  - {fileID: 1450639833524659289}
-  - {fileID: 1450639833248641642}
-  - {fileID: 1450639833248641642}
-  - {fileID: 1450639833248641642}
 --- !u!114 &1450639834208351070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,6 +2095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639833524659289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,6 +2292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639833530553339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,6 +2415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639834727617180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2555,6 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639833510758259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,6 +2686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639833913572152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3074,6 +3059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639834926596588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3346,6 +3332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639833746848093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3493,6 +3480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7de02687d4f674080ff98e3d3514cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllDragDrops: {fileID: 0}
 --- !u!114 &1450639834334670775
 MonoBehaviour:
   m_ObjectHideFlags: 0

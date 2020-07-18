@@ -99,6 +99,7 @@ public class HotKey : MonoBehaviour
         {
             if (_usable != null)
             {
+                Debug.Log("using usable: " + _usable);
                 _usable.Use();
                 isUsed = true;
             }
