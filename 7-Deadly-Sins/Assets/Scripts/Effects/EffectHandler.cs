@@ -64,6 +64,12 @@ public class EffectHandler : MonoBehaviour
         
     }
 
+    public void SetEffectAtPlayer(int effectNumber)
+    {
+        Transform effect = EffectsManager.instance.returnEffect(effectNumber);
+        effect.position = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {

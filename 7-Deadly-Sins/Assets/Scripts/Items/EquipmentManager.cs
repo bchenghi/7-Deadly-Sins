@@ -77,26 +77,6 @@ public class EquipmentManager : MonoBehaviour
     }
 
 
-    /*
-    public void Equip(Equipment newEquipment)
-    {
-        int slotIndex = (int)newEquipment.equipmentSlot;
-        Equipment oldEquipment = Unequip(slotIndex);
-        currentEquipment[slotIndex] = newEquipment;
-
-        if (onEquipmentChanged != null)
-        {
-            onEquipmentChanged.Invoke(newEquipment, oldEquipment);
-        }
-
-        SetEquipmentBlendShapes(newEquipment, 100);
-
-        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
-        newMesh.bones = targetMesh.bones;
-        newMesh.rootBone = targetMesh.rootBone;
-        currentMeshes[slotIndex] = newMesh;
-    }
-    */
 
     public Equipment Unequip(int slotIndex)
     {

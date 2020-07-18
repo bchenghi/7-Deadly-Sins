@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -31,6 +32,8 @@ public class EnemyController : MonoBehaviour
     public float easyRoamZ;
     private float initialRoamPointX;
     private float initialRoamPointZ;
+    [HideInInspector]
+    public bool isStunned;
 
     // Start is called before the first frame update
      void Start()
@@ -73,7 +76,7 @@ public class EnemyController : MonoBehaviour
         
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if (!combat.dead)
+        if (!combat.dead && !isStunned)
         {
             if (distance <= agent.stoppingDistance)
             {
@@ -174,6 +177,18 @@ public class EnemyController : MonoBehaviour
     public bool Approximately(float a, float b, float epsilon)
     {
         return (Mathf.Abs(a - b) < epsilon) || (Mathf.Approximately(Mathf.Abs(a - b), epsilon));
+    }
+
+    public void StopMovement()
+    {
+        agent.isStopped = true;
+        isStunned = true;
+    }
+
+    public void StartMovement()
+    {
+        agent.isStopped = false;
+        isStunned = false;
     }
 
     
