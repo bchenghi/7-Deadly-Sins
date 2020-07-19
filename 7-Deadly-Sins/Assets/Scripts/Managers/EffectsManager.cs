@@ -183,6 +183,10 @@ public class EffectsManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        DisableAllEffects();
+    }
+
+    public void DisableAllEffects() {
         DisableAll();
         DisableAllMischellenous();
     }
