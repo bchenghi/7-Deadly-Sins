@@ -361,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &341183273
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,7 +1089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1011442528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1713,7 +1713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1049435772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2234,7 +2234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1368046902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2303,7 +2303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368046901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 17}
+  m_LocalPosition: {x: -3, y: 0, z: 12.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 341183273}
@@ -2339,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 5327309865314210140, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5327309865314210142, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -2350,6 +2350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StoppingDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327309865314210143, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: m_Speed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9202316114538406728, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -2447,7 +2452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1447902806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2463,21 +2468,21 @@ MonoBehaviour:
   delayBeforeStartWaves: 3
   delayBetweenWaves: 80
   waves:
-  - numberOfEnemies: 5
+  - numberOfEnemies: 6
     enemiesToChooseFrom:
     - {fileID: 1140939475392033013}
     - {fileID: 1809331012}
-    delayBetweenEachSpawn: 5
-  - numberOfEnemies: 5
+    delayBetweenEachSpawn: 1
+  - numberOfEnemies: 6
     enemiesToChooseFrom:
     - {fileID: 1140939475392033013}
     - {fileID: 1135014764}
-    delayBetweenEachSpawn: 5
-  - numberOfEnemies: 5
+    delayBetweenEachSpawn: 1
+  - numberOfEnemies: 6
     enemiesToChooseFrom:
     - {fileID: 1809331012}
     - {fileID: 1135014764}
-    delayBetweenEachSpawn: 5
+    delayBetweenEachSpawn: 1
   regionsToSpawn: {fileID: 1447902807}
   infiniteLoop: 0
   done: 0
@@ -2497,7 +2502,7 @@ MonoBehaviour:
   - lowerXYZValues: {x: -1, y: 0, z: -24}
     higherXYZValues: {x: 12, y: 0, z: 17}
   - lowerXYZValues: {x: -15, y: 0, z: -7}
-    higherXYZValues: {x: -3, y: 0, z: 17}
+    higherXYZValues: {x: -3, y: 0, z: 12.4}
 --- !u!4 &1447902808
 Transform:
   m_ObjectHideFlags: 0
@@ -2546,7 +2551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1477620293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2868,7 +2873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2014166527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,7 +3255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30a245ee1b8d1438840df23757caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveManager: {fileID: 2014166527}
+  waveManager: {fileID: 1447902806}
 --- !u!4 &2119729549
 Transform:
   m_ObjectHideFlags: 0
@@ -3411,11 +3416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa49eea7bbbd8b24b9588b12853c0a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 50
   damage:
-    baseValue: 0
+    baseValue: 20
   armor:
-    baseValue: 0
+    baseValue: 5
   enemyDeathSound: 
   lootDrop: {fileID: 0}
 --- !u!195 &1140939475392033020
@@ -4602,7 +4607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e469058dc277d458ac97705c7f73d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.2
+  attackSpeed: 0.1
   SpecialActivated: 0
   count: 0
   attackDistance: 3
@@ -4641,13 +4646,14 @@ GameObject:
   - component: {fileID: 9083884964452029512}
   - component: {fileID: 9083884964452029513}
   - component: {fileID: 2351128841660474219}
+  - component: {fileID: 9083884964452029527}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &9083884964452029525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4678,3 +4684,25 @@ MonoBehaviour:
   radius: 3
   interactionTransform: {fileID: 9083884964452029517}
   name: Boss
+--- !u!114 &9083884964452029527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083884964452029524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3bac87b9f58e14781d843588e559ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeStartWaves: 5
+  delayBetweenWaves: 30
+  waves:
+  - numberOfEnemies: 2
+    enemiesToChooseFrom:
+    - {fileID: 1809331012}
+    delayBetweenEachSpawn: 0
+  regionsToSpawn: {fileID: 1447902807}
+  infiniteLoop: 1
+  done: 0

@@ -88,8 +88,9 @@ public class EquipmentManager : MonoBehaviour
                 Destroy(currentMeshes[slotIndex].gameObject);
             }
             SetEquipmentBlendShapes(equipment, 0);
-            Inventory.instance.Add(equipment);
             currentEquipment[slotIndex] = null;
+            Inventory.instance.Add(equipment);
+            
 
 
             if (onEquipmentChanged != null)

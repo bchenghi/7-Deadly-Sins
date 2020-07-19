@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -36,7 +37,14 @@ public class PlayerManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       StartCoroutine(PlayerDeathCoroutine());
+    }
+
+    IEnumerator PlayerDeathCoroutine() {
+        RuntimeAnimatorController animController = player.GetComponentInChildren<Animator>().runtimeAnimatorController;
+        float durationOfDeathAnim = Array.Find(animController.animationClips, x => x.name == "Sword And Shield Death").length;
+        yield return new WaitForSeconds(durationOfDeathAnim);
+        SceneLoader.instance.LoadWithoutStats(SceneManager.GetActiveScene().buildIndex);
     }
 
     

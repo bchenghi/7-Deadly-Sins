@@ -62,7 +62,9 @@ public class AnimationEventReceiver : MonoBehaviour
 
     public void StopDrinkingEvent()
     {
-        controller.DisablePotionGFX();
+        if (potionUsed == null) {
+            controller.DisablePotionGFX();
+        }
     }
 
     public void EffectEventSmash(int number)
