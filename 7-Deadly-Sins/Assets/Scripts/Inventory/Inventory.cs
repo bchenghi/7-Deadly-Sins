@@ -400,7 +400,7 @@ public class Inventory : MonoBehaviour
     // that was upgradable and return true, else returns false
     public bool UpgradeEquipment(Equipment equipment) {
         foreach (KeyValuePair<Item, int> pair in items) {
-            if (pair.Key.Equals(equipment)) {
+            if (pair.Key.name == (equipment.name)) {
                 if (((Equipment) pair.Key).CanUpgrade()) {
                     ((Equipment) pair.Key).Upgrade();
                     return true;
@@ -423,7 +423,9 @@ public class Inventory : MonoBehaviour
                 return true;
             }
         } else if (Inventory.instance.Exists(equipment)) {
+            //Debug.Log("exists in inventory");
             if (Inventory.instance.UpgradeEquipment(equipment)) {
+                //Debug.Log("upgrade in inventory");
                 return true;
             }
         } 

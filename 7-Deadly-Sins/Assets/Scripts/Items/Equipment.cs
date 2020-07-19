@@ -51,6 +51,7 @@ public class Equipment : Item
     }
 
     public bool CanUpgrade() {
+        //Debug.Log("level " + level + " maxLevel " + maxLevel);
         return level < maxLevel;
     }
 
