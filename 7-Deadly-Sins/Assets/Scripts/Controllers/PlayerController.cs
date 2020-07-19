@@ -366,6 +366,7 @@ public class PlayerController : MonoBehaviour
         return !animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction") &&
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Punching") &&
             !animator.GetCurrentAnimatorStateInfo(0).IsName("Land") &&
+            !GetComponent<CharacterCombat>().dead &&
             actionsAllowed;
     }
 

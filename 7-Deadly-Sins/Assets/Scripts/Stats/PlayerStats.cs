@@ -64,7 +64,10 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
         PlayerManager.instance.KillPlayer();
+        Destroy(this);
     }
+
+    
 
 
     public void DecreaseMana(int reduce)

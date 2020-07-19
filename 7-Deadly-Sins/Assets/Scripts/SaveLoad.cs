@@ -80,6 +80,7 @@ public class SaveLoad : MonoBehaviour
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
             
             Debug.Log(playerJson.ToString());
+            useTheseStats = true;
         } else 
         {
             GoldCounter.instance.SetGold(Gold);
@@ -87,7 +88,6 @@ public class SaveLoad : MonoBehaviour
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
             // -2 skill points as in player stats start method, skill points will increase by 2
             PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseSkillPoints(SkillPoints - 2);
-            useTheseStats = false;
         }
         
     }
