@@ -20,4 +20,13 @@ public class Item : ScriptableObject
    public virtual int GetPrice() {
        return 0;
    }
+
+   public override bool Equals(object other) {
+       if (other is Item) {
+           return this.name == ((Item) other).name;
+       } else {
+           return false;
+       }
+       
+   }
 }

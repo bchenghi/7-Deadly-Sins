@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item
@@ -10,6 +11,11 @@ public class Equipment : Item
     public EquipmentMeshRegion[] coveredMeshRegions;
     public int armorModifier;
     public int damageModifier;
+
+    public int level = 0;
+    int maxLevel = 2;
+
+    float[] statsLevelIncreaseFactors = new float[] {1, 1.5f, 2};
 
     public override void Use()
     {
@@ -22,8 +28,32 @@ public class Equipment : Item
     }
 
     public override int GetPrice(){
-        return (int) (armorModifier + damageModifier) * 10;
+        return (int) (ArmorModifier() + DamageModifier()) * 10;
     }
+
+    public void Upgrade() {
+        if (level < maxLevel) {
+            level++;
+            DisplayTextManager.instance.Display("Upgraded " + name + " to Level " + (level + 1), 2f);
+        }
+        else
+        {
+            Debug.Log("max level for equipment reached");
+        }
+    }
+
+    public int ArmorModifier() {
+        return (int) Math.Floor(armorModifier * statsLevelIncreaseFactors[level]);
+    }
+
+    public int DamageModifier() {
+        return (int) Math.Floor(damageModifier * statsLevelIncreaseFactors[level]);
+    }
+
+    public bool CanUpgrade() {
+        return level < maxLevel;
+    }
+
 }
 
 public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet}

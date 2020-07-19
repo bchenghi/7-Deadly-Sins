@@ -38,20 +38,24 @@ public class PlayerStats : CharacterStats
 
     }
 
+    public void UpdateStatUI() {
+        statUIManager.UpdateStatUIs();
+    }
+
 
 
     void onEquipmentChanged (Equipment newItem, Equipment oldItem)
     {
         Debug.Log("equipment changed called in player stats");
         if (newItem != null) {
-            armor.AddModifier(newItem.armorModifier);
-            damage.AddModifier(newItem.damageModifier);
+            armor.AddModifier(newItem.ArmorModifier());
+            damage.AddModifier(newItem.DamageModifier());
         }
 
         if (oldItem != null)
         {
-            armor.RemoveModifier(oldItem.armorModifier);
-            damage.RemoveModifier(oldItem.damageModifier);
+            armor.RemoveModifier(oldItem.ArmorModifier());
+            damage.RemoveModifier(oldItem.DamageModifier());
         }
         statUIManager.UpdateStatUIs();
     }

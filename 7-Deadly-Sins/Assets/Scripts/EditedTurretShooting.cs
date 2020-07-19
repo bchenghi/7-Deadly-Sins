@@ -23,6 +23,7 @@ public class EditedTurretShooting : MonoBehaviour
 
     [HideInInspector]
     public bool canShoot = false;
+    SoundHandler soundHandler;
 
     
 
@@ -35,7 +36,7 @@ public class EditedTurretShooting : MonoBehaviour
     {
         player = PlayerManager.instance.player;
         originalZoom = changeCamera.GetComponent<ParentCameraController>().dstFromTarget;
-        
+        soundHandler = GetComponent<SoundHandler>();
     }
 
     // Update is called once per frame
@@ -61,6 +62,7 @@ public class EditedTurretShooting : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, TurretRange, TargetMask))
                 {
+                    soundHandler.PlaySoundByName(transform, "GunShot");
                     float distance = Vector3.Distance(player.transform.position, hit.point);
                     if (distance <= TurretRange)
                     {

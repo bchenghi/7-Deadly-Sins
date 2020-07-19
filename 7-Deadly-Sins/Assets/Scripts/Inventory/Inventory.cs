@@ -92,6 +92,11 @@ public class Inventory : MonoBehaviour
 
     public bool AddNormalItem(Item item)
     {
+        // Will search for item in equipment and inventory and upgrade it instead of assigning a slot
+        if (item is Equipment && SearchAndUpgrade((Equipment) item)) {
+            return true;
+        } 
+
         if (SlotsUsed() < space)
         {
             items.Add(new KeyValuePair<Item, int>(item, 1));
@@ -389,6 +394,40 @@ public class Inventory : MonoBehaviour
             }
         }
         return null;
+    }
+
+    // Will loop through the items, will upgrade the first instance of equipment 
+    // that was upgradable and return true, else returns false
+    public bool UpgradeEquipment(Equipment equipment) {
+        foreach (KeyValuePair<Item, int> pair in items) {
+            if (pair.Key.Equals(equipment)) {
+                if (((Equipment) pair.Key).CanUpgrade()) {
+                    ((Equipment) pair.Key).Upgrade();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // Will first search through equipment manager and upgrade equipment if found, otherwise will search through
+    // Inventory and upgrade equipment if found and return true. If cant be found or not upgraded, return false;
+    bool SearchAndUpgrade(Equipment equipment) {
+        if (EquipmentManager.instance.IsEquipped(equipment)) {
+            if (EquipmentManager.instance.ReferenceToEquipment(equipment).CanUpgrade()) {
+                //PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateStatUI();
+                int equipmentSlot = (int) EquipmentManager.instance.ReferenceToEquipment(equipment).equipmentSlot;
+                Equipment equipmentToUpdate = EquipmentManager.instance.UnequipWithoutAddingToInventory(equipmentSlot);
+                equipmentToUpdate.Upgrade();
+                EquipmentManager.instance.Equip(equipmentToUpdate);
+                return true;
+            }
+        } else if (Inventory.instance.Exists(equipment)) {
+            if (Inventory.instance.UpgradeEquipment(equipment)) {
+                return true;
+            }
+        } 
+        return false;
     }
 }
 

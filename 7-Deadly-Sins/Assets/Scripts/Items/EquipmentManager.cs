@@ -137,6 +137,33 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+
+    // Removes from current equipment, doesnt add to inventory, then requips the equipment
+    public Equipment UnequipWithoutAddingToInventory(int slotIndex) {
+        Equipment equipment = currentEquipment[slotIndex];
+        if (equipment != null)
+        {
+            if (currentMeshes[slotIndex] != null)
+            {
+                Destroy(currentMeshes[slotIndex].gameObject);
+            }
+            SetEquipmentBlendShapes(equipment, 0);
+            //Inventory.instance.Add(equipment);
+            currentEquipment[slotIndex] = null;
+
+
+            if (onEquipmentChanged != null)
+            {
+                onEquipmentChanged.Invoke(null, equipment);
+            }
+
+            
+        }
+        return equipment;
+
+        
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.U))
@@ -150,6 +177,28 @@ public class EquipmentManager : MonoBehaviour
             if (equipment != null)
                 Equip(equipment);
         }
+    }
+
+    public bool IsEquipped(Equipment equipment) {
+        bool result = false;
+        foreach(Equipment wornEquipment in currentEquipment) {
+            if (wornEquipment != null && wornEquipment.Equals(equipment)) {
+                result = true;
+                break;
+            } 
+        }
+        return result;
+    }
+
+    public Equipment ReferenceToEquipment(Equipment equipment) {
+        Equipment reference = null;
+        foreach(Equipment wornEquipment in currentEquipment) {
+            if (wornEquipment != null && wornEquipment.Equals(equipment)) {
+                reference = wornEquipment;
+                break;
+            }
+        }
+        return reference;
     }
 }
 
