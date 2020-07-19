@@ -91,7 +91,10 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                         
                         
                     
-                    }
+                    } else if (result.gameObject.CompareTag("SellButton"))
+                {
+                    result.gameObject.transform.GetComponent<SellButton>().OpenQuanityText();
+                }
                 }
             }
             itemBeingDragged = null;

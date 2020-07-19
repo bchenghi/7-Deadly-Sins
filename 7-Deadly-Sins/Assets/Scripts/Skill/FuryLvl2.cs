@@ -48,6 +48,7 @@ public class FuryLvl2 : Skill, IUsable
     {
         // Start cooldown routine
         StartCoroutine(CoolDownRoutine());
+        AudioManager.instance.Play(soundEffect);
         PlayerManager.instance.player.GetComponent<PlayerStats>().damage.AddModifier(5 * skillLevel);
         PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(7, 5);
         PlayerManager.instance.player.GetComponent<EffectHandler>().effectNum = 7;

@@ -11,6 +11,7 @@ public class Skill : MonoBehaviour
     public bool isCoolingDown;
     public float CooldownTime;
     public int ManaCost;
+    public string soundEffect;
 
     [HideInInspector]
     public string Description;
