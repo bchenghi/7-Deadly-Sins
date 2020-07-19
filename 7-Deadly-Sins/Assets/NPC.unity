@@ -4457,6 +4457,11 @@ PrefabInstance:
       propertyPath: skillTreeUI
       value: 
       objectReference: {fileID: 180767667}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: startSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -42797,6 +42802,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!4 &1850989321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8528820825029762706, guid: a05d4d94c1106004abcd87df4b8f1777,

@@ -48,6 +48,8 @@ public class CharacterStats : MonoBehaviour
         {
             OnHealthChanged(maxHealth, currentHealth);
         }
+        
+        GetComponent<EffectHandler>().BloodEffectEvent(transform, 2);
 
         if (currentHealth <= 0 && combat != null && !combat.dead)
         {
@@ -56,7 +58,7 @@ public class CharacterStats : MonoBehaviour
 
         }
 
-        GetComponent<EffectHandler>().BloodEffectEvent(transform, 2);
+        
     }
 
     public void IncreaseHealth(int healthIncrease)

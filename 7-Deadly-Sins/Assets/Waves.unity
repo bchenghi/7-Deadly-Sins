@@ -5295,74 +5295,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[13].name
-      value: Whoosh
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[13].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9979ef9c774af424f97d34354a3e9fd3, type: 3}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[13].volume
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[13].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[14].name
-      value: Whoosh1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[14].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ea9a6325964ebaf419e27510802aab24, type: 3}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[14].volume
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[14].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[15].name
-      value: Fireball
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[15].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5e536a30598dd4e47adcfd21c35cbd8b, type: 3}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[15].volume
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[15].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[16].name
-      value: Magic Impact
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[16].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9a236734f7929e24aaef7bc60fc61836, type: 3}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[16].volume
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[16].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_Name
@@ -5960,7 +5892,7 @@ PrefabInstance:
     - target: {fileID: 8742741954223640637, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.06
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8742741954223640637, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
@@ -6656,7 +6588,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 1109671531}
 --- !u!114 &853200439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6739,6 +6670,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &853200444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8480,7 +8412,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lootDrops.Array.data[0]
       value: 
-      objectReference: {fileID: -927199367670048503, guid: 45fb3b613218da844b047d1f9349e0d6,
+      objectReference: {fileID: 8785931777824289622, guid: 9ec76c65ef4b39348ad480c252ae76fa,
         type: 3}
     - target: {fileID: 9202316114538406728, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -10209,7 +10141,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!1001 &1313244533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10592,7 +10523,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!1001 &1367427744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10854,6 +10784,11 @@ PrefabInstance:
       propertyPath: skillTreeUI
       value: 
       objectReference: {fileID: 1830799468}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: startSound
+      value: Ghosts In The Wind
+      objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -12359,11 +12294,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580739232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2967a2f3a0818bd4ebfef997a5bc5e17, type: 3}
+  m_Script: {fileID: 11500000, guid: 284dce4c3c1c8494d99221fdb35c0b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setActiveTo: 1
-  objectToChangeActiveState: {fileID: 767081502}
+  objectToTeleport: {fileID: 767081502}
+  regionsToTeleport: {fileID: 1580739233}
+  minDistanceFromPlayer: 3
 --- !u!114 &1580739236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25428,10 +25364,6 @@ MonoBehaviour:
   - {fileID: 1932988824525966742}
   - {fileID: 1932988824166662864}
   - {fileID: 1932988825519132969}
-  button1: {fileID: 1932988825597041907}
-  button2: {fileID: 1932988824407106630}
-  button3: {fileID: 1932988824198731462}
-  button4: {fileID: 1932988823835528813}
   Counter: {fileID: 1932988824682415855}
 --- !u!224 &1932988825491033706
 RectTransform:
@@ -28086,7 +28018,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 1147960780}
 --- !u!224 &7526445441605413187
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32863,6 +32794,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &8582899300706659011
 MonoBehaviour:
   m_ObjectHideFlags: 0
