@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7978406696601800440}
   - component: {fileID: -4405481436264931927}
   m_Layer: 0
-  m_Name: SphereCollider
+  m_Name: SphereColliderForStun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,8 +58,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac861af291449244905f6ef126c54ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StunCircle: {fileID: 3694618116226825391, guid: 33c58a81570c73249ac7f796b019b91c,
+    type: 3}
   damage: 0
   stunTime: 0
+  isActive: 0
 --- !u!54 &-4405481436264931927
 Rigidbody:
   m_ObjectHideFlags: 0

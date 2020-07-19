@@ -33,6 +33,7 @@ public class SmashDownLvl2 : Skill, IUsable
     IEnumerator attackWithinTime()
     {
         StartCoroutine(CoolDownRoutine());
+        AudioManager.instance.Play(soundEffect);
         int currentDamage = playerStats.damage.GetValue();
         playerStats.damage.AddModifier(currentDamage * skillLevel);
         nextAttackDone = false;

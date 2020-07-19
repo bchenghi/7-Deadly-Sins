@@ -40,6 +40,7 @@ public class AOESkill : Skill, IUsable
     {
         PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(skillEffectNumber, 2);
         PlayerManager.instance.player.GetComponent<EffectHandler>().SetEffectAtPlayer(skillEffectNumber);
+        AudioManager.instance.Play(soundEffect);
 
     }
 

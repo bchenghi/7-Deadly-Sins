@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Lifetime;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -68,30 +70,54 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             {
                 foreach (var result in raycastResults)
                 {
-                    //Debug.Log(result);
-                    if (result.gameObject.CompareTag("Hotkey"))
+                //Debug.Log(result);
+                if (result.gameObject.CompareTag("Hotkey"))
+                {
+
+
+
+
+                    if (itemBeingDragged.GetComponentInParent<InventorySlot>().item is IUsable)
                     {
 
-                        
-                        
-                    
-                        if (itemBeingDragged.GetComponentInParent<InventorySlot>().item is IUsable)
-                        {
-                        
 
-                            var obj = itemBeingDragged.GetComponentInParent<InventorySlot>().item;
-                            var castedObj = obj as IUsable;
+                        var obj = itemBeingDragged.GetComponentInParent<InventorySlot>().item;
+                        var castedObj = obj as IUsable;
 
-                           
-                            result.gameObject.GetComponentInParent<HotKey>().SetUsable(castedObj);
-                            break;
-                        }
-                        
-                    
-                        
-                        
-                    
+
+                        result.gameObject.GetComponentInParent<HotKey>().SetUsable(castedObj);
+                        break;
                     }
+
+
+
+
+
+                }
+                else if (result.gameObject.CompareTag("SellButton"))
+                {
+                    Vector3 scale = transform.localScale;
+                    SellManager.instance.itemTobeSold = itemBeingDragged.GetComponentInParent<InventorySlot>().item;
+                    Item item = itemBeingDragged.GetComponentInParent<InventorySlot>().item;
+                    if (itemBeingDragged.GetComponentInParent<InventorySlot>().count == 1 || itemBeingDragged.GetComponentInParent<InventorySlot>().consumableCounter.text == "" )
+                    {
+                        StartCoroutine(hideImage(transform, scale));
+                        SellManager.instance.SellSingleItem(item);
+                        
+                        
+                    }
+                    else
+                    {
+
+                        result.gameObject.transform.GetComponent<SellButton>().OpenQuanityText();
+                    }
+                }
+                        
+                            
+                        
+                        
+                            
+                
                 }
             }
             itemBeingDragged = null;
@@ -112,6 +138,13 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         if (clicked) {
             GetComponentInParent<Button>().onClick.Invoke();
         }
+    }
+
+    IEnumerator hideImage(Transform transform, Vector3 scale)
+    {
+        transform.localScale = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        transform.localScale = scale;
     }
 
     

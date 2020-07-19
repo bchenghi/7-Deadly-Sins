@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArmorBoostLvl2 : Skill, IUsable
 {
 
-   
+    
     public Sprite Image
     {
         get { return Icon; }
@@ -27,6 +27,7 @@ public class ArmorBoostLvl2 : Skill, IUsable
     {
         // Start cooldown routine
         StartCoroutine(CoolDownRoutine());
+        AudioManager.instance.Play(soundEffect);
         PlayerManager.instance.player.GetComponent<PlayerStats>().armor.AddModifier(10 * skillLevel);
         PlayerManager.instance.player.GetComponent<PlayerController>().walkSpeed -= 1;
         PlayerManager.instance.player.GetComponent<PlayerController>().runSpeed -= 3;

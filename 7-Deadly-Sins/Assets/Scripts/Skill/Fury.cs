@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fury : Skill, IUsable
 {
  
-
+    
     public Sprite Image
     {
         get { return Icon; }
@@ -48,6 +48,7 @@ public class Fury : Skill, IUsable
     {
         // Start cooldown routine
         StartCoroutine(CoolDownRoutine());
+        AudioManager.instance.Play(soundEffect);
         PlayerManager.instance.player.GetComponent<PlayerStats>().damage.AddModifier(5 * skillLevel);
         PlayerManager.instance.player.GetComponent<EffectHandler>().UseEffect(6, 5);
         PlayerManager.instance.player.GetComponent<EffectHandler>().effectNum = 6;

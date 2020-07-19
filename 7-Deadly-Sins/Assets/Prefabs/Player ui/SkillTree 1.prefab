@@ -417,6 +417,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: FurySound
   Description: 
   MaxSkillLevel: 0
 --- !u!225 &1450639833248641647
@@ -2357,6 +2358,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 5
   ManaCost: 10
+  soundEffect: AOESound
   Description: 
   MaxSkillLevel: 0
   sphereCollider: {fileID: 2337392907442468446, guid: 3dad7ef93a3b1fd488a538a872dd6da3,
@@ -2571,6 +2573,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 5
   ManaCost: 15
+  soundEffect: AOESound
   Description: 
   MaxSkillLevel: 0
   sphereCollider: {fileID: 2337392907442468446, guid: 3dad7ef93a3b1fd488a538a872dd6da3,
@@ -2711,6 +2714,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 5
   ManaCost: 20
+  soundEffect: AOESound
   Description: 
   MaxSkillLevel: 0
   sphereCollider: {fileID: 2337392907442468446, guid: 3dad7ef93a3b1fd488a538a872dd6da3,
@@ -3075,6 +3079,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 10
+  soundEffect: ArmorBoostSound
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &9106910661619365732
@@ -3272,6 +3277,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: SmashDownSound
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -3395,6 +3401,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 10
+  soundEffect: SmashDownSound
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -3518,6 +3525,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 30
+  soundEffect: FurySound
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1450639833432728657
@@ -3538,6 +3546,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 10
+  soundEffect: RangedSpellSound
   Description: 
   MaxSkillLevel: 0
   spellRadius: 8
@@ -3666,6 +3675,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 15
+  soundEffect: ArmorBoostSound
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &9106910662223741153
@@ -3761,6 +3771,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 15
+  soundEffect: RangedSpellSound
   Description: 
   MaxSkillLevel: 0
   spellRadius: 10
@@ -4039,6 +4050,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 15
+  soundEffect: SmashDownSound
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -4312,6 +4324,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: ArmorBoostSound
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1450639834915064122
@@ -4332,6 +4345,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 20
+  soundEffect: RangedSpellSound
   Description: 
   MaxSkillLevel: 0
   spellRadius: 15
@@ -4460,6 +4474,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 25
+  soundEffect: FurySound
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &9106910663565401681

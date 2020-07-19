@@ -81,6 +81,7 @@ public class RangedSpell : Skill, IUsable
                     (target.GetComponent<ClownStats>() && 
                     target.GetComponent<ClownStats>().currentHealth > 0))
                     {
+                        AudioManager.instance.Play(soundEffect);
                         hasActivated = true;
                         effectHandler.targetHit = false;
                         StartCoroutine(CoolDownRoutine());

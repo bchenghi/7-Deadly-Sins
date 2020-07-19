@@ -54,8 +54,23 @@ public class Equipment : Item
         return level < maxLevel;
     }
 
+    public override bool Equals(object other)
+    {
+        if (other is Equipment)
+        {
+            return this.name == ((Equipment)other).name && this.level == ((Equipment)other).level;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 }
 
 public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet}
 
 public enum EquipmentMeshRegion { Legs, Arms, Torso}; // Corresponds to body blend shapes
+
+
