@@ -8509,7 +8509,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &290073681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13714,6 +13713,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[23].name
+      value: Ghosts In The Wind
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[23].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c1f8c05379159c4a98cfee3ae1d134f, type: 3}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[23].volume
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[23].pitch
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[23].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
+      propertyPath: sounds.Array.data[18].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_Name
@@ -14949,7 +14972,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 1872763398}
 --- !u!114 &568488792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15612,7 +15634,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &592575113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21521,7 +21542,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &808508082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25465,7 +25485,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &952193400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32012,7 +32031,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &1189198890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32369,7 +32387,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &1192776486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41803,6 +41820,11 @@ PrefabInstance:
       propertyPath: skillTreeUI
       value: 
       objectReference: {fileID: 64489755}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: startSound
+      value: PuzzleBGM
+      objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -47691,7 +47713,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 2020277963}
 --- !u!114 &1851500168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51135,7 +51156,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!114 &2010622697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55029,7 +55049,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 0}
 --- !u!1 &450300552364606085
 GameObject:
   m_ObjectHideFlags: 0
