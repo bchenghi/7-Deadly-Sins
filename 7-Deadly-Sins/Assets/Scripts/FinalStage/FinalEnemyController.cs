@@ -38,6 +38,8 @@ public class FinalEnemyController : MonoBehaviour
     [HideInInspector]
     public bool hasDisappeared;
     EffectHandler effects;
+    [HideInInspector]
+    public bool isStunned;
 
     // Start is called before the first frame update
     void Start()
@@ -100,7 +102,7 @@ public class FinalEnemyController : MonoBehaviour
 
             float distance = Vector3.Distance(target.position, transform.position);
 
-            if (!combat.dead)
+            if (!combat.dead && !isStunned)
             {
                 if (distance <= agent.stoppingDistance)
                 {
@@ -219,4 +221,18 @@ public class FinalEnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
+
+    public void StopMovement()
+    {
+        agent.isStopped = true;
+        isStunned = true;
+    }
+
+    public void StartMovement()
+    {
+        agent.isStopped = false;
+        isStunned = false;
+        
+    }
+
 }

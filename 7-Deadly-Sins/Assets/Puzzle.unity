@@ -324,7 +324,7 @@ Transform:
   - {fileID: 1358049072}
   - {fileID: 788582402}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4243849
 GameObject:
@@ -8613,6 +8613,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &290073687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11850,8 +11851,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436440544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.146}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 0.9707508}
   m_Children: []
   m_Father: {fileID: 485040332}
   m_RootOrder: 0
@@ -13373,7 +13374,7 @@ PrefabInstance:
     - target: {fileID: 4431664082466234739, guid: 9896a77538c12b7459a12c8cd4aa5ab1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4431664082466234739, guid: 9896a77538c12b7459a12c8cd4aa5ab1,
         type: 3}
@@ -13723,6 +13724,11 @@ PrefabInstance:
       propertyPath: targetMesh
       value: 
       objectReference: {fileID: 1022188507}
+    - target: {fileID: 1128765268864473528, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: Sword
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473530, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15047,6 +15053,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &568488798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15709,6 +15716,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &592575119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21617,6 +21625,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &808508088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25560,6 +25569,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &952193406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29182,8 +29192,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090603521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.706665, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.841, y: 0, z: 0}
+  m_LocalScale: {x: 0.97317934, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485040332}
   m_RootOrder: 1
@@ -32106,6 +32116,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &1189198896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32463,6 +32474,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &1192776492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36143,7 +36155,7 @@ PrefabInstance:
     - target: {fileID: 4672259527038042114, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4672259527038042114, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
@@ -41009,7 +41021,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1556401808 stripped
 Transform:
@@ -41839,7 +41851,7 @@ PrefabInstance:
     - target: {fileID: 5743559167642815145, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815145, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
@@ -47782,6 +47794,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &1851500174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51226,6 +51239,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &2010622703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53095,7 +53109,7 @@ PrefabInstance:
     - target: {fileID: 3620425096901086158, guid: be9b1403532ac2c48819812917901d6b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3620425096901086158, guid: be9b1403532ac2c48819812917901d6b,
         type: 3}
@@ -60799,6 +60813,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &8075917419916428173
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5362071626588949195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5362071626588949194}
+  - component: {fileID: 5362071626588949192}
+  - component: {fileID: 5362071626588949193}
+  m_Layer: 10
+  m_Name: Falchion Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5362071626588949194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362071626588949195}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.251276, y: 0.087, z: -3.5300384}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children:
+  - {fileID: 4399942452043884201}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5362071626588949192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362071626588949195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1.47, z: 3.37}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5362071626588949193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5362071626588949195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6431f2629c4ef3f4793141ee2e839936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.16
+  interactionTransform: {fileID: 5362071626588949194}
+  item: {fileID: 11400000, guid: bc898041570363b4281d68c152220773, type: 2}
+--- !u!1001 &4612540987695943124
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5362071626588949194}
+    m_Modifications:
+    - target: {fileID: 7494906959112439037, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_Name
+      value: Falchion
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.4596907
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.53924155
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.521516
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47531477
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 7.2070003
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.242004
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -88.07001
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d9a3cd70f29e57478e364fe394ce764, type: 3}
+--- !u!4 &4399942452043884201 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9010776851596405629, guid: 3d9a3cd70f29e57478e364fe394ce764,
+    type: 3}
+  m_PrefabInstance: {fileID: 4612540987695943124}
+  m_PrefabAsset: {fileID: 0}

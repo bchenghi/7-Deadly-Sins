@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 8582899301195117351}
   - component: {fileID: 8582899301195117344}
   - component: {fileID: 8582899301195117345}
-  - component: {fileID: 8582899301195117346}
   - component: {fileID: 8582899301195117347}
   - component: {fileID: 8582899301195117357}
   - component: {fileID: 8582899301195117356}
@@ -161,32 +160,6 @@ MonoBehaviour:
     baseValue: 0
   enemyDeathSound: 
   lootDrop: {fileID: 0}
---- !u!114 &8582899301195117346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8582899301195117359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93335a8b99a873c4e930e6da7c4546b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookRadius: 47.3
-  moveSpot: {fileID: 0}
-  FreeRoamer: 0
-  minX: 0
-  maxX: 0
-  minZ: 0
-  maxZ: 0
-  startWaitTime: 0
-  PlayerTargeted: 0
-  PlayerCompanionTarget: {fileID: 0}
-  CompanionTargeted: 0
-  easyRoam: 0
-  easyRoamX: 0
-  easyRoamZ: 0
 --- !u!114 &8582899301195117347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +309,7 @@ MonoBehaviour:
   easyRoamZ: 0
   reachedTargetPoint: 0
   hasDisappeared: 0
+  isStunned: 0
 --- !u!1 &8582899301204226266
 GameObject:
   m_ObjectHideFlags: 0
