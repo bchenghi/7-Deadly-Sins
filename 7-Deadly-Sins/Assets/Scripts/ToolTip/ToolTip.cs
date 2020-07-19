@@ -29,6 +29,7 @@ public class ToolTip : MonoBehaviour
 
         // Below is to shift the anchor position when tooltip leaves screen so that it is always visible
         Vector2 anchoredPosition = transform.GetComponent<RectTransform>().anchoredPosition;
+        //Debug.Log("anchored position x " + anchoredPosition.x + " background width " + backgroundRectTransform.rect.width + " canvasRectTransform.rect.width " + canvasRectTransform.rect.width);
         if (anchoredPosition.x + backgroundRectTransform.rect.width > canvasRectTransform.rect.width)
         {
             anchoredPosition.x = canvasRectTransform.rect.width - backgroundRectTransform.rect.width;

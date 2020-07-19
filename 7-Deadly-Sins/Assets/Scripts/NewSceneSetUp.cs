@@ -27,24 +27,30 @@ public class NewSceneSetUp : MonoBehaviour
 
     [SerializeField]
     string[] level1SkillNames;
-    // Sets player and target mesh, and sets cursor to visible and unlocked
+
+    // Sets up components in gamemanager after transitioning to new scene, 
+    // and sets cursor to visible and unlocked
     void Awake(){
         
-        if (PlayerManager.instance.player == null) {
+        if (PlayerManager.instance != null && PlayerManager.instance.player == null) {
             PlayerManager.instance.player = player;
-        if (EquipmentManager.instance.targetMesh == null) {
+        if (EquipmentManager.instance != null && EquipmentManager.instance.targetMesh == null) {
             EquipmentManager.instance.targetMesh = targetMesh;
-        } if (EffectsManager.instance.EffectsPool == null) {
+        } if (EffectsManager.instance != null && EffectsManager.instance.EffectsPool == null) {
             EffectsManager.instance.EffectsPool = effectsPool;
-        } if (EffectsManager.instance.MichellenousEffects == null) {
+        } if (EffectsManager.instance != null && EffectsManager.instance.MichellenousEffects == null) {
             EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
         } 
         
         // sets up the skills for hotkeys to reference
-        skills = skillTreeUI.GetComponentsInChildren<Skill>(true);
-        HotKeyBarManager.instance.SetIUsableSkills(skills);
+        if (HotKeyBarManager.instance != null) {
+            skills = skillTreeUI.GetComponentsInChildren<Skill>(true);
+            HotKeyBarManager.instance.SetIUsableSkills(skills);
+        }
+
         // Sets up skills array in skill tree based on skill names sepcified in level1SkillNames
-        SkillTree.instance.NewSceneSetUp(skillTreeUI);
+        if (SkillTree.instance != null)
+            SkillTree.instance.NewSceneSetUp(skillTreeUI);
         
 
         Cursor.lockState = CursorLockMode.None;
@@ -52,6 +58,9 @@ public class NewSceneSetUp : MonoBehaviour
         }
     }
 
+
+    // Prepares the scene, such as making the player wear equipment, play bgm, 
+    // disable all effects, and load stats into scene
     void Start() {
         foreach(Equipment equipment in EquipmentManager.instance.currentEquipment){
             if (equipment != null){
@@ -63,7 +72,7 @@ public class NewSceneSetUp : MonoBehaviour
             AudioManager.instance.StopPlayingAll();
             AudioManager.instance.Play(startSound);
         }
-        EffectsManager.instance.Start();
+        EffectsManager.instance.DisableAllEffects();
         SaveLoad.instance.Load();
     }
 

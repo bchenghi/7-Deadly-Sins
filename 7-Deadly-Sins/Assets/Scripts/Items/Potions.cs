@@ -13,6 +13,8 @@ public class Potions : Consumables , IUsable
     
     public override void Use()
     {
+        PlayerManager.instance.player.GetComponent<PlayerController>().DisablePotionGFX();
+
         DisplayTextManager.instance.Display("Using " + name, 3f);
         if (Health)
         {
@@ -26,7 +28,7 @@ public class Potions : Consumables , IUsable
         PlayerAnimator playerAnim = PlayerManager.instance.player.GetComponent<PlayerAnimator>();
         AnimationEventReceiver animationEventReceiver = PlayerManager.instance.player.GetComponentInChildren<AnimationEventReceiver>();
         base.Use();
-       
+
         playerStats.SetIncreaseInStats(increaseStats, potUsed);
         Monobehaviour.instance.StartCoroutine(DisableHotkeyTiming(2.5f));
         Transform[] ts = PlayerManager.instance.player.transform.GetComponentsInChildren<Transform>(true);
