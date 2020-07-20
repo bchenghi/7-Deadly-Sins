@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 243819663}
   m_Direction: 2
   m_Value: 0.99999964
-  m_Size: 0.78501785
+  m_Size: 0.7850179
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4476,7 +4476,7 @@ PrefabInstance:
     - target: {fileID: 1450639834208351066, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1450639834208351069, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -4516,7 +4516,7 @@ PrefabInstance:
     - target: {fileID: 1450639834208351069, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1450639834208351069, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -4653,6 +4653,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -133.58234
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824435862229377674, guid: 3ecc34153685a0646867c8329988fe12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 914735343}
+    - target: {fileID: 6824435862229377674, guid: 3ecc34153685a0646867c8329988fe12,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Upgrade
       objectReference: {fileID: 0}
     - target: {fileID: 9106910661526747563, guid: 3ecc34153685a0646867c8329988fe12,
         type: 3}
@@ -5467,11 +5477,13 @@ MonoBehaviour:
   startSound: ShopBGM
   hotKeysParent: {fileID: 9162663820572830086}
   skillTreeUI: {fileID: 914735342}
+  gameOverText: {fileID: 0}
   level1SkillNames:
   - Fury
   - SmashDownLvl1
   - Armor Boost
   - FireSpellLvl1
+  - AOESkillLvl1
 --- !u!4 &844717952
 Transform:
   m_ObjectHideFlags: 0
@@ -5864,6 +5876,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 749425595}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &914735343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1450639834208351070, guid: 3ecc34153685a0646867c8329988fe12,
+    type: 3}
+  m_PrefabInstance: {fileID: 749425595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914735342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c455a8246e8dc324ba51e3ce5a42fa01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &924289967 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5900509862236694562, guid: 3cde031c32114e247864dd86834c298a,
@@ -7223,7 +7247,7 @@ RectTransform:
   m_Children:
   - {fileID: 1706577274}
   m_Father: {fileID: 9162663819289708821}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7953,6 +7977,7 @@ GameObject:
   - component: {fileID: 1254597977}
   - component: {fileID: 1254597980}
   - component: {fileID: 1254597979}
+  - component: {fileID: 1254597981}
   m_Layer: 0
   m_Name: SpecialisedSceneManager
   m_TagString: Untagged
@@ -8033,6 +8058,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousSceneNameToTrigger: Tutorial
+--- !u!114 &1254597981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254597976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5719ffc95ff15f7449a1fe40c6ebb831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotKeyBar: {fileID: 9162663820246063700}
 --- !u!1001 &1258714575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8344,7 +8382,7 @@ Transform:
   - {fileID: 1437019974}
   - {fileID: 1141917066}
   m_Father: {fileID: 9162663819289708821}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1328727615
 MonoBehaviour:
@@ -10330,7 +10368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5719ffc95ff15f7449a1fe40c6ebb831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factorOfBuyPriceForSellPrice: 0.5
+  hotKeyBar: {fileID: 0}
 --- !u!1 &1728771085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7208309035310035422, guid: 0657c8751a7c874448c2445b64fa4953,
@@ -12087,7 +12125,7 @@ PrefabInstance:
     - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: SkillPoints
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
@@ -31272,10 +31310,10 @@ RectTransform:
   - {fileID: 9162663819721005247}
   - {fileID: 9162663820246063699}
   - {fileID: 1713309538}
-  - {fileID: 9162663819665127283}
   - {fileID: 1081465470}
   - {fileID: 749425596}
   - {fileID: 1328727614}
+  - {fileID: 9162663819665127283}
   - {fileID: 318864283}
   - {fileID: 619515430}
   - {fileID: 1024571022}
@@ -32367,7 +32405,7 @@ RectTransform:
   m_Children:
   - {fileID: 9162663820099370163}
   m_Father: {fileID: 9162663819289708821}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

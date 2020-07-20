@@ -28,7 +28,6 @@ public class HotKeyBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void UseHotKey(int index)
@@ -118,5 +117,12 @@ public class HotKeyBar : MonoBehaviour
         usable.Start();
     } 
 
+    public void DisableAllSkills() {
+        foreach (HotKey hotkey in Hotkeys)
+        {
+            if (hotkey._usable is Skill)
+                hotkey.DisableHotKey();
+        }
+    }
 
 }

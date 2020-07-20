@@ -95,7 +95,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     void PreparationForNextScene() {
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveForNewScene();
         ClearDelegates();
         PreviousScene.instance.UpdatePreviousSceneName(SceneManager.GetActiveScene().name);
     }

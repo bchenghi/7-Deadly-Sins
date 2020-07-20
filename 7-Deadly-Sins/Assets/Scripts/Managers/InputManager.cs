@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour
                 inputForHotKey = inputString.Substring(5);
                 Debug.Log("inputforhotkey set: " + inputForHotKey);
             } else {
-                inputForHotKey = e.keyCode.ToString();
+                inputForHotKey = e.keyCode.ToString().ToLower();
             }
             Debug.Log("inputForHotKey " + inputForHotKey);
             int hotkeyIndex = HotKeyBar.instance.HotKeyString.IndexOf(inputForHotKey);

@@ -25,11 +25,14 @@ public class SkillTree : MonoBehaviour
     public GameObject skillTreeUI;
     [HideInInspector]
     public Skill[] skills;
+
+
     [HideInInspector]
 
     public List<KeyValuePair<Skill, int>> skillTree = new List<KeyValuePair<Skill, int>>();
 
     public int maxLevel = 3;
+    public bool setUpDone = false;
 
     private void Start()
     {
@@ -39,6 +42,8 @@ public class SkillTree : MonoBehaviour
             skillTree.Add(new KeyValuePair<Skill, int>(skills[i], 1));
         }
     }
+
+
 
 
     public bool upgrade(Skill skill)
@@ -71,6 +76,7 @@ public class SkillTree : MonoBehaviour
        
         int currentLevel = skillTree[position].Value;
         Skill currentSkill = skillTree[position].Key;
+        Debug.Log(position);
         if (currentLevel == currentSkill.MaxSkillLevel)
         {
             Debug.Log("Already Max Level");
@@ -93,21 +99,44 @@ public class SkillTree : MonoBehaviour
     public void NewSceneSetUp(GameObject skillTreeUI) {
         this.skillTreeUI = skillTreeUI;
         SetUpSkillsArrayFromNames();
+        SetUpSkillTreeFromSkillsArray();
+        setUpDone = true;
     }
 
     // Will form the skills array by finding the skills by name in the skilltreeUI
     void SetUpSkillsArrayFromNames() {
-        skills = new Skill[level1SkillNames.Length];
+        List<Skill> listOfSkills = new List<Skill>();
         for (int i = 0; i < level1SkillNames.Length ; i++) {
             Transform[] ts = skillTreeUI.transform.GetComponentsInChildren<Transform>(true);
             foreach (Transform t in ts)
             {
                 if (t.gameObject.name == level1SkillNames[i])
                 {
-                    SkillTree.instance.skills[i] = t.GetComponent<Skill>();
+                    listOfSkills.Add(t.GetComponent<Skill>());
                 }
             }
         }
+
+        skills = new Skill[listOfSkills.Count];
+        for (int i = 0; i < listOfSkills.Count; i++) {
+            skills[i] = listOfSkills[i];
+        }
+    }
+
+
+    // Will assign the skills in skill array to the skillTree skills
+    // Method assumes all scenes with skills, will use the same skills in same order in skilltreeui
+    void SetUpSkillTreeFromSkillsArray() {
+        for (int i = 0; i < skills.Length; i++) {
+            Skill skill = skills[i];
+
+            for (int j = 0; j < skillTree.Count ; j++) {
+                KeyValuePair<Skill, int> pair = skillTree[j];
+                Debug.Log("skill.name: " + skill.name);
+                skillTree[j] = new KeyValuePair<Skill, int>(skill, pair.Value);
+            }
+        }
+        Debug.Log("final length of skill tree: " + skillTree.Count);
     }
 
 

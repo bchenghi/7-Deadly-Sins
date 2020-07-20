@@ -25,7 +25,6 @@ public class PlayerStats : CharacterStats
         playerManaUI.SetMana(CurrentMana);
         EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
         NewSceneSetUp();
-        IncreaseSkillPoints(2);
     }
 
     public override void Update()
@@ -153,11 +152,11 @@ public class PlayerStats : CharacterStats
                 onEquipmentChanged(equipment, null);
             }
         }
-        
-        SetHealth(SaveLoad.instance.HP);
-        SetMana(SaveLoad.instance.Mana);
-        SetSkillPoints(SaveLoad.instance.SkillPoints);
-        
+        if (SaveLoad.instance.dataLoaded) {
+            SetHealth(SaveLoad.instance.HP);
+            SetMana(SaveLoad.instance.Mana);
+            SetSkillPoints(SaveLoad.instance.SkillPoints);
+        }
     }
     
 

@@ -53,7 +53,7 @@ public class SkillTreeUI : MonoBehaviour
             }
         }
 
-        NewSceneSetUp();
+        StartCoroutine(NewSceneSetUp());
     }
 
     // Update is called once per frame
@@ -62,7 +62,7 @@ public class SkillTreeUI : MonoBehaviour
         counterTransform.GetComponent<TextMeshProUGUI>().text = "Skill Points: " + playerStats.SkillPoints;
     }
 
-
+    // upgrades a skill, using skill number
     public void Upgrade(int index)
     {
         if (playerStats.SkillPoints > 0)
@@ -97,13 +97,14 @@ public class SkillTreeUI : MonoBehaviour
         }
     }
 
-    // upgrades the ui, and enables the slot to be dragged
+    // upgrades the skill in ui, and enables the slot to be dragged
     public void UpgradeSkillInUI(int skillNum, int level) {
         skillNum -= 1;
         //Debug.Log("index of skill that is turned white"+ skillNum);
         //int UIActivated = SkillTree.instance.returnLevel(index) - 1;
         //Debug.Log("skill level that is achieved" + UIActivated);
         for (int levelToUpgrade = 0; levelToUpgrade < level ; levelToUpgrade++) {
+            Debug.Log("skillNum " + skillNum + " levelToUpgrade " + levelToUpgrade);
             Transform transformActivated = Children[skillNum][levelToUpgrade];
             transformActivated.GetComponentInChildren<Image>().color = Color.white;
             if (levelToUpgrade - 1 >= 0) {
@@ -114,12 +115,21 @@ public class SkillTreeUI : MonoBehaviour
         
     }
 
-    // Upgrades the skill tree ui based on the skill tree
-    void NewSceneSetUp() {
+    // Upgrades the skills only in the skill tree ui based on the skill tree
+    IEnumerator NewSceneSetUp() {
+        // waits til skilltree set up is done
+        while (!SkillTree.instance.setUpDone) {
+            yield return new WaitForSeconds(0);
+        }
+
         for (int skillNum = 0; skillNum < SkillTree.instance.skillTree.Count ; skillNum++) {
             KeyValuePair<Skill, int> pair = SkillTree.instance.skillTree[skillNum];
             UpgradeSkillInUI(skillNum + 1, pair.Value);
         }
+        
+        // resets to false for use in next scene
+        SkillTree.instance.setUpDone = false;
+        yield return new WaitForSeconds(0);
     }
 
 }

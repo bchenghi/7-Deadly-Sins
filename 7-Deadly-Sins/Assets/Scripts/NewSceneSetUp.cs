@@ -23,10 +23,14 @@ public class NewSceneSetUp : MonoBehaviour
     GameObject hotKeysParent;
     [SerializeField]
     GameObject skillTreeUI;
+
+    [SerializeField]
+    GameObject gameOverText;
     Skill[] skills;
 
     [SerializeField]
     string[] level1SkillNames;
+ 
 
     // Sets up components in gamemanager after transitioning to new scene, 
     // and sets cursor to visible and unlocked
@@ -41,6 +45,9 @@ public class NewSceneSetUp : MonoBehaviour
         } if (EffectsManager.instance != null && EffectsManager.instance.MichellenousEffects == null) {
             EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
         } 
+        if (GameOver.instance != null && GameOver.instance.GameOverText == null) {
+            GameOver.instance.GameOverText = gameOverText;
+        }
         
         // sets up the skills for hotkeys to reference
         if (HotKeyBarManager.instance != null) {

@@ -4740,6 +4740,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 616343152}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &625341566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5762013851134540161, guid: 304cace6942f6194eac03bdd771798ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1495076781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &625341568
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625341566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300008, guid: 3e1a7ffe880429841b31fe7c5b5239be, type: 3}
 --- !u!1001 &634263756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11215,9 +11235,7 @@ MonoBehaviour:
     enemiesToChooseFrom:
     - {fileID: 853200435}
     - {fileID: 454968474}
-    - {fileID: 1352785584}
     - {fileID: 654848808}
-    - {fileID: 853200435}
     delayBetweenEachSpawn: 2
   regionsToSpawn: {fileID: 1580739233}
   infiniteLoop: 0
@@ -12342,6 +12360,83 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5761586684043510793, guid: 304cace6942f6194eac03bdd771798ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 304cace6942f6194eac03bdd771798ef, type: 3}
+--- !u!1 &1506162898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506162902}
+  - component: {fileID: 1506162901}
+  - component: {fileID: 1506162900}
+  - component: {fileID: 1506162899}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1506162899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506162898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227f4e5e81edb124295f4e266bd570fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canRetrigger: 0
+  ExternalTrigger: 0
+--- !u!114 &1506162900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506162898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b19be1edb33ef6498b0e0e5e1cd135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Tip
+    sentences:
+    - Turret! Press E to enter and exit the turret, fire with left click. Reload
+      with E when turret is empty.
+--- !u!65 &1506162901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506162898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1506162902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506162898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.834431, y: 1.27, z: 14.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1511414516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14837,6 +14932,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1864562474772696171, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3051171892147318289, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -15365,6 +15465,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9279172a80be940b35d0f2d7d93607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1830799480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150783879635184093, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1851903625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15629,6 +15735,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4017014755872359896, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
+        type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1830799480}
     - target: {fileID: 4017014755872359897, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
       propertyPath: m_Name
@@ -17872,6 +17983,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 30
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &1932988823744431200
@@ -18045,6 +18157,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 10
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988823770934988
@@ -18065,6 +18178,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -18436,6 +18550,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 10
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   spellRadius: 8
@@ -18783,6 +18898,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988824116741647
@@ -18803,6 +18919,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 15
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988824132665234
@@ -21009,6 +21126,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &1932988824529751902
@@ -23310,6 +23428,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 10
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -24423,6 +24542,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   spellRadius: 15
@@ -24523,6 +24643,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 15
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -26261,6 +26382,7 @@ MonoBehaviour:
   - {fileID: 1932988824529751901}
   - {fileID: 1932988824529751901}
   maxLevel: 3
+  setUpDone: 0
 --- !u!114 &1932988825491033705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27654,6 +27776,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 25
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988825723360148
@@ -28296,6 +28419,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 15
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   spellRadius: 10

@@ -42,7 +42,7 @@ public class HotKeyBarManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SetIUsableSkills(Skill[] skillsArray) {

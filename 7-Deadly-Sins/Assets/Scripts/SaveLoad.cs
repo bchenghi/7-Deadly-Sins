@@ -21,6 +21,13 @@ public class SaveLoad : MonoBehaviour
     // If true, will use the stats in save load, else will use stats from saved data on computer
     public bool useTheseStats = true;
 
+    bool firstStage = true;
+
+
+    // Whether correct data was loaded into the save load script and is set up in the variables
+    [HideInInspector]
+    public bool dataLoaded = false;
+
     public string Name;
     public int HP;
     //public int Armor;
@@ -44,6 +51,7 @@ public class SaveLoad : MonoBehaviour
 
         string path = Application.persistentDataPath + "/PlayerSave.Json";
         File.WriteAllText(path, playerJson.ToString());
+        dataLoaded = true;
     }
 
 
@@ -62,7 +70,7 @@ public class SaveLoad : MonoBehaviour
 
     public void Load()
     {
-        if (!useTheseStats) {
+        if (firstStage && !useTheseStats) {
             string path = Application.persistentDataPath + "/PlayerSave.Json";
             string jsonString = File.ReadAllText(path);
             JSONObject playerJson = (JSONObject)JSON.Parse(jsonString);
@@ -81,14 +89,37 @@ public class SaveLoad : MonoBehaviour
             
             Debug.Log(playerJson.ToString());
             useTheseStats = true;
-        } else 
+            dataLoaded = true;
+            firstStage = false;
+        } else if (firstStage && useTheseStats)
         {
             GoldCounter.instance.SetGold(Gold);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetHealth(HP);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
             // -2 skill points as in player stats start method, skill points will increase by 2
-            PlayerManager.instance.player.GetComponent<PlayerStats>().IncreaseSkillPoints(SkillPoints - 2);
+            PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
+            firstStage = false;
+            dataLoaded = true;
+        } else if (!firstStage)
+        {
+            string path = Application.persistentDataPath + "/PlayerSave.Json";
+            string jsonString = File.ReadAllText(path);
+            JSONObject playerJson = (JSONObject)JSON.Parse(jsonString);
+            HP = playerJson["HP"];
+            //Armor = playerJson["Armor"];
+            //Damage = playerJson["Damage"];
+            Gold = playerJson["Gold"];
+            Mana = playerJson["Mana"];
+            SkillPoints = playerJson["SkillPoints"] + 2;
+            GoldCounter.instance.SetGold(Gold);
+            
+            //health, mana and skill points will be set in playerstats script
+            PlayerManager.instance.player.GetComponent<PlayerStats>().SetHealth(HP);
+            PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
+            PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
+            dataLoaded = true;
         }
+
         
     }
 
@@ -123,5 +154,10 @@ public class SaveLoad : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G)) Save();
         if (Input.GetKeyDown(KeyCode.L)) Load();
         if (Input.GetKeyDown(KeyCode.F)) SetData();
+    }
+
+    public void SaveForNewScene() {
+        Save();
+        dataLoaded = false;
     }
 }

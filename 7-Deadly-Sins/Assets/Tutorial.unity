@@ -9410,6 +9410,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &298000654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9526,7 +9527,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 739025184}
 --- !u!1 &298770063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1321917378138086, guid: 475b905fe3b32864fb3448b79d6bc815,
@@ -11217,6 +11217,12 @@ PrefabInstance:
 --- !u!1 &339892895 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6441870373209738175, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &339892896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150783879635184093, guid: 867fe124405cf5d45be05a4d725fc64e,
     type: 3}
   m_PrefabInstance: {fileID: 339892894}
   m_PrefabAsset: {fileID: 0}
@@ -16838,6 +16844,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &527197287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16969,7 +16976,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 512161073}
 --- !u!1 &527538885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1321917378138086, guid: 475b905fe3b32864fb3448b79d6bc815,
@@ -17387,7 +17393,7 @@ PrefabInstance:
     - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: level1SkillNames.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
@@ -17468,6 +17474,16 @@ PrefabInstance:
         type: 3}
       propertyPath: level1SkillNames.Array.data[3]
       value: FireSpellLvl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 339892896}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: level1SkillNames.Array.data[4]
+      value: AOESkillLvl1
       objectReference: {fileID: 0}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
@@ -18463,6 +18479,7 @@ MonoBehaviour:
   easyRoam: 0
   easyRoamX: 0
   easyRoamZ: 0
+  isStunned: 0
 --- !u!114 &577839594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23524,8 +23541,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regions:
-  - lowerXYZValues: {x: -6.652132, y: 9, z: 10.69382}
-    higherXYZValues: {x: 4.747869, y: 9, z: 39.47382}
+  - lowerXYZValues: {x: -6.652132, y: 7.6, z: 10.69382}
+    higherXYZValues: {x: 4.747869, y: 7.6, z: 39.47382}
 --- !u!1 &726625304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1321917378138086, guid: 475b905fe3b32864fb3448b79d6bc815,
@@ -26703,7 +26720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838201861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.652132, y: 8.471941, z: 10.693823}
+  m_LocalPosition: {x: -6.652132, y: 7.6, z: 10.693823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35716,7 +35733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142994652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.7478685, y: 9, z: 39.473824}
+  m_LocalPosition: {x: 4.7478685, y: 7.63, z: 39.473824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64820,6 +64837,11 @@ PrefabInstance:
       propertyPath: skillTreeUI
       value: 
       objectReference: {fileID: 966445570}
+    - target: {fileID: 8969552071192755995, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 339892896}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!33 &1331385293860740597
@@ -66520,6 +66542,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976126, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7202750333497976127, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: statUIManager
@@ -66744,6 +66781,7 @@ MonoBehaviour:
   SkillTreeUI: {fileID: 966445570}
   dialogueBox: {fileID: 1962751357}
   pauseMenu: {fileID: 532946588}
+  gameOver: {fileID: 339892896}
 --- !u!114 &7275556995415062193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89259,7 +89297,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 2029565923}
 --- !u!33 &8988429923756890531
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -89335,10 +89372,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9083884964727646802, guid: 1746467c50d6cf743b7bfef0a6b1f9fb,
+        type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9083884964727646807, guid: 1746467c50d6cf743b7bfef0a6b1f9fb,
         type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083884964727646807, guid: 1746467c50d6cf743b7bfef0a6b1f9fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1746467c50d6cf743b7bfef0a6b1f9fb, type: 3}

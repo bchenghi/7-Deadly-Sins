@@ -163,6 +163,11 @@ PrefabInstance:
       propertyPath: startSound
       value: Ghosts In The Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 1033266129}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -1683,6 +1688,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9279172a80be940b35d0f2d7d93607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1033266129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150783879635184093, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1048292293 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6441870371901998660, guid: 867fe124405cf5d45be05a4d725fc64e,
@@ -3087,6 +3098,11 @@ PrefabInstance:
       propertyPath: skillTreeUI
       value: 
       objectReference: {fileID: 662166860}
+    - target: {fileID: 8969552071192755995, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 1033266129}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!1001 &2047292480
@@ -3191,6 +3207,11 @@ PrefabInstance:
       propertyPath: dstFromTarget
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4017014755872359896, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
+        type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1033266129}
     - target: {fileID: 4017014755872359897, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
       propertyPath: m_Name
