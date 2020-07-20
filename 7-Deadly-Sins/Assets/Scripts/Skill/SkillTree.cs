@@ -128,13 +128,19 @@ public class SkillTree : MonoBehaviour
     // Method assumes all scenes with skills, will use the same skills in same order in skilltreeui
     void SetUpSkillTreeFromSkillsArray() {
         for (int i = 0; i < skills.Length; i++) {
-            Skill skill = skills[i];
-
-            for (int j = 0; j < skillTree.Count ; j++) {
-                KeyValuePair<Skill, int> pair = skillTree[j];
+            int sizeOfSkillTree = skillTree.Count;
+            if (i < sizeOfSkillTree) {
+                Skill skill = skills[i];
+                KeyValuePair<Skill, int> pair = skillTree[i];
                 Debug.Log("skill.name: " + skill.name);
-                skillTree[j] = new KeyValuePair<Skill, int>(skill, pair.Value);
+                skillTree[i] = new KeyValuePair<Skill, int>(skill, pair.Value);
+            } else {
+                // Currently used from opening to tutorial, where no skills are in skilltree yet
+                Skill skill = skills[i];
+                Debug.Log("new skill.name: " + skill.name);
+                skillTree.Insert(i, new KeyValuePair<Skill, int>(skill, 1));
             }
+
         }
         Debug.Log("final length of skill tree: " + skillTree.Count);
     }
