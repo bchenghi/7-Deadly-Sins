@@ -183,7 +183,7 @@ public class EquipmentManager : MonoBehaviour
     public bool IsEquipped(Equipment equipment) {
         bool result = false;
         foreach(Equipment wornEquipment in currentEquipment) {
-            if (wornEquipment != null && wornEquipment.Equals(equipment)) {
+            if (wornEquipment != null && wornEquipment.EqualsButNotCaringAboutLevels(equipment)) {
                 result = true;
                 break;
             } 
@@ -194,7 +194,7 @@ public class EquipmentManager : MonoBehaviour
     public Equipment ReferenceToEquipment(Equipment equipment) {
         Equipment reference = null;
         foreach(Equipment wornEquipment in currentEquipment) {
-            if (wornEquipment != null && wornEquipment.Equals(equipment)) {
+            if (wornEquipment != null && wornEquipment.EqualsButNotCaringAboutLevels(equipment)) {
                 reference = wornEquipment;
                 break;
             }
