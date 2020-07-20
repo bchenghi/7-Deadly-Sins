@@ -68,6 +68,17 @@ public class Equipment : Item
 
     }
 
+    public bool EqualsButNotCaringAboutLevels(object other)
+    {
+        if (other is Equipment)
+        {
+            return this.name == ((Equipment)other).name;
+        } else
+        {
+            return false;
+        }
+    }
+
 }
 
 public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet}

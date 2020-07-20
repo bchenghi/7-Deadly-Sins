@@ -95,6 +95,7 @@ public class Inventory : MonoBehaviour
         // Will search for item in equipment and inventory and upgrade it instead of assigning a slot
         if (item is Equipment && SearchAndUpgrade((Equipment) item)) {
             return true;
+
         } 
 
         if (SlotsUsed() < space)
@@ -414,6 +415,7 @@ public class Inventory : MonoBehaviour
     // Inventory and upgrade equipment if found and return true. If cant be found or not upgraded, return false;
     bool SearchAndUpgrade(Equipment equipment) {
         if (EquipmentManager.instance.IsEquipped(equipment)) {
+            
             if (EquipmentManager.instance.ReferenceToEquipment(equipment).CanUpgrade()) {
                 //PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateStatUI();
                 int equipmentSlot = (int) EquipmentManager.instance.ReferenceToEquipment(equipment).equipmentSlot;
@@ -421,6 +423,16 @@ public class Inventory : MonoBehaviour
                 equipmentToUpdate.Upgrade();
                 EquipmentManager.instance.Equip(equipmentToUpdate);
                 return true;
+            } else
+            {
+                if (Inventory.instance.Exists(equipment))
+                {
+                    if (Inventory.instance.UpgradeEquipment(equipment))
+                    {
+                        return true;
+                    }
+                }
+                return false;
             }
         } else if (Inventory.instance.Exists(equipment)) {
             //Debug.Log("exists in inventory");
