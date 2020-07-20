@@ -42,6 +42,17 @@ public class Equipment : Item
         }
     }
 
+    public void UpgradeUsing(Equipment equipment) {
+        if (CanUpgradeUsing(equipment)) {
+            level += equipment.level + 1;
+            DisplayTextManager.instance.Display("Upgraded " + name + " to Level " + (level + 1), 2f);
+        }
+        else
+        {
+            Debug.Log("max level for equipment " + name + " reached");
+        }
+    }
+
     public int ArmorModifier() {
         return (int) Math.Floor(armorModifier * statsLevelIncreaseFactors[level]);
     }
@@ -50,9 +61,9 @@ public class Equipment : Item
         return (int) Math.Floor(damageModifier * statsLevelIncreaseFactors[level]);
     }
 
-    public bool CanUpgrade() {
+    public bool CanUpgradeUsing(Equipment equipmentToAdd) {
         //Debug.Log("level " + level + " maxLevel " + maxLevel);
-        return level < maxLevel;
+        return (level + 1) + (equipmentToAdd.level + 1) <= (maxLevel + 1);
     }
 
     public override bool Equals(object other)

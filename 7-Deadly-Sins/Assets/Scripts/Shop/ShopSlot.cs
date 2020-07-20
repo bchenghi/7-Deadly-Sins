@@ -32,20 +32,6 @@ public class ShopSlot : UISlot
     }
 
     
-    // Will first search through equipment manager and upgrade equipment if found, otherwise will search through
-    // Inventory and upgrade equipment if found and return true. If cant be found or not upgraded, return false;
-    bool SearchAndUpgrade(Equipment equipment) {
-        if (EquipmentManager.instance.IsEquipped(equipment)) {
-            if (EquipmentManager.instance.ReferenceToEquipment(equipment).CanUpgrade()) {
-                EquipmentManager.instance.ReferenceToEquipment(equipment).Upgrade();
-                return true;
-            }
-        } else if (Inventory.instance.Exists(equipment)) {
-            if (Inventory.instance.UpgradeEquipment(equipment)) {
-                return true;
-            }
-        } 
-        return false;
-    }
+    
     
 }

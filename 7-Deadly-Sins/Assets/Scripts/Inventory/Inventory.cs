@@ -399,11 +399,11 @@ public class Inventory : MonoBehaviour
 
     // Will loop through the items, will upgrade the first instance of equipment 
     // that was upgradable and return true, else returns false
-    public bool UpgradeEquipment(Equipment equipment) {
+    public bool UpgradeEquipment(Equipment newEquipment) {
         foreach (KeyValuePair<Item, int> pair in items) {
-            if (pair.Key.name == (equipment.name)) {
-                if (((Equipment) pair.Key).CanUpgrade()) {
-                    ((Equipment) pair.Key).Upgrade();
+            if (pair.Key.name == (newEquipment.name)) {
+                if (((Equipment) pair.Key).CanUpgradeUsing(newEquipment)) {
+                    ((Equipment) pair.Key).UpgradeUsing(newEquipment);
                     return true;
                 }
             }
@@ -416,11 +416,11 @@ public class Inventory : MonoBehaviour
     bool SearchAndUpgrade(Equipment equipment) {
         if (EquipmentManager.instance.IsEquipped(equipment)) {
             
-            if (EquipmentManager.instance.ReferenceToEquipment(equipment).CanUpgrade()) {
+            if (EquipmentManager.instance.ReferenceToEquipment(equipment).CanUpgradeUsing(equipment)) {
                 //PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateStatUI();
                 int equipmentSlot = (int) EquipmentManager.instance.ReferenceToEquipment(equipment).equipmentSlot;
                 Equipment equipmentToUpdate = EquipmentManager.instance.UnequipWithoutAddingToInventory(equipmentSlot);
-                equipmentToUpdate.Upgrade();
+                equipmentToUpdate.UpgradeUsing(equipment);
                 EquipmentManager.instance.Equip(equipmentToUpdate);
                 return true;
             } else

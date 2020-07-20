@@ -72,8 +72,9 @@ public class SellManager : MonoBehaviour
                 for (int i = 0; i < quantityTobeSold; i++)
                 {
                     Inventory.instance.Remove(item);
-                    EarnFromSelling(item, quantityTobeSold);
+                    
                 }
+                EarnFromSelling(item, quantityTobeSold);
             }
 
 
@@ -81,6 +82,7 @@ public class SellManager : MonoBehaviour
 
         } else
         {
+            DisplayManager.Display("Quantity exceeds inventory count", 1.5f);
             Debug.Log("Quantity exceeds inventory count");
         }
 
@@ -118,6 +120,23 @@ public class SellManager : MonoBehaviour
             Debug.Log(cashEarned);
             GoldCounter.instance.Earn(cashEarned);
             DisplayText(item, quantity, cashEarned);
+            
+        }
+    }
+
+    public int SellPrice(Item item, int quantity) {
+        if (item is Equipment)
+        {
+            var equipment = item as Equipment;
+            int cashBack = item.GetPrice();
+            Debug.Log(item.GetPrice());
+            int sellPrice = (int)(cashBack * sellPercentage); 
+            return sellPrice;
+        } else
+        {
+            int sellPrice = (int)(item.GetPrice() * quantity * sellPercentage);
+            Debug.Log(sellPrice);
+            return sellPrice;
             
         }
     }

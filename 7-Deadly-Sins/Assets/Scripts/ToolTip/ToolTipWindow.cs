@@ -4,6 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 // Each slot has a tooltip window, displays text when mouse is over the slot
 public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -129,6 +130,10 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (UISlot is ShopSlot && item != null)
             result.AppendLine().Append(PriceString(item));
 
+        if (SceneManager.GetActiveScene().name == "Shop-CH" && (UISlot is InventorySlot)) {
+            InventorySlot currentSlot = (InventorySlot) UISlot;
+            result.AppendLine().Append("<color=yellow>Sell for: ").Append(SellManager.instance.SellPrice(item, 1)).Append("</color>");
+        }
         return result.ToString();
     }
 
@@ -175,7 +180,7 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             str.Append("Current Level: ").Append(currentLevel + 1).AppendLine();
             str.Append("<color=green>Armor Modifier: ").Append(armorModifier).Append("</color>").AppendLine();
             str.Append("<color=red>Damage Modifier: ").Append(damageModifier).Append("</color>");
-
+            
             return str.ToString();
         }
         else
