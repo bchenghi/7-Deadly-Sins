@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     #endregion
-
+    
     public GameObject player;
 
 
@@ -44,6 +44,12 @@ public class PlayerManager : MonoBehaviour
         RuntimeAnimatorController animController = player.GetComponentInChildren<Animator>().runtimeAnimatorController;
         float durationOfDeathAnim = Array.Find(animController.animationClips, x => x.name == "Sword And Shield Death").length;
         yield return new WaitForSeconds(durationOfDeathAnim);
+        GameOver.instance.OnGameOverText();
+        
+    }
+
+    public void LoadScene()
+    {
         SceneLoader.instance.LoadWithoutStats(SceneManager.GetActiveScene().buildIndex);
     }
 
