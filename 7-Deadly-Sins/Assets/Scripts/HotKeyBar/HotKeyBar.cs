@@ -81,6 +81,30 @@ public class HotKeyBar : MonoBehaviour
         }
     }
 
+    public void DisableSpecificHotKeyWithItemCheck(IUsable itemInSlot)
+    {
+        for (int i = 0; i < Hotkeys.Length; i++)
+        {
+            if (Hotkeys[i]._usable.Equals(itemInSlot))
+            {
+                Hotkeys[i].DisableHotKey();
+                break;
+            }
+        }
+    }
+
+    public void EnableSpecificHotKeyWithItemCheck(IUsable itemInSlot)
+    {
+        for (int i = 0; i < Hotkeys.Length; i++)
+        {
+            if (Hotkeys[i]._usable.Equals(itemInSlot))
+            {
+                Hotkeys[i].EnableHotKey();
+                break;
+            }
+        }
+    }
+
 
 
     public void ClearIUsableInMemory(HotKey inputHotKey) {

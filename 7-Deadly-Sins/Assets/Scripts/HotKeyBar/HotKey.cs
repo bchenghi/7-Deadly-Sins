@@ -16,6 +16,7 @@ public class HotKey : MonoBehaviour
     public bool isFilled = false;
     bool HotKeyDisabled;
 
+
     void Awake() {
         _image = transform.Find("Image").GetComponent<Image>();
         _quantityText = transform.Find("QuantityText").GetComponent<Text>();
@@ -82,7 +83,6 @@ public class HotKey : MonoBehaviour
 
     public void SetUsable(IUsable usable)
     {
-        
         _usable = usable;
         _image.enabled = true;
         _image.sprite = usable.Image;
@@ -149,4 +149,17 @@ public class HotKey : MonoBehaviour
     {
         HotKeyDisabled = false;
     }
+
+    public bool CheckWhetherHotKeyisCoolingDown()
+    {
+        if ((_usable as Skill).isCoolingDown)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    
 }
