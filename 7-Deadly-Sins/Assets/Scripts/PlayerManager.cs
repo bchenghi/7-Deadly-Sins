@@ -37,7 +37,8 @@ public class PlayerManager : MonoBehaviour
 
     public void KillPlayer()
     {
-       StartCoroutine(PlayerDeathCoroutine());
+        HotKeyBar.instance.DisableAll();
+        StartCoroutine(PlayerDeathCoroutine());
     }
 
     IEnumerator PlayerDeathCoroutine() {

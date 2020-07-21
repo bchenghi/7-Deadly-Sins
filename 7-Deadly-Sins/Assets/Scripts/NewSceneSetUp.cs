@@ -61,6 +61,9 @@ public class NewSceneSetUp : MonoBehaviour
         if (HotKeyBarManager.instance != null) {
             skills = skillTreeUI.GetComponentsInChildren<Skill>(true);
             HotKeyBarManager.instance.SetIUsableSkills(skills);
+            HotKeyBar.instance.EnableAll();
+        
+
         }
 
         // Sets up skills array in skill tree based on skill names sepcified in level1SkillNames

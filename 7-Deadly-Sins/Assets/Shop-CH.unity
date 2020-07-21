@@ -5476,6 +5476,7 @@ MonoBehaviour:
   player: {fileID: 1031949956}
   startSound: ShopBGM
   hotKeysParent: {fileID: 9162663820572830086}
+  GameOverUI: {fileID: 0}
   skillTreeUI: {fileID: 914735342}
   gameOverText: {fileID: 0}
   level1SkillNames:
@@ -12062,6 +12063,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceHolderGameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473521, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: allItems.Array.size
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473521, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: allItems.Array.data[38]
+      value: 
+      objectReference: {fileID: 11400000, guid: 983de9b9bda46574f8007619939e6d79,
+        type: 2}
     - target: {fileID: 1128765268864473521, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: allItems.Array.size

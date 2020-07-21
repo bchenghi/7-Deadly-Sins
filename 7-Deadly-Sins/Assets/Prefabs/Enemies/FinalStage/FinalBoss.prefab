@@ -2840,11 +2840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa49eea7bbbd8b24b9588b12853c0a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 200
   damage:
-    baseValue: 15
+    baseValue: 40
   armor:
-    baseValue: 15
+    baseValue: 20
   enemyDeathSound: BossDeath
   lootDrop: {fileID: 0}
 --- !u!114 &8974243722714192528
@@ -2874,7 +2874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93335a8b99a873c4e930e6da7c4546b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 47.3
   moveSpot: {fileID: 0}
   FreeRoamer: 0
   minX: 0

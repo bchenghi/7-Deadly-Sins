@@ -5105,6 +5105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 385827135836732976, guid: 452d6ee6f0a27a449b055eaa42b84ea7, type: 3}
+  - {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &654848814
 MonoBehaviour:
@@ -8921,7 +8922,7 @@ PrefabInstance:
     - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: lootDrops.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -8933,6 +8934,12 @@ PrefabInstance:
       propertyPath: lootDrops.Array.data[0]
       value: 
       objectReference: {fileID: 8785931777824289622, guid: 9ec76c65ef4b39348ad480c252ae76fa,
+        type: 3}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.data[1]
+      value: 
+      objectReference: {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39,
         type: 3}
     - target: {fileID: 9202316114538406728, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -9898,6 +9905,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6408341009909285582, guid: cb551d445d5d90f4c9bb829b2befad5f,
+        type: 3}
+      propertyPath: lootDrops.Array.data[2]
+      value: 
+      objectReference: {fileID: 1777419619063762558, guid: 364fb89a44b83444bbe006683534cfbd,
+        type: 3}
+    - target: {fileID: 6408341009909285582, guid: cb551d445d5d90f4c9bb829b2befad5f,
+        type: 3}
+      propertyPath: lootDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
 --- !u!4 &1259754317 stripped
@@ -10993,6 +11012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
+  - {fileID: 385827135836732976, guid: 452d6ee6f0a27a449b055eaa42b84ea7, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &1352785590
 MonoBehaviour:
@@ -11552,6 +11572,11 @@ PrefabInstance:
       propertyPath: startSound
       value: Ghosts In The Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 1830799480}
     - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: gameOverText
@@ -12429,8 +12454,8 @@ MonoBehaviour:
   dialogue:
     name: Tip
     sentences:
-    - Turret! Press E to enter and exit the turret, fire with left click. Reload
-      with E when turret is empty.
+    - Turret! Press E to enter and exit the turret, fire with left click. Reload with
+      E when turret is empty.
 --- !u!65 &1506162901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14952,6 +14977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864562474772696171, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1864562474772696171, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -33941,6 +33971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 8785931777824289622, guid: 9ec76c65ef4b39348ad480c252ae76fa, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &8582899300706659021
 MonoBehaviour:
