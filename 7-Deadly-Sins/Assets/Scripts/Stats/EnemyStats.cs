@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 
 public class EnemyStats : CharacterStats
@@ -9,13 +10,16 @@ public class EnemyStats : CharacterStats
     public GameObject lootDrop;
     LootDrop lootDropTest;
     
+    
     override protected void Start() {
         base.Start();
         lootDropTest = GetComponent<LootDrop>();
         soundHandler = GetComponent<SoundHandler>();
     }
 
-    
+   
+
+
 
     public override void Die()
     {

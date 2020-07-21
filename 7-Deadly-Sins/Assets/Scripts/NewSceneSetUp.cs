@@ -21,12 +21,20 @@ public class NewSceneSetUp : MonoBehaviour
 
     [SerializeField]
     GameObject hotKeysParent;
+
+    [SerializeField]
+    GameObject GameOverUI;
+
+
     [SerializeField]
     GameObject skillTreeUI;
     Skill[] skills;
 
     [SerializeField]
     string[] level1SkillNames;
+
+    
+    
 
     // Sets up components in gamemanager after transitioning to new scene, 
     // and sets cursor to visible and unlocked
@@ -52,7 +60,11 @@ public class NewSceneSetUp : MonoBehaviour
         if (SkillTree.instance != null)
             SkillTree.instance.NewSceneSetUp(skillTreeUI);
         
-
+        if (GameOver.instance != null)
+            {
+                GameOver.instance.GameOverText = GameOverUI;
+                GameOver.instance.SetButton();
+            }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         }
