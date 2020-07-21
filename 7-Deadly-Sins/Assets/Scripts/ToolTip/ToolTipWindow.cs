@@ -118,6 +118,9 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             result = new StringBuilder(ConsumableStatsString((Consumables)item));
         }
+        else if (item is Others) {
+            result = new StringBuilder(OthersStatsString((Others) item));
+        }
         else if (item is Item)
         {
             result = new StringBuilder(ItemStatsString(item));
@@ -128,11 +131,11 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
 
         if (UISlot is ShopSlot && item != null)
-            result.AppendLine().Append(PriceString(item));
+            result.AppendLine().Append(BuyPriceString(item));
 
         if (SceneManager.GetActiveScene().name == "Shop-CH" && (UISlot is InventorySlot)) {
             InventorySlot currentSlot = (InventorySlot) UISlot;
-            result.AppendLine().Append("<color=yellow>Sell for: ").Append(SellManager.instance.SellPrice(item, 1)).Append("</color>");
+            result.AppendLine().Append("<color=yellow>Sell for: ").Append(SellPriceString(item)).Append("</color>");
         }
         return result.ToString();
     }
@@ -234,11 +237,27 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     }
 
-    string PriceString(Item item) {
+    string OthersStatsString(Others item) {
+        Others currentItem = (Others) item;
         StringBuilder str = new StringBuilder();
+        string name = currentItem.name;
+        int count = currentItem.quantity;
+        str.Append(name).AppendLine();
+        str.Append("Quantity: ").Append(count);
+        return str.ToString();
+    }
+
+    string BuyPriceString(Item item) {
+        StringBuilder str = new StringBuilder();
+        int price = item.GetPrice();
+        
+        if (item is Others) {
+            price *= ((Others)item).quantity;
+        }
+
         if (item != null) 
         {
-            str.Append("<color=yellow>Price: ").Append(item.GetPrice()).Append("</color>");
+            str.Append("<color=yellow>Price: ").Append(price).Append("</color>");
         } 
         else 
         {
@@ -246,6 +265,28 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
 
         return str.ToString();
+    }
+
+    string SellPriceString(Item item) {
+        StringBuilder str = new StringBuilder();
+        int quantity = 1;
+
+        if (item is Others) {
+            quantity = ((Others) item).quantity;
+        }
+
+        int price = SellManager.instance.SellPrice(item, quantity);
+
+        if (item != null) 
+        {
+            str.Append("<color=yellow>Price: ").Append(price).Append("</color>");
+        } 
+        else 
+        {
+            return null;
+        }
+
+        return str.ToString();        
     }
 
     string SkillDescription(Skill skill)

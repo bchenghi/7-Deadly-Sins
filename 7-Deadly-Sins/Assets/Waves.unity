@@ -2648,6 +2648,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 358344054}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &359988462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
+    type: 3}
+  m_PrefabInstance: {fileID: 731157316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &361146078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3011,6 +3017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: armor.baseValue
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976127, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2061633b5c934ef45873bfdc68222d55, type: 3}
@@ -5885,6 +5896,11 @@ PrefabInstance:
       propertyPath: skillTreeUI
       value: 
       objectReference: {fileID: 1830799468}
+    - target: {fileID: 8969552071192755995, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: GameOverText
+      value: 
+      objectReference: {fileID: 1830799480}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945640c5bc295a94891f95bac5526842, type: 3}
 --- !u!1001 &731355946
@@ -11536,6 +11552,11 @@ PrefabInstance:
       propertyPath: startSound
       value: Ghosts In The Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 1830799480}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -15146,6 +15167,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960053639866899843, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 359988462}
+    - target: {fileID: 5960053639866899843, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6441870372041135434, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}

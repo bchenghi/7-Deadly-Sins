@@ -135,7 +135,8 @@ public class SkillTree : MonoBehaviour
                 Debug.Log("skill.name: " + skill.name);
                 skillTree[i] = new KeyValuePair<Skill, int>(skill, pair.Value);
             } else {
-                // Currently used from opening to tutorial, where no skills are in skilltree yet
+                // Currently used from opening to tutorial, where no skills are in skilltree yet, skillTree[i]
+                // will give argumentoutofrange exception
                 Skill skill = skills[i];
                 Debug.Log("new skill.name: " + skill.name);
                 skillTree.Insert(i, new KeyValuePair<Skill, int>(skill, 1));

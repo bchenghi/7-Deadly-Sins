@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 243819663}
   m_Direction: 2
   m_Value: 0.99999964
-  m_Size: 0.7850179
+  m_Size: 0.78501785
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11035,7 +11035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1919698973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12062,6 +12062,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceHolderGameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473521, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: allItems.Array.size
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473521, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: allItems.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: 52319dfe16b643a45be7d644bb95ce30,
+        type: 2}
     - target: {fileID: 1128765268864473528, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: targetMesh
