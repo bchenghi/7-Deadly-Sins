@@ -5074,6 +5074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 385827135836732976, guid: 452d6ee6f0a27a449b055eaa42b84ea7, type: 3}
+  - {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &654848814
 MonoBehaviour:
@@ -8885,7 +8886,7 @@ PrefabInstance:
     - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: lootDrops.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -8897,6 +8898,12 @@ PrefabInstance:
       propertyPath: lootDrops.Array.data[0]
       value: 
       objectReference: {fileID: 8785931777824289622, guid: 9ec76c65ef4b39348ad480c252ae76fa,
+        type: 3}
+    - target: {fileID: 7174278386929483376, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: lootDrops.Array.data[1]
+      value: 
+      objectReference: {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39,
         type: 3}
     - target: {fileID: 9202316114538406728, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -9862,6 +9869,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6408341009909285582, guid: cb551d445d5d90f4c9bb829b2befad5f,
+        type: 3}
+      propertyPath: lootDrops.Array.data[2]
+      value: 
+      objectReference: {fileID: 1777419619063762558, guid: 364fb89a44b83444bbe006683534cfbd,
+        type: 3}
+    - target: {fileID: 6408341009909285582, guid: cb551d445d5d90f4c9bb829b2befad5f,
+        type: 3}
+      propertyPath: lootDrops.Array.data[0]
+      value: 
+      objectReference: {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
 --- !u!4 &1259754317 stripped
@@ -10957,6 +10976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
+  - {fileID: 385827135836732976, guid: 452d6ee6f0a27a449b055eaa42b84ea7, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &1352785590
 MonoBehaviour:
@@ -11518,6 +11538,11 @@ PrefabInstance:
       propertyPath: startSound
       value: Ghosts In The Wind
       objectReference: {fileID: 0}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 1830799480}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -14837,6 +14862,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1864562474772696171, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3051171892147318289, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -15365,6 +15395,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9279172a80be940b35d0f2d7d93607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1830799480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150783879635184093, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1830799464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1851903625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17872,6 +17908,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 30
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &1932988823744431200
@@ -18045,6 +18082,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 10
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988823770934988
@@ -18065,6 +18103,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -18436,6 +18475,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 10
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   spellRadius: 8
@@ -18783,6 +18823,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988824116741647
@@ -18803,6 +18844,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 15
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988824132665234
@@ -21009,6 +21051,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!1 &1932988824529751902
@@ -23310,6 +23353,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 10
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -24423,6 +24467,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 20
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   spellRadius: 15
@@ -24523,6 +24568,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 15
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   nextAttackDone: 1
@@ -27654,6 +27700,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 10
   ManaCost: 25
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
 --- !u!114 &1932988825723360148
@@ -28296,6 +28343,7 @@ MonoBehaviour:
   isCoolingDown: 0
   CooldownTime: 3
   ManaCost: 15
+  soundEffect: 
   Description: 
   MaxSkillLevel: 0
   spellRadius: 10
@@ -33786,6 +33834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 8785931777824289622, guid: 9ec76c65ef4b39348ad480c252ae76fa, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &8582899300706659021
 MonoBehaviour:
