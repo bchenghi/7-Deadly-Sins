@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
+ 
+    public GameObject GameOverText;
+    Button button;
     #region Singelton
 
     public static GameOver instance { get; private set; }
@@ -25,12 +29,30 @@ public class GameOver : MonoBehaviour
 
     #endregion
 
-    public GameObject GameOverText;
+   
+    
+
+    private void Start()
+    {
+        button = GameOverText.GetComponentInChildren<Button>();
+        
+    }
+
+    
+
+
 
 
     public void OnGameOverText()
     {
         GameOverText.SetActive(true);
+    }
+
+    public void SetButton()
+    {
+        
+        button.onClick.AddListener(PlayerManager.instance.LoadScene);
+       
     }
 
 }
