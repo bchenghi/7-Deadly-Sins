@@ -36,7 +36,7 @@ public class InventoryController : MonoBehaviour
             graphicRaycaster.Raycast(pointerEventData, raycastResults);
             if (raycastResults.Count > 0)
             {
-                foreach (var result in raycastResults) print(result.gameObject.name);
+//                foreach (var result in raycastResults) print(result.gameObject.name);
             }
         }
     }

@@ -52,7 +52,7 @@ public class EditedTurretShooting : MonoBehaviour
         if (canShoot && ammoCount > 0 )
         {
             changeCamera.GetComponent<ParentCameraController>().dstFromTarget = zoomin;
-            if (Input.GetMouseButtonDown(0))
+            if (MouseIsLocked() && Input.GetMouseButtonDown(0))
             {
                 ammoCount -= 1;
                 if (onAmmoChange != null) {
@@ -66,13 +66,14 @@ public class EditedTurretShooting : MonoBehaviour
                     float distance = Vector3.Distance(player.transform.position, hit.point);
                     if (distance <= TurretRange)
                     {
-                        var Clone = GameObject.Instantiate(effect, hit.point, Quaternion.LookRotation(hit.normal));
-                        Destroy(Clone.gameObject, 2f);
                         if (hit.transform.GetComponent<EnemyStats>() || hit.transform.GetComponent<ClownStats>())
                         {
                             hit.transform.GetComponent<CharacterStats>().TakeDamage(damage);
                             crossHair.SetActive(true);
                             StartCoroutine(crossHairRoutine());
+                        } else {
+                            var Clone = GameObject.Instantiate(effect, hit.point, Quaternion.LookRotation(hit.normal));
+                            Destroy(Clone.gameObject, 2f);
                         }
                     }
                 }
@@ -108,6 +109,10 @@ public class EditedTurretShooting : MonoBehaviour
         if (ammoCount > maxAmmo) {
             ammoCount = maxAmmo;
         }
+    }
+
+    bool MouseIsLocked() {
+        return Cursor.lockState == CursorLockMode.Locked && !Cursor.visible;
     }
           
 }

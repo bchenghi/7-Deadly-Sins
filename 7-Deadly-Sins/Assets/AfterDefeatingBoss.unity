@@ -717,6 +717,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1128765268864473533, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: Gold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277534972852530480, guid: 945640c5bc295a94891f95bac5526842,
+        type: 3}
+      propertyPath: previousSceneName
+      value: Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 2211655334517400999, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: EffectsPool
@@ -1534,7 +1544,7 @@ MonoBehaviour:
       sentences:
       - You have passed the first test.
       - But there is more to come...
-  - previousSceneName: Wrath
+  - previousSceneName: FinalBoss
     dialogue:
       name: Wrath
       sentences:
@@ -1543,7 +1553,7 @@ MonoBehaviour:
       - You have decided to put a stop to this, by cultivating patience and kindness.
         You have learned to not be consumed and become upset by trivial matters.
       - No more violence. No more time for hatred. Game over.
-  - previousSceneName: Greed
+  - previousSceneName: HacknSlash
     dialogue:
       name: Greed
       sentences:
@@ -1553,7 +1563,7 @@ MonoBehaviour:
       - You have decided to give back to the community, volunteer your time more
         regulary and be grateful for the things that you already have. You have decided
         to become more generous and charitable.
-  - previousSceneName: Envy
+  - previousSceneName: NPC
     dialogue:
       name: Envy
       sentences:
@@ -1564,7 +1574,7 @@ MonoBehaviour:
       - You have decided to accept what you dont have and be contented with what
         you have. Instead of viewing other as superior, you used them as examples
         and inspiration to improve yourself.
-  - previousSceneName: Pride
+  - previousSceneName: Waves2
     dialogue:
       name: Pride
       sentences:
@@ -1575,7 +1585,7 @@ MonoBehaviour:
       - You finally accept that no one is more valuable than anybody else. You are
         beginning to see the value in others and start to be more concerned about
         the needs of others.
-  - previousSceneName: Lust
+  - previousSceneName: Puzzle
     dialogue:
       name: Lust
       sentences:
@@ -1585,7 +1595,7 @@ MonoBehaviour:
       - Similar to Greed, you have decided to be more contented with what you have,
         whenever you find yourself having this uncontrollable desire, you decide
         to ask yourself, am i going to be able to face the consequences of my actions?
-  - previousSceneName: Gluttony
+  - previousSceneName: Waves
     dialogue:
       name: Gluttony
       sentences:
@@ -1595,7 +1605,7 @@ MonoBehaviour:
       - 'You realise that it is ok to consume things in life but whenever you feel
         that this consumption is getting excessive and is interferring with other
         parts of life, you limit it. '
-  - previousSceneName: Sloth
+  - previousSceneName: Stage1
     dialogue:
       name: Sloth
       sentences:
@@ -1688,6 +1698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1277534974032848986}
   - component: {fileID: 1277534974032848987}
+  - component: {fileID: 1277534974032848988}
   m_Layer: 0
   m_Name: SceneSetUp
   m_TagString: Untagged
@@ -1723,6 +1734,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1277534972930612585}
   transitionDuration: 1
+--- !u!114 &1277534974032848988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277534974032848985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b77c900c5be82478419f332e86f0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1277534974094076633
 GameObject:
   m_ObjectHideFlags: 0

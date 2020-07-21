@@ -29,12 +29,13 @@ public class PlayerAnimator : CharacterAnimator
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {
+        Debug.Log("newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon: "+ (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon));
         if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)
         {
             animator.SetLayerWeight(1, 1);
-            if (weaponAnimationDict.ContainsKey(newItem))
+            if (WeaponsDictionaryContains(newItem))
             {
-                currentAttackAnimSet = weaponAnimationDict[newItem];
+                currentAttackAnimSet = WeaponsDictionaryGet(newItem);
             }
         } else if (newItem == null && oldItem != null && oldItem.equipmentSlot == EquipmentSlot.Weapon)
         {
@@ -106,4 +107,26 @@ public class PlayerAnimator : CharacterAnimator
         }
     }
 
+    bool WeaponsDictionaryContains(Equipment item) {
+        bool result = false;
+        foreach (KeyValuePair<Equipment, AnimationClip[]> pair in weaponAnimationDict) {
+            if (pair.Key.name == item.name) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
+
+
+    AnimationClip[] WeaponsDictionaryGet(Equipment item) {
+        AnimationClip[] animations = null;
+        foreach (KeyValuePair<Equipment, AnimationClip[]> pair in weaponAnimationDict) {
+            if (pair.Key.name == item.name) {
+                animations = pair.Value;
+                break;
+            }
+        }
+        return animations;        
+    }
 }

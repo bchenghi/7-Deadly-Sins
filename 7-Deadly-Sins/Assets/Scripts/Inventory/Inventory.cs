@@ -176,6 +176,51 @@ public class Inventory : MonoBehaviour
     public bool AddOthers(Item others)
     {
         var othersItem = others as Others;
+        if (CheckIfEnoughSpaceOthers(othersItem)) {
+            int indexFound = IndexToAddOthers(others);
+            bool hasSlotToAddOthers = (indexFound == -1 ? false : true);
+
+            Debug.Log("hasSlotToAddOthers: " + hasSlotToAddOthers);
+            if (hasSlotToAddOthers)
+            {
+                int currentNumOfOthersInSlot = items[indexFound].Value;
+                int spaceLeftInSlot = othersPerSlot - currentNumOfOthersInSlot;
+                int othersLeft = othersItem.quantity;
+                items[indexFound] = new KeyValuePair<Item, int>(others, currentNumOfOthersInSlot + spaceLeftInSlot);
+                othersLeft -= spaceLeftInSlot;
+
+                while(othersLeft > 0) {
+                    if (othersLeft <= othersPerSlot) {
+                        items.Add(new KeyValuePair<Item, int>(others, othersLeft));
+                        othersLeft = 0;
+                    } else {
+                        items.Add(new KeyValuePair<Item, int>(others, othersPerSlot));
+                        othersLeft -= othersPerSlot;
+                    }
+                }
+            } else {
+                int othersLeft = othersItem.quantity;
+                Debug.Log("did not have last slot to add others, make new slot");
+                while(othersLeft > 0) {
+                    if (othersLeft < othersPerSlot) {
+                        items.Add(new KeyValuePair<Item, int>(others, othersLeft));
+                        othersLeft = 0;
+                    } else {
+                        items.Add(new KeyValuePair<Item, int>(others, othersPerSlot));
+                        othersLeft -= othersPerSlot;
+                    }
+
+                }
+            }
+            return true;
+            
+        }
+        else
+        {
+            return false;
+        }
+    
+        /*
         int indexFound = IndexToAddOthers(others);
         bool hasSlotToAddOthers = (indexFound == -1 ? false : true);
 
@@ -202,6 +247,7 @@ public class Inventory : MonoBehaviour
 
         }
         return true;
+        */
     }
 
 
@@ -279,11 +325,23 @@ public class Inventory : MonoBehaviour
             {
                 index = i;
 
-                if (items[i].Value < othersPerSlot)
+                if (items[i].Value  < othersPerSlot)
                     break;
             }
         }
         return index;
+    }
+
+    // Returns true if there is enough space to add the quantity of others
+    bool CheckIfEnoughSpaceOthers(Others other) {
+        int indexOfLastOthers = IndexOfLastOthers(other);
+        int spaceLeftInLastIndex = 0;
+        if (indexOfLastOthers != -1) {
+            spaceLeftInLastIndex = othersPerSlot - items[indexOfLastOthers].Value;
+        }
+        int slotsLeft = space - SlotsUsed();
+        int totalSpaceForOthers = slotsLeft * othersPerSlot + spaceLeftInLastIndex;
+        return totalSpaceForOthers >= other.quantity;
     }
 
     // Finds index of the slot, of the given item furthest down the list, -1 if consumable doesnt exist
@@ -323,6 +381,7 @@ public class Inventory : MonoBehaviour
         int index = -1;
         for (int i = 0; i < items.Count; i++)
         {
+            Debug.Log("items[i].Value: " + items[i].Value + "othersPerSlot: " + othersPerSlot);
             if (items[i].Key.name == item.name && items[i].Value < othersPerSlot)
             {
                 index = i;

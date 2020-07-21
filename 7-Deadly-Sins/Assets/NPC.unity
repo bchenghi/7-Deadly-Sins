@@ -871,6 +871,11 @@ PrefabInstance:
       propertyPath: damage.baseValue
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7202750333497976127, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: armor.baseValue
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2061633b5c934ef45873bfdc68222d55, type: 3}
 --- !u!137 &35472225 stripped
@@ -44779,7 +44784,7 @@ PrefabInstance:
     - target: {fileID: 168057629601361775, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}
       propertyPath: nameOfSceneToLoad
-      value: Shop-CH
+      value: AfterDefeatingBoss
       objectReference: {fileID: 0}
     - target: {fileID: 3628867832345593571, guid: ae190da442c39bf43bf85aa8b17603e7,
         type: 3}

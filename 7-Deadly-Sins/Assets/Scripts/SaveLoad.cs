@@ -15,6 +15,7 @@ public class SaveLoad : MonoBehaviour
         }
 
         instance = this;
+        path = Application.persistentDataPath + "/PlayerSave.Json";
     }
     #endregion
 
@@ -38,6 +39,8 @@ public class SaveLoad : MonoBehaviour
     public int Gold;
     public int Mana;
     public int SkillPoints;
+
+    string path;
     
     public void Save()
     {
@@ -52,9 +55,26 @@ public class SaveLoad : MonoBehaviour
 
         Debug.Log(playerJson.ToString());
 
-        string path = Application.persistentDataPath + "/PlayerSave.Json";
         File.WriteAllText(path, playerJson.ToString());
+        // Assumes skillPoints is correct for next scene;
         dataLoaded = true;
+    }
+
+    public void SaveStatsBeforeAddingSkillPoints() {
+        GetData();
+        JSONObject playerJson = new JSONObject();
+        playerJson.Add("HP", HP);
+        //playerJson.Add("Armor", Armor);
+        //playerJson.Add("Damage", Damage);
+        playerJson.Add("Gold", Gold);
+        playerJson.Add("Mana", Mana);
+        playerJson.Add("SkillPoints", SkillPoints);
+
+        Debug.Log(playerJson.ToString());
+
+        File.WriteAllText(path, playerJson.ToString());
+        // false as skillpoints havent add 2
+        dataLoaded = false;
     }
 
 
@@ -74,7 +94,6 @@ public class SaveLoad : MonoBehaviour
     public void Load()
     {
         if (firstStage && !useTheseStats) {
-            string path = Application.persistentDataPath + "/PlayerSave.Json";
             string jsonString = File.ReadAllText(path);
             JSONObject playerJson = (JSONObject)JSON.Parse(jsonString);
             HP = playerJson["HP"];
@@ -99,20 +118,21 @@ public class SaveLoad : MonoBehaviour
             GoldCounter.instance.SetGold(Gold);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetHealth(HP);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
-            // -2 skill points as in player stats start method, skill points will increase by 2
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
             firstStage = false;
             dataLoaded = true;
+            Debug.Log("load first stage and useTheseStats called");
         } else if (!firstStage)
         {
-            string path = Application.persistentDataPath + "/PlayerSave.Json";
             string jsonString = File.ReadAllText(path);
             JSONObject playerJson = (JSONObject)JSON.Parse(jsonString);
+            Debug.Log(playerJson.ToString());
             HP = playerJson["HP"];
             //Armor = playerJson["Armor"];
             //Damage = playerJson["Damage"];
             Gold = playerJson["Gold"];
             Mana = playerJson["Mana"];
+            // adds two to skillpoints as it is loading new scene
             SkillPoints = playerJson["SkillPoints"] + 2;
             GoldCounter.instance.SetGold(Gold);
             
@@ -121,6 +141,7 @@ public class SaveLoad : MonoBehaviour
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
             dataLoaded = true;
+            Debug.Log("load non first stage called");
         }
 
         
@@ -140,7 +161,6 @@ public class SaveLoad : MonoBehaviour
 
         Debug.Log(playerJson.ToString());
 
-        string path = Application.persistentDataPath + "/PlayerSave.Json";
         File.WriteAllText(path, playerJson.ToString());
     }
     
@@ -160,7 +180,6 @@ public class SaveLoad : MonoBehaviour
     }
 
     public void SaveForNewScene() {
-        Save();
-        dataLoaded = false;
+        SaveStatsBeforeAddingSkillPoints();
     }
 }

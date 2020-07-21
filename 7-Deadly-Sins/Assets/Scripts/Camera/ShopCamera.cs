@@ -29,7 +29,7 @@ public class ShopCamera : MonoBehaviour
         targetLook.transform.forward * offset;
         transform.LookAt(targetLook.transform);
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("Mouse clicked");
+            //Debug.Log("Mouse clicked");
             RaycastHit hit;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red, 1f, false);
@@ -37,7 +37,7 @@ public class ShopCamera : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 10000, ~UILayer)) {
                 Debug.Log(hit.transform.name);
                 int indexOfMesh = IndexOfMesh(hit.transform.name);
-                Debug.Log("name: " + hit.transform.name + " index of mesh: " + indexOfMesh);
+                //Debug.Log("name: " + hit.transform.name + " index of mesh: " + indexOfMesh);
                 if (indexOfMesh > -1) 
                 {
                     equipmentManager.Unequip(indexOfMesh);

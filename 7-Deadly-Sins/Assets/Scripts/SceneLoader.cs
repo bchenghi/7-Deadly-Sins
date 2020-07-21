@@ -43,6 +43,10 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadWithoutStatsWithTransition(transitionDuration, sceneName));
     }
 
+    public void LoadWithStatsWithoutPreviousScene(string sceneName) {
+        StartCoroutine(LoadSceneWithoutPreviousSceneNameUpdate(transitionDuration, sceneName));
+    }
+
     // Before loading new scene delegates need to be cleared as new scene will set up delegates again
     void ClearDelegates() {
         if (Inventory.instance.onItemChangedCallback != null) {
@@ -98,6 +102,14 @@ public class SceneLoader : MonoBehaviour
         SaveLoad.instance.SaveForNewScene();
         ClearDelegates();
         PreviousScene.instance.UpdatePreviousSceneName(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator LoadSceneWithoutPreviousSceneNameUpdate(float transitionDuration, string sceneName) {
+        animator.SetTrigger("StartTransition");
+        SaveLoad.instance.SaveForNewScene();
+        ClearDelegates();
+        yield return new WaitForSeconds(transitionDuration);
+        SceneManager.LoadScene(sceneName);
     }
 
 }

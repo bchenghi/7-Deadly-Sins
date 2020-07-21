@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PopUpUIManager : MonoBehaviour
 {
@@ -22,16 +23,19 @@ public class PopUpUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Inventory"))
-        {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-            equipmentUI.SetActive(false);
+        if (SceneManager.GetActiveScene().name != "Shop-CH") {
+            if (Input.GetButtonDown("Inventory"))
+            {
+                inventoryUI.SetActive(!inventoryUI.activeSelf);
+                equipmentUI.SetActive(false);
+            }
+            if (Input.GetButtonDown("EquipmentUI"))
+            {
+                equipmentUI.SetActive(!equipmentUI.activeSelf);
+                inventoryUI.SetActive(false);
+            }
         }
-        if (Input.GetButtonDown("EquipmentUI"))
-        {
-            equipmentUI.SetActive(!equipmentUI.activeSelf);
-            inventoryUI.SetActive(false);
-        }
+
         if (Input.GetButtonDown("skillTree"))
         {
 

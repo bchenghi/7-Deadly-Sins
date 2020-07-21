@@ -40,7 +40,6 @@ public class EditedTurretReload : MonoBehaviour
     IEnumerator reloadTimeRoutine(float time)
     {
         ReloadImage.SetActive(true);
-        yield return new WaitForSeconds(time);
         int ammoRemovedFromInventory = 0;
         for (int i = AmmoToReload ; i > 0 ; i--) {
             if (Inventory.instance.Remove(AmmoRequired, i)) {
@@ -48,8 +47,9 @@ public class EditedTurretReload : MonoBehaviour
                 break;
             }
         }
-        ReloadImage.SetActive(false);
         turretShooter.ammoCount += ammoRemovedFromInventory;
+        yield return new WaitForSeconds(time);
+        ReloadImage.SetActive(false);
         if (turretShooter.onAmmoChange != null) {
             turretShooter.onAmmoChange(ammoRemovedFromInventory, AmmoToReload);
         }

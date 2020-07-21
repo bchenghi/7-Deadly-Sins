@@ -29,6 +29,12 @@ public class HotKeyBar : MonoBehaviour
         hotKeyMemory = HotKeyBarManager.instance.hotKeyMemory;
         Inventory.instance.onItemChangedCallback += RefreshHotkeys;
         UpdateHotKeysFromMemory();
+
+        EnableAll();
+
+        if (SceneManager.GetActiveScene().name == "Shop-CH") {
+        DisableAllSkills();
+        }
     }
 
     // Update is called once per frame

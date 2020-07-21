@@ -156,7 +156,9 @@ public class PlayerStats : CharacterStats
             SetHealth(SaveLoad.instance.HP);
             SetMana(SaveLoad.instance.Mana);
             SetSkillPoints(SaveLoad.instance.SkillPoints);
+            Debug.Log("Player stats loaded from saveload");
         }
+        Debug.Log("scene set up in player stats called");
     }
     
 

@@ -152,8 +152,10 @@ public class ClownController : MonoBehaviour
         ProjectileHandler projectileHandler = GetComponent<ProjectileHandler>();
         Ray ray = new Ray(projectileHandler.projectileFirePoint.position, (target.position - transform.position));
         RaycastHit hit;
-        int playerLayerMask = LayerMask.GetMask("Player");
-        if (Physics.Raycast(ray,out hit, 100)) {
+        int ignoreRaycastLayerMask = LayerMask.GetMask("Ignore Raycast");
+        //int playerLayerMask = LayerMask.GetMask("Player");
+        if (Physics.Raycast(ray,out hit, 100, ~ignoreRaycastLayerMask)) {
+            Debug.Log("Clown check if will hit target hit: " + hit.transform.name);
             if (hit.transform.name == "Player") {
                 return true;
             }
