@@ -89,9 +89,9 @@ public class Potions : Consumables , IUsable
 
     IEnumerator DisableHotkeyTiming(float Timing)
     {
-        HotKeyBar.instance.DisableAll();
+        HotKeyBar.instance.DisableAllMaster();
         yield return new WaitForSeconds(Timing);
-        HotKeyBar.instance.EnableAll();
+        HotKeyBar.instance.EnableAllMaster();
     }
 
 }

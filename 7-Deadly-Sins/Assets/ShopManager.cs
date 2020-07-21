@@ -11,13 +11,14 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hotKeyBar.DisableAllSkills();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (hotKeyBar != null)
+            hotKeyBar.DisableAllSkills();
     }
 }

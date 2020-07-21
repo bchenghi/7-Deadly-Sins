@@ -84,8 +84,9 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                         var obj = itemBeingDragged.GetComponentInParent<InventorySlot>().item;
                         var castedObj = obj as IUsable;
 
-
+                        result.gameObject.GetComponentInParent<HotKey>().RemoveFromHotKey();
                         result.gameObject.GetComponentInParent<HotKey>().SetUsable(castedObj);
+                        HotKeyBar.instance.HotKeyBarRearranged();
                         break;
                     }
 
@@ -146,6 +147,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         yield return new WaitForSeconds(0.1f);
         transform.localScale = scale;
     }
+
+
 
     
 }

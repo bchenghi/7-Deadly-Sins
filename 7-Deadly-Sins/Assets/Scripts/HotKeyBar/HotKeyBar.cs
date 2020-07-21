@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HotKeyBar : MonoBehaviour
 {
@@ -14,7 +15,12 @@ public class HotKeyBar : MonoBehaviour
 
     // memorises the IUsables in the hotkeys for scene transitions
     IUsable[] hotKeyMemory;
+    bool doNotChangeEnableOrDisable = false;
 
+    // Delegate used by 
+    public delegate void OnHotKeyChange();
+
+    public OnHotKeyChange onHotKeyChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,17 +55,29 @@ public class HotKeyBar : MonoBehaviour
 
     public void EnableAll()
     {
-        foreach(HotKey hotkey in Hotkeys)
+        if (!doNotChangeEnableOrDisable) {
+            foreach(HotKey hotkey in Hotkeys)
+            {
+                hotkey.EnableHotKey();
+            }
+        }
+        else 
         {
-            hotkey.EnableHotKey();
+            Debug.Log("Enable all locked, Use enableAllMaster");
         }
     }
 
     public void DisableAll()
     {
-        foreach (HotKey hotkey in Hotkeys)
+        if (!doNotChangeEnableOrDisable) {
+            foreach (HotKey hotkey in Hotkeys)
+            {
+                hotkey.DisableHotKey();
+            }
+        }
+        else 
         {
-            hotkey.DisableHotKey();
+            Debug.Log("Disable all locked, Use enableAllMaster to unlock first");
         }
     }
 
@@ -118,10 +136,44 @@ public class HotKeyBar : MonoBehaviour
     } 
 
     public void DisableAllSkills() {
+        if (!doNotChangeEnableOrDisable) {
+            foreach (HotKey hotkey in Hotkeys)
+            {
+                if (hotkey._usable is Skill)
+                {
+                    hotkey.DisableHotKey();
+                }
+                else 
+                {
+                    hotkey.EnableHotKey();
+                }
+            }
+        } else {
+            Debug.Log("Disable all skills locked, use enable all master to unlock first");
+        }
+    }
+
+    public void DisableAllMaster() {
+        doNotChangeEnableOrDisable = true;
         foreach (HotKey hotkey in Hotkeys)
         {
-            if (hotkey._usable is Skill)
-                hotkey.DisableHotKey();
+            hotkey.DisableHotKey();
+        }
+    }
+
+    public void EnableAllMaster() {
+        foreach (HotKey hotkey in Hotkeys)
+        {
+            hotkey.EnableHotKey();
+        }
+        doNotChangeEnableOrDisable = false;
+    }
+
+
+    // Used only for shopscene, if hotkey is rearranged, will need to check hotkeys with skills to diable
+    public void HotKeyBarRearranged() {
+        if (SceneManager.GetActiveScene().name == "Shop-CH") {
+            DisableAllSkills();
         }
     }
 

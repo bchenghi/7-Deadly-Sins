@@ -50,7 +50,7 @@ public class GameOver : MonoBehaviour
 
     public void SetButton()
     {
-        
+        button = GameOverText.GetComponentInChildren<Button>();
         button.onClick.AddListener(PlayerManager.instance.LoadScene);
        
     }

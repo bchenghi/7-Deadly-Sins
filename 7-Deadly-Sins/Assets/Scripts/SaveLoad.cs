@@ -21,6 +21,9 @@ public class SaveLoad : MonoBehaviour
     // If true, will use the stats in save load, else will use stats from saved data on computer
     public bool useTheseStats = true;
 
+    // if not first stage, will use data from json, thus, after respawning 
+    // from death, or following scenes,
+    // will have correct data as they will use stats carried over from previous scene
     bool firstStage = true;
 
 

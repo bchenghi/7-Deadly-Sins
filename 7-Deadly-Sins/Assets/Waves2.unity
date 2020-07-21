@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: gameOverText
       value: 
       objectReference: {fileID: 1033266129}
+    - target: {fileID: 5743559167642815062, guid: af4682513ed0bad4996b485bb069d27e,
+        type: 3}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 1033266129}
     - target: {fileID: 5743559167642815063, guid: af4682513ed0bad4996b485bb069d27e,
         type: 3}
       propertyPath: m_Name
@@ -2924,30 +2929,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.size
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[23].name
-      value: Waves2BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[23].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b364a6ac82c56a94bbedba535f49639e, type: 3}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[23].volume
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[23].pitch
-      value: 0.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 2119813442, guid: 945640c5bc295a94891f95bac5526842, type: 3}
-      propertyPath: sounds.Array.data[23].loop
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1128765268864473414, guid: 945640c5bc295a94891f95bac5526842,
         type: 3}
       propertyPath: m_Name

@@ -29,8 +29,6 @@ public class NewSceneSetUp : MonoBehaviour
     [SerializeField]
     GameObject skillTreeUI;
 
-    [SerializeField]
-    GameObject gameOverText;
     Skill[] skills;
 
     [SerializeField]
@@ -54,7 +52,8 @@ public class NewSceneSetUp : MonoBehaviour
             EffectsManager.instance.MichellenousEffects = miscelleaneousEffects;
         } 
         if (GameOver.instance != null && GameOver.instance.GameOverText == null) {
-            GameOver.instance.GameOverText = gameOverText;
+            GameOver.instance.GameOverText = GameOverUI;
+            GameOver.instance.SetButton();
         }
         
         // sets up the skills for hotkeys to reference
@@ -67,11 +66,7 @@ public class NewSceneSetUp : MonoBehaviour
         if (SkillTree.instance != null)
             SkillTree.instance.NewSceneSetUp(skillTreeUI);
         
-        if (GameOver.instance != null)
-            {
-                GameOver.instance.GameOverText = GameOverUI;
-                GameOver.instance.SetButton();
-            }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         }
