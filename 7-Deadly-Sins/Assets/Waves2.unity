@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 325567594}
   - component: {fileID: 325567593}
   m_Layer: 0
-  m_Name: SetPortalActiveTrigger
+  m_Name: TeleportPortalTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,11 +323,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 325567592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2967a2f3a0818bd4ebfef997a5bc5e17, type: 3}
+  m_Script: {fileID: 11500000, guid: 284dce4c3c1c8494d99221fdb35c0b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setActiveTo: 1
-  objectToChangeActiveState: {fileID: 878753120}
+  objectToTeleport: {fileID: 878753120}
+  regionsToTeleport: {fileID: 1447902807}
+  minDistanceFromPlayer: 3
 --- !u!114 &325567594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,6 +3376,11 @@ PrefabInstance:
       propertyPath: targetRenderer
       value: 
       objectReference: {fileID: 970808258}
+    - target: {fileID: 4017014755872359896, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 2355
+      objectReference: {fileID: 0}
     - target: {fileID: 4017014755872359897, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
       propertyPath: m_Name

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
 
 public class SaveLoad : MonoBehaviour
 {
@@ -28,8 +29,8 @@ public class SaveLoad : MonoBehaviour
     bool firstStage = true;
 
 
-    // Whether correct data was loaded into the save load script and is set up in the variables
-    [HideInInspector]
+    // Whether most updated data was loaded into the save load script and is set up in the variables, used in playerstats to know
+    // if it can set up the data from the data here.
     public bool dataLoaded = false;
 
     public string Name;
@@ -45,35 +46,15 @@ public class SaveLoad : MonoBehaviour
     public void Save()
     {
         GetData();
-        JSONObject playerJson = new JSONObject();
-        playerJson.Add("HP", HP);
-        //playerJson.Add("Armor", Armor);
-        //playerJson.Add("Damage", Damage);
-        playerJson.Add("Gold", Gold);
-        playerJson.Add("Mana", Mana);
-        playerJson.Add("SkillPoints", SkillPoints);
-
-        Debug.Log(playerJson.ToString());
-
-        File.WriteAllText(path, playerJson.ToString());
+        SetData();
         // Assumes skillPoints is correct for next scene;
         dataLoaded = true;
     }
 
     public void SaveStatsBeforeAddingSkillPoints() {
         GetData();
-        JSONObject playerJson = new JSONObject();
-        playerJson.Add("HP", HP);
-        //playerJson.Add("Armor", Armor);
-        //playerJson.Add("Damage", Damage);
-        playerJson.Add("Gold", Gold);
-        playerJson.Add("Mana", Mana);
-        playerJson.Add("SkillPoints", SkillPoints);
-
-        Debug.Log(playerJson.ToString());
-
-        File.WriteAllText(path, playerJson.ToString());
-        // false as skillpoints havent add 2
+        SetData();
+        // false as skillpoints havent add 2, will be set to true in Load, after loading updated stats
         dataLoaded = false;
     }
 
@@ -109,11 +90,12 @@ public class SaveLoad : MonoBehaviour
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetMana(Mana);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
             
-            Debug.Log(playerJson.ToString());
+            Debug.Log("Load " + SceneManager.GetActiveScene().name + " " + playerJson.ToString());
             useTheseStats = true;
             dataLoaded = true;
             firstStage = false;
-        } else if (firstStage && useTheseStats)
+        } 
+        else if (firstStage && useTheseStats)
         {
             GoldCounter.instance.SetGold(Gold);
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetHealth(HP);
@@ -122,18 +104,25 @@ public class SaveLoad : MonoBehaviour
             firstStage = false;
             dataLoaded = true;
             Debug.Log("load first stage and useTheseStats called");
-        } else if (!firstStage)
+        } 
+        else if (!firstStage)
         {
             string jsonString = File.ReadAllText(path);
             JSONObject playerJson = (JSONObject)JSON.Parse(jsonString);
-            Debug.Log(playerJson.ToString());
+            Debug.Log("Load " + SceneManager.GetActiveScene().name + " " + playerJson.ToString());
+            Debug.Log("add 2 to skill points");
             HP = playerJson["HP"];
             //Armor = playerJson["Armor"];
             //Damage = playerJson["Damage"];
             Gold = playerJson["Gold"];
             Mana = playerJson["Mana"];
             // adds two to skillpoints as it is loading new scene
-            SkillPoints = playerJson["SkillPoints"] + 2;
+            SkillPoints = playerJson["SkillPoints"];
+
+            if(ShouldIncreaseSkillPointsBy2()) {
+                SkillPoints += 2;
+            }
+
             GoldCounter.instance.SetGold(Gold);
             
             //health, mana and skill points will be set in playerstats script
@@ -159,7 +148,7 @@ public class SaveLoad : MonoBehaviour
         playerJson.Add("Mana", Mana);
         playerJson.Add("SkillPoints", SkillPoints);
 
-        Debug.Log(playerJson.ToString());
+        Debug.Log("Set data in JSON"+ SceneManager.GetActiveScene().name + " " + playerJson.ToString());
 
         File.WriteAllText(path, playerJson.ToString());
     }
@@ -181,5 +170,12 @@ public class SaveLoad : MonoBehaviour
 
     public void SaveForNewScene() {
         SaveStatsBeforeAddingSkillPoints();
+    }
+
+
+    //Returns true if the skill points should increase by two
+    bool ShouldIncreaseSkillPointsBy2() {
+        return !(SceneManager.GetActiveScene().name == "Shop-CH") &&
+         !(SceneManager.GetActiveScene().name == "AfterDefeatingBoss"); 
     }
 }

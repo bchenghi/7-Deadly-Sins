@@ -28,22 +28,25 @@ public class Inventory : MonoBehaviour
     public int consumablesPerSlot = 4;
     public int othersPerSlot = 100;
 
+    // Adds item to inventory, clones item first so as to avoid other objects from levelling up together.
+    // For instance, upgraded green sword, other green swords will upgrade as well.
     public bool Add(Item item)
     {
         bool successful = true;
+        Item clonedItem = Instantiate(item) as Item;
         if (!item.isDefaultItem)
         {
             if (item is Others)
             {
-                successful = AddOthers(item);
+                successful = AddOthers(clonedItem);
             }
             else if (item is Consumables)
             {
-                successful = AddConsumable(item);
+                successful = AddConsumable(clonedItem);
             }
             else
             {
-                successful = AddNormalItem(item);
+                successful = AddNormalItem(clonedItem);
             }
 
             if (onItemChangedCallback != null && successful)
@@ -186,8 +189,14 @@ public class Inventory : MonoBehaviour
                 int currentNumOfOthersInSlot = items[indexFound].Value;
                 int spaceLeftInSlot = othersPerSlot - currentNumOfOthersInSlot;
                 int othersLeft = othersItem.quantity;
-                items[indexFound] = new KeyValuePair<Item, int>(others, currentNumOfOthersInSlot + spaceLeftInSlot);
-                othersLeft -= spaceLeftInSlot;
+                if (spaceLeftInSlot >= othersLeft) {
+                    items[indexFound] = new KeyValuePair<Item, int>(others, currentNumOfOthersInSlot + othersLeft);
+                    othersLeft = 0;
+                } else {
+                    items[indexFound] = new KeyValuePair<Item, int>(others, currentNumOfOthersInSlot + spaceLeftInSlot);
+                    othersLeft -= spaceLeftInSlot;
+                }
+
 
                 while(othersLeft > 0) {
                     if (othersLeft <= othersPerSlot) {
@@ -307,7 +316,7 @@ public class Inventory : MonoBehaviour
         int index = -1;
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].Key.Equals(item))
+            if (items[i].Key.name == item.name)
             {
                 index = i;
                 break;

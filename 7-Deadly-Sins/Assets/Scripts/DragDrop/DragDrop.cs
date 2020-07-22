@@ -86,7 +86,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
                         result.gameObject.GetComponentInParent<HotKey>().RemoveFromHotKey();
                         result.gameObject.GetComponentInParent<HotKey>().SetUsable(castedObj);
-                        HotKeyBar.instance.HotKeyBarRearranged();
+                        //HotKeyBar.instance.HotKeyBarRearranged();
                         break;
                     }
 

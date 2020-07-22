@@ -79,7 +79,6 @@ public class ChestSlots : UISlot
             } else
             {
                 Inventory.instance.Add(item);
-                
             }
             
             currentChestInventory.RemoveFromChest(item);

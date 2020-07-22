@@ -29,7 +29,7 @@ public class PlayerAnimator : CharacterAnimator
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {
-        Debug.Log("newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon: "+ (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon));
+        //Debug.Log("newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon: "+ (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon));
         if (newItem != null && newItem.equipmentSlot == EquipmentSlot.Weapon)
         {
             animator.SetLayerWeight(1, 1);

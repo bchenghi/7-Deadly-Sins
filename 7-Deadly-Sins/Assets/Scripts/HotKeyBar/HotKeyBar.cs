@@ -33,13 +33,16 @@ public class HotKeyBar : MonoBehaviour
         EnableAll();
 
         if (SceneManager.GetActiveScene().name == "Shop-CH") {
-        DisableAllSkills();
+            DisableAllSkills();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Shop-CH") {
+            DisableAllSkills();
+        }
     }
 
     public void UseHotKey(int index)
@@ -169,7 +172,7 @@ public class HotKeyBar : MonoBehaviour
         if (!doNotChangeEnableOrDisable) {
             foreach (HotKey hotkey in Hotkeys)
             {
-                if (hotkey._usable is Skill)
+                if (hotkey._usable is Skill && hotkey.enabled)
                 {
                     hotkey.DisableHotKey();
                 }
@@ -206,5 +209,6 @@ public class HotKeyBar : MonoBehaviour
             DisableAllSkills();
         }
     }
+
 
 }

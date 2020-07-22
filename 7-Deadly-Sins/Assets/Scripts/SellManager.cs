@@ -45,6 +45,7 @@ public class SellManager : MonoBehaviour
     {
         getQuantity = int.Parse(field.text);
         field.text = "";
+        HotKeyBar.instance.EnableAllMaster();
         inputField.SetActive(false);
         Sell(itemTobeSold, getQuantity);
        
@@ -129,13 +130,13 @@ public class SellManager : MonoBehaviour
         {
             var equipment = item as Equipment;
             int cashBack = item.GetPrice();
-            Debug.Log(item.GetPrice());
+            //Debug.Log(item.GetPrice());
             int sellPrice = (int)(cashBack * sellPercentage); 
             return sellPrice;
         } else
         {
             int sellPrice = (int)(item.GetPrice() * quantity * sellPercentage);
-            Debug.Log(sellPrice);
+            //Debug.Log(sellPrice);
             return sellPrice;
             
         }

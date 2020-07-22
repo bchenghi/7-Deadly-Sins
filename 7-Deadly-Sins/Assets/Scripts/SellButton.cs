@@ -9,6 +9,7 @@ public class SellButton : MonoBehaviour
 
     public void OpenQuanityText()
     {
+        HotKeyBar.instance.DisableAllMaster();
         sellQuantity.SetActive(true);
     }
 }

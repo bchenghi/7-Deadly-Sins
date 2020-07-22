@@ -43,6 +43,7 @@ public class Equipment : Item
     }
 
     public void UpgradeUsing(Equipment equipment) {
+        Debug.Log("upgrade using called: " + name + " using " + equipment.name);
         if (CanUpgradeUsing(equipment)) {
             level += equipment.level + 1;
             DisplayTextManager.instance.Display("Upgraded " + name + " to Level " + (level + 1), 2f);
@@ -62,7 +63,7 @@ public class Equipment : Item
     }
 
     public bool CanUpgradeUsing(Equipment equipmentToAdd) {
-        //Debug.Log("level " + level + " maxLevel " + maxLevel);
+        Debug.Log("level " + level + " maxLevel " + maxLevel);
         return (level + 1) + (equipmentToAdd.level + 1) <= (maxLevel + 1);
     }
 
