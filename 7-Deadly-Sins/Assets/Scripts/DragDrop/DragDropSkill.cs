@@ -79,10 +79,17 @@ public class DragDropSkill : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
                 Debug.Log(result);
                 if (result.gameObject.CompareTag("Hotkey"))
                 {
-                    result.gameObject.GetComponentInParent<HotKey>().RemoveFromHotKey();
-                    result.gameObject.GetComponentInParent<HotKey>().SetUsable(itemBeingDragged.GetComponent<IUsable>());
-                    itemBeingDragged.transform.GetComponent<DragDropSkill>().enabled = false;
-                    HotKeyBar.instance.HotKeyBarRearranged();
+                    HotKey currentHotKey = result.gameObject.GetComponent<HotKey>();
+                    if (currentHotKey.isFilled == false || (currentHotKey.isFilled && !currentHotKey.CheckWhetherHotKeyisCoolingDown()))
+                    {
+                        result.gameObject.GetComponentInParent<HotKey>().RemoveFromHotKey();
+                        result.gameObject.GetComponentInParent<HotKey>().SetUsable(itemBeingDragged.GetComponent<IUsable>());
+                        itemBeingDragged.transform.GetComponent<DragDropSkill>().enabled = false;
+                        HotKeyBar.instance.HotKeyBarRearranged();
+                    } else
+                    {
+                        Debug.Log("HotKey is in use");
+                    }
                 }
                 
 

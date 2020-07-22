@@ -9,6 +9,8 @@ public class PlayerFlameThrower : MonoBehaviour
     ParticleSystem[] ps;
     Animator animator;
     public bool inUse;
+    public Others flameThrowerObject;
+    IUsable flameThrowerItem;
     public Item ammo;
     private bool hasAmmo;
     public float UseTimePerAmmo;
@@ -23,6 +25,7 @@ public class PlayerFlameThrower : MonoBehaviour
         inUse = false;
         ps = flameThrower.GetComponentsInChildren<ParticleSystem>();
         runOutOfTime = false;
+        flameThrowerItem = flameThrowerObject as IUsable;
         
     }
 
@@ -48,7 +51,9 @@ public class PlayerFlameThrower : MonoBehaviour
 
     public void UseFlameThrower()
     {
+        
         checkForAmmo();
+        Debug.Log("Use FlameThrower");
         if (!inUse)
         {
             inUse = true;
@@ -56,6 +61,7 @@ public class PlayerFlameThrower : MonoBehaviour
             flameThrower.SetActive(true);
             if (hasAmmo)
             {
+                HotKeyBar.instance.DisableSpecificHotKeyWithItemCheck(flameThrowerItem);
                 Inventory.instance.Remove(ammo, 1);
                 flameThrower.GetComponent<BoxCollider>().enabled = true;
                 foreach (ParticleSystem ps in ps)
@@ -75,11 +81,13 @@ public class PlayerFlameThrower : MonoBehaviour
             
         } else
         {
+            HotKeyBar.instance.DisableSpecificHotKeyWithItemCheck(flameThrowerItem);
             runOutOfTime = false;
             animator.SetLayerWeight(3, 0);
             flameThrower.SetActive(false);
             inUse = false;
             timeChecker = false;
+            StartCoroutine(enableHotKey());
         }
     }
 
@@ -98,5 +106,13 @@ public class PlayerFlameThrower : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         runOutOfTime = true;
+        HotKeyBar.instance.EnableSpecificHotKeyWithItemCheck(flameThrowerItem);
+    }
+
+    IEnumerator enableHotKey()
+    {
+        yield return new WaitForSeconds(0.1f);
+        HotKeyBar.instance.EnableSpecificHotKeyWithItemCheck(flameThrowerItem);
+
     }
 }

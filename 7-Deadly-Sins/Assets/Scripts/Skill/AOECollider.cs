@@ -40,8 +40,9 @@ public class AOECollider : MonoBehaviour
             Go.transform.position = new Vector3(Go.transform.position.x, Go.transform.position.y + other.transform.GetComponent<CapsuleCollider>().height + 0.2f, Go.transform.position.z);
             other.transform.GetComponent<EnemyController>().StopMovement();
             yield return new WaitForSeconds(time);
-            other.transform.GetComponent<EnemyController>().StartMovement();
             Destroy(Go);
+            other.transform.GetComponent<EnemyController>().StartMovement();
+            
         } else
         {
             GameObject Go = GameObject.Instantiate(StunCircle, other.transform.position, Quaternion.identity);
