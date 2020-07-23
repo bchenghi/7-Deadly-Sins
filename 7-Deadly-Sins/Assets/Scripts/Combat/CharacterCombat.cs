@@ -15,7 +15,6 @@ public class CharacterCombat : MonoBehaviour
     public bool SpecialActivated = false;
     [HideInInspector]
     public int count = 0;
-
     protected SoundHandler soundHandler;
 
     
@@ -75,6 +74,7 @@ public class CharacterCombat : MonoBehaviour
     // Also plays attack sounds
     public virtual void AttackHit_AnimationEvent()
     {
+        
         float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
         //Debug.Log(distance);
         if (distance <= attackDistance)

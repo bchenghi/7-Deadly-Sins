@@ -21,6 +21,7 @@ public class AOECollider : MonoBehaviour
                 StartCoroutine(StunCoolDown(stunTime, other));
             }
 
+            Debug.Log(other.transform.GetComponent<CharacterAnimator>());
             if (other.transform.GetComponent<CharacterAnimator>().reactsToDamage == false)
             {
                 other.transform.GetComponentInChildren<Animator>().SetTrigger("Hurt");
