@@ -8638,7 +8638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 27
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -10441,7 +10441,7 @@ MonoBehaviour:
   dialogue:
     name: Tip
     sentences:
-    - Once you have all 15 clues, Press N to Display Clues, Press M to hide Clues
+    - Once you have all 15 clues, Press N to Display or Hide Clues.
 --- !u!65 &375039256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14978,7 +14978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 27
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -15640,7 +15640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 25
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -21669,7 +21669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 15
+    baseValue: 26
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -25612,7 +25612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 27
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -29581,6 +29581,7 @@ MonoBehaviour:
     name: Tip
     sentences:
     - Find out the correct sequence and Escape the map!
+    - Clues are found everywhere in the map, obtain the clues and solve the puzzle.
 --- !u!65 &1107514864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31366,7 +31367,7 @@ PrefabInstance:
     - target: {fileID: 1864562474772696171, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3051171892147318289, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -31596,7 +31597,7 @@ PrefabInstance:
     - target: {fileID: 6441870372041135434, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6441870372203519004, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -32189,7 +32190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 15
+    baseValue: 26
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -32546,7 +32547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 25
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -48094,7 +48095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 25
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -51538,7 +51539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 25
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -58270,6 +58271,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4538762851618926430, guid: 613b6c7d7595b4f4cb91f84eddb53982,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613b6c7d7595b4f4cb91f84eddb53982, type: 3}
 --- !u!33 &4545620727140823867
@@ -60354,6 +60360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1725029205}
     m_Modifications:
+    - target: {fileID: 7279933080165636834, guid: 5e7f8792f334a35488987c687cde24b8,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 7279933080165636842, guid: 5e7f8792f334a35488987c687cde24b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -60752,6 +60763,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7692859530391344166, guid: ca09cb6bb44c6694abf450f2d0a4ec5d,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 27
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca09cb6bb44c6694abf450f2d0a4ec5d, type: 3}
 --- !u!1 &7738308263835225188
@@ -61062,7 +61078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 27
   armor:
     baseValue: 0
   enemyDeathSound: 

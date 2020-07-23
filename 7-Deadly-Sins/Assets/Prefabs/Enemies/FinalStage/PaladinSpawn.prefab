@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa49eea7bbbd8b24b9588b12853c0a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 60
+  maxHealth: 100
   damage:
-    baseValue: 5
+    baseValue: 75
   armor:
     baseValue: 2
   enemyDeathSound: 
@@ -237,6 +237,7 @@ MonoBehaviour:
   easyRoamZ: 0
   reachedTargetPoint: 0
   hasDisappeared: 0
+  isStunned: 0
 --- !u!114 &-8456780721166630105
 MonoBehaviour:
   m_ObjectHideFlags: 0
