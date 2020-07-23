@@ -44,6 +44,7 @@ public class PlayerFlameThrower : MonoBehaviour
             }
             runOutOfTime = false;
             flameThrower.GetComponent<BoxCollider>().enabled = false;
+            PutDownFlameThrower();
         }
         //Debug.Log(runOutOfTime);
     }
@@ -114,5 +115,16 @@ public class PlayerFlameThrower : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         HotKeyBar.instance.EnableSpecificHotKeyWithItemCheck(flameThrowerItem);
 
+    }
+
+    private void PutDownFlameThrower()
+    {
+        HotKeyBar.instance.DisableSpecificHotKeyWithItemCheck(flameThrowerItem);
+        runOutOfTime = false;
+        animator.SetLayerWeight(3, 0);
+        flameThrower.SetActive(false);
+        inUse = false;
+        timeChecker = false;
+        StartCoroutine(enableHotKey());
     }
 }
