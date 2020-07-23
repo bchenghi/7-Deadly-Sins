@@ -23805,7 +23805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 4088801398680007622, guid: 04cf596a9b85abb4bb5e5d71c281bc1c, type: 3}
-  - {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &791094776
 MonoBehaviour:
@@ -30643,7 +30643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 4088801398680007622, guid: 04cf596a9b85abb4bb5e5d71c281bc1c, type: 3}
-  - {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &1017330059
 MonoBehaviour:
@@ -57052,7 +57052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 385827135836732976, guid: 8f2780ed147abbc4782fff39966b5ec5, type: 3}
-  - {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &1831897600
 MonoBehaviour:
@@ -57871,7 +57871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 385827135836732976, guid: 452d6ee6f0a27a449b055eaa42b84ea7, type: 3}
-  - {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127, type: 3}
+  - {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &1862248718
 MonoBehaviour:
@@ -59771,7 +59771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootDrops:
   - {fileID: 6325374536487120484, guid: e446b6d5872721f4fa9f341e56d7d015, type: 3}
-  - {fileID: 8067506348872991758, guid: 2fe934af3d483064aa8fa06643156127, type: 3}
+  - {fileID: 1401821474702656, guid: 40622103d618b1e43b3c9ea67ff0a1e3, type: 3}
   maxDistanceFromTransform: 0.3
 --- !u!114 &1918310839
 MonoBehaviour:
@@ -68740,6 +68740,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist
       objectReference: {fileID: 0}
+    - target: {fileID: 3651000682090087743, guid: 58022ff73e3f82c4fbf3fbaa9be89107,
+        type: 3}
+      propertyPath: lootDrops.Array.data[1]
+      value: 
+      objectReference: {fileID: 537211299970585264, guid: 93d62ccdb48463d479552f2081badb39,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58022ff73e3f82c4fbf3fbaa9be89107, type: 3}
 --- !u!1001 &3870207375745756987
