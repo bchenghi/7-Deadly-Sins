@@ -119,8 +119,8 @@ public class SaveLoad : MonoBehaviour
             // adds two to skillpoints as it is loading new scene
             SkillPoints = playerJson["SkillPoints"];
 
-            if(ShouldIncreaseSkillPointsBy2()) {
-                SkillPoints += 2;
+            if(ShouldIncreaseSkillPoints()) {
+                SkillPoints += 1;
             }
 
             GoldCounter.instance.SetGold(Gold);
@@ -174,7 +174,7 @@ public class SaveLoad : MonoBehaviour
 
 
     //Returns true if the skill points should increase by two
-    bool ShouldIncreaseSkillPointsBy2() {
+    bool ShouldIncreaseSkillPoints() {
         return !(SceneManager.GetActiveScene().name == "Shop-CH") &&
          !(SceneManager.GetActiveScene().name == "AfterDefeatingBoss"); 
     }

@@ -59,10 +59,12 @@ public class EditedTurretShooting : MonoBehaviour
                     onAmmoChange(ammoCount, maxAmmo);
                 }
                 Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+                //int ignoreRayCastLayerMask = LayerMask.NameToLayer("Ignore Raycast");
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, TurretRange, TargetMask))
                 {
                     soundHandler.PlaySoundByName(transform, "GunShot");
+
                     float distance = Vector3.Distance(player.transform.position, hit.point);
                     if (distance <= TurretRange)
                     {
