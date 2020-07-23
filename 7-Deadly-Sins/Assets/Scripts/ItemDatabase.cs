@@ -61,10 +61,21 @@ class ItemComparator : IComparer<Item>
         }
         else if (thisItem is Consumables && thatItem is Consumables) 
         {
-            int result = 0;
-            result += ((Consumables) thisItem).GetPrice();
-            result -= ((Consumables) thatItem).GetPrice();
-            return result;
+            if (thisItem is Key && thatItem is Potions)
+            {
+                return -1;
+            } 
+            else if (thisItem is Potions && thatItem is Key)
+            {
+                return 1;
+            } 
+            else 
+            {
+                int result = 0;
+                result += ((Consumables) thisItem).GetPrice();
+                result -= ((Consumables) thatItem).GetPrice();
+                return result;
+            }
         } 
         else 
         {

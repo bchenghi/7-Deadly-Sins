@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09304439, g: 0.118826546, b: 0.15370423, a: 1}
+  m_IndirectSpecularColor: {r: 0.09319175, g: 0.11885571, b: 0.15382013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10276,8 +10276,8 @@ MonoBehaviour:
   dialogue:
     name: NPC
     sentences:
-    - Here you will have to convince the gatekeeper to open the portal for you. Good
-      luck.
+    - Here you will have to convince the gatekeeper to open the portal for you. He's
+      in the castle in front of you. Good luck.
     - Left click on an NPC to talk to them.
 --- !u!4 &526509206
 Transform:
@@ -16399,7 +16399,7 @@ MonoBehaviour:
     name: Brute
     sentences:
     - Good day! Help me find 5 iron ingots. I will present to you a prize if you
-      help me.
+      help me. Come back when you've found them!
 --- !u!1001 &776303323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17719,8 +17719,8 @@ MonoBehaviour:
   dialogue:
     name: Palladin
     sentences:
-    - Hello Traveller! I lost a key somewhere in the castle, help me find it, and
-      I will reward you handsomely.
+    - Hello Traveller! I lost a key somewhere in the castle, help me find it and
+      bring it back to me, and I will reward you handsomely.
 --- !u!4 &863077596
 Transform:
   m_ObjectHideFlags: 0
@@ -32986,6 +32986,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 6.32e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 7.1e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672259525484422252, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -4.1584114e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672259525545162738, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.1306983e+24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672259525545162738, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.0764005e+10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672259525545162738, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 3.5439108e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672259525545162738, guid: d36dfe796d217794189c575e3abfaeb8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1.7589295e+22
+      objectReference: {fileID: 0}
     - target: {fileID: 4672259527038042114, guid: d36dfe796d217794189c575e3abfaeb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39146,7 +39181,7 @@ MonoBehaviour:
     name: Erika
     sentences:
     - Hello Traveller. I need help in defeating the goblins nearby. Please help,
-      and I will give you a prize.
+      and I will give you a prize. Come back to me when you are done.
 --- !u!1001 &1820025436
 PrefabInstance:
   m_ObjectHideFlags: 0

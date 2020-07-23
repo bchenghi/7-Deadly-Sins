@@ -180,7 +180,12 @@ public class ToolTipWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             int damageModifier = equipment.DamageModifier();
 
             str.Append(name).AppendLine();
-            str.Append("Current Level: ").Append(currentLevel + 1).AppendLine();
+            if (currentLevel < equipment.maxLevel) {
+                str.Append("Current Level: ").Append(currentLevel + 1).AppendLine();
+            } else {
+                str.Append("Current Level: ").Append(currentLevel + 1).Append(" (Max)").AppendLine();                
+            }
+
             str.Append("<color=green>Armor Modifier: ").Append(armorModifier).Append("</color>").AppendLine();
             str.Append("<color=red>Damage Modifier: ").Append(damageModifier).Append("</color>");
             

@@ -13,7 +13,8 @@ public class Equipment : Item
     public int damageModifier;
 
     public int level = 0;
-    int maxLevel = 2;
+    
+    public int maxLevel = 2;
 
     float[] statsLevelIncreaseFactors = new float[] {1, 1.5f, 2};
 
@@ -46,7 +47,12 @@ public class Equipment : Item
         Debug.Log("upgrade using called: " + name + " using " + equipment.name);
         if (CanUpgradeUsing(equipment)) {
             level += equipment.level + 1;
-            DisplayTextManager.instance.Display("Upgraded " + name + " to Level " + (level + 1), 2f);
+            if (level < maxLevel) {
+                DisplayTextManager.instance.Display("Upgraded " + name + " to Level " + (level + 1), 2f);
+            } else {
+                DisplayTextManager.instance.Display("Upgraded " + name + " to Level " + (level + 1) + " (Max)", 2f);
+            }
+
         }
         else
         {
