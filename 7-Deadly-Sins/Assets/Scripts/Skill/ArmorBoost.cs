@@ -48,6 +48,11 @@ public class ArmorBoost : Skill, IUsable
         isCoolingDown = false;
     }
 
+    private void Awake()
+    {
+        Description = "Increases player's armor by 10 but decreases walkspeed by 1 and runspeed by 3 for 5 seconds";
+    }
+
     // Start is called before the first frame update
     public override void Start()
     {

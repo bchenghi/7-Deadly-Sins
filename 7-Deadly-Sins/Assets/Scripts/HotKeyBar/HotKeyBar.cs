@@ -149,6 +149,8 @@ public class HotKeyBar : MonoBehaviour
                 //Debug.Log((hotKeyMemory[i] is Skill) + " memory is skill");
                 if (hotKeyMemory[i] is Skill) {
                     foreach (Skill skill in HotKeyBarManager.instance.GetIUsableSkills()) {
+                        Debug.Log("skill description" + ((Skill)hotKeyMemory[i]).Description);
+                        Debug.Log("Skill : " + skill.Description);
                         if (skill.Description == ((Skill) hotKeyMemory[i]).Description) {
                             hotKeyMemory[i] = ((IUsable) skill);
                             break;
