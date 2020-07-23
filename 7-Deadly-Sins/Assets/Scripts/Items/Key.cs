@@ -16,4 +16,9 @@ public class Key : Consumables
         inventory.Add(this); // add in to the main inventory
         
     }
+
+    public override int GetPrice()
+    {
+        return 30;
+    }
 }

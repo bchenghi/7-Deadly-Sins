@@ -981,7 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 10
+    baseValue: 75
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -1079,7 +1079,6 @@ MonoBehaviour:
   effectNum: 0
   effectOnAndFollow: 0
   targetHit: 0
-  chestAreaEffectLocation: {fileID: 7433901872095942110}
 --- !u!114 &-509815541261888381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,6 +1119,7 @@ MonoBehaviour:
   easyRoamZ: 0
   reachedTargetPoint: 0
   hasDisappeared: 0
+  isStunned: 0
 --- !u!1 &7279933080175247399
 GameObject:
   m_ObjectHideFlags: 0

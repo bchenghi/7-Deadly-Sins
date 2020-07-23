@@ -2842,9 +2842,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   damage:
-    baseValue: 40
+    baseValue: 80
   armor:
-    baseValue: 20
+    baseValue: 35
   enemyDeathSound: BossDeath
   lootDrop: {fileID: 0}
 --- !u!114 &8974243722714192528
@@ -2987,7 +2987,7 @@ MonoBehaviour:
   Shield: {fileID: 2829945485260314015}
   faceMask: {fileID: 8342269747961154501}
   damageUp: 15
-  armorUp: 15
+  armorUp: 5
 --- !u!114 &-171314874516157223
 MonoBehaviour:
   m_ObjectHideFlags: 0

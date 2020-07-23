@@ -5137,7 +5137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   damage:
-    baseValue: 2
+    baseValue: 18
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -7130,7 +7130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   damage:
-    baseValue: 2
+    baseValue: 16
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -8868,6 +8868,11 @@ PrefabInstance:
       propertyPath: lootDrop
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5327309865314210140, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5327309865314210142, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
       propertyPath: attackDistance
@@ -9789,11 +9794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: damage.baseValue
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 567281184, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: armor.baseValue
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 567281186, guid: cb551d445d5d90f4c9bb829b2befad5f, type: 3}
       propertyPath: attackSpeed
@@ -11044,7 +11049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   damage:
-    baseValue: 2
+    baseValue: 18
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -15813,6 +15818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: lootDrop
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327309865314210140, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5327309865314210142, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -33821,7 +33831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   damage:
-    baseValue: 2
+    baseValue: 18
   armor:
     baseValue: 0
   enemyDeathSound: 

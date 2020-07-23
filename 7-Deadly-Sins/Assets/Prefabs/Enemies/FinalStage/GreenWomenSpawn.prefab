@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage:
-    baseValue: 5
+    baseValue: 75
   armor:
     baseValue: 0
   enemyDeathSound: 
@@ -314,6 +314,7 @@ MonoBehaviour:
   easyRoamZ: 0
   reachedTargetPoint: 0
   hasDisappeared: 0
+  isStunned: 0
 --- !u!114 &6949503854799590343
 MonoBehaviour:
   m_ObjectHideFlags: 0

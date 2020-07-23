@@ -1902,6 +1902,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 583d122520c453548885cf9c12bc769f,
         type: 2}
+    - target: {fileID: 8582899301195117345, guid: 7b91e8c440a9d1d41a1313c6908193c1,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 42
+      objectReference: {fileID: 0}
     - target: {fileID: 8582899301195117346, guid: 7b91e8c440a9d1d41a1313c6908193c1,
         type: 3}
       propertyPath: lookRadius
@@ -2394,6 +2399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxHealth
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327309865314210140, guid: 5ebb43384254af14cbb0e46f6620896a,
+        type: 3}
+      propertyPath: damage.baseValue
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5327309865314210142, guid: 5ebb43384254af14cbb0e46f6620896a,
         type: 3}
@@ -3714,7 +3724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   damage:
-    baseValue: 20
+    baseValue: 41
   armor:
     baseValue: 5
   enemyDeathSound: 
