@@ -27,6 +27,8 @@ public class AOECollider : MonoBehaviour
 
 
 
+        } else if (other.GetComponent<ClownStats>() && isActive && other != null){
+            other.transform.GetComponent<ClownStats>().TakeDamage((int) damage);
         }
     }
 

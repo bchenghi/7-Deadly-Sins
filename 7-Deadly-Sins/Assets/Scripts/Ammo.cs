@@ -12,7 +12,10 @@ public class Ammo : Others
             return 1;
         } else if (name == "Flame Thrower Ammo") {
             return 30;
-        } else {
+        } else if (name == "Grappling Hooks") {
+            return 10;
+        } 
+        else {
             return 0;
         }
     }
