@@ -66,6 +66,11 @@ public class FuryLvl3 : Skill, IUsable
         isCoolingDown = false;
     }
 
+    private void Awake()
+    {
+        Description = "Increases player's damage by 15 for 5 seconds";
+    }
+
     // Start is called before the first frame update
     public override void Start()
     {

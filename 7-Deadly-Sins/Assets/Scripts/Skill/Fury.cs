@@ -65,6 +65,11 @@ public class Fury : Skill, IUsable
         isCoolingDown = false;
     }
 
+    private void Awake()
+    {
+        Description = "Increases player's damage by 5 for 5 seconds";
+    }
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -73,5 +78,7 @@ public class Fury : Skill, IUsable
         MaxSkillLevel = 3;
         //systems = effect.GetComponentsInChildren<ParticleSystem>();
     }
+
+
 
 }
