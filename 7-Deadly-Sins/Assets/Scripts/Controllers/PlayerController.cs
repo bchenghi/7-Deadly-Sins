@@ -280,7 +280,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("jump");
         yield return new WaitForSeconds(0.52f);
         jumping = true;
-        if (isGrounded)
+        if (isGrounded && jumping && jumpAnimStart)
         {
             float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
             velocityY = jumpVelocity;
