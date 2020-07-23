@@ -18,6 +18,25 @@ public class RangedSpell : Skill, IUsable
     public float offy;
     public float offz;
  
+
+    public void Awake() {
+        if (skillLevel == 1)
+        {
+            minDamage = 15;
+            maxDamage = 20;
+        }
+        else if (skillLevel == 2)
+        {
+            minDamage = 25;
+            maxDamage = 30;
+        }
+        else
+        {
+            minDamage = 35;
+            maxDamage = 40;
+        }
+        Description = "Cast a fire ball dealing " + minDamage + " - " + maxDamage + " damage";
+    }
     
 
     public Sprite Image
@@ -118,22 +137,8 @@ public class RangedSpell : Skill, IUsable
         combat = player.GetComponent<CharacterCombat>();
         effectsManager = EffectsManager.instance;
         effectHandler = player.GetComponent<EffectHandler>();
-        if (skillLevel == 1)
-        {
-            minDamage = 15;
-            maxDamage = 20;
-        }
-        else if (skillLevel == 2)
-        {
-            minDamage = 25;
-            maxDamage = 30;
-        }
-        else
-        {
-            minDamage = 35;
-            maxDamage = 40;
-        }
-        Description = "Cast a fire ball dealing " + minDamage + " - " + maxDamage + " damage";
+
+
         MaxSkillLevel = 3;
         
     }

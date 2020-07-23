@@ -14,10 +14,14 @@ public class AOESkill : Skill, IUsable
         set { return; }
     }
 
+    public void Awake() {
+        Description = "Cast an AOE spell, dealing " + damage + " damage to nearby enemies and stunning them for " + stunTime + " seconds";
+    }
+
     public override void Start()
     {
         base.Start();
-        Description = "Cast an AOE spell, dealing " + damage + " damage to nearby enemies and stunning them for " + stunTime + " seconds";
+        
         MaxSkillLevel = 3;
     }
     public override void Use()
