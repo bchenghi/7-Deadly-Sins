@@ -115,4 +115,8 @@ public class Torch : Consumables, IUsable
 
 
     }
+
+    public override int GetPrice() {
+        return 10;
+    }
 }

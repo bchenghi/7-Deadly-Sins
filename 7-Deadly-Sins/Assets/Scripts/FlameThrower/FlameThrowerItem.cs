@@ -28,4 +28,8 @@ public class FlameThrowerItem : Others, IUsable
     public virtual void Start() {
 
     }
+
+    public override int GetPrice() {
+        return 50;
+    }
 }

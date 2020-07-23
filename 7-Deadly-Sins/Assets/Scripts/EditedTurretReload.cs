@@ -10,7 +10,8 @@ public class EditedTurretReload : MonoBehaviour
     public Item AmmoRequired;
     int AmmoToReload;
     public GameObject ReloadImage;
-    private bool isReloading;
+    [HideInInspector]
+    public bool isReloading;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class EditedTurretReload : MonoBehaviour
     {
         if (Inventory.instance.getValue(AmmoRequired) >= AmmoToReload)
         {
+            isReloading = true;
             StartCoroutine(reloadTimeRoutine(reloadTime));
             return true;
         } else

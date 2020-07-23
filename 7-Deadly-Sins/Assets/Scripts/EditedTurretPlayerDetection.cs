@@ -31,7 +31,7 @@ public class EditedTurretPlayerDetection : MonoBehaviour
         }
     }
 
-    public bool PlayerShooting() {
+    public bool PlayerRequestedEntry() {
         return playerShooting;
     }
 

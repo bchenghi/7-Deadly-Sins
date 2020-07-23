@@ -28,6 +28,7 @@ public class TurretController : MonoBehaviour
     [SerializeField]
     GameObject counterTextObject;
     TextMeshProUGUI counterText;
+    // a flag used to tell the controller if reload was called, so that it wont call it again while reloading
     bool reloadCalled = false;
 
 
@@ -42,7 +43,8 @@ public class TurretController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDetection.PlayerShooting() && !turretShooting.OutOfAmmo && !inPosition) 
+        if (playerDetection.PlayerRequestedEntry() && !turretShooting.OutOfAmmo && !inPosition
+        && !turretReload.isReloading) 
         {
             player.GetComponent<PlayerController>().ChangeActionsAllowed(false);
             turretGraphics.SetActive(false);
@@ -56,8 +58,8 @@ public class TurretController : MonoBehaviour
             reloadCalled = false;
             turretShooting.canShoot = true;
         } 
-        else if (playerDetection.PlayerShooting() && turretShooting.OutOfAmmo && inPosition
-         && !reloadCalled) 
+        else if (playerDetection.PlayerRequestedEntry() && turretShooting.OutOfAmmo && inPosition
+         && !turretReload.isReloading) 
         {
             player.GetComponent<PlayerController>().ChangeActionsAllowed(true);
             turretGraphics.SetActive(true);
@@ -77,8 +79,8 @@ public class TurretController : MonoBehaviour
             counterText.gameObject.SetActive(false);
             turretShooting.canShoot = false;
         } 
-        else if (playerDetection.PlayerShooting() && turretShooting.OutOfAmmo 
-        && !inPosition && !reloadCalled) 
+        else if (playerDetection.PlayerRequestedEntry() && turretShooting.OutOfAmmo 
+        && !inPosition && !turretReload.isReloading) 
         {
             if (turretReload.Reload()) {
                 reloadCalled = true;
@@ -87,7 +89,7 @@ public class TurretController : MonoBehaviour
             playerDetection.SetPlayerShooting(false);
             turretShooting.canShoot = false;
         } 
-        else if (!playerDetection.PlayerShooting() && inPosition) 
+        else if (!playerDetection.PlayerRequestedEntry() && inPosition) 
         {
             player.GetComponent<PlayerController>().ChangeActionsAllowed(true);
             turretGraphics.SetActive(true);

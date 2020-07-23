@@ -8,6 +8,12 @@ public class Ammo : Others
 {
     // price of one
     public override int GetPrice() {
-        return 1;
+        if (name == "Turret Ammo") {
+            return 1;
+        } else if (name == "Flame Thrower Ammo") {
+            return 30;
+        } else {
+            return 0;
+        }
     }
 }
