@@ -159,12 +159,15 @@ public class EffectHandler : MonoBehaviour
 
     public void BloodEffectEvent(Transform targetPos, int effectNumber)
     {
-        effectNumber = Random.Range(0, effectNumber);
-        effectsManager.EnableMischellenousEffect(effectNumber);
-        Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
-        effect.position = chestAreaEffectLocation.position;
-        // new Vector3(targetPos.position.x, targetPos.position.y + 0.7f, targetPos.position.z);
-        effectsManager.ActivateParticleSystem(effect);
+        if (chestAreaEffectLocation != null)
+        {
+            effectNumber = Random.Range(0, effectNumber);
+            effectsManager.EnableMischellenousEffect(effectNumber);
+            Transform effect = effectsManager.returnMichellenousEffects(effectNumber);
+            effect.position = chestAreaEffectLocation.position;
+            // new Vector3(targetPos.position.x, targetPos.position.y + 0.7f, targetPos.position.z);
+            effectsManager.ActivateParticleSystem(effect);
+        }
 
     }
 

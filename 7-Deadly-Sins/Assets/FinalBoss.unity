@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01609639, g: 0.014628816, b: 0.013830393, a: 1}
+  m_IndirectSpecularColor: {r: 0.016090982, g: 0.01466979, b: 0.013826404, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1725,6 +1725,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301217052}
   m_Mesh: {fileID: 4300004, guid: d4036a5788ac80b44917c4cb51c45ea6, type: 3}
+--- !u!114 &304959632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1128765268864473535, guid: 945640c5bc295a94891f95bac5526842,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031421485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979c3a49f700adb4d98d62e126c1d080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &306473880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,6 +4510,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537314747720944629, guid: 3826ed118fe1ac344bab47c71d5d6c07,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 304959632}
+    - target: {fileID: 5537314747720944629, guid: 3826ed118fe1ac344bab47c71d5d6c07,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3826ed118fe1ac344bab47c71d5d6c07, type: 3}
