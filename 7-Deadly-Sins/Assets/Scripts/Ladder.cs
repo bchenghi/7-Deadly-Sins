@@ -32,7 +32,7 @@ public class Ladder : MonoBehaviour
             target.GetComponent<PlayerController>().gravity = 0;
             target.GetComponent<CharacterController>().stepOffset = 0;
             target.position = new Vector3(transform.position.x, target.position.y, transform.position.z);
-            target.rotation = Quaternion.LookRotation(target.forward, Vector3.up);
+            target.rotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
             //Vector3 direction = (transform.position - target.position).normalized;
             //target.rotation = Quaternion.LookRotation(target.forward);
             if (Input.GetKey(KeyCode.W))

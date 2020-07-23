@@ -80,6 +80,7 @@ public class EnemyController : MonoBehaviour
         {
             if (distanceToTarget <= agent.stoppingDistance)
             {
+                Debug.Log(transform.name + " is not stunned");
                 agent.stoppingDistance = StoppingDist;
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
                 if (targetStats != null)

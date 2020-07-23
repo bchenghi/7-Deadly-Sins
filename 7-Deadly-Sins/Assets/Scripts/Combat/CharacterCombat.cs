@@ -26,6 +26,7 @@ public class CharacterCombat : MonoBehaviour
 
     protected CharacterStats myStats;
     protected CharacterStats opponentStats;
+ 
 
     public bool InCombat { get; protected set; }
     public bool dead { get; set; }
@@ -36,6 +37,7 @@ public class CharacterCombat : MonoBehaviour
     {
         myStats = GetComponent<CharacterStats>();
         soundHandler = GetComponent<SoundHandler>();
+        
         
     }
 
@@ -74,7 +76,7 @@ public class CharacterCombat : MonoBehaviour
     public virtual void AttackHit_AnimationEvent()
     {
         float distance = Vector3.Distance(opponentStats.transform.position, myStats.transform.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance <= attackDistance)
         {
             
@@ -120,5 +122,33 @@ public class CharacterCombat : MonoBehaviour
     {
         this.CloseEnough = false;
     }
+
+   /* private bool isStunned(Transform other)
+    {
+        if (other.GetComponent<EnemyController>())
+        {
+            if (other.GetComponent<EnemyController>().isStunned)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        } else if (other.GetComponent<FinalEnemyController>())
+        {
+            if (other.GetComponent<FinalEnemyController>().isStunned)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        } else
+        {
+            return false;
+        }
+    
+    }
+   */
 
 }
