@@ -18,6 +18,8 @@ public class FinalBossPowerUp : MonoBehaviour
     Enemy enemy;
     ITrigger trigger;
     private FinalBossHealthUI healthUI;
+    CapsuleCollider collider;
+    
 
     private void Start()
     {
@@ -26,6 +28,7 @@ public class FinalBossPowerUp : MonoBehaviour
         enemy = GetComponent<Enemy>();
         healthUI = GetComponent<FinalBossHealthUI>();
         trigger = GetComponent<ITrigger>();
+        collider = GetComponent<CapsuleCollider>();
     }
 
 
@@ -44,6 +47,8 @@ public class FinalBossPowerUp : MonoBehaviour
                 stats.damage.AddModifier(damageUp);
                 stats.armor.AddModifier(armorUp);
                 damageAndArmorUp = true;
+                transform.localScale = new Vector3(1.45f, 1.45f, 1.45f);
+                collider.height = 2.26f;
                 trigger.Trigger();
             }
         }
