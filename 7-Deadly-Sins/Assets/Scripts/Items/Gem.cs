@@ -5,5 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Gem", menuName = "Inventory/Others/Gem")]
 public class Gem : Others
 {
-
+    public override int GetPrice() {
+        return 50;
+    }
 }

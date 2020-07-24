@@ -541,7 +541,7 @@ MonoBehaviour:
   dialogue:
     name: 
     sentences:
-    - Clear all enemies in the area first!
+    - Clear all enemies on this floor first!
 --- !u!114 &9711143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11735,6 +11735,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15.399902
       objectReference: {fileID: 0}
+    - target: {fileID: 6441870373398751174, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14.600098
+      objectReference: {fileID: 0}
     - target: {fileID: 6441870373469403253, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: hotKeysParent
@@ -11752,6 +11757,12 @@ GameObject:
 --- !u!1 &339892896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3150783879635184093, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 339892894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &339892897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1822461355014098489, guid: 867fe124405cf5d45be05a4d725fc64e,
     type: 3}
   m_PrefabInstance: {fileID: 339892894}
   m_PrefabAsset: {fileID: 0}
@@ -18375,12 +18386,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2207730882428027473, guid: 30bf011ff31fda2428fb040679cb1238,
     type: 3}
   m_PrefabInstance: {fileID: 7302949418548593214}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &532946588 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 387814021007479922, guid: 867fe124405cf5d45be05a4d725fc64e,
-    type: 3}
-  m_PrefabInstance: {fileID: 339892894}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &533268857
 PrefabInstance:
@@ -71259,7 +71264,7 @@ MonoBehaviour:
   chestInventory: {fileID: 1374101673}
   SkillTreeUI: {fileID: 966445570}
   dialogueBox: {fileID: 1962751357}
-  pauseMenu: {fileID: 532946588}
+  pauseMenu: {fileID: 339892897}
   gameOver: {fileID: 339892896}
 --- !u!114 &7275556995415062193
 MonoBehaviour:
@@ -76456,6 +76461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 932933127}
+  controlsUI: {fileID: 0}
 --- !u!114 &7302949419349571001
 MonoBehaviour:
   m_ObjectHideFlags: 0

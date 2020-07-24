@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
 
     public GameObject PauseMenuUI;
+    public GameObject controlsUI;
     void Start()
     {
         
@@ -52,5 +53,17 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("saved game");
         DisplayTextManager.instance.Display("Game saved!", 2f);
         SaveLoad.instance.Save();
+    }
+
+    public void ShowControls() {
+        Debug.Log("Show controls");
+        PauseMenuUI.SetActive(false);
+        controlsUI.SetActive(true);
+    }
+
+    public void HideControls() {
+        Debug.Log("Hide controls");
+        controlsUI.SetActive(false);
+        PauseMenuUI.SetActive(true);
     }
 }

@@ -1716,6 +1716,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1033266123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1033266130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1822461355014098489, guid: 867fe124405cf5d45be05a4d725fc64e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1033266123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1048292293 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6441870371901998660, guid: 867fe124405cf5d45be05a4d725fc64e,
@@ -2712,12 +2718,6 @@ Transform:
   m_Father: {fileID: 341183273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1494891973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 387814021007479922, guid: 867fe124405cf5d45be05a4d725fc64e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1033266123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545550165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 72bae3956628ca64e94bc1feab2c7586,
@@ -3365,7 +3365,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 1494891973}
+      objectReference: {fileID: 1033266130}
     - target: {fileID: 4017014755872359896, guid: 5710e6ee387a3d5448e3fb3634cb3d70,
         type: 3}
       propertyPath: target
@@ -4771,7 +4771,7 @@ MonoBehaviour:
   PowerUpAttackAnimSet:
   - {fileID: 7400000, guid: bd794eca2b5d0ac4ab2fc4727b2437fd, type: 2}
   powerUpController: {fileID: 22100000, guid: eda1f21009f50024d8bdc1c775eb7f6c, type: 2}
-  triggerPowerUpHealth: 40
+  triggerPowerUpHealth: 100
   powerUp: 0
 --- !u!114 &9083884964452029513
 MonoBehaviour:

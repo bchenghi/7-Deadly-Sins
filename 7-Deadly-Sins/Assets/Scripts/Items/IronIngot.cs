@@ -5,5 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New IronIngot", menuName = "Inventory/Others/IronIngot")]
 public class IronIngot : Others
 {
-    
+    public override int GetPrice() {
+        return 10;
+    }
 }
