@@ -28,11 +28,14 @@ public class ShopSlot : UISlot
         if (item is Others) {
             price *= ((Others)item).quantity;
         }
-        
-        if (GoldCounter.instance.Spend(price)) {
+        Item clone = Object.Instantiate(item) as Item;
+        if (GoldCounter.instance.gold >= price) {
             DisplayTextManager.instance.Display("Bought " + item.name + "!", 2f);
-            Item clone = Object.Instantiate(item) as Item;
-            Inventory.instance.Add(clone);
+            if (Inventory.instance.Add(clone)) {
+                GoldCounter.instance.Spend(price);
+            }
+        } else {
+            DisplayTextManager.instance.Display("Not enough gold!", 2f);
         }
     }
 

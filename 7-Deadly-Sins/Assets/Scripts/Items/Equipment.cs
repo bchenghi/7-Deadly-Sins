@@ -22,10 +22,11 @@ public class Equipment : Item
     {
         base.Use();
         DisplayTextManager.instance.Display("Equipped " + name, 3f);
-        // Equip item
-        EquipmentManager.instance.Equip(this);
         // Remove item from inventory
         RemoveFromInventory();
+        // Equip item
+        EquipmentManager.instance.Equip(this);
+
     }
 
     public override int GetPrice(){
