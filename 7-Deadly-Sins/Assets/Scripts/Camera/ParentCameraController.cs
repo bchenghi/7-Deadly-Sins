@@ -12,6 +12,8 @@ public class ParentCameraController : MonoBehaviour
     bool skillTreeOn = false;
     bool pauseMenuOn = false;
     bool GameOverOn = false;
+
+    bool controlsOn = false;
     
     public bool changeTransparency;
     public SkinnedMeshRenderer targetRenderer;
@@ -43,6 +45,8 @@ public class ParentCameraController : MonoBehaviour
     public GameObject SkillTreeUI;
     public GameObject dialogueBox;
     public GameObject pauseMenu;
+    GameObject pauseMenuUI;
+    GameObject controls;
     public GameObject gameOver;
 
     // Start is called before the first frame update
@@ -53,6 +57,8 @@ public class ParentCameraController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        pauseMenuUI = pauseMenu.transform.Find("Menu").gameObject;
+        controls = pauseMenu.transform.Find("Controls").gameObject;
         cam = GetComponentInChildren<Camera>();
         cameraController = cam.GetComponent<EditedThirdPersonCamera>();
     }
@@ -63,7 +69,8 @@ public class ParentCameraController : MonoBehaviour
     {
         if ((inventoryUIUsed = inventoryUI.activeSelf) || (equipmentUIUsed = equipmentUI.activeSelf)
             || (ChestUIUsed = chestInventory.activeSelf) || (SkillTreeUI.transform.localScale != new Vector3(0, 0, 0))
-            || (dialogueBoxOn = dialogueBox.activeSelf) || (pauseMenuOn = pauseMenu.activeSelf) || (GameOverOn = gameOver.activeSelf))
+            || (dialogueBoxOn = dialogueBox.activeSelf) || (pauseMenuOn = pauseMenuUI.activeSelf) || (GameOverOn = gameOver.activeSelf)
+            || (controlsOn = controls.activeSelf))
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -73,7 +80,7 @@ public class ParentCameraController : MonoBehaviour
             Cursor.visible = false;
         }
         if (!inventoryUIUsed && !equipmentUIUsed && !dialogueBoxOn && !ChestUIUsed
-        && (SkillTreeUI.transform.localScale == new Vector3(0, 0, 0)) && !pauseMenuOn && !GameOverOn)
+        && (SkillTreeUI.transform.localScale == new Vector3(0, 0, 0)) && !pauseMenuOn && !GameOverOn && !controlsOn)
         {
             yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
             pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
