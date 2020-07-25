@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public bool isSlowed = false;
     // animation
     bool falling = false;
+    bool jumpingCoroutineRunning = false;
     // True when squatting part in jump anim is over and is in the air. Set to false when falling or landing.
     // Needed as !jumpAnimStart as condition for land animation doesnt work
     bool jumping = false;
@@ -276,6 +277,7 @@ public class PlayerController : MonoBehaviour
     // squatting down motion before player shld leave the ground
     IEnumerator JumpCoroutine()
     {
+        jumpingCoroutineRunning = true;
         jumpAnimStart = true;
         animator.SetTrigger("jump");
         yield return new WaitForSeconds(0.52f);
@@ -284,7 +286,8 @@ public class PlayerController : MonoBehaviour
         {
             float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
             velocityY = jumpVelocity;
-        } 
+        }
+        jumpingCoroutineRunning = false;
     }
 
     // if distance above ground is high enough and is falling but fall animation not running
@@ -306,7 +309,7 @@ public class PlayerController : MonoBehaviour
     void LandAnim()
     {
         if (distanceToGround <= distanceAboveGroundTriggerLandAnim && 
-            (jumping || falling) && velocityY <= 0 )
+            (jumping || falling) && velocityY <= 0 && !jumpingCoroutineRunning)
         {
             animator.SetBool("fall", false);
             animator.SetTrigger("land");

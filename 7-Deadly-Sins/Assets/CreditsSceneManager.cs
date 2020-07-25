@@ -17,6 +17,7 @@ public class CreditsSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.instance.StopPlayingAll();
         AudioManager.instance.Play(nameOfSound);
         StartCoroutine(FadeInAll());
     }
