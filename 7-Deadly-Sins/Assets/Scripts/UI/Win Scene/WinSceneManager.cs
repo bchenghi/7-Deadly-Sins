@@ -12,6 +12,10 @@ public class WinSceneManager : Monobehaviour
     float typeSpeed;
     [SerializeField]
     string nextSceneName;
+    [SerializeField]
+    string finalSceneName;
+    [SerializeField]
+    string previousToFinalSceneName;
     TextMeshProUGUI nameText;
     TextMeshProUGUI dialogueText;
     private Queue<string> sentences;
@@ -105,7 +109,13 @@ public class WinSceneManager : Monobehaviour
     void EndExplanation() 
     {
         // change button to invoke change scene
-        SceneLoader.instance.LoadWithoutStats(nextSceneName);
+        if (PreviousScene.instance.previousSceneName == previousToFinalSceneName) {
+
+            SceneLoader.instance.LoadWithoutStats(finalSceneName);
+        } else {
+            SceneLoader.instance.LoadWithoutStats(nextSceneName);
+        }
+
     }
 
     
