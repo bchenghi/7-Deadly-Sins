@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Media;
+﻿
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class SoundHandler : MonoBehaviour
 {

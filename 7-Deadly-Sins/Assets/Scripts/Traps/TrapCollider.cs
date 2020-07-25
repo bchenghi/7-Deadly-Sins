@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using TreeEditor;
+
+
 using UnityEngine;
-using UnityEngine.Video;
 
 public class TrapCollider : MonoBehaviour
 {

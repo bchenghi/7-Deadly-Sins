@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using TMPro;
 using UnityEngine;
 
