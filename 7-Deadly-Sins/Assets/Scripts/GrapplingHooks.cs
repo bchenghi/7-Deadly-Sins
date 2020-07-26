@@ -38,7 +38,7 @@ public class GrapplingHooks : MonoBehaviour
     {
         
 
-        if (Inventory.instance.getValue(hooks) != -1)
+        if (Inventory.instance.getValue(hooks) > 0)
         {
             rope.enabled = true;
             //Firing the hook
@@ -101,7 +101,7 @@ public class GrapplingHooks : MonoBehaviour
                 hook.transform.parent = hookedObj.transform;
                 GetComponent<CharacterController>().enabled = false;
                 Vector3 pos = hook.transform.position - transform.position;
-                transform.rotation = Quaternion.LookRotation(new Vector3(0,0,pos.z), Vector3.up);
+                transform.rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
                 float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
                 //Debug.Log(distanceToHook);
                 if (distanceToHook <= 1)
