@@ -2015,6 +2015,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4468578068136272108, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: flameThrower
+      value: 
+      objectReference: {fileID: 1248808135}
     - target: {fileID: 7202750333497976113, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_Name
@@ -2102,6 +2107,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2061633b5c934ef45873bfdc68222d55, type: 3}
+--- !u!1 &1248808135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4062522840826818652, guid: 2061633b5c934ef45873bfdc68222d55,
+    type: 3}
+  m_PrefabInstance: {fileID: 1248808134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1252450610
 GameObject:
   m_ObjectHideFlags: 0
