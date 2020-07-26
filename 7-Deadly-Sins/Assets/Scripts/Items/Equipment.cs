@@ -70,7 +70,8 @@ public class Equipment : Item
     }
 
     public bool CanUpgradeUsing(Equipment equipmentToAdd) {
-        Debug.Log("level " + level + " maxLevel " + maxLevel);
+        Debug.Log("this.level " + level + "that.level" + equipmentToAdd.level + " maxLevel " + maxLevel);
+        Debug.Log("Can upgrade " + ((level + 1) + (equipmentToAdd.level + 1) <= (maxLevel + 1)));
         return (level + 1) + (equipmentToAdd.level + 1) <= (maxLevel + 1);
     }
 
