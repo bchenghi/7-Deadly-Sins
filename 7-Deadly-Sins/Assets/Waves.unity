@@ -2913,6 +2913,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4468578068136272108, guid: 2061633b5c934ef45873bfdc68222d55,
+        type: 3}
+      propertyPath: flameThrower
+      value: 
+      objectReference: {fileID: 387953498}
     - target: {fileID: 7202750333497976113, guid: 2061633b5c934ef45873bfdc68222d55,
         type: 3}
       propertyPath: m_Name
@@ -3028,6 +3033,12 @@ PrefabInstance:
 --- !u!1 &387953497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1362215986418257141, guid: 2061633b5c934ef45873bfdc68222d55,
+    type: 3}
+  m_PrefabInstance: {fileID: 387953496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &387953498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4062522840826818652, guid: 2061633b5c934ef45873bfdc68222d55,
     type: 3}
   m_PrefabInstance: {fileID: 387953496}
   m_PrefabAsset: {fileID: 0}
