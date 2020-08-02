@@ -103,6 +103,7 @@ public class SaveLoad : MonoBehaviour
             PlayerManager.instance.player.GetComponent<PlayerStats>().SetSkillPoints(SkillPoints);
             firstStage = false;
             dataLoaded = true;
+            SetData();
             Debug.Log("load first stage and useTheseStats called");
         } 
         else if (!firstStage)
@@ -163,9 +164,11 @@ public class SaveLoad : MonoBehaviour
     void Update()
     {
         //GetData();
+        /*
         if (Input.GetKeyDown(KeyCode.G)) Save();
         if (Input.GetKeyDown(KeyCode.L)) Load();
         if (Input.GetKeyDown(KeyCode.F)) SetData();
+        */
     }
 
     public void SaveForNewScene() {

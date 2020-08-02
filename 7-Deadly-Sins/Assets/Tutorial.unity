@@ -4998,6 +4998,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway_Double
       objectReference: {fileID: 0}
+    - target: {fileID: 5279846457461532003, guid: 7e2b134344aa7c0449b99d1a47be113a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5279846457461932001, guid: 7e2b134344aa7c0449b99d1a47be113a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11705,6 +11710,26 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6441870371901998714, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -217.09961
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870371901998714, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -106.52002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870372041135434, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 370.37012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441870372041135434, guid: 867fe124405cf5d45be05a4d725fc64e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 298.38818
+      objectReference: {fileID: 0}
     - target: {fileID: 6441870372203519004, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -11843,7 +11868,7 @@ PrefabInstance:
     - target: {fileID: 6441870373398751174, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14.600098
+      value: -14.600586
       objectReference: {fileID: 0}
     - target: {fileID: 6441870373469403253, guid: 867fe124405cf5d45be05a4d725fc64e,
         type: 3}
@@ -71386,15 +71411,15 @@ MonoBehaviour:
   changeTransparency: 0
   targetRenderer: {fileID: 0}
   target: {fileID: 4839461553827059410}
-  dstFromTarget: 6
+  dstFromTarget: 5
   dstToFade: 1
   rotationSmoothTime: 8
-  mouseSensitivity: 10
-  distFromWall: 0.2
+  mouseSensitivity: 5
+  distFromWall: 0.3
   collisionMask:
     serializedVersion: 2
     m_Bits: 2355
-  moveSpeed: 5
+  moveSpeed: 25
   inventoryUI: {fileID: 629711395}
   equipmentUI: {fileID: 838689736}
   chestInventory: {fileID: 1374101673}

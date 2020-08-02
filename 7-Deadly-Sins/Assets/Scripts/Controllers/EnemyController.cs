@@ -70,7 +70,9 @@ public class EnemyController : MonoBehaviour
             target = PlayerCompanionTarget;
         } else
         {
-            target = PlayerManager.instance.player.transform;
+            if (PlayerManager.instance != null) {
+                target = PlayerManager.instance.player.transform;
+            }
         }
 
         

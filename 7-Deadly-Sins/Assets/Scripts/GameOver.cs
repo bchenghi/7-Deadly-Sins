@@ -45,6 +45,7 @@ public class GameOver : MonoBehaviour
 
     public void OnGameOverText()
     {
+        SetButton();
         GameOverText.SetActive(true);
     }
 
