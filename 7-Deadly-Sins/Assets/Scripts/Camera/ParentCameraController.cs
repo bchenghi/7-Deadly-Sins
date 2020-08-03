@@ -61,7 +61,7 @@ public class ParentCameraController : MonoBehaviour
         controls = pauseMenu.transform.Find("Controls").gameObject;
         cam = GetComponentInChildren<Camera>();
         cameraController = cam.GetComponent<EditedThirdPersonCamera>();
-        dstFromTarget += distFromWall;
+        //dstFromTarget += distFromWall;
     }
 
     // Update is called once per frame
@@ -103,8 +103,8 @@ public class ParentCameraController : MonoBehaviour
     void CollisionCheck()
     {
         RaycastHit hit;
-        if (Physics.SphereCast(target.position, distFromWall, transform.position - target.position, out hit, dstFromTarget, collisionMask))
-        //if (Physics.Linecast(target.position, transform.position, out hit, collisionMask))
+        //if (Physics.SphereCast(target.position, distFromWall, transform.position - target.position, out hit, dstFromTarget, collisionMask))
+        if (Physics.Linecast(target.position, transform.position, out hit, collisionMask))
         {
             //Debug.Log("cam spherecast hit.name " + hit.transform.name);
             Vector3 norm = hit.normal * distFromWall;
@@ -113,6 +113,7 @@ public class ParentCameraController : MonoBehaviour
         }
         else
         {
+            /*
             //Debug.Log("cam no spherecast hit");
             if (Physics.Linecast(target.position, transform.position, out hit, collisionMask)) {
                 //Debug.Log("cam line cast hit.name " + hit.transform.name);
@@ -120,10 +121,11 @@ public class ParentCameraController : MonoBehaviour
                 Vector3 p = hit.point + norm;
                 cameraController.ShiftTransform(p);
             } else {
+                */
                 //Debug.Log("cam no hit");
-                Vector3 direction = (target.position - transform.position).normalized;
-                cameraController.ShiftTransform(transform.position + direction * distFromWall);
-            }
+            Vector3 direction = (target.position - transform.position).normalized;
+            cameraController.ShiftTransform(transform.position + direction * distFromWall);
+            //}
 
         }
         if (changeTransparency)

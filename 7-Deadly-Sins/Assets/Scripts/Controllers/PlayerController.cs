@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
                 soundHandler.PlaySoundByName("Jump");
             }
 
-            FallAnim();
+            //FallAnim();
             LandAnim();
             Rolling();
 
