@@ -75,15 +75,13 @@ A RPG (Role-Playing Game) where the player gets to immerse himself into a charac
 **Tutorial** - Brief tutorial to go through the basics movement and controls of the game. Without this, you will definitely not survive. 
 
 <img src="images/TutorialScene.png" alt="Tutorial Scene" width="800"/>
-
+<br />
 
 
 **Shop Scene** - A plethora of equipment, potions and weapons. Spend wisely!
 
 <img src="images/ShopScene.png" alt="Scene Scene" width="800"/>
-
-
-
+<br />
 
 **Sloth - Platforming Stage** - The first stage is a test of patience and platforming skills and allows you to get used to the controls. Explore all areas, you will be faced with multiple traps but rewarded handsomely with good chest loots hidden in the area!
 
@@ -100,7 +98,7 @@ A RPG (Role-Playing Game) where the player gets to immerse himself into a charac
 <img src="images/LustScene.png" alt="Lust Scene" width="800"/>
 <br />
 
-Envy - NPC Scene - What’s a RPG without some NPCs ordering you around? In this scene, do multiple quests to satisfy the gatekeeper. What a demanding NPC..
+**Envy - NPC Scene** - What’s a RPG without some NPCs ordering you around? In this scene, do multiple quests to satisfy the gatekeeper. What a demanding NPC..
 
 <img src="images/EnvyScene.png" alt="Envy Scene" width="800"/>
 <br />
