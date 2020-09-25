@@ -67,63 +67,63 @@ A RPG (Role-Playing Game) where the player gets to immerse himself into a charac
  
 
 ## Program Flow
-Opening Scene/Game Introduction - A short sorrowful background story about the main protagonist, Leonard. You play as Leonard to redeem yourself. A start menu along with an options menu is made.
+**Opening Scene/Game Introduction** - A short sorrowful background story about the main protagonist, Leonard. You play as Leonard to redeem yourself. A start menu along with an options menu is made.
+
+<img src="images/OpeningScene.png" alt="Opening Scene" width="800"/>
+<br />
+
+**Tutorial** - Brief tutorial to go through the basics movement and controls of the game. Without this, you will definitely not survive. 
+
+<img src="images/TutorialScene.png" alt="Tutorial Scene" width="800"/>
+
+
+
+**Shop Scene** - A plethora of equipment, potions and weapons. Spend wisely!
+
+<img src="images/ShopScene.png" alt="Scene Scene" width="800"/>
 
 
 
 
+**Sloth - Platforming Stage** - The first stage is a test of patience and platforming skills and allows you to get used to the controls. Explore all areas, you will be faced with multiple traps but rewarded handsomely with good chest loots hidden in the area!
 
+<img src="images/SlothScene.png" alt="Sloth Scene" width="800"/>
+<br />
 
+**Gluttony - Waves Stage** - One word - Survive. Use all means possible, fight through multiple waves and defeat the boss. Be expected to try this a few times and discover various techniques and methods to win.
 
-Tutorial - Brief tutorial to go through the basics movement and controls of the game. Without this, you will definitely not survive. 
+<img src="images/GluttonyScene.png" alt="Gluttony Scene" width="800"/>
+<br />
 
+**Lust - Puzzle Stage** - Time for a tiny break after the previous overload of killing with a puzzle/search scene. Search for clues to solve the puzzle! Hint : Sometimes you have to kill to get what you want. Ready for a test of intellectual ability?!
 
-
-Shop Scene - A plethora of equipment, potions and weapons. Spend wisely!
-
-
-
-
-
-
-
-
-Sloth - Platforming Stage - The first stage is a test of patience and platforming skills and allows you to get used to the controls. Explore all areas, you will be faced with multiple traps but rewarded handsomely with good chest loots hidden in the area!
-
-
-
-Gluttony - Waves Stage - One word - Survive. Use all means possible, fight through multiple waves and defeat the boss. Be expected to try this a few times and discover various techniques and methods to win.
-
-
-
- Lust - Puzzle Stage - Time for a tiny break after the previous overload of killing with a puzzle/search scene. Search for clues to solve the puzzle! Hint : Sometimes you have to kill to get what you want. Ready for a test of intellectual ability?!
-
-
-
-
-
+<img src="images/LustScene.png" alt="Lust Scene" width="800"/>
+<br />
 
 Envy - NPC Scene - What’s a RPG without some NPCs ordering you around? In this scene, do multiple quests to satisfy the gatekeeper. What a demanding NPC..
 
+<img src="images/EnvyScene.png" alt="Envy Scene" width="800"/>
+<br />
 
-Greed - Hack And Slash Scene - Go crazy in this scene and fight through 3 levels of pure pain and gore. What’s a fight without the help of some companions fighting alongside you, and get ready for some charring action. 
+**Greed - Hack And Slash Scene** - Go crazy in this scene and fight through 3 levels of pure pain and gore. What’s a fight without the help of some companions fighting alongside you, and get ready for some charring action. 
 
+<img src="images/GreedScene.png" alt="Greed Scene" width="800"/>
+<br />
 
-Pride - Waves 2 Scene - This is where all skills, techniques and hidden tricks up your sleeves are used. Just remember, Dodge, Sprint and Jump is the way to evade!
+**Pride - Waves 2 Scene** - This is where all skills, techniques and hidden tricks up your sleeves are used. Just remember, Dodge, Sprint and Jump is the way to evade!
 
+<img src="images/PrideScene.png" alt="Pride Scene" width="800"/>
+<br />
 
+**Wrath - Final Boss Scene** - The final fight, do you have what it takes to redeem yourself? Or is it too late.. Give it your all!
 
-Wrath - Final Boss Scene - The final fight, do you have what it takes to redeem yourself? Or is it too late.. Give it your all!
+<img src="images/WrathScene.png" alt="Wrath Scene" width="800"/>
+<br />
 
+**After Scene Completion Scene** - After completing each scene, a short description will be provided regarding the sin, and how you can overcome the sin. This is the least you can take away from this game.
 
-After Scene Completion Scene - After completing each scene, a short description will be provided regarding the sin, and how you can overcome the sin. This is the least you can take away from this game.
-
-
-
-
-
-
-
+<img src="images/AfterSceneCompletionScene.png" alt="After Scene Completion Scene" width="800"/>
+<br />
 
 ## Features Explanation
 
