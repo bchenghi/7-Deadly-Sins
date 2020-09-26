@@ -5,6 +5,9 @@
 For NUS Orbital (a.k.a., CP2106: Independent Software Development Project) Summer 2020\
 Achievement Level: Artemis (Extreme)
 
+### Showcase Video
+https://www.youtube.com/watch?v=j8_pXIloykQ
+
 ## Table of contents
 - [Game Download](#download)
 - [Description](#description)
